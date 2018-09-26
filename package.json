@@ -26,7 +26,7 @@
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development gulp",
-    "prod": "cross-env NODE_ENV=production gulp"
+    "prod": "cross-env NODE_ENV=production gulp prod"
   },
   "eslintIgnore": [
     "!.*.js",
