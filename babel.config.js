@@ -6,7 +6,7 @@ module.exports = (api) => {
   ]
 
   isProduction && presets.push(...[
-
+    'minify'
   ])
 
   return {
