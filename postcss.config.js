@@ -13,7 +13,6 @@ module.exports = (api) => {
   ].forEach(plugin => plugins[plugin] = {})
 
   return {
-    map: !isProduction ? 'inline' : false,
     plugins
   }
 }
