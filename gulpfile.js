@@ -23,11 +23,11 @@ gulp.task('scripts', () => {
         resolve(),
         babel()
       ],
-      external: [ 'axios' ]
+      external: [ 'jquery' ]
     }, {
       format: 'iife',
       globals: {
-        axios: 'axios'
+        jquery: '$'
       }
     }
     ))
