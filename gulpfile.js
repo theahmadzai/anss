@@ -7,7 +7,7 @@ const resolve = require('rollup-plugin-node-resolve')
 const browserSync = require('browser-sync')
 
 gulp.task('styles', () => {
-  return gulp.src('./resources/assets/styles/app.css')
+  return gulp.src('./resources/styles/app.css')
     .pipe(sourcemaps.init())
     .pipe(postcss())
     .pipe(sourcemaps.write())
@@ -16,7 +16,7 @@ gulp.task('styles', () => {
 })
 
 gulp.task('scripts', () => {
-  return gulp.src('./resources/assets/scripts/app.js')
+  return gulp.src('./resources/scripts/app.js')
     .pipe(sourcemaps.init())
     .pipe(rollup({
       plugins: [
@@ -44,7 +44,6 @@ gulp.task('serve', gulp.series('styles', 'scripts', () => {
     injectChanges: true,
     open: true,
     notify: false,
-    reloadOnRestart: true,
     logLevel: 'warn'
   })
 }))
@@ -55,9 +54,9 @@ gulp.task('dev', gulp.parallel( 'serve', () => {
       .pipe(browserSync.reload({ stream: true }))
   })
 
-  gulp.watch('./resources/assets/scripts/**/*.js', gulp.series('scripts'))
+  gulp.watch('./resources/scripts/**/*.js', gulp.series('scripts'))
 
-  gulp.watch('./resources/assets/styles/**/*.css', gulp.series('styles'))
+  gulp.watch('./resources/styles/**/*.css', gulp.series('styles'))
 }))
 
 gulp.task('prod', gulp.series('styles', 'scripts'))
