@@ -1,0 +1,50 @@
+.footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem;
+  background: #4c4c4c;
+}
+
+.column {
+  max-width: 190px;
+
+  &__head {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #ffffff;
+  }
+
+  &__body {
+    a {
+      margin-bottom: 0.2rem;
+      font-size: 0.75rem;
+      font-weight: 400;
+      line-height: 1.4rem;
+      color: #dddddd;
+    }
+
+    span {
+      font-size: 1.2rem;
+
+      &:hover {
+        color: $color2;
+      }
+    }
+  }
+}
+
+.copyrights {
+  height: 60px;
+  background: #424242;
+  font-size: 0.7rem;
+  color: #888888;
+
+  p {
+    line-height: 60px;
+    text-align: center;
+
+    span {
+      color: #eeeeee;
+    }
+  }
+}
