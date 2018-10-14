@@ -1,6 +1,6 @@
 <ul id="navbar" class="navbar">
     <li class="navbar__link">
-        <a href="#">Home</a>
+        <a href="/">Home</a>
         <ul class="navbar__dropdown">
             <li class="navbar__link">
                 <a href="#">link 1</a>
@@ -14,10 +14,10 @@
         </ul>
     </li>
     <li class="navbar__link">
-        <a href="#">About Us</a>
+        <a href="/about">About Us</a>
     </li>
     <li class="navbar__link">
-        <a href="#">Contact Us</a>
+        <a href="/contact">Contact Us</a>
     </li>
     <li class="navbar__link">
         <a href="#">Events</a>
