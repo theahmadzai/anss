@@ -1,26 +1,20 @@
-(function (axios) {
+(function ($$1) {
   'use strict';
 
-  axios = axios && axios.hasOwnProperty('default') ? axios['default'] : axios;
+  $$1 = $$1 && $$1.hasOwnProperty('default') ? $$1['default'] : $$1;
 
-  axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-  var token = document.head.querySelector('meta[name="csrf-token"]');
+  $$1.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $$1('meta[name="csrf-token"]').attr('content')
+    }
+  });
 
-  if (token) {
-    axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
-  } else {
-    console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
-  }
+  $('#top-line').css({
+    width: '100%',
+    height: '5px',
+    background: 'black'
+  });
 
-  document.getElementById('app').style.background = 'red';
-  console.log(55);
+}($));
 
-  var helloWorldThisIsHello = function helloWorldThisIsHello(abdddddddddddddddddd) {
-    console.log(abdddddddddddddddddd);
-  };
-
-  helloWorldThisIsHello('f');
-
-}(axios));
-
-//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXBwLmpzIiwic291cmNlcyI6WyJhc3NldHMvc2NyaXB0cy9jc3JmLmpzIiwiYXNzZXRzL3NjcmlwdHMvYXBwLmpzIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBheGlvcyBmcm9tICdheGlvcydcblxuYXhpb3MuZGVmYXVsdHMuaGVhZGVycy5jb21tb25bJ1gtUmVxdWVzdGVkLVdpdGgnXSA9ICdYTUxIdHRwUmVxdWVzdCdcblxubGV0IHRva2VuID0gZG9jdW1lbnQuaGVhZC5xdWVyeVNlbGVjdG9yKCdtZXRhW25hbWU9XCJjc3JmLXRva2VuXCJdJylcblxuaWYgKHRva2VuKSB7XG4gIGF4aW9zLmRlZmF1bHRzLmhlYWRlcnMuY29tbW9uWydYLUNTUkYtVE9LRU4nXSA9IHRva2VuLmNvbnRlbnRcbn0gZWxzZSB7XG4gIGNvbnNvbGUuZXJyb3IoJ0NTUkYgdG9rZW4gbm90IGZvdW5kOiBodHRwczovL2xhcmF2ZWwuY29tL2RvY3MvY3NyZiNjc3JmLXgtY3NyZi10b2tlbicpXG59XG4iLCJpbXBvcnQgJy4vY3NyZidcblxuZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2FwcCcpLnN0eWxlLmJhY2tncm91bmQgPSAncmVkJ1xuY29uc29sZS5sb2coNTUpXG5cbmNvbnN0IGhlbGxvV29ybGRUaGlzSXNIZWxsbyA9IChhYmRkZGRkZGRkZGRkZGRkZGRkZCkgPT4ge1xuICBjb25zb2xlLmxvZyhhYmRkZGRkZGRkZGRkZGRkZGRkZClcbn1cblxuaGVsbG9Xb3JsZFRoaXNJc0hlbGxvKCdmJylcbiJdLCJuYW1lcyI6WyJheGlvcyIsImRlZmF1bHRzIiwiaGVhZGVycyIsImNvbW1vbiIsInRva2VuIiwiZG9jdW1lbnQiLCJoZWFkIiwicXVlcnlTZWxlY3RvciIsImNvbnRlbnQiLCJjb25zb2xlIiwiZXJyb3IiLCJnZXRFbGVtZW50QnlJZCIsInN0eWxlIiwiYmFja2dyb3VuZCIsImxvZyIsImhlbGxvV29ybGRUaGlzSXNIZWxsbyIsImFiZGRkZGRkZGRkZGRkZGRkZGRkIl0sIm1hcHBpbmdzIjoiOzs7OztFQUVBQSxLQUFLLENBQUNDLFFBQU4sQ0FBZUMsT0FBZixDQUF1QkMsTUFBdkIsQ0FBOEIsa0JBQTlCLElBQW9ELGdCQUFwRDtFQUVBLElBQUlDLEtBQUssR0FBR0MsUUFBUSxDQUFDQyxJQUFULENBQWNDLGFBQWQsQ0FBNEIseUJBQTVCLENBQVo7O0VBRUEsSUFBSUgsS0FBSixFQUFXO0VBQ1RKLEVBQUFBLEtBQUssQ0FBQ0MsUUFBTixDQUFlQyxPQUFmLENBQXVCQyxNQUF2QixDQUE4QixjQUE5QixJQUFnREMsS0FBSyxDQUFDSSxPQUF0RDtFQUNELENBRkQsTUFFTztFQUNMQyxFQUFBQSxPQUFPLENBQUNDLEtBQVIsQ0FBYyx1RUFBZDtFQUNEOztFQ1JETCxRQUFRLENBQUNNLGNBQVQsQ0FBd0IsS0FBeEIsRUFBK0JDLEtBQS9CLENBQXFDQyxVQUFyQyxHQUFrRCxLQUFsRDtFQUNBSixPQUFPLENBQUNLLEdBQVIsQ0FBWSxFQUFaOztFQUVBLElBQU1DLHFCQUFxQixHQUFHLFNBQXhCQSxxQkFBd0IsQ0FBQ0Msb0JBQUQsRUFBMEI7RUFDdERQLEVBQUFBLE9BQU8sQ0FBQ0ssR0FBUixDQUFZRSxvQkFBWjtFQUNELENBRkQ7O0VBSUFELHFCQUFxQixDQUFDLEdBQUQsQ0FBckI7Ozs7In0=
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXBwLmpzIiwic291cmNlcyI6WyJyZXNvdXJjZXMvc2NyaXB0cy9jc3JmLmpzIiwicmVzb3VyY2VzL3NjcmlwdHMvYXBwLmpzIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCAkIGZyb20gJ2pxdWVyeSdcblxuJC5hamF4U2V0dXAoe1xuICBoZWFkZXJzOiB7XG4gICAgJ1gtQ1NSRi1UT0tFTic6ICQoJ21ldGFbbmFtZT1cImNzcmYtdG9rZW5cIl0nKS5hdHRyKCdjb250ZW50JylcbiAgfVxufSlcbiIsImltcG9ydCAnLi9jc3JmJ1xuXG4kKCcjdG9wLWxpbmUnKS5jc3Moe1xuICB3aWR0aDogJzEwMCUnLFxuICBoZWlnaHQ6ICc1cHgnLFxuICBiYWNrZ3JvdW5kOiAnYmxhY2snXG59KVxuIl0sIm5hbWVzIjpbIiQiLCJhamF4U2V0dXAiLCJoZWFkZXJzIiwiYXR0ciIsImNzcyIsIndpZHRoIiwiaGVpZ2h0IiwiYmFja2dyb3VuZCJdLCJtYXBwaW5ncyI6Ijs7Ozs7QUFFQUEsS0FBQyxDQUFDQyxTQUFGLENBQVk7RUFDVkMsRUFBQUEsT0FBTyxFQUFFO0VBQ1Asb0JBQWdCRixHQUFDLENBQUMseUJBQUQsQ0FBRCxDQUE2QkcsSUFBN0IsQ0FBa0MsU0FBbEM7RUFEVDtFQURDLENBQVo7O0VDQUFILENBQUMsQ0FBQyxXQUFELENBQUQsQ0FBZUksR0FBZixDQUFtQjtFQUNqQkMsRUFBQUEsS0FBSyxFQUFFLE1BRFU7RUFFakJDLEVBQUFBLE1BQU0sRUFBRSxLQUZTO0VBR2pCQyxFQUFBQSxVQUFVLEVBQUU7RUFISyxDQUFuQjs7OzsifQ==
