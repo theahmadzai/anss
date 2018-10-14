@@ -1,0 +1,40 @@
+.navbar {
+  width: 100%;
+  border-bottom: 2px solid #ffffff;
+  background: $color2;
+
+  &__link {
+    display: table-cell;
+
+    &:hover {
+      position: relative;
+
+      .navbar__dropdown {
+        display: block;
+      }
+    }
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    background: #d0b8b0;
+
+    .navbar__link {
+      display: block;
+      background: red;
+    }
+  }
+
+  a {
+    display: block;
+    padding: 0.9rem 1.5rem;
+    color: #ffffff;
+
+    &:hover {
+      background: $color3;
+    }
+  }
+}
