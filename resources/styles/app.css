@@ -1,0 +1,10 @@
+@charset 'utf-8';
+
+@import './reset';
+@import './normalize';
+@import './icons';
+@import './settings';
+@import './layout';
+@import './partials/header';
+@import './partials/navbar';
+@import './partials/footer';
