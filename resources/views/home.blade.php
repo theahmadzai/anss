@@ -1,7 +1,11 @@
 @extends('layouts.master')
 
-@section('title', 'Welcome')
+@section('title', 'Home')
 
 @section('content')
-    <h1>Hello World</h1>
+
+    <div class="container">
+        <h1>Hello World</h1>
+    </div>
+
 @endsection

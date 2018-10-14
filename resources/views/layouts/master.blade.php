@@ -10,10 +10,15 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
     <body>
-        <div id="app">
+        <div class="wrapper">
+            @include('partials.header')
+            @include('partials.navbar')
             @yield('content')
-        </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            @include('partials.footer')
+        <div>
+
+        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> --}}
+        <script src="{{ asset('js/jquery.js') }}"></script>
         <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>
