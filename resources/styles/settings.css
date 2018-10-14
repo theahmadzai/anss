@@ -1,0 +1,30 @@
+/* Color Palette */
+
+/*
+$color1: hsla(198%, 63%, 38%, 1);
+$color2: hsla(170%, 40%, 60%, 1);
+$color3: hsla(139%, 36%, 78%, 1);
+$color4: hsla(71%, 100%, 87%, 1);
+$color5: hsla(344%, 100%, 54%, 1);
+*/
+$color1: rgba(36, 123, 160, 1);
+$color2: rgba(112, 193, 179, 1);
+$color3: rgba(178, 219, 191, 1);
+$color4: rgba(243, 255, 189, 1);
+$color5: rgba(255, 22, 84, 1);
+
+/* Media Queries */
+$phone: (min-width: 20em);
+$phone-wide: (min-width: 30.0625em);
+$tablet: (min-width: 40.0625em);
+$tablet-wide: (min-width: 60.0626em);
+$laptop: (min-width: 64.0625em);
+$desktop: (min-width: 80.0625em);
+
+/* Content Width */
+$content-width: 38rem;
+$content-width-wide: 62rem;
+
+/* Style Variables */
+$font: 400 100% / 1.5 'Open Sans', sans-serif;
+$font-bold: 700 100% / 1.25 'Open Sans', sans-serif;
