@@ -1,0 +1,43 @@
+.flex {
+  display: flex;
+
+  &__item {
+  }
+
+  &--column {
+    flex-direction: column;
+  }
+}
+
+.article {
+  .flex__item {
+    margin-bottom: 1rem;
+
+    h1 {
+      color: #555555;
+    }
+
+    p {
+      font-size: 0.85rem;
+      line-height: 1.5rem;
+    }
+
+    a,
+    span {
+      color: #888888;
+    }
+
+    a {
+      font-size: 0.8rem;
+    }
+
+    .button {
+      color: #ffffff;
+    }
+
+    .icon {
+      margin-right: 0.5rem;
+      font-size: 0.7rem;
+    }
+  }
+}
