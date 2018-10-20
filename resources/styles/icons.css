@@ -17,32 +17,172 @@
   speak: none;
 }
 
-.icon-sprite::before {
-  content: '\e900';
+.icon-newspaper::before {
+  content: '\e904';
+}
+
+.icon-image::before {
+  content: '\e90d';
+}
+
+.icon-images::before {
+  content: '\e90e';
+}
+
+.icon-bullhorn::before {
+  content: '\e91a';
+}
+
+.icon-price-tag::before {
+  content: '\e935';
+}
+
+.icon-price-tags::before {
+  content: '\e936';
+}
+
+.icon-cart::before {
+  content: '\e93a';
 }
 
 .icon-location2::before {
   content: '\e948';
 }
 
-.icon-spinner::before {
-  content: '\e97a';
+.icon-calendar::before {
+  content: '\e953';
 }
 
-.icon-spinner2::before {
-  content: '\e97b';
+.icon-printer::before {
+  content: '\e954';
 }
 
-.icon-spinner5::before {
-  content: '\e97e';
+.icon-undo::before {
+  content: '\e965';
+}
+
+.icon-redo::before {
+  content: '\e966';
+}
+
+.icon-undo2::before {
+  content: '\e967';
+}
+
+.icon-redo2::before {
+  content: '\e968';
+}
+
+.icon-forward::before {
+  content: '\e969';
+}
+
+.icon-reply::before {
+  content: '\e96a';
 }
 
 .icon-spinner8::before {
   content: '\e981';
 }
 
+.icon-equalizer::before {
+  content: '\e992';
+}
+
+.icon-equalizer2::before {
+  content: '\e993';
+}
+
+.icon-cloud-download::before {
+  content: '\e9c2';
+}
+
+.icon-earth::before {
+  content: '\e9ca';
+}
+
+.icon-link::before {
+  content: '\e9cb';
+}
+
+.icon-attachment::before {
+  content: '\e9cd';
+}
+
+.icon-star-half::before {
+  content: '\e9d8';
+}
+
+.icon-star-full::before {
+  content: '\e9d9';
+}
+
+.icon-heart::before {
+  content: '\e9da';
+}
+
+.icon-heart-broken::before {
+  content: '\e9db';
+}
+
+.icon-plus::before {
+  content: '\ea0a';
+}
+
+.icon-minus::before {
+  content: '\ea0b';
+}
+
+.icon-cross::before {
+  content: '\ea0f';
+}
+
+.icon-checkmark::before {
+  content: '\ea10';
+}
+
+.icon-checkbox-checked::before {
+  content: '\ea52';
+}
+
+.icon-checkbox-unchecked::before {
+  content: '\ea53';
+}
+
+.icon-radio-checked::before {
+  content: '\ea54';
+}
+
+.icon-radio-checked2::before {
+  content: '\ea55';
+}
+
+.icon-radio-unchecked::before {
+  content: '\ea56';
+}
+
+.icon-amazon::before {
+  content: '\ea87';
+}
+
+.icon-google-plus::before {
+  content: '\ea8b';
+}
+
+.icon-google-plus2::before {
+  content: '\ea8c';
+}
+
+.icon-google-plus3::before {
+  content: '\ea8d';
+}
+
 .icon-facebook::before {
   content: '\ea90';
+}
+
+.icon-facebook2::before {
+  content: '\ea91';
 }
 
 .icon-instagram::before {
@@ -65,10 +205,38 @@
   content: '\ea9d';
 }
 
+.icon-github::before {
+  content: '\eab0';
+}
+
+.icon-tumblr::before {
+  content: '\eab9';
+}
+
+.icon-tumblr2::before {
+  content: '\eaba';
+}
+
+.icon-skype::before {
+  content: '\eac5';
+}
+
+.icon-linkedin::before {
+  content: '\eac9';
+}
+
 .icon-linkedin2::before {
   content: '\eaca';
 }
 
-.icon-file-pdf::before {
-  content: '\eadf';
+.icon-pinterest::before {
+  content: '\ead1';
+}
+
+.icon-pinterest2::before {
+  content: '\ead2';
+}
+
+.icon-paypal::before {
+  content: '\ead8';
 }
