@@ -9,8 +9,9 @@
   max-width: 190px;
 
   &__head {
+    margin-bottom: 1rem;
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: 500;
     color: #ffffff;
   }
 
