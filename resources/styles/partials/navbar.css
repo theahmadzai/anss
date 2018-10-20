@@ -1,40 +1,59 @@
 .navbar {
-  width: 100%;
-  border-bottom: 2px solid #ffffff;
-  background: $color2;
+  display: flex;
+  justify-content: center;
+  background: $red;
+
+  &__item {
+    position: relative;
+    border-left: 1px solid $red-light;
+
+    &:first-child {
+      border-left: none;
+    }
+
+    &:hover .dropdown {
+      display: block;
+    }
+  }
 
   &__link {
-    display: table-cell;
-
-    &:hover {
-      position: relative;
-
-      .navbar__dropdown {
-        display: block;
-      }
-    }
-  }
-
-  &__dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    display: none;
-    background: #d0b8b0;
-
-    .navbar__link {
-      display: block;
-      background: red;
-    }
-  }
-
-  a {
     display: block;
     padding: 0.9rem 1.5rem;
+    transition: background-color 200ms ease-in-out;
     color: #ffffff;
 
     &:hover {
-      background: $color3;
+      background-color: $red-light;
+      color: #ffffff;
+    }
+  }
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  width: 10rem;
+  border: 1px solid #e0e0e0;
+  border-top: none;
+  border-radius: 0 0 2px 2px;
+  background: #ffffff;
+
+  &__item {
+    border-top: 1px solid #e0e0e0;
+  }
+
+  &__link {
+    display: block;
+    padding: 0.8rem;
+    transition: background-color 40ms ease-in-out, color 40ms ease-in-out;
+    font-size: 0.8rem;
+    color: #777777;
+    white-space: normal;
+
+    &:hover {
+      background-color: #f5f5f5;
     }
   }
 }
