@@ -5,7 +5,24 @@
 @section('content')
 
     <div class="container">
-        <h1>Hello World</h1>
+        @if (session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+            </div>
+        @endif
+
+        @guest
+            <a href="/login">Login</a>
+            @if (Route::has('register'))
+            <a href="/register">Register</a>
+            @endif
+        @else
+            <p>{{ Auth::user()->name }}</p>
+            <form method="POST" action="/logout">
+                @csrf
+                <button>Logout</button>
+            </form>
+        @endguest
     </div>
 
 @endsection
