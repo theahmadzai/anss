@@ -182,7 +182,7 @@ label {
 }
 
 textarea,
-input[type]:not([type=search]):not([type=url]):not([type=hidden]) {
+input[type]:not([type=search]):not([type=url]):not([type=hidden]):not([type=checkbox]) {
   display: block;
   width: 16rem;
   margin: 0;
