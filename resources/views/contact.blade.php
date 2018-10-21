@@ -35,7 +35,7 @@
                         <textarea name=""></textarea>
                     </div>
                     <div class="form__control">
-                        <button>Submit</button>
+                        <button class="button">Submit</button>
                     </div>
                 </form>
             </div>
