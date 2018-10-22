@@ -17,4 +17,4 @@ Route::get('/about', 'PageController@about')->name('about');
 Route::get('/news', 'PageController@newsList')->name('news-list');
 Route::get('/news/{id}', 'PageController@news')->name('news');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
