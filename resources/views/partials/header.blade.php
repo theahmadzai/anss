@@ -2,12 +2,22 @@
 
 <header class="header">
     <a href="/" class="logo">
-        <img src="{{ asset('img/logo.jpg') }}" alt="Afghan Network for Social Services" width="100" height="100">
+        <img src="{{ asset('img/logo1.png') }}" alt="Afghan Network for Social Services" width="100" height="100">
     </a>
 
-    <div style="padding:0 2rem;">
-        <a href="#"><span class="icon icon-twitter"></span></a>
-        <a href="#"><span class="icon icon-facebook"></span></a>
-        <a href="#"><span class="icon icon-instagram"></span></a>
+    <div style="padding:0 2rem; font-size:0.7rem; font-weight:bold;">
+        <div>
+            <a href="#" style="color:black;"><span class="icon icon-twitter"></span></a>
+            <a href="#" style="color:red;"><span class="icon icon-facebook"></span></a>
+            <a href="#" style="color:green;"><span class="icon icon-instagram"></span></a> |
+            <a href="/">Home</a> |
+            <a href="#">FAQ</a> |
+            <a href="/login">Login</a>
+        </div>
+        <input type="text" style="padding:0.2rem; margin:0.5rem 0; width:200px; box-shadow:none;">
+        <div>
+            <a href="#">Manage your account</a> |
+            <a href="#">Advance search</a>
+        </div>
     </div>
 </header>
