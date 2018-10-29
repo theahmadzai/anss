@@ -5,7 +5,26 @@
 @section('content')
 
     <div class="container">
-        @if (session('status'))
+        <div class="slider" id="slider">
+            <ul>
+                <li>
+                    <img src="/img/s1.jpg" alt="">
+                </li>
+                <li>
+                    <img src="/img/s2.jpg" alt="">
+                </li>
+                <li>
+                    <img src="/img/s3.jpg" alt="">
+                </li>
+                <li>
+                    <img src="/img/s4.jpg" alt="">
+                </li>
+            </ul>
+            <button class="slider__prev" id="slider-prev"><span class="icon icon-circle-left"></span></button>
+            <button class="slider__next "id="slider-next"><span class="icon icon-circle-right"></span></button>
+        </div>
+
+        {{-- @if (session('status'))
             <div class="alert alert-success" role="alert">
                 {{ session('status') }}
             </div>
@@ -22,7 +41,7 @@
                 @csrf
                 <button>Logout</button>
             </form>
-        @endguest
+        @endguest --}}
     </div>
 
 @endsection
