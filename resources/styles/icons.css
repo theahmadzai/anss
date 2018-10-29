@@ -2,7 +2,7 @@
   font-family: icomoon;
   font-style: normal;
   font-weight: normal;
-  src: url('../fonts/icons.ttf?iiezf6') format('truetype'), url('../fonts/icons.woff?iiezf6') format('woff'), url('../fonts/icons.svg?iiezf6#icomoon') format('svg');
+  src: url('../fonts/icomoon.ttf?iiezf6') format('truetype'), url('../fonts/icomoon.woff?iiezf6') format('woff'), url('../fonts/icomoon.svg?iiezf6#icomoon') format('svg');
 }
 
 .icon {
@@ -239,4 +239,12 @@
 
 .icon-paypal::before {
   content: '\ead8';
+}
+
+.icon-circle-right::before {
+  content: '\ea42';
+}
+
+.icon-circle-left::before {
+  content: '\ea44';
 }
