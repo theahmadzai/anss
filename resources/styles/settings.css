@@ -18,10 +18,10 @@ $green: rgba(61, 82, 41, 1);
 $black: rgba(0, 0, 0, 1);
 
 /* Media Queries */
-$phone: (min-width: 20em);
-$phone-wide: (min-width: 30.0625em);
-$tablet: (min-width: 40.0625em);
-$tablet-wide: (min-width: 60.0626em);
+$phone: (max-width: 20em);
+$phone-wide: (max-width: 30.0625em);
+$tablet: (max-width: 40.0625em);
+$tablet-wide: (max-width: 60.0626em);
 $laptop: (min-width: 64.0625em);
 $desktop: (min-width: 80.0625em);
 
