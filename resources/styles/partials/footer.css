@@ -3,19 +3,38 @@
   justify-content: space-around;
   padding: 2rem;
   background: #4c4c4c;
+
+  @media $tablet {
+    flex-direction: column;
+  }
 }
 
 .column {
   max-width: 190px;
+
+  @media $tablet {
+    max-width: 100%;
+  }
 
   &__head {
     margin-bottom: 1rem;
     font-size: 1rem;
     font-weight: 500;
     color: #ffffff;
+
+    @media $tablet {
+      margin-bottom: 0.6rem;
+      padding: 0.5rem;
+      background: #424242;
+    }
   }
 
   &__body {
+    @media $tablet {
+      margin-bottom: 2rem;
+      padding: 0.5rem;
+    }
+
     a {
       margin-bottom: 0.2rem;
       font-size: 0.75rem;
@@ -35,13 +54,12 @@
 }
 
 .copyrights {
-  height: 60px;
   background: #424242;
   font-size: 0.7rem;
   color: #888888;
 
   p {
-    line-height: 60px;
+    padding: 1rem;
     text-align: center;
 
     span {
