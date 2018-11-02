@@ -8,14 +8,6 @@ const slider = (function($) {
     const slideWidth = slide.width()
     const slideHeight = slide.height()
 
-    const resize = () => {
-      console.log(slider.width())
-      image.css({
-        width: $(window).width(),
-        height: slideHeight
-      })
-    }
-
     slider.css({
       width: slideLength * slideWidth,
       marginLeft: -slideWidth
@@ -56,8 +48,7 @@ const slider = (function($) {
 
     return {
       moveLeft,
-      moveRight,
-      resize
+      moveRight
     }
   }
 
@@ -79,6 +70,4 @@ if( $('#slider').length > 0) {
   $('#slider-next').click(() => {
     homeSlider.moveRight()
   })
-
-  window.addEventListener('resize', homeSlider.resize)
 }
