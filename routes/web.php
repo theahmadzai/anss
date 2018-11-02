@@ -11,10 +11,37 @@
 |
 */
 
-Route::get('/', 'PageController@home')->name('home');
-Route::get('/contact', 'PageController@contact')->name('contact');
-Route::get('/about', 'PageController@about')->name('about');
-Route::get('/news', 'PageController@newsList')->name('news-list');
-Route::get('/news/{id}', 'PageController@news')->name('news');
+// Home
+Route::get('/', 'PageController@index')->name('home');
 
+// About
+Route::get('/about', 'PageController@about');
+Route::get('/who-we-are', 'PageController@whoWeAre');
+Route::get('/strategic-plans', 'PageController@strategicPlans');
+Route::get('/board-of-directors', 'PageController@boardOfDirectors');
+
+// Services
+Route::get('/services', 'PageController@services');
+Route::get('/immigration-and-settlement', 'PageController@immigrationAndSettlement');
+Route::get('/cultural-environmental-and-educational', 'PageController@culturalEnvironmentalAndEducational');
+Route::get('/networking-and-community-based-research', 'PageController@networkingAndCommunityBasedResearch');
+
+// Events
+Route::get('/events', 'PageController@events');
+Route::get('/upcoming-events', 'PageController@upcomingEvents');
+Route::get('/past-events', 'PageController@pastEvents');
+
+// Latest News
+Route::get('/latest-news/{id?}', 'PageController@latestNews');
+
+// Appointments
+Route::get('/appointments', 'PageController@appointments');
+
+// Donate
+Route::get('/donate', 'PageController@donate');
+
+// Contact
+Route::get('/contact', 'PageController@contact');
+
+// Authentication
 Auth::routes(['verify' => true]);
