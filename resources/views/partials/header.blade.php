@@ -11,6 +11,7 @@
             <a href="#" style="color:red;"><span class="icon icon-facebook"></span></a>
             <a href="#" style="color:green;"><span class="icon icon-instagram"></span></a> |
             <a href="/">Home</a> |
+            <a href="/contact">Contact Us</a> |
             <a href="#">FAQ</a> |
             <a href="/login">Login</a>
         </div>
