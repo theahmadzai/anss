@@ -23,7 +23,7 @@
         <button class="slider__next "id="slider-next"><span class="icon icon-circle-right"></span></button>
     </div>
 
-    <div class="flex flex--space-around">
+    <div class="main-blocks">
 
 
 
