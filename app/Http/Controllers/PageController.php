@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\News;
+use App\Event;
 
 class PageController extends Controller
 {
@@ -71,12 +72,12 @@ class PageController extends Controller
 
     public function upcomingEvents()
     {
-        return view('pages/events/upcoming-events');
+        return view('pages/events/upcoming-events', ['events' => Event::all()]);
     }
 
     public function pastEvents()
     {
-        return view('pages/events/past-events');
+        return view('pages/events/past-events', ['events' => Event::all()]);
     }
 
     /**
