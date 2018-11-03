@@ -14,7 +14,7 @@
         <div class="container__wide">
             @foreach ($events as $event)
                 <div class="container__row">
-                    <article class="flex flex--column event">
+                    <article class="flex flex--column article">
                         <div class="flex__item"><a href="/latest-news/{{$event->id}}"><h1>{{ $event->title }}</h1></a></div>
                         <div class="flex__item"><span class="icon icon-calendar"></span><span>{{ $event->created_at }}</span></div>
                         <div class="flex__item"><span class="icon icon-price-tag"></span>{{ $event->tags }}</div>
