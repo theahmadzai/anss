@@ -11,3 +11,29 @@
 @import './partials/flex';
 @import './partials/buttons';
 @import './partials/slider';
+
+.main-blocks {
+  display: grid;
+  padding: 1rem;
+  grid-template-columns: 25% 25% 25% 25%;
+
+  div {
+    margin: 1rem;
+    padding: 1rem;
+    background: #f7f9ef;
+  }
+
+  h2 {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  ul {
+    text-align: center;
+  }
+}
