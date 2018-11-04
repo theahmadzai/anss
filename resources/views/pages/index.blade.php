@@ -24,9 +24,6 @@
     </div>
 
     <div class="main-blocks">
-
-
-
         <div>
             <h2>Vision</h2>
             <p>Prosperous, connected and self-reliant communities</p>
@@ -57,6 +54,21 @@
                 <li>Excellence</li>
             </ul>
         </div>
+    </div>
+
+    <div class="main-news">
+        <h2>Latest news</h2>
+
+        <div class="news-blocks">
+            @foreach ($latest_news as $news)
+                <div class="block">
+                    <div class="date">{{$news->created_at->format('F d, Y')}}</div>
+                    <a href="/latest-news/{{$news->id}}"><h3>{{$news->title}}</h3></a>
+                    <p>{{ str_limit($news->content, 60) }}</p>
+                </div>
+            @endforeach
+        </div>
+    </div>
 
         {{-- @if (session('status'))
             <div class="alert alert-success" rlie="alert">
@@ -76,6 +88,5 @@
                 <button>Logout</button>
             </form>
         @endguest --}}
-    </div>
 
 @endsection
