@@ -13,7 +13,9 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             NewsTableSeeder::class,
-            EventsTableSeeder::class
+            EventsTableSeeder::class,
+            AppointmentsTableSeeder::class,
+            ManagerTableSeeder::class
         ]);
     }
 }
