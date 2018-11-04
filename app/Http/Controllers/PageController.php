@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\News;
 use App\Event;
+use App\Appointment;
+use App\Manager;
 
 class PageController extends Controller
 {
@@ -13,7 +15,12 @@ class PageController extends Controller
      */
     public function index()
     {
-        return view('pages/index');
+        $news = News::latest()->limit(4)->get() ?? null;
+        $events = Event::latest()->limit(4)->get() ?? null;
+
+        return view('pages/index', [
+            'latest_news' => $news
+        ]);
     }
 
     /**
@@ -97,7 +104,12 @@ class PageController extends Controller
      */
     public function appointments()
     {
-        return view('pages/appointments/index');
+        $appointments_count = null;
+        if((bool)Manager::isAppointmentsAllow()) {
+            $appointments_count = Manager::getAppointmentsCount();
+        }
+
+        return view('pages/appointments/index', ['count' => (int)$appointments_count]);
     }
 
     /**
