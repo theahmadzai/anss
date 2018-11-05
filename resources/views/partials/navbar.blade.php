@@ -58,6 +58,10 @@
     </li>
 
     <li class="navbar__item">
+        <a class="navbar__link" href="/gallery">Gallery</a>
+    </li>
+
+    <li class="navbar__item">
         <a class="navbar__link" href="/appointments">Appointments</a>
     </li>
 
