@@ -7,6 +7,7 @@ use App\News;
 use App\Event;
 use App\Appointment;
 use App\Manager;
+use App\Image;
 
 class PageController extends Controller
 {
@@ -15,8 +16,8 @@ class PageController extends Controller
      */
     public function index()
     {
-        $news = News::latest()->limit(4)->get() ?? null;
-        $events = Event::latest()->limit(4)->get() ?? null;
+        $news = News::latest()->limit(3)->get() ?? null;
+        $events = Event::latest()->limit(3)->get() ?? null;
 
         return view('pages/index', [
             'latest_news' => $news
@@ -97,6 +98,14 @@ class PageController extends Controller
         }
 
         return view('pages/news/news-page', ['article' => News::find($id)]);
+    }
+
+    /**
+     * Gallery
+     */
+    public function gallery()
+    {
+        return view('pages/gallery/index', ['images' => Image::all()]);
     }
 
     /**
