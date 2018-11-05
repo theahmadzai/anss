@@ -64,7 +64,7 @@
                 <div class="block">
                     <div class="date">{{$news->created_at->format('F d, Y')}}</div>
                     <a href="/latest-news/{{$news->id}}"><h3>{{$news->title}}</h3></a>
-                    <p>{{ str_limit($news->content, 60) }}</p>
+                    <p>{{ str_limit($news->content, 200) }}</p>
                 </div>
             @endforeach
         </div>
