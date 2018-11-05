@@ -34,6 +34,10 @@
                             <textarea name=""></textarea>
                         </div>
                         <div class="form__control">
+                            <label for="">Files </label>
+                            <input type="file" multiple>
+                        </div>
+                        <div class="form__control">
                             <div class="g-recaptcha" data-sitekey="6LeAdXgUAAAAAGHqwygP-UbVQzvzNoRjXDLnCCwo"></div>
                         </div>
                         <div class="form__control">
