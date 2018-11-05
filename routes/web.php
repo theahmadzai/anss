@@ -34,6 +34,9 @@ Route::get('/past-events', 'PageController@pastEvents');
 // Latest News
 Route::get('/latest-news/{id?}', 'PageController@latestNews');
 
+// Gallery
+Route::get('/gallery', 'PageController@gallery');
+
 // Appointments
 Route::get('/appointments', 'PageController@appointments');
 
