@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
             NewsTableSeeder::class,
             EventsTableSeeder::class,
             AppointmentsTableSeeder::class,
-            ManagerTableSeeder::class
+            ManagerTableSeeder::class,
+            ImagesTableSeeder::class
         ]);
     }
 }
