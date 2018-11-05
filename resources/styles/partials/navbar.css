@@ -1,7 +1,7 @@
 .navbar {
-  display: flex;
-  padding: 0 1rem;
+  display: grid;
   background: $red;
+  grid-template-columns: repeat(8, auto);
 
   &__item {
     position: relative;
@@ -18,9 +18,10 @@
 
   &__link {
     display: block;
-    padding: 0.9rem 2.3rem;
+    padding: 0.8rem 0;
     transition: background-color 200ms ease-in-out;
     color: #ffffff;
+    text-align: center;
 
     &:hover {
       background-color: $red-light;
