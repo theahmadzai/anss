@@ -39,7 +39,7 @@
 }
 
 .main-news {
-  padding: 2rem;
+  padding: 1rem;
   padding-top: 0;
 
   h2 {
@@ -50,10 +50,10 @@
   .news-blocks {
     display: grid;
     margin-top: 1rem;
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: auto auto auto;
 
     .block {
-      margin: 0.8rem;
+      margin: 1rem;
       padding: 0 1rem;
       background: #f9f9f9;
 
@@ -71,6 +71,27 @@
       p {
         font-size: 0.8rem;
       }
+    }
+  }
+}
+
+.gallery-controls {
+  margin: 1rem;
+  margin-bottom: 0;
+  padding: 1rem;
+  background: #f7f9ef;
+}
+
+.gallery {
+  display: grid;
+  padding: 0.5rem;
+  grid-template-columns: auto auto auto auto;
+
+  &__item {
+    margin: 0.5rem;
+
+    img {
+      display: block;
     }
   }
 }
