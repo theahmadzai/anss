@@ -10,8 +10,9 @@
 
     <div class="container">
         <div class="container__narrow"></div>
+
         <div class="container__wide">
-            @if ($appointments)
+            @if ($appointments->count())
                 <div class="appointments">
                     <div class="appointments__item" style="text-align:center; background:#555; color:#eee;">
                         <p><b>Timing</b></p>
@@ -38,14 +39,14 @@
                     </div>
                     @endforeach
                 </div>
-
-                <div style="text-align:center;">
-                    <h2>Contact instead?</h2>
-                    <a href="/contact" style="padding:0.5rem 1rem; background:brown; color:white; border-radius:5px; display:inline-block; margin-top:2rem;">Contact Us</a>
-                </div>
             @else
-                <h1 style="padding:2rem;">No appointments available</h1>
+                <h2 style="padding:2rem; text-align:center;">No appointments available!</h2>
             @endif
+
+            <div style="text-align:center;">
+                <h2>Contact instead?</h2>
+                <a href="/contact" style="padding:0.5rem 1rem; background:brown; color:white; border-radius:5px; display:inline-block; margin-top:2rem;">Contact Us</a>
+            </div>
 
         </div>
     </div>
