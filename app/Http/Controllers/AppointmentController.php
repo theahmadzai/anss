@@ -68,7 +68,7 @@ class AppointmentController extends Controller
      */
     public function show(Appointment $appointment)
     {
-        //
+        return view('admin.appointments.show', ['appointment' => $appointment]);
     }
 
     /**

@@ -8,7 +8,7 @@ use App\Event;
 use App\Appointment;
 use App\Manager;
 use App\Image;
-use DB;
+use Validator;
 
 class PageController extends Controller
 {
@@ -114,7 +114,49 @@ class PageController extends Controller
      */
     public function appointments()
     {
-        return view('pages.appointments.index', ['appointments' => Appointment::availableAppointments()]);
+        return view('pages.appointments.index', ['appointments' => Appointment::getAppointments() ?? null]);
+    }
+
+    public function appointmentsPage($id = null)
+    {
+        $appointment = Appointment::getAvailableAppointment($id);
+
+        if(!$appointment) abort(404);
+
+        return view('pages.appointments.book', ['appointment' => $appointment]);
+    }
+
+    public function appointmentsBook(Request $request, $id)
+    {
+        $appointment = Appointment::getAvailableAppointment($id);
+
+        if(!$appointment) abort(404);
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'nullable|numeric',
+            'message' => 'nullable|max:500'
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withInput()->withErrors($validator);
+        }
+
+        try {
+            $appointment = Appointment::find($id);
+            $appointment->name = $request->name;
+            $appointment->email = $request->email;
+            $appointment->phone = $request->phone;
+            $appointment->message = $request->message;
+            $appointment->status = true;
+            $appointment->save();
+
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+
+        return redirect('/appointments')->with('status', 'Appointment Booked Successfully!');
     }
 
     /**
