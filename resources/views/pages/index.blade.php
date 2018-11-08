@@ -69,4 +69,8 @@
             @endforeach
         </div>
     </div>
+
+    <div class="subscribe">
+        <a href="/login">Subscribe</a>
+     </div>
 @endsection
