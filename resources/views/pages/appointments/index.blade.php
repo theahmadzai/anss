@@ -11,77 +11,40 @@
     <div class="container">
         <div class="container__narrow"></div>
         <div class="container__wide">
-            @if (count($appointments) > 0)
+            @if ($appointments)
                 <div class="appointments">
+                    <div class="appointments__item" style="text-align:center; background:#555; color:#eee;">
+                        <p><b>Timing</b></p>
+                        <p><b>Description</b></p>
+                        <p><b>Status</b></p>
+                    </div>
+                    @foreach ($appointments as $appointment)
                     <div class="appointments__item">
                         <div class="datetime">
-                            <p>Sunday 2:35 PM - 2 November, 2018</p>
+                            <p>{{$appointment->timing->diffForHumans()}}</p>
+                        </div>
+                        <div>
+                            <p>{{str_limit($appointment->description, 30, '...')}}</p>
                         </div>
                         <div class="book">
-                            <button>Book</button>
+                        @if ($appointment->status == 1)
+                            <p>Already booked</p>
+                        @elseif ($appointment->timing < \Carbon\Carbon::now())
+                            <p>Not available</p>
+                        @else
+                            <button><a href="/appointments/{{$appointment->id}}">Book</a></button>
+                        @endif
                         </div>
                     </div>
-                    <div class="appointments__item">
-                        <div class="datetime">
-                            <p>Sunday 4:25 PM - 2 November, 2018</p>
-                        </div>
-                        <div class="book">
-                            <p>Already Booked</p>
-                        </div>
-                    </div>
-                    <div class="appointments__item">
-                        <div class="datetime">
-                            <p>Sunday 6:00 PM - 2 November, 2018</p>
-                        </div>
-                        <div class="book">
-                            <button>Book</button>
-                        </div>
-                    </div>
-                    <div class="appointments__item">
-                        <div class="datetime">
-                            <p>Sunday 8:00 PM - 2 November, 2018</p>
-                        </div>
-                        <div class="book">
-                            <button>Book</button>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
 
-                <p style="margin:2rem 0; text-align:center;"><strong>{{ count($appointments) }}</strong> appointments available</p>
-                <button style="padding: 0.7rem; font-size:1rem; background:white; border:1px solid #ccc; cursor:pointer; margin: 2rem auto; display:block;">Book an appointment</button>
-
-                <div style="padding:2rem 4rem;">
-                    <form action="">
-                        <div class="form__control">
-                            <label for="">Name <span>*</span></label>
-                            <input type="text">
-                        </div>
-                        <div class="form__control">
-                            <label for="">E-mail Address <span>*</span></label>
-                            <input type="email">
-                        </div>
-                        <div class="form__control">
-                            <label for="">phone <span>*</span></label>
-                            <input type="tel">
-                        </div>
-                        <div class="form__control">
-                            <label for="">Message <span>*</span></label>
-                            <textarea name=""></textarea>
-                        </div>
-                        <div class="form__control">
-                            <label for="">Files </label>
-                            <input type="file" multiple>
-                        </div>
-                        <div class="form__control">
-                            <div class="g-recaptcha" data-sitekey="6LeAdXgUAAAAAGHqwygP-UbVQzvzNoRjXDLnCCwo"></div>
-                        </div>
-                        <div class="form__control">
-                            <button class="button">Submit</button>
-                        </div>
-                    </form>
+                <div style="text-align:center;">
+                    <h2>Contact instead?</h2>
+                    <a href="/contact" style="padding:0.5rem 1rem; background:brown; color:white; border-radius:5px; display:inline-block; margin-top:2rem;">Contact Us</a>
                 </div>
             @else
-                <h1>No appointments</h1>
+                <h1 style="padding:2rem;">No appointments available</h1>
             @endif
 
         </div>
