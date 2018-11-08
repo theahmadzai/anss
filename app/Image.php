@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Storage;
 
 class Image extends Model
 {
@@ -10,6 +11,6 @@ class Image extends Model
 
     public function getUrlAttribute($url)
     {
-        return $url ?? 'https://via.placeholder.com/250x250';
+        return Storage::url($url ?? 'default/image.png');
     }
 }
