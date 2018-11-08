@@ -55,19 +55,21 @@ const slider = (function($) {
 })($)
 
 // HomePage Slider
-if( $('#slider').length > 0) {
-  let homeSlider = slider({
-    container: '#slider',
-    slider: '#slider ul',
-    image: '#slider ul li img',
-    autoplay: true
-  })
+$(document).ready(() => {
+  if( $('#slider').length > 0) {
+    let homeSlider = slider({
+      container: '#slider',
+      slider: '#slider ul',
+      image: '#slider ul li img',
+      autoplay: true
+    })
 
-  $('#slider-prev').click(() => {
-    homeSlider.moveLeft()
-  })
+    $('#slider-prev').click(() => {
+      homeSlider.moveLeft()
+    })
 
-  $('#slider-next').click(() => {
-    homeSlider.moveRight()
-  })
-}
+    $('#slider-next').click(() => {
+      homeSlider.moveRight()
+    })
+  }
+})
