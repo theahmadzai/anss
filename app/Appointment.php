@@ -3,16 +3,25 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use DB;
 use Carbon\Carbon;
 
 class Appointment extends Model
 {
     protected $table = 'appointments';
 
-    public static function availableAppointments()
+    public static function getAppointments()
     {
-        return self::where('status',false)->whereDate('timing', '>=', DB::raw('NOW()'))->get();
+        return self::whereDate('timing', '>=', Carbon::now())->get();
+    }
+
+    public static function getAvailableAppointments()
+    {
+        return self::where('status', 0)->whereDate('timing', '>', Carbon::now())->get();
+    }
+
+    public static function getAvailableAppointment($id)
+    {
+        return self::where('id', $id)->where('status', 0)->whereDate('timing', '>', Carbon::now())->first();
     }
 
     public function getTimingAttribute($value)
