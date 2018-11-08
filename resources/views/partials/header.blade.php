@@ -13,7 +13,19 @@
             <a href="/">Home</a> |
             <a href="/contact">Contact Us</a> |
             <a href="#">FAQ</a> |
-            <a href="/login">Login</a>
+
+            @guest
+                <a href="/login">Login</a>
+            @else
+                <form method="POST" action="/logout" style="display:inline;">
+                    @csrf
+                    @if (Auth::user()->role == 3)
+                        <a href="/admin">Admin</a> |
+                    @endif
+                    <a href="#" onclick="this.parentElement.submit();">Logout</a>
+                </form>
+            @endguest
+
         </div>
         <input type="text" style="padding:0.2rem; margin:0.5rem 0; width:200px; box-shadow:none;">
         <div>
