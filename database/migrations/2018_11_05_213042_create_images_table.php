@@ -17,7 +17,7 @@ class CreateImagesTable extends Migration
             $table->increments('id');
             $table->string('title')->nullable();
             $table->string('url')->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->enum('category', ['a','b','c'])->default('a');
             $table->timestamps();
         });
