@@ -35,11 +35,6 @@
             <a href="#"><span class="icon icon-facebook"></span></a>
             <a href="#"><span class="icon icon-instagram"></span></a>
         </div>
-
-        <div style="background:#444; margin-top:2rem; padding:0.5rem 1rem">
-            <div style="color:white">Business Hours</div>
-            <div style="color:#ccc"><i>3:00 AM - 9:00 PM</i></div>
-        </div>
     </div>
 
 </footer>
