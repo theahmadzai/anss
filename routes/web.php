@@ -48,3 +48,17 @@ Route::get('/contact', 'PageController@contact');
 
 // Authentication
 Auth::routes(['verify' => true]);
+
+// Admin
+Route::prefix('/admin')->group(function() {
+
+    // Home
+    Route::get('/', 'AdminController@index');
+
+    // Images
+    Route::resource('/images', 'ImageController');
+
+    // Appointments
+    Route::resource('/appointments', 'AppointmentController');
+
+});
