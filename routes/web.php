@@ -47,6 +47,7 @@ Route::get('/donate', 'PageController@donate');
 
 // Contact
 Route::get('/contact', 'PageController@contact');
+Route::post('/contact', 'PageController@contactMail');
 
 // Authentication
 Auth::routes(['verify' => true]);
