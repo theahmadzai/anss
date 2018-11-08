@@ -39,6 +39,8 @@ Route::get('/gallery', 'PageController@gallery');
 
 // Appointments
 Route::get('/appointments', 'PageController@appointments');
+Route::get('/appointments/{id}', 'PageController@appointmentsPage');
+Route::post('/appointments/{id}', 'PageController@appointmentsBook');
 
 // Donate
 Route::get('/donate', 'PageController@donate');
