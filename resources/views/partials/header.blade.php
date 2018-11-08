@@ -20,9 +20,9 @@
                 <form method="POST" action="/logout" style="display:inline;">
                     @csrf
                     @if (Auth::user()->role == 3)
-                        <a href="/admin">Admin</a> |
+                        <a href="/admin"><i class="icon icon-terminal"></i> Admin</a> |
                     @endif
-                    <a href="#" onclick="this.parentElement.submit();">Logout</a>
+                    <a href="#" onclick="this.parentElement.submit();"><i class="icon icon-switch"></i> Logout</a>
                 </form>
             @endguest
 
