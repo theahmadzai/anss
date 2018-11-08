@@ -9,6 +9,7 @@ use App\Appointment;
 use App\Manager;
 use App\Image;
 use Validator;
+use Mail;
 
 class PageController extends Controller
 {
@@ -173,5 +174,42 @@ class PageController extends Controller
     public function contact()
     {
         return view('pages.contact.index');
+    }
+
+    public function contactMail(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|email',
+            'subject' => 'required',
+            'message' => 'required|min:100',
+            'g-recaptcha-response' => 'recaptcha'
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withInput()->withErrors($validator);
+        }
+
+        $data = [
+            'subject' => $request->subject,
+            'content' => $request->message
+        ];
+
+        Mail::send('emails.contact', $data, function($mail) use ($request) {
+            $mail->from($request->email, $request->name);
+            $mail->to('info@anss.ca', 'ANSS Foundation');
+            $mail->subject($request->subject);
+
+            if($request->hasFile('attachments')) {
+                $files = $request->file('attachments');
+                $size = sizeOf($files);
+
+                for($i=0; $i<$size; $i++) {
+                    $mail->attach($files[$i]);
+                }
+            }
+        });
+
+        return back()->with('status', 'Your email has been sent successfully!');
     }
 }
