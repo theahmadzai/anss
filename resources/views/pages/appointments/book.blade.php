@@ -20,7 +20,7 @@
             </div>
         </div>
 
-        <form method="POST" action="/appointments/{{$appointment->id}}">
+        <form method="POST" action="/appointments/{{$appointment->id}}" enctype="multipart/form-data">
             @csrf
 
             <div class="form__control">
@@ -53,6 +53,11 @@
                 @if ($errors->has('message'))
                     <p>{{ $errors->first('message') }}</p>
                 @endif
+            </div>
+
+            <div class="form__control">
+                <label for="">Files</label>
+                <input type="file" name="files[]" multiple>
             </div>
 
             <div class="form__control">
