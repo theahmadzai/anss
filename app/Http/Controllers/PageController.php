@@ -8,6 +8,9 @@ use App\Event;
 use App\Appointment;
 use App\Manager;
 use App\Image;
+use App\Rules\ReCaptcha;
+use App\Mail\Contact as ContactMail;
+use App\Mail\Appointment as AppointmentMail;
 use Validator;
 use Mail;
 
@@ -132,7 +135,8 @@ class PageController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'phone' => 'nullable|numeric',
-            'message' => 'nullable|max:500'
+            'message' => 'nullable|max:500',
+            'file' => 'nullable|file'
         ]);
 
         if ($validator->fails()) {
@@ -147,6 +151,8 @@ class PageController extends Controller
             $appointment->message = $request->message;
             $appointment->status = true;
             $appointment->save();
+
+            Mail::send(new AppointmentMail($request));
 
         } catch (Exception $e) {
             return $e->getMessage();
@@ -178,32 +184,14 @@ class PageController extends Controller
             'email' => 'required|email',
             'subject' => 'required',
             'message' => 'required|min:100',
-            'g-recaptcha-response' => 'recaptcha'
+            'g-recaptcha-response' => new ReCaptcha()
         ]);
 
         if ($validator->fails()) {
             return back()->withInput()->withErrors($validator);
         }
 
-        $data = [
-            'subject' => $request->subject,
-            'content' => $request->message
-        ];
-
-        Mail::send('emails.contact', $data, function($mail) use ($request) {
-            $mail->from($request->email, $request->name);
-            $mail->to('info@anss.ca', 'ANSS Foundation');
-            $mail->subject($request->subject);
-
-            if($request->hasFile('attachments')) {
-                $files = $request->file('attachments');
-                $size = sizeOf($files);
-
-                for($i=0; $i<$size; $i++) {
-                    $mail->attach($files[$i]);
-                }
-            }
-        });
+        Mail::send(new ContactMail($request));
 
         return back()->with('status', 'Your email has been sent successfully!');
     }
