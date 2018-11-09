@@ -17,7 +17,7 @@
 
                 <p>Thank you for using this form to leave us a message. Required fields marked with *.</p>
 
-                <form method="POST" action="/contact" enctype="multipart/form-data">
+                <form method="POST" action="/contact">
                     @csrf
 
                     <div class="form__control">
@@ -50,11 +50,6 @@
                         @if ($errors->has('message'))
                             <p>{{ $errors->first('message') }}</p>
                         @endif
-                    </div>
-
-                    <div class="form__control">
-                        <label for="">Files </label>
-                        <input type="file" name="attachments[]" multiple>
                     </div>
 
                     <div class="form__control">
