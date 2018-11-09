@@ -44,6 +44,14 @@ const slider = (function($) {
       }, () => {
         interval = setInterval(moveRight, 3000)
       })
+
+      $(window).focus(() => {
+        interval = setInterval(moveRight, 3000)
+      })
+
+      $(window).blur(() => {
+        clearInterval(interval)
+      })
     }
 
     return {
