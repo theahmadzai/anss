@@ -34,11 +34,6 @@ class PageController extends Controller
         return view('pages.about.index');
     }
 
-    public function whoWeAre()
-    {
-        return view('pages.about.who-we-are');
-    }
-
     public function strategicPlans()
     {
         return view('pages.about.strategic-plans');

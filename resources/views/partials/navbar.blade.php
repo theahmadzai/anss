@@ -8,7 +8,7 @@
 
         <ul class="dropdown">
             <li class="dropdown__item">
-                <a class="dropdown__link" href="/who-we-are">Who we are</a>
+                <a class="dropdown__link" href="/about">Who we are</a>
             </li>
 
             <li class="dropdown__item">

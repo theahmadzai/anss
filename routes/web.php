@@ -16,7 +16,6 @@ Route::get('/', 'PageController@index')->name('home');
 
 // About
 Route::get('/about', 'PageController@about');
-Route::get('/who-we-are', 'PageController@whoWeAre');
 Route::get('/strategic-plans', 'PageController@strategicPlans');
 Route::get('/board-of-directors', 'PageController@boardOfDirectors');
 

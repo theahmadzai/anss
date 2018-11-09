@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="bar">
-        <h1>About</h1>
+        <h1>Who we are</h1>
     </div>
 
     <div class="container">
