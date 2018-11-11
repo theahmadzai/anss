@@ -8,6 +8,8 @@ const slider = (function($) {
     const slideWidth = slide.width()
     const slideHeight = slide.height()
 
+    const moveInterval = 10000
+
     slider.css({
       width: slideLength * slideWidth,
       marginLeft: -slideWidth
@@ -36,17 +38,17 @@ const slider = (function($) {
       })
     }
 
-    let interval = options.autoplay ? setInterval(moveRight, 3000) : null
+    let interval = options.autoplay ? setInterval(moveRight, moveInterval) : null
 
     if(interval !== null || interval !== undefined) {
       slider.hover(() => {
         clearInterval(interval)
       }, () => {
-        interval = setInterval(moveRight, 3000)
+        interval = setInterval(moveRight, moveInterval)
       })
 
       $(window).focus(() => {
-        interval = setInterval(moveRight, 3000)
+        interval = setInterval(moveRight, moveInterval)
       })
 
       $(window).blur(() => {
