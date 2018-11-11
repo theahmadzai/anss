@@ -43,10 +43,17 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
+        $category = Category::find($request->category);
+        $image_rules = 'required|file|image';
+
+        if($category->count() > 0 && (string)$category->name == 'slider') {
+            $image_rules = 'dimensions:min_height=300,min_width=900,max_height=400,max_width=1100,ratio=20/7';
+        }
+
         $validator = Validator::make($request->all(), [
             'title' => 'required|min:5|max:50',
             'category'  => 'required|exists:categories,id',
-            'image' => 'required|file|image',
+            'image' =>  $image_rules,
             'description' => 'nullable'
         ]);
 
