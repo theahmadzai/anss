@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Category;
 use Storage;
 
 class Image extends Model
@@ -17,5 +18,10 @@ class Image extends Model
     public function getUrlAttribute($url)
     {
         return Storage::url($url ?? 'default/image.png');
+    }
+
+    public static function getSlides()
+    {
+        return self::where('category_id', Category::where('name', 'slider')->first()->id)->get();
     }
 }
