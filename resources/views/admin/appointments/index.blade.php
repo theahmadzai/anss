@@ -16,7 +16,7 @@
                         {{ $appointment->timing->diffForHumans() }}
                     </div>
                     <div>
-                        {{ str_limit($appointment->description, 60, '...') }}
+                        {{ str_limit($appointment->description, 50, '...') }}
                     </div>
                     <div>
                         <b>{{$appointment->status == 0 ? 'Not Booked' : 'Booked'}}</b>
