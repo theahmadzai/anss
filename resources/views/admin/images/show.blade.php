@@ -9,7 +9,7 @@
 
         <div>
             <p><b>Title: </b>{{$image->title ?: 'None'}}</p>
-            <p><b>Category: </b>{{$image->category}}</p>
+            <p><b>Category: </b>{{$image->category->name}}</p>
             <p><b>Description: </b>{{$image->description ?: 'None'}}</p>
             <p><b>Upload Date: </b>{{$image->created_at->diffForHumans()}}</p>
             <p><b>Last Modified: </b>{{$image->updated_at->diffForHumans()}}</p>

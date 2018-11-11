@@ -18,9 +18,9 @@
             <div class="form__control">
                 <label for="">Category</label>
                 <select name="category">
-                    <option value="a" {{ old('category') == 'a' ? 'selected' : ''}}>a</option>
-                    <option value="b" {{ old('category') == 'b' ? 'selected' : ''}}>b</option>
-                    <option value="c" {{ old('category') == 'c' ? 'selected' : ''}}>c</option>
+                    @foreach ($categories as $category)
+                        <option value="{{$category->id}}" {{ old('category') == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
+                    @endforeach
                 </select>
                 @if ($errors->has('category'))
                     <p>{{ $errors->first('category') }}</p>
