@@ -37,7 +37,7 @@
 
             <div class="form__control">
                 <label for="">Description</label>
-                <textarea name="description"></textarea>
+                <textarea name="description">{{ old('description') }}</textarea>
                 @if ($errors->has('description'))
                     <p>{{ $errors->first('description') }}</p>
                 @endif
