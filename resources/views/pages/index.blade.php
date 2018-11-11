@@ -6,18 +6,13 @@
 
     <div class="slider" id="slider">
         <ul>
-            <li>
-                <img src="/img/s1.jpg" alt="">
-            </li>
-            <li>
-                <img src="/img/s2.jpg" alt="">
-            </li>
-            <li>
-                <img src="/img/s3.jpg" alt="">
-            </li>
-            <li>
-                <img src="/img/s4.jpg" alt="">
-            </li>
+            @foreach ($slides as $slide)
+                <li>
+                    <img src="{{$slide->url}}" alt="{{$slide->title}}" style="position:relative;">
+                    <h1 style="position:absolute;z-index:2000;left:4%;top:10%; background:#000; color:#fff; opacity:0.5; padding:0.5rem 1rem;">{{$slide->title}}</h1>
+                    <a style="position:absolute;z-index:2000;right:4%;bottom:15%; background:#fff; padding:0.5rem 1rem;" href="{{$slide->description}}">Read More</a>
+                </li>
+            @endforeach
         </ul>
         <button class="slider__prev" id="slider-prev"><span class="icon icon-circle-left"></span></button>
         <button class="slider__next "id="slider-next"><span class="icon icon-circle-right"></span></button>
