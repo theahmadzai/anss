@@ -8,6 +8,7 @@ use App\Event;
 use App\Appointment;
 use App\Manager;
 use App\Image;
+use App\Category;
 use App\Rules\ReCaptcha;
 use App\Mail\Contact as ContactMail;
 use App\Mail\Appointment as AppointmentMail;
@@ -21,10 +22,12 @@ class PageController extends Controller
      */
     public function index()
     {
+        $slides = Image::getSlides();
         $news = News::latest()->limit(3)->get() ?? null;
         $events = Event::latest()->limit(3)->get() ?? null;
 
         return view('pages.index', [
+            'slides' => $slides,
             'latest_news' => $news
         ]);
     }
