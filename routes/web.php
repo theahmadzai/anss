@@ -57,6 +57,9 @@ Route::prefix('/admin')->group(function() {
     // Home
     Route::get('/', 'AdminController@index');
 
+    // Categories
+    Route::resource('/categories', 'CategoryController');
+
     // Images
     Route::resource('/images', 'ImageController');
 
