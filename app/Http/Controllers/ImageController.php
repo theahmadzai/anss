@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Image;
+use App\Category;
 use Storage;
 use Validator;
 use Exception;
@@ -17,7 +18,9 @@ class ImageController extends Controller
      */
     public function index()
     {
-        return view('admin.images.index', ['images' => Image::all()]);
+        return view('admin.images.index', [
+            'images' => Image::all()
+        ]);
     }
 
     /**
@@ -27,7 +30,9 @@ class ImageController extends Controller
      */
     public function create()
     {
-        return view('admin.images.create');
+        return view('admin.images.create', [
+            'categories' => Category::all()
+        ]);
     }
 
     /**
@@ -40,7 +45,7 @@ class ImageController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required|min:5|max:50',
-            'category' => 'required',
+            'category'  => 'required|exists:categories,id',
             'image' => 'required|file|image',
             'description' => 'nullable'
         ]);
@@ -52,7 +57,7 @@ class ImageController extends Controller
         try {
             $image = new Image;
             $image->title = $request->title;
-            $image->category = $request->category;
+            $image->category_id = $request->category;
             $image->description = $request->description;
             $image->url = $request->image->store('public/images');
             $image->save();
@@ -72,7 +77,9 @@ class ImageController extends Controller
      */
     public function show(Image $image)
     {
-        return view('admin.images.show', ['image' => $image]);
+        return view('admin.images.show', [
+            'image' => $image
+        ]);
     }
 
     /**
@@ -83,7 +90,10 @@ class ImageController extends Controller
      */
     public function edit(Image $image)
     {
-        return view('admin.images.edit', ['image' => Image::find($image->id)]);
+        return view('admin.images.edit', [
+            'image' => Image::find($image->id),
+            'categories' => Category::all()
+        ]);
     }
 
     /**
@@ -97,7 +107,7 @@ class ImageController extends Controller
     {
          $validator = Validator::make($request->all(), [
             'title' => 'required|min:5|max:50',
-            'category'  => 'required',
+            'category'  => 'required|exists:categories,id',
             'image' => 'file|image',
             'description' => 'nullable'
         ]);
@@ -109,12 +119,12 @@ class ImageController extends Controller
         try {
             $image = Image::find($image->id);
             $image->title = $request->title;
-            $image->category = $request->category;
+            $image->category_id= $request->category;
             $image->description = $request->description;
 
             if($request->hasFile('image')) {
                 if (Storage::exists($image->getOriginal('url'))) {
-                    Storage::move($image->getOriginal('url'), 'tmp/images/updated/' . $image->category . '/' . basename($image->url));
+                    Storage::move($image->getOriginal('url'), 'tmp/images/updated/' . $image->category_id . '/' . basename($image->url));
                 }
                 $image->url = $request->image->store('public/images');
             }
@@ -137,7 +147,7 @@ class ImageController extends Controller
     public function destroy(Image $image)
     {
         if(Storage::exists($image->getOriginal('url'))) {
-            Storage::move($image->getOriginal('url'), 'tmp/images/deleted' . $image->category . '/' . basename($image->url));
+            Storage::move($image->getOriginal('url'), 'tmp/images/deleted' . $image->category_id . '/' . basename($image->url));
         }
 
         Image::destroy($image->id);
