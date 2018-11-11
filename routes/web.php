@@ -63,4 +63,10 @@ Route::prefix('/admin')->group(function() {
     // Appointments
     Route::resource('/appointments', 'AppointmentController');
 
+    // News
+    Route::resource('/news', 'NewsController');
+
+    // Events
+    Route::resource('/events', 'EventsController');
+
 });
