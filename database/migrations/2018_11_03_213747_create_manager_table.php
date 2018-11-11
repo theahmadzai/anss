@@ -15,8 +15,6 @@ class CreateManagerTable extends Migration
     {
         Schema::create('manager', function (Blueprint $table) {
             $table->increments('id');
-            $table->boolean('appointments_allow');
-            $table->integer('appointments_count');
             $table->timestamps();
         });
     }
