@@ -17,11 +17,12 @@
             @guest
                 <a href="/login">Login</a>
             @else
+                <a href="/user"><i class="icon icon-user"></i> Profile</a> |
+                @if (Auth::user()->role == 3)
+                    <a href="/admin"><i class="icon icon-terminal"></i> Admin</a> |
+                @endif
                 <form method="POST" action="/logout" style="display:inline;">
                     @csrf
-                    @if (Auth::user()->role == 3)
-                        <a href="/admin"><i class="icon icon-terminal"></i> Admin</a> |
-                    @endif
                     <a href="#" onclick="this.parentElement.submit();"><i class="icon icon-switch"></i> Logout</a>
                 </form>
             @endguest

@@ -66,6 +66,6 @@
     </div>
 
     <div class="subscribe">
-        <a href="/login">Subscribe</a>
+        <a href="/subscribe">Subscribe</a>
      </div>
 @endsection
