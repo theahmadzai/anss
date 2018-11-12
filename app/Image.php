@@ -22,6 +22,10 @@ class Image extends Model
 
     public static function getSlides()
     {
-        return self::where('category_id', Category::where('name', 'slider')->first()->id)->get();
+        $category = Category::where('name', 'slider')->get();
+
+        if($category->count() > 0) {
+            return self::where('category_id', $category->id)->get();
+        }
     }
 }

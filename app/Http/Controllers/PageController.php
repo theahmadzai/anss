@@ -23,7 +23,7 @@ class PageController extends Controller
      */
     public function index()
     {
-        $slides = Image::getSlides();
+        $slides = Image::getSlides() ?? null;
         $news = News::latest()->limit(3)->get() ?? null;
         $events = Event::latest()->limit(3)->get() ?? null;
 
