@@ -16,3 +16,5 @@ package-json.lock
 composer.lock
 yarn.lock
 /public/js/libs
+/storage/app/tmp
+/storage/app/public/images
