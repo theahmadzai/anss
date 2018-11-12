@@ -9,6 +9,7 @@ use App\Appointment;
 use App\Manager;
 use App\Image;
 use App\Category;
+use App\Subscriber;
 use App\Rules\ReCaptcha;
 use App\Mail\Contact as ContactMail;
 use App\Mail\Appointment as AppointmentMail;
@@ -197,5 +198,37 @@ class PageController extends Controller
         Mail::send(new ContactMail($request));
 
         return back()->with('status', 'Your email has been sent successfully!');
+    }
+
+    /**
+     * Subscribe
+     */
+    public function subscribe()
+    {
+        return view('pages.subscribe.index');
+    }
+
+    public function subscribeStore(Request $request)
+    {
+         $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|email'
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withInput()->withErrors($validator);
+        }
+
+        try {
+            $subscriber = new Subscriber;
+            $subscriber->name = $request->name;
+            $subscriber->email = $request->email;
+            $subscriber->save();
+
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+
+        return back()->with('status', 'You have Subscribed successfully!');
     }
 }
