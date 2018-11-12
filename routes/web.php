@@ -48,13 +48,25 @@ Route::get('/donate', 'PageController@donate');
 Route::get('/contact', 'PageController@contact');
 Route::post('/contact', 'PageController@contactMail');
 
+// Subscribe
+Route::get('/subscribe', 'PageController@subscribe');
+Route::post('/subscribe', 'PageController@subscribeStore');
+
 // Authentication
 Auth::routes(['verify' => true]);
+
+// User
+Route::prefix('/user')->group(function() {
+
+    // Profile
+    Route::get('/', 'UserController@index');
+
+});
 
 // Admin
 Route::prefix('/admin')->group(function() {
 
-    // Home
+    // Panel
     Route::get('/', 'AdminController@index');
 
     // Categories
