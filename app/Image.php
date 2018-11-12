@@ -25,7 +25,7 @@ class Image extends Model
         $category = Category::where('name', 'slider')->get();
 
         if($category->count() > 0) {
-            return self::where('category_id', $category->id)->get();
+            return self::where('category_id', $category->first()->id)->get();
         }
     }
 }
