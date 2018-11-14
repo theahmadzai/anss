@@ -1,10 +1,115 @@
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
+  padding: 0.5rem 1rem;
+
+  @media $tablet {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  &__left {
+    .logo {
+      width: 200px;
+      height: 50px;
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding-right: 1rem;
+
+    @media $tablet {
+      padding-right: 0;
+    }
+  }
 }
 
-.logo {
-  padding: 0.5rem;
+.top-links {
+  display: flex;
+  justify-content: flex-end;
+
+  @media $tablet {
+    justify-content: space-around;
+    margin: 0.5rem 0 1rem 0;
+
+    .sm {
+      display: none;
+    }
+  }
+
+  &__main {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    a {
+      margin-right: 0.5rem;
+      font-size: 0.8rem;
+
+      &::after {
+        content: '|';
+        margin-left: 0.5rem;
+        color: #aaaaaa;
+      }
+
+      &:last-child {
+        margin-right: 0;
+        padding: 0 0.5rem;
+        border: 1px solid $color1;
+        border-radius: 5px;
+        background: $color1;
+        color: #ffffff;
+
+        &:hover {
+          background: #ffffff;
+          color: $color1;
+        }
+
+        &::after {
+          content: none;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
+
+.top-search {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+
+  @media $tablet {
+    display: none;
+  }
+
+  &__main {
+    display: flex;
+    align-items: center;
+
+    input,
+    button {
+      height: 25px;
+      margin: 0;
+      outline: none;
+    }
+
+    button {
+      padding: 0 1rem;
+      border: none;
+      background: $red;
+      font-size: 0.6rem;
+      font-weight: bold;
+      color: #ffffff;
+      cursor: pointer;
+
+      &:hover {
+        background: $red-light;
+      }
+    }
+  }
 }
