@@ -11,6 +11,7 @@
     </head>
     <body>
         <div class="wrapper">
+            <div id="top-line"></div>
             @include('partials.header')
             @include('partials.navbar')
             @yield('content')
