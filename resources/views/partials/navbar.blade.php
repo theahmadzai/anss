@@ -1,3 +1,9 @@
+<button id="toggle" class="toggle">
+    <i class="toggle__bar"></i>
+    <i class="toggle__bar"></i>
+    <i class="toggle__bar"></i>
+</button>
+
 <ul id="navbar" class="navbar">
     <li class="navbar__item">
         <a class="navbar__link" href="/">Home</a>
@@ -69,9 +75,3 @@
         <a class="navbar__link" href="/donate">Donate</a>
     </li>
 </ul>
-
-{{-- <button id="toggle" class="toggle">
-    <i class="toggle__bar"></i>
-    <i class="toggle__bar"></i>
-    <i class="toggle__bar"></i>
-</button> --}}
