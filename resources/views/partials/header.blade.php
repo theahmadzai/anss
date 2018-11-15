@@ -31,7 +31,7 @@
 
         <div class="top-search">
             <form action="" class="top-search__main">
-                <input type="text">
+                <input type="search">
                 <button>Search</button>
             </form>
         </div>
