@@ -22,7 +22,7 @@ $phone: (max-width: 20em);
 $phone-wide: (max-width: 30.0625em);
 $tablet: (max-width: 40.0625em);
 $tablet-wide: (max-width: 60.0626em);
-$laptop: (min-width: 64.0625em);
+$laptop: (max-width: 64.0625em);
 $desktop: (min-width: 80.0625em);
 
 /* Content Width */
@@ -30,5 +30,7 @@ $content-width: 38rem;
 $content-width-wide: 62rem;
 
 /* Style Variables */
-$font: 400 100% / 1.5 'Open Sans', sans-serif;
-$font-bold: 700 100% / 1.25 'Open Sans', sans-serif;
+$text-font-family: 'Open Sans', system-ui, Helvetica, Arial, sans-serif;
+$header-font-family: 'Maven Pro', Roboto, system-ui, Helvetica, Arial, sans-serif;
+$font: 400 100% / 1.5 $text-font-family;
+$font-bold: 700 100% / 1.25 $text-font-family;
