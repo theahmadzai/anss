@@ -1,6 +1,5 @@
 @charset 'utf-8';
 
-@import './reset';
 @import './normalize';
 @import './icons';
 @import './settings';
@@ -15,7 +14,7 @@
 .main-blocks {
   display: grid;
   padding: 1rem;
-  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-columns: 33.33% 33.33% 33.33%;
 
   div {
     margin: 1rem;
