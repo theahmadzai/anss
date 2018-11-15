@@ -1,53 +1,127 @@
 .footer {
   display: flex;
-  justify-content: space-around;
-  padding: 2rem;
   background: #4c4c4c;
 
   @media $tablet {
     flex-direction: column;
   }
+
+  &__left {
+    position: relative;
+    flex: 1;
+    padding: 2rem;
+    transform-style: preserve-3d;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      transform: skewY(150deg);
+      background: linear-gradient(-90deg, #2c2c2c, #4c4c4c);
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    padding: 2rem;
+
+    @media $tablet {
+      flex-wrap: wrap;
+    }
+  }
 }
 
 .column {
-  max-width: 190px;
+  position: relative;
+  z-index: 50;
 
-  @media $tablet {
-    max-width: 100%;
+  @media $phone-wide {
+    &:last-child {
+      margin-top: 2rem;
+    }
   }
 
   &__head {
-    margin-bottom: 1rem;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 500;
-    color: #ffffff;
-
-    @media $tablet {
-      margin-bottom: 0.6rem;
-      padding: 0.5rem;
-      background: #424242;
-    }
+    color: #fefefe;
   }
 
   &__body {
-    @media $tablet {
-      margin-bottom: 2rem;
-      padding: 0.5rem;
+    color: #dddddd;
+
+    p {
+      padding: 0.5rem 0;
+      background: #4c4c4c;
+      font-size: 0.8rem;
+      line-height: 1.5rem;
     }
 
-    a {
-      margin-bottom: 0.2rem;
-      font-size: 0.75rem;
-      font-weight: 400;
-      line-height: 1.4rem;
-      color: #dddddd;
+    form {
+      margin-top: 1.5rem;
+      margin-right: 1rem;
+
+      input {
+        display: block;
+        width: auto;
+        height: 25px;
+        margin-bottom: 0.5rem;
+        padding: 0.3rem 1rem;
+        outline: none;
+        border: none;
+        border-radius: 3px;
+        background: #6c6c6c;
+        font-size: 0.8rem;
+        color: #ffffff;
+
+        &::placeholder {
+          color: #cccccc;
+        }
+      }
+
+      button {
+        margin: 0;
+        padding: 0.4rem 1.3rem;
+        outline: none;
+        border: 0;
+        border-radius: 3px;
+        background: #3c3c3c;
+        font-size: 0.8rem;
+        color: #ffffff;
+        cursor: pointer;
+
+        &:hover {
+          background: $red;
+          color: #ffffff;
+        }
+      }
     }
 
-    span {
-      font-size: 1.2rem;
+    .sm-icons {
+      display: grid;
+      margin-top: 2rem;
+      font-size: 1rem;
+      gap: 1.5rem 1rem;
+      grid-template-columns: auto auto auto;
 
-      &:hover {
-        color: $color2;
+      i {
+        margin-bottom: 0.5rem;
+        padding: 0.5rem;
+        border: 2px solid #ffffff;
+        border-radius: 50%;
+        color: #ffffff;
+
+        &:hover {
+          border-color: $red;
+          background: #ffffff;
+          color: $red;
+        }
       }
     }
   }
