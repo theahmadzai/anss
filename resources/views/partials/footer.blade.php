@@ -1,39 +1,37 @@
 <footer class="footer">
-
-    <div class="column">
-        <h2 class="column__head">Upcomming Events</h2>
-        <div class="column__body">
-            <a href="#">Design, Evidence and Insight Lead</a>
-            <a href="#">Evaluation Assistant (Part-Time)</a>
-            <a href="#">Regional Evaluation Quality Assurance and Ethical Review System</a>
+    <div class="footer__left">
+        <div class="column">
+            <h2 class="column__head">About ANSS</h2>
+            <div class="column__body">
+                <p>ANSS Foundation established by a team of professional Afghans in Toronto, Canada and is a non-political, non-profit and an impartial organization, established in 2017.</p>
+            </div>
         </div>
     </div>
 
-    <div class="column">
-        <h2 class="column__head">Recent Links</h2>
-        <div class="column__body">
-            <a href="#">Design and Insight Lead</a>
-            <a href="#">Evaluation Assistant (Part-Time)</a>
-            <a href="#">Regional Evaluation</a>
+    <div class="footer__right">
+        <div class="column">
+            <h2 class="column__head">Subscribe Us</h2>
+            <div class="column__body">
+                <form action="">
+                    <input type="text" placeholder="Full Name">
+                    <input type="text" placeholder="Email Address">
+                    <button>Subscribe</button>
+                </form>
+            </div>
         </div>
-    </div>
 
-    <div class="column">
-        <h2 class="column__head">Contact Details</h2>
-        <div class="column__body">
-            <a href="#">Design, Evidence and Insight Lead</a>
-            <a href="#">Evaluation Assistant (Part-Time)</a>
-            <a href="#">Quality Assurance and Ethical Review System</a>
-            <a href="#">Design, Evidence and Insight Lead</a>
-        </div>
-    </div>
-
-    <div class="column">
-        <h2 class="column__head">Social Links</h2>
-        <div class="column__body">
-            <a href="#"><span class="icon icon-twitter"></span></a>
-            <a href="#"><span class="icon icon-facebook"></span></a>
-            <a href="#"><span class="icon icon-instagram"></span></a>
+        <div class="column">
+            <h2 class="column__head">Social Links</h2>
+            <div class="column__body">
+                <div class="sm-icons">
+                    <a href="#"><i class="icon icon-twitter"></i></a>
+                    <a href="#"><i class="icon icon-facebook"></i></a>
+                    <a href="#"><i class="icon icon-instagram"></i></a>
+                    <a href="#"><i class="icon icon-youtube"></i></a>
+                    <a href="#"><i class="icon icon-flickr"></i></a>
+                    <a href="#"><i class="icon icon-google-plus"></i></a>
+                </div>
+            </div>
         </div>
     </div>
 
