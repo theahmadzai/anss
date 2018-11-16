@@ -41,6 +41,7 @@ class EventsController extends Controller
         $validator = Validator::make($request->all(), [
             'title' => 'required|min:5|max:50',
             'venue' => 'required',
+            'date' => 'required',
             'image' => 'required|file|image',
             'tags' => 'nullable',
             'content' => 'required|min:100'
@@ -54,6 +55,7 @@ class EventsController extends Controller
             $event = new Event;
             $event->title = $request->title;
             $event->venue = $request->venue;
+            $event->date = $request->date;
             $event->tags = $request->tags;
             $event->content = $request->content;
             $event->image = $request->image->store('public/events');
@@ -100,6 +102,7 @@ class EventsController extends Controller
         $validator = Validator::make($request->all(), [
             'title' => 'required|min:5|max:50',
             'venue' => 'required',
+            'date' => 'required',
             'image' => 'file|image',
             'tags' => 'nullable',
             'content' => 'required|min:100'
@@ -113,6 +116,7 @@ class EventsController extends Controller
             $event = Event::find($event->id);
             $event->title = $request->title;
             $event->venue = $request->venue;
+            $event->date = $request->date;
             $event->tags = $request->tags;
             $event->content = $request->content;
 
