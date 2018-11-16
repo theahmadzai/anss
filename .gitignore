@@ -18,3 +18,5 @@ yarn.lock
 /public/js/libs
 /storage/app/tmp
 /storage/app/public/images
+/storage/app/public/news
+/storage/app/public/events
