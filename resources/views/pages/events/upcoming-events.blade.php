@@ -27,7 +27,7 @@
                                 </div>
                             </div>
                             <div class="view__content">
-                                <figure class="image">
+                                <figure class="image margin--bottom">
                                     <img src="{{$event->image}}" alt="{{$event->title}}">
                                 </figure>
                                 <a href="/upcoming-events/{{$event->id}}"><h3>{{$event->title}}</h3></a>

@@ -25,7 +25,8 @@ class PageController extends Controller
     {
         $slides = Image::getSlides() ?? null;
         $latest_news = News::latest()->limit(3)->get() ?? null;
-        $upcoming_events = $past_events = Event::latest()->limit(3)->get() ?? null;
+        $upcoming_events = Event::getUpcomingEvents(3) ?? null;
+        $past_events = Event::getPastEvents(3) ?? null;
 
         return view('pages.index', [
             'slides' => $slides,

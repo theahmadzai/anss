@@ -20,13 +20,21 @@ class Event extends Model
         return Carbon::parse($value);
     }
 
-    public static function getPastEvents()
+    public static function getPastEvents($value = null)
     {
+        if($value != null) {
+            return self::whereDate('date', '<=', Carbon::now())->latest()->limit(3)->get();
+        }
+
         return self::whereDate('date', '<=', Carbon::now())->get();
     }
 
-    public static function getUpcomingEvents()
+    public static function getUpcomingEvents($value = null)
     {
+        if($value != null) {
+            return self::whereDate('date', '>=', Carbon::now())->latest()->limit(3)->get();
+        }
+
         return self::whereDate('date', '>=', Carbon::now())->get();
     }
 }
