@@ -26,9 +26,8 @@ Route::get('/cultural-environmental-and-educational', 'PageController@culturalEn
 Route::get('/networking-and-community-based-research', 'PageController@networkingAndCommunityBasedResearch');
 
 // Events
-Route::get('/events', 'PageController@events');
-Route::get('/upcoming-events', 'PageController@upcomingEvents');
-Route::get('/past-events', 'PageController@pastEvents');
+Route::get('/upcoming-events/{id?}', 'PageController@upcomingEvents');
+Route::get('/past-events/{id?}', 'PageController@pastEvents');
 
 // Latest News
 Route::get('/latest-news/{id?}', 'PageController@latestNews');
