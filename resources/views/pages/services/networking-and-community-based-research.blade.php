@@ -16,8 +16,9 @@
 
             <ul style="padding:2rem;list-style-type:disc;">
                 <li>Identify gross-root community concerns and issues through conducting researches</li>
-                <li>Proposing viable and evidence-informed recommendations to solve community issues</li>
-                <li>Organizing networking events</li>
+                <li>Proposing viable and evidence-informed recommendations to solve community issues </li>
+                <li>Organizing networking events and community gatherings</li>
+                <li>Facilitating employment opportunities and trainings, and referral of jobseekers to employers</li>
             </ul>
         </div>
     </div>
