@@ -25,6 +25,14 @@
             </div>
 
             <div class="form__control">
+                <label for="">Date</label>
+                <input type="datetime-local" name="date" value="{{ old('date', $event->date) }}">
+                @if ($errors->has('date'))
+                    <p>{{ $errors->first('date') }}</p>
+                @endif
+            </div>
+
+            <div class="form__control">
                 <label for="">Image</label>
                 <input type="file" name="image">
                 @if ($errors->has('image'))

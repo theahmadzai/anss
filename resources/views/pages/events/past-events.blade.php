@@ -9,19 +9,42 @@
     </div>
 
     <div class="container">
-        <div class="container__narrow"></div>
         <div class="container__wide">
-            @foreach ($events as $event)
-                <div class="container__row">
-                    <article class="flex flex--column article">
-                        <div class="flex__item"><a href="/latest-news/{{$event->id}}"><h1>{{ $event->title }}</h1></a></div>
-                        <div class="flex__item"><span class="icon icon-calendar"></span><span>{{ $event->created_at }}</span></div>
-                        <div class="flex__item"><span class="icon icon-price-tag"></span>{{ $event->tags }}</div>
-                        <div class="flex__item"><p>{{ str_limit($event->content, 250) }}</p></div>
-                        <div class="flex__item"><a href="#" class="button">Read More</a></div>
-                    </article>
+            @if ($events_)
+                <div class="row">
+                @foreach ($events_ as $event)
+                    <div class="col col--full border--bottom">
+                        <div class="view">
+                            <div class="date">
+                                <div class="day">
+                                    {{$event->created_at->day}}
+                                </div>
+                                <div class="month">
+                                    {{$event->created_at->shortEnglishMonth}}
+                                </div>
+                                <div class="year">
+                                    {{$event->created_at->year}}
+                                </div>
+                            </div>
+                            <div class="view__content">
+                                <figure class="image margin--bottom">
+                                    <img src="{{$event->image}}" alt="{{$event->title}}">
+                                </figure>
+                                <a href="/past-events/{{$event->id}}"><h3>{{$event->title}}</h3></a>
+                                <p><b>Venue: </b>{{$event->venue}}</p>
+                                <p><b>When: </b>{{$event->date->diffForHumans()}}</p>
+                                <p>{{ str_limit($event->content, 300) }}</p>
+                                <a class="button" href="/past-events/{{$event->id}}">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
                 </div>
-            @endforeach
+            @endif
+        </div>
+
+        <div class="container__narrow">
+
         </div>
     </div>
 

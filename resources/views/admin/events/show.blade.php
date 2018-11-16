@@ -19,6 +19,10 @@
         </div>
 
         <div>
+            <p><b>Date: </b>{{$event->date}}</p>
+        </div>
+
+        <div>
             <p><b>Tags: </b>{{$event->tags ?: 'None'}}</p>
         </div>
 
