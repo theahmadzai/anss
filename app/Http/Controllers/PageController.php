@@ -24,12 +24,14 @@ class PageController extends Controller
     public function index()
     {
         $slides = Image::getSlides() ?? null;
-        $news = News::latest()->limit(3)->get() ?? null;
-        $events = Event::latest()->limit(3)->get() ?? null;
+        $latest_news = News::latest()->limit(3)->get() ?? null;
+        $upcoming_events = $past_events = Event::latest()->limit(3)->get() ?? null;
 
         return view('pages.index', [
             'slides' => $slides,
-            'latest_news' => $news
+            'latest_news' => $latest_news,
+            'upcoming_events' => $upcoming_events,
+            'past_events' => $past_events,
         ]);
     }
 

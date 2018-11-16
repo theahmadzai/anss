@@ -44,7 +44,7 @@
   position: absolute;
   top: 100%;
   left: 0;
-  z-index: 100;
+  z-index: 1000;
   display: none;
   width: 10rem;
   border: 1px solid #e0e0e0;

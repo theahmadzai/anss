@@ -1,0 +1,34 @@
+.news {
+  height: 100%;
+  background: #f9f9f9;
+
+  &__head {
+    display: block;
+  }
+
+  &__body {
+    display: flex;
+    height: auto;
+    border-top: 6px solid $red;
+
+    &__content {
+      padding: 0.5rem;
+      background: #ffffff;
+
+      h3 {
+        font-size: 1rem;
+        text-transform: uppercase;
+      }
+
+      p {
+        font-size: 0.88rem;
+      }
+
+      a {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

@@ -14,6 +14,36 @@
       display: block;
     }
   }
+
+  p,
+  a {
+    position: absolute;
+    z-index: 500;
+    padding: 0.5rem 1rem;
+  }
+
+  p {
+    top: 5%;
+    left: 4%;
+    opacity: 0.5;
+    background: #000000;
+    font-size: 1.5rem;
+    color: #ffffff;
+  }
+
+  a {
+    position: absolute;
+    right: 5%;
+    bottom: 20%;
+    opacity: 0.6;
+    background: #000000;
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
 
 .slider ul {

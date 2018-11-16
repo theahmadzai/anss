@@ -51,7 +51,6 @@
         <div class="container__narrow">
             <h3 style="margin-bottom:1rem;">Links</h3>
             <div><a href="/register">Sign Up</a></div>
-            <div><a href="http://anss.ca:2095">Webmail Login</a></div>
             <div><a href="/subscribe">Subscribe</a></div>
         </div>
     </div>

@@ -9,12 +9,16 @@
     </div>
 
     <div class="container">
+        <div class="container__narrow"></div>
+
         <div class="container__wide">
             @if ($images->count())
-                <div class="gallery">
+                <div class="row">
                     @foreach ($images as $image)
-                        <div class="gallery__item">
-                            <img src="{{$image->url}}" alt="{{$image->title}}">
+                        <div class="col">
+                            <figure class="image">
+                                <img src="{{$image->url}}" alt="{{$image->title}}">
+                            </figure>
                         </div>
                     @endforeach
                 </div>
@@ -22,7 +26,5 @@
                 <h2 style="padding:2rem; text-align:center;">No images added currently!</h2>
             @endif
         </div>
-
-        <div class="container__narrow"></div>
     </div>
 @endsection

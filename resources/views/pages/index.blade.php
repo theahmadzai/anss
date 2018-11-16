@@ -9,9 +9,9 @@
             @if ($slides)
                 @foreach ($slides as $slide)
                     <li>
-                        <img src="{{$slide->url}}" alt="{{$slide->title}}" style="position:relative;">
-                        <h1 style="position:absolute;z-index:2000;left:4%;top:10%; background:#000; color:#fff; opacity:0.5; padding:0.5rem 1rem;">{{$slide->title}}</h1>
-                        <a style="position:absolute;z-index:2000;right:4%;bottom:15%; background:#fff; padding:0.5rem 1rem;" href="{{$slide->description}}">Read More</a>
+                        <img src="{{$slide->url}}" alt="{{$slide->title}}">
+                        <p>{{$slide->title}}</p>
+                        <a href="{{$slide->description}}">Read More</a>
                     </li>
                 @endforeach
             @endif
@@ -20,54 +20,162 @@
         <button class="slider__next "id="slider-next"><span class="icon icon-circle-right"></span></button>
     </div>
 
-    <div class="main-blocks">
-        <div>
-            <h2>Vision</h2>
-            <p>Prosperous, connected and self-reliant communities</p>
-        </div>
-
-        <div>
-            <h2>Mission</h2>
-            <p>To provide quality social services for concerned communities</p>
-        </div>
-
-        <div>
-            <h2>Core Values</h2>
-            <ul>
-                <li>Integrity</li>
-                <li>Transparency</li>
-                <li>Professionalism</li>
-                <li>Diversity</li>
-            </ul>
-        </div>
-
-        <div>
-            <h2>Competencies</h2>
-            <ul>
-                <li>Client Centered</li>
-                <li>Results Oriented </li>
-                <li>Accountability</li>
-                <li>Communication</li>
-                <li>Excellence</li>
-            </ul>
+    <div class="plate">
+        <div class="waves-wrapper">
+            <div class="waves">
+                <svg viewBox="0 0 800 600">
+                    <path d="M0,13 C66.6666667,-3.66666667 133.333333,-3.66666667 200,13 C266.666667,29.6666667 333.333333,29.6666667 400,13 C466.666667,-3.66666667 533.333333,-3.66666667 600,13 C666.666667,29.6666667 733.333333,29.6666667 800,13 L800,563 L0,563 L0,13 Z"
+                        fill="rgba(130, 34, 44, 1)"></path>
+                    <path d="M0,13 C66.6666667,-3.66666667 133.333333,-3.66666667 200,13 C266.666667,29.6666667 333.333333,29.6666667 400,13 C466.666667,-3.66666667 533.333333,-3.66666667 600,13 C666.666667,29.6666667 733.333333,29.6666667 800,13 L800,563 L0,563 L0,13 Z"
+                        fill="rgba(160, 34, 70, 0.5)"></path>
+                    <path d="M0,13 C66.6666667,-3.66666667 133.333333,-3.66666667 200,13 C266.666667,29.6666667 333.333333,29.6666667 400,13 C466.666667,-3.66666667 533.333333,-3.66666667 600,13 C666.666667,29.6666667 733.333333,29.6666667 800,13 L800,563 L0,563 L0,13 Z"
+                        fill="rgba(130, 30, 70, 1)"></path>
+                </svg>
+            </div>
         </div>
     </div>
 
-    <div class="main-news">
-        <h2>Latest news</h2>
 
-        <div class="news-blocks">
-            @foreach ($latest_news as $news)
-                <div class="block">
-                    <div class="date">{{$news->created_at->format('F d, Y')}}</div>
-                    <a href="/latest-news/{{$news->id}}"><h3>{{$news->title}}</h3></a>
-                    <p>{{ str_limit($news->content, 200) }}</p>
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <h2>Vision</h2>
+                <p>Prosperous, connected and self-reliant communities</p>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card">
+                <h2>Mission</h2>
+                <p>To provide quality social services for concerned communities</p>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card">
+                <h2>Core Values</h2>
+                <ul>
+                    <li>Integrity</li>
+                    <li>Transparency</li>
+                    <li>Professionalism</li>
+                    <li>Diversity</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    @if ($latest_news)
+    <div class="shadow-separator"></div>
+    <h2 class="nice-heading">Latest News</h2>
+
+    <div class="row">
+        @foreach ($latest_news as $news)
+        <div class="col">
+            <div class="news">
+                <div class="news__head">
+                    <figure class="image">
+                        <img src="{{$news->image}}" alt="{{$news->title}}">
+                    </figure>
                 </div>
-            @endforeach
+                <div class="news__body">
+                    <div class="date">
+                        <div class="day">
+                            {{$news->created_at->day}}
+                        </div>
+                        <div class="month">
+                            {{$news->created_at->shortEnglishMonth}}
+                        </div>
+                        <div class="year">
+                            {{$news->created_at->year}}
+                        </div>
+                    </div>
+                    <div class="news__body__content">
+                        <a href="/latest-news/{{$news->id}}"><h3>{{$news->title}}</h3></a>
+                        <p>{{ str_limit($news->content, 200) }}</p>
+                        <a href="/latest-news/{{$news->id}}">Read more</a>
+                    </div>
+                </div>
+            </div>
         </div>
+        @endforeach
     </div>
+    @endif
+
+    @if ($upcoming_events)
+    <div class="shadow-separator"></div>
+    <h2 class="nice-heading">Upcoming Events</h2>
+
+    <div class="row">
+        @foreach ($upcoming_events as $news)
+        <div class="col">
+            <div class="news">
+                <div class="news__head">
+                    <figure class="image">
+                        <img src="{{$news->image}}" alt="{{$news->title}}">
+                    </figure>
+                </div>
+                <div class="news__body">
+                    <div class="date">
+                        <div class="day">
+                            {{$news->created_at->day}}
+                        </div>
+                        <div class="month">
+                            {{$news->created_at->shortEnglishMonth}}
+                        </div>
+                        <div class="year">
+                            {{$news->created_at->year}}
+                        </div>
+                    </div>
+                    <div class="news__body__content">
+                        <a href="/latest-news/{{$news->id}}"><h3>{{$news->title}}</h3></a>
+                        <p>{{ str_limit($news->content, 200) }}</p>
+                        <a href="/upcoming-events/{{$news->id}}">Read more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+    @endif
+
+    @if ($past_events)
+    <div class="shadow-separator"></div>
+    <h2 class="nice-heading">Past Events</h2>
+
+    <div class="row">
+        @foreach ($past_events as $news)
+        <div class="col">
+            <div class="news">
+                <div class="news__head">
+                    <figure class="image">
+                        <img src="{{$news->image}}" alt="{{$news->title}}">
+                    </figure>
+                </div>
+                <div class="news__body">
+                    <div class="date">
+                        <div class="day">
+                            {{$news->created_at->day}}
+                        </div>
+                        <div class="month">
+                            {{$news->created_at->shortEnglishMonth}}
+                        </div>
+                        <div class="year">
+                            {{$news->created_at->year}}
+                        </div>
+                    </div>
+                    <div class="news__body__content">
+                        <a href="/latest-news/{{$news->id}}"><h3>{{$news->title}}</h3></a>
+                        <p>{{ str_limit($news->content, 200) }}</p>
+                        <a href="/past-events/{{$news->id}}">Read more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+    @endif
 
     <div class="subscribe">
-        <a href="/subscribe">Subscribe</a>
-     </div>
+        <a href="/contact">CONTACT US</a>
+    </div>
 @endsection
