@@ -79,19 +79,22 @@ class PageController extends Controller
     /**
      * Events
      */
-    public function events()
+    public function upcomingEvents($id = null)
     {
-        return view('pages.events.index');
+        if($id === null) {
+            return view('pages.events.upcoming-events', ['events_' => Event::getUpcomingEvents()]);
+        }
+
+        return view('pages.events.upcoming-events-page', ['event_' => Event::find($id)]);
     }
 
-    public function upcomingEvents()
+    public function pastEvents($id = null)
     {
-        return view('pages.events.upcoming-events', ['events' => Event::all()]);
-    }
+        if($id === null) {
+            return view('pages.events.past-events', ['events_' => Event::getPastEvents()]);
+        }
 
-    public function pastEvents()
-    {
-        return view('pages.events.past-events', ['events' => Event::all()]);
+        return view('pages.events.past-events-page', ['event_' => Event::find($id)]);
     }
 
     /**
@@ -100,10 +103,10 @@ class PageController extends Controller
     public function latestNews($id = null)
     {
         if($id === null) {
-            return view('pages.news.index', ['articles' => News::all()]);
+            return view('pages.news.latest-news', ['news_' => News::all()]);
         }
 
-        return view('pages.news.news-page', ['article' => News::find($id)]);
+        return view('pages.news.latest-news-page', ['news_' => News::find($id)]);
     }
 
     /**
