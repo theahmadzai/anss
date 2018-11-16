@@ -1,0 +1,24 @@
+.view {
+  display: flex;
+  padding: 1rem;
+
+  &__content {
+    margin-left: 1rem;
+    padding: 0 0.5rem;
+    background: #ffffff;
+
+    h3 {
+      font-size: 1rem;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-size: 0.88rem;
+      line-height: 1.8rem;
+    }
+
+    .button {
+      margin-top: 1rem;
+    }
+  }
+}

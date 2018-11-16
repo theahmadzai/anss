@@ -7,14 +7,14 @@
 @import './partials/header';
 @import './partials/navbar';
 @import './partials/footer';
-@import './partials/flex';
-@import './partials/buttons';
 @import './partials/slider';
 @import './partials/utils';
 @import './partials/plate';
 @import './partials/grid';
 @import './partials/card';
 @import './partials/news';
+@import './partials/view';
+@import './partials/article';
 
 .appointments {
   display: flex;

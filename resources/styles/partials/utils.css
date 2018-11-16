@@ -123,3 +123,50 @@
     }
   }
 }
+
+/**********************
+*     Button          *
+***********************/
+
+.button {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  background-color: $red;
+  transition: background-color 100ms ease-out;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+
+  &:hover {
+    background-color: silver;
+    color: #ffffff;
+  }
+}
+
+/**********************
+*     Border          *
+***********************/
+
+.border {
+  &--bottom {
+    border-bottom: 1px solid #eeeeee;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+/**********************
+*     Border          *
+***********************/
+
+.margin {
+  &--bottom {
+    margin-bottom: 1rem;
+  }
+}

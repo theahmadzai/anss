@@ -13,4 +13,8 @@
   @media $tablet {
     flex: 100%;
   }
+
+  &--full {
+    flex: 100%;
+  }
 }
