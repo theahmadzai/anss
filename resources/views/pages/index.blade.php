@@ -5,13 +5,15 @@
 @section('content')
 
     <div id="slider" class="slider">
-        @foreach ($slides as $slide)
-            <div class="slide">
-                <img src="{{$slide->url}}" alt="{{$slide->title}}">
-                <p>{{$slide->title}}</p>
-                <a href="{{$slide->description}}">Read More</a>
-            </div>
-        @endforeach
+        @if($slides)
+            @foreach ($slides as $slide)
+                <div class="slide">
+                    <img src="{{$slide->url}}" alt="{{$slide->title}}">
+                    <p>{{$slide->title}}</p>
+                    <a href="{{$slide->description}}">Read More</a>
+                </div>
+            @endforeach
+        @endif
     </div>
 
     <div class="plate">
