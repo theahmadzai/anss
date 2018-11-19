@@ -1,111 +1,58 @@
 .slider {
-  position: relative;
-  width: 100%;
-  height: 320px;
-  overflow: hidden;
+  margin-bottom: -5px;
 
-  @media $tablet {
-    height: 200px;
+  .slick-prev {
+    left: 0;
+    z-index: 50;
   }
 
-  &:hover {
-    .slider__prev,
-    .slider__next {
-      display: block;
+  .slick-next {
+    right: 0;
+  }
+
+  .slide {
+    position: relative;
+
+    p,
+    a {
+      position: absolute;
+      z-index: 1100;
+      padding: 0.5rem 1rem;
+
+      @media $tablet {
+        padding: 0.25 0.4rem;
+      }
+    }
+
+    p {
+      top: 5%;
+      left: 4%;
+      opacity: 0.5;
+      background: #000000;
+      font-size: 1.5rem;
+      color: #ffffff;
+
+      @media $tablet {
+        font-size: 0.8rem;
+      }
+    }
+
+    a {
+      position: absolute;
+      right: 5%;
+      bottom: 20%;
+      opacity: 0.6;
+      background: #000000;
+      box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.5);
+      color: #ffffff;
+
+      @media $tablet {
+        font-size: 0.7rem;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
     }
   }
-
-  p,
-  a {
-    position: absolute;
-    z-index: 500;
-    padding: 0.5rem 1rem;
-  }
-
-  p {
-    top: 5%;
-    left: 4%;
-    opacity: 0.5;
-    background: #000000;
-    font-size: 1.5rem;
-    color: #ffffff;
-  }
-
-  a {
-    position: absolute;
-    right: 5%;
-    bottom: 20%;
-    opacity: 0.6;
-    background: #000000;
-    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.5);
-    color: #ffffff;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-}
-
-.slider ul {
-  position: relative;
-  width: 100%;
-  height: inherit;
-}
-
-.slider ul li {
-  position: relative;
-  display: block;
-  float: left;
-  margin: 0;
-  padding: 0;
-  background: #cccccc;
-
-  img {
-    height: auto;
-
-    @media $tablet {
-      width: auto;
-      height: 200px;
-    }
-  }
-}
-
-.slider__prev,
-.slider__next {
-  position: absolute;
-  top: 50%;
-  display: none;
-  padding: 1rem;
-  opacity: 0.6;
-  transform: translateY(-50%);
-  outline: none;
-  border: none;
-  background: #000000;
-  color: #ffffff;
-  text-transform: uppercase;
-  cursor: pointer;
-
-  @media $tablet {
-    padding: 0.5rem;
-  }
-
-  span {
-    font-size: 1.5rem;
-
-    @media $tablet {
-      font-size: 1rem;
-    }
-  }
-
-  &:hover {
-    background: $red;
-  }
-}
-
-.slider__prev {
-  left: 0;
-}
-
-.slider__next {
-  right: 0;
 }
