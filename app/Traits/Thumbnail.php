@@ -30,6 +30,6 @@ trait Thumbnail
         ImageTool::make($image->getRealPath())->fit($x, $y, function($constraint) {
             $constraint->upsize();
             $constraint->aspectRatio();
-        })->save(public_path().'/storage/thumbnails/'.basename($this->{$r}), 80);
+        })->save(public_path('/storage/thumbnails/'.basename($this->{$r}), 80));
     }
 }
