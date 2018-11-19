@@ -55,6 +55,7 @@ class NewsController extends Controller
             $news->tags = $request->tags;
             $news->content = $request->content;
             $news->image = $request->image->store('public/news');
+            $news->createThumbnail($request->image);
             $news->save();
 
         } catch (Exception $e) {
@@ -117,6 +118,7 @@ class NewsController extends Controller
                     Storage::move($news->getOriginal('image'), 'tmp/news/updated/' . basename($news->image));
                 }
                 $news->image = $request->image->store('public/news');
+                $news->createThumbnail($request->image);
             }
 
             $news->save();

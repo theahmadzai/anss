@@ -52,7 +52,7 @@ class ImageController extends Controller
 
         $validator = Validator::make($request->all(), [
             'title' => 'required|min:5|max:50',
-            'category'  => 'required|exists:categories,id',
+            'category' => 'required|exists:categories,id',
             'image' =>  $image_rules,
             'description' => 'nullable'
         ]);
@@ -67,6 +67,7 @@ class ImageController extends Controller
             $image->category_id = $request->category;
             $image->description = $request->description;
             $image->url = $request->image->store('public/images');
+            $image->createThumbnail($request->image);
             $image->save();
 
         } catch (Exception $e) {
@@ -112,10 +113,17 @@ class ImageController extends Controller
      */
     public function update(Request $request, Image $image)
     {
-         $validator = Validator::make($request->all(), [
+        $category = Category::find($request->category);
+        $image_rules = 'file|image';
+
+        if($category->count() > 0 && (string)$category->name == 'slider') {
+            $image_rules = 'dimensions:min_height=300,min_width=900,max_height=400,max_width=1100,ratio=20/7';
+        }
+
+        $validator = Validator::make($request->all(), [
             'title' => 'required|min:5|max:50',
-            'category'  => 'required|exists:categories,id',
-            'image' => 'file|image',
+            'category' => 'required|exists:categories,id',
+            'image' => $image_rules,
             'description' => 'nullable'
         ]);
 
@@ -134,6 +142,7 @@ class ImageController extends Controller
                     Storage::move($image->getOriginal('url'), 'tmp/images/updated/' . $image->category_id . '/' . basename($image->url));
                 }
                 $image->url = $request->image->store('public/images');
+                $image->createThumbnail($request->image);
             }
 
             $image->save();

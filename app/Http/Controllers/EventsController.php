@@ -59,6 +59,7 @@ class EventsController extends Controller
             $event->tags = $request->tags;
             $event->content = $request->content;
             $event->image = $request->image->store('public/events');
+            $event->createThumbnail($request->image);
             $event->save();
 
         } catch (Exception $e) {
@@ -125,6 +126,7 @@ class EventsController extends Controller
                     Storage::move($event->getOriginal('image'), 'tmp/events/updated/' . basename($event->image));
                 }
                 $event->image = $request->image->store('public/events');
+                $event->createThumbnail($request->image);
             }
 
             $event->save();
