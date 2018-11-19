@@ -7,6 +7,9 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>@yield('title') | {{ config('app.name') }}</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Maven+Pro:400,500,700|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-lightbox/0.2.12/slick-lightbox.css">
         <link rel="stylesheet" href="/css/app.css">
     </head>
     <body>
@@ -20,6 +23,8 @@
 
         <script src='https://www.google.com/recaptcha/api.js' async defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-lightbox/0.2.12/slick-lightbox.min.js"></script>
         <script src="/js/app.js"></script>
     </body>
 </html>

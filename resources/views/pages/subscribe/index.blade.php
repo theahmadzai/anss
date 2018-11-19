@@ -6,6 +6,10 @@
 
     <div style="padding:2rem;">
 
+        @if (session('status'))
+            <p>{{ session('status') }}</p>
+        @endif
+
         <form method="POST" action="/subscribe">
             @csrf
 

@@ -9,16 +9,27 @@
     </div>
 
     <div class="container">
-        <div class="container__narrow"></div>
+        <div class="container__narrow">
+            @if($categories->count())
+                @foreach ($categories as $category)
+                    <a style="display:block;" href="/gallery/{{$category->id}}">{{$category->name}}</a>
+                @endforeach
+            @else
+                <p>No categories</p>
+            @endif
+        </div>
 
         <div class="container__wide">
+            {{$images->links()}}
+
             @if ($images->count())
-                <div class="row">
+                <div id="lightbox" class="grid">
                     @foreach ($images as $image)
-                        <div class="col">
-                            <figure class="image">
-                                <img src="{{$image->url}}" alt="{{$image->title}}">
-                            </figure>
+                        <div class="grid__item">
+                            <a href="{{$image->url}}" data-caption="{{$image->title}}">
+                                <img src="{{$image->thumbnail()}}" alt="{{$image->title}}">
+                                <p>{{$image->title}}</p>
+                            </a>
                         </div>
                     @endforeach
                 </div>

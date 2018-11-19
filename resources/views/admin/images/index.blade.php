@@ -20,7 +20,7 @@
                         <a href="#" onclick="this.parentElement.submit();"><span class="icon icon-bin"></span></a>
                     </form>
                 </div>
-                <img src="{{$image->url}}" alt="{{$image->title}}">
+                <img src="{{$image->thumbnail()}}" alt="{{$image->title}}">
             </div>
         @endforeach
 

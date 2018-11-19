@@ -12,9 +12,10 @@
         <div class="column">
             <h2 class="column__head">Subscribe Us</h2>
             <div class="column__body">
-                <form action="">
+                <form method="POST" action="/subscribe">
+                    @csrf
                     <input type="text" placeholder="Full Name">
-                    <input type="text" placeholder="Email Address">
+                    <input type="email" placeholder="Email Address">
                     <button>Subscribe</button>
                 </form>
             </div>

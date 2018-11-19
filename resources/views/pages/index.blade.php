@@ -4,20 +4,14 @@
 
 @section('content')
 
-    <div class="slider" id="slider">
-        <ul>
-            @if ($slides)
-                @foreach ($slides as $slide)
-                    <li>
-                        <img src="{{$slide->url}}" alt="{{$slide->title}}">
-                        <p>{{$slide->title}}</p>
-                        <a href="{{$slide->description}}">Read More</a>
-                    </li>
-                @endforeach
-            @endif
-        </ul>
-        <button class="slider__prev" id="slider-prev"><span class="icon icon-circle-left"></span></button>
-        <button class="slider__next "id="slider-next"><span class="icon icon-circle-right"></span></button>
+    <div id="slider" class="slider">
+        @foreach ($slides as $slide)
+            <div class="slide">
+                <img src="{{$slide->url}}" alt="{{$slide->title}}">
+                <p>{{$slide->title}}</p>
+                <a href="{{$slide->description}}">Read More</a>
+            </div>
+        @endforeach
     </div>
 
     <div class="plate">
@@ -68,13 +62,13 @@
     <div class="shadow-separator"></div>
     <h2 class="nice-heading">Latest News</h2>
 
-    <div class="row">
+    <div id="news-slider" class="row">
         @foreach ($latest_news as $news)
         <div class="col">
             <div class="news">
                 <div class="news__head">
                     <figure class="image">
-                        <img src="{{$news->image}}" alt="{{$news->title}}">
+                        <img src="{{$news->thumbnail()}}" alt="{{$news->title}}">
                     </figure>
                 </div>
                 <div class="news__body">
