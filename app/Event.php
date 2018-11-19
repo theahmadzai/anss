@@ -5,9 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Storage;
 use Carbon\Carbon;
+use App\Traits\Thumbnail;
 
 class Event extends Model
 {
+    use Thumbnail;
+
     protected $table = 'events';
 
     public function getImageAttribute($image)

@@ -5,9 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Category;
 use Storage;
+use App\Traits\Thumbnail;
 
 class Image extends Model
 {
+    use Thumbnail;
+
     protected $table = 'images';
 
     public function category()
