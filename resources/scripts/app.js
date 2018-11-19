@@ -1,5 +1,3 @@
-import './slider'
-
 $(document).ready(() => {
 
   // CSRF token
@@ -20,6 +18,35 @@ $(document).ready(() => {
   $('#toggle').click(event => {
     $('#toggle').toggleClass('toggle--change')
     $('#navbar').slideToggle()
+  })
+
+  // Slider
+  $('#slider').slick({
+    infinite: true,
+    autoplay: true,
+    adaptiveHeight: true
+  })
+
+  $('#news-slider').slick({
+    infinite: true,
+    autoplay: true,
+    adaptiveHeight: true,
+    slidesToShow: 3,
+    dots: true,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 1
+        }
+      }
+    ]
+  })
+
+  // Lightbox
+  $('#lightbox').slickLightbox({
+    caption: 'caption'
   })
 
 })
