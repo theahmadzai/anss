@@ -5,7 +5,6 @@
 }
 
 .col {
-  display: flex;
   flex: 33.33%;
   flex-flow: column;
   padding: 1rem;
@@ -16,5 +15,46 @@
 
   &--full {
     flex: 100%;
+  }
+}
+
+.grid {
+  display: grid;
+  padding: 0.5rem;
+  grid-template-columns: repeat(3, 33.33%);
+
+  @media $tablet {
+    grid-template-columns: 100%;
+  }
+
+  .grid__item {
+    position: relative;
+    margin: 0.5rem;
+    border: 1px solid #cccccc;
+    background: #dddddd;
+    overflow: hidden;
+
+    &:hover {
+      p {
+        display: block;
+      }
+
+      img {
+        opacity: 0.9;
+      }
+    }
+
+    p {
+      position: absolute;
+      bottom: 0;
+      z-index: 50;
+      display: none;
+      padding: 0.2rem 0.4rem;
+      opacity: 0.6;
+      background: #000000;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
   }
 }
