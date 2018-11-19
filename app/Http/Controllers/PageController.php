@@ -118,7 +118,7 @@ class PageController extends Controller
         return view('pages.gallery.index', [
             'categories' => Category::where('slug', '!=', 'slider')->get(),
             'images' => !$id
-                ? Image::where('category_id','!=', Category::where('slug', 'slider')->first()->id )->paginate(9)
+                ? Image::where('category_id','!=', Category::where('slug', 'slider')->first()->id ?? null)->paginate(9)
                 : Image::where('category_id', $id)->paginate(9)
         ]);
     }
