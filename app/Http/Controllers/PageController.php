@@ -24,7 +24,7 @@ class PageController extends Controller
     public function index()
     {
         $slides = Image::getSlides() ?? null;
-        $latest_news = News::latest()->limit(3)->get() ?? null;
+        $latest_news = News::latest()->limit(9)->get() ?? null;
         $upcoming_events = Event::getUpcomingEvents(3) ?? null;
         $past_events = Event::getPastEvents(3) ?? null;
 
@@ -113,9 +113,14 @@ class PageController extends Controller
     /**
      * Gallery
      */
-    public function gallery()
+    public function gallery($id = null)
     {
-        return view('pages.gallery.index', ['images' => Image::all()]);
+        return view('pages.gallery.index', [
+            'categories' => Category::where('slug', '!=', 'slider')->get(),
+            'images' => !$id
+                ? Image::where('category_id','!=', Category::where('slug', 'slider')->first()->id )->paginate(9)
+                : Image::where('category_id', $id)->paginate(9)
+        ]);
     }
 
     /**
@@ -222,7 +227,7 @@ class PageController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return back()->withInput()->withErrors($validator);
+            return redirect('/subscribe')->withInput()->withErrors($validator);
         }
 
         try {
