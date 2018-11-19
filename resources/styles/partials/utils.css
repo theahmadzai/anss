@@ -170,3 +170,11 @@
     margin-bottom: 1rem;
   }
 }
+
+/**********************
+*     Pointer         *
+***********************/
+
+.pointer {
+  cursor: pointer;
+}
