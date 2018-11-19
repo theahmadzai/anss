@@ -33,7 +33,7 @@ Route::get('/past-events/{id?}', 'PageController@pastEvents');
 Route::get('/latest-news/{id?}', 'PageController@latestNews');
 
 // Gallery
-Route::get('/gallery', 'PageController@gallery');
+Route::get('/gallery/{id?}', 'PageController@gallery');
 
 // Appointments
 Route::get('/appointments', 'PageController@appointments');
