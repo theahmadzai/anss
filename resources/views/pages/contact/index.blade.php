@@ -10,9 +10,10 @@
 
     <div class="container">
         <div class="container__narrow"></div>
-        <div class="container__wide">
-            <div class="container__row">
 
+        <div class="container__wide">
+
+            <div style="padding:2rem;">
                 <h1>Contact Form</h1>
 
                 <p>Thank you for using this form to leave us a message. Required fields marked with *.</p>
@@ -64,6 +65,7 @@
                     </div>
                 </form>
             </div>
+
         </div>
     </div>
 
