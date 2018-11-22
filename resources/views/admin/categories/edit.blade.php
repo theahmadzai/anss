@@ -17,14 +17,6 @@
             </div>
 
             <div class="form__control">
-                <label for="">Slug</label>
-                <input type="text" name="slug" value="{{ old('slug', $category->slug) }}">
-                @if ($errors->has('slug'))
-                    <p>{{ $errors->first('slug') }}</p>
-                @endif
-            </div>
-
-            <div class="form__control">
                 <button>Update</button>
             </div>
         </form>
