@@ -21,3 +21,4 @@ yarn.lock
 /storage/app/public/images
 /storage/app/public/news
 /storage/app/public/events
+/storage/app/public/slides
