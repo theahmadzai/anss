@@ -74,6 +74,9 @@ Route::prefix('/admin')->group(function() {
     // Images
     Route::resource('/images', 'ImageController');
 
+    // Slider
+    Route::resource('/slides', 'SlideController');
+
     // Appointments
     Route::resource('/appointments', 'AppointmentController');
 
