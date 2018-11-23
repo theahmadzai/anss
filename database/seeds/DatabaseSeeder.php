@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
             AppointmentsTableSeeder::class,
             CategoriesTableSeeder::class,
             ImagesTableSeeder::class,
-            SubscribersTableSeeder::class
+            SlidesTableSeeder::class,
+            SubscribersTableSeeder::class,
         ]);
     }
 }
