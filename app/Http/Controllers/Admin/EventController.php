@@ -6,7 +6,7 @@ use App\Event;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreEventRequest;
 
-class EventsController extends Controller
+class EventController extends Controller
 {
     public function index()
     {
@@ -22,7 +22,7 @@ class EventsController extends Controller
 
     public function store(StoreEventRequest $request)
     {
-        Event::create($request->validate());
+        Event::create($request->validated());
 
         return back()->with('status', 'Event Added Successfully!');
     }
