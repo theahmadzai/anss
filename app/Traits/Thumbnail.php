@@ -2,7 +2,7 @@
 
 namespace App\Traits;
 
-use ImageTool;
+use Intervention\Image\Facades\Image as ImageTool;
 
 trait Thumbnail
 {
