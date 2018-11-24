@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\News;
-use App\Event;
 use App\Appointment;
-use App\Manager;
-use App\Image;
 use App\Category;
-use App\Subscriber;
-use App\Rules\ReCaptcha;
-use App\Mail\Contact as ContactMail;
+use App\Event;
+use App\Image;
 use App\Mail\Appointment as AppointmentMail;
-use Validator;
+use App\Mail\Contact as ContactMail;
+use App\News;
+use App\Rules\ReCaptcha;
+use App\Slide;
+use App\Subscriber;
+use Illuminate\Http\Request;
 use Mail;
+use Validator;
 
 class PageController extends Controller
 {
@@ -23,10 +23,10 @@ class PageController extends Controller
      */
     public function index()
     {
-        $slides = Image::getSlides() ?? null;
+        $slides = Slide::get() ?? null;
         $latest_news = News::latest()->limit(9)->get() ?? null;
-        $upcoming_events = Event::getUpcomingEvents(3) ?? null;
-        $past_events = Event::getPastEvents(3) ?? null;
+        $upcoming_events = Event::upcoming()->latest()->limit(3)->get() ?? null;
+        $past_events = Event::past()->latest()->limit(3)->get() ?? null;
 
         return view('pages.index', [
             'slides' => $slides,
@@ -82,7 +82,7 @@ class PageController extends Controller
      */
     public function upcomingEvents($id = null)
     {
-        if($id === null) {
+        if ($id === null) {
             return view('pages.events.upcoming-events', ['events_' => Event::getUpcomingEvents()]);
         }
 
@@ -91,7 +91,7 @@ class PageController extends Controller
 
     public function pastEvents($id = null)
     {
-        if($id === null) {
+        if ($id === null) {
             return view('pages.events.past-events', ['events_' => Event::getPastEvents()]);
         }
 
@@ -103,7 +103,7 @@ class PageController extends Controller
      */
     public function latestNews($id = null)
     {
-        if($id === null) {
+        if ($id === null) {
             return view('pages.news.latest-news', ['news_' => News::all()]);
         }
 
@@ -118,8 +118,8 @@ class PageController extends Controller
         return view('pages.gallery.index', [
             'categories' => Category::where('slug', '!=', 'slider')->get(),
             'images' => !$id
-                ? Image::where('category_id','!=', Category::where('slug', 'slider')->first()->id ?? null)->paginate(9)
-                : Image::where('category_id', $id)->paginate(9)
+            ? Image::where('category_id', '!=', Category::where('slug', 'slider')->first()->id ?? null)->paginate(9)
+            : Image::where('category_id', $id)->paginate(9),
         ]);
     }
 
@@ -128,30 +128,36 @@ class PageController extends Controller
      */
     public function appointments()
     {
-        return view('pages.appointments.index', ['appointments' => Appointment::getAppointments() ?? null]);
+        return view('pages.appointments.index', [
+            'appointments' => Appointment::unexpired()->get() ?? null,
+        ]);
     }
 
     public function appointmentsPage($id = null)
     {
-        $appointment = Appointment::getAvailableAppointment($id);
+        $appointment = Appointment::unexpired()->find($id);
 
-        if(!$appointment) abort(404);
+        if (!$appointment) {
+            abort(404);
+        }
 
         return view('pages.appointments.book', ['appointment' => $appointment]);
     }
 
     public function appointmentsBook(Request $request, $id)
     {
-        $appointment = Appointment::getAvailableAppointment($id);
+        $appointment = Appointment::unbooked()->unexpired()->find($id);
 
-        if(!$appointment) abort(404);
+        if (!$appointment) {
+            abort(404);
+        }
 
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|email',
             'phone' => 'nullable|numeric',
             'message' => 'nullable|max:500',
-            'file' => 'nullable|file'
+            'file' => 'nullable|file',
         ]);
 
         if ($validator->fails()) {
@@ -199,7 +205,7 @@ class PageController extends Controller
             'email' => 'required|email',
             'subject' => 'required',
             'message' => 'required|min:100',
-            'g-recaptcha-response' => new ReCaptcha()
+            'g-recaptcha-response' => new ReCaptcha(),
         ]);
 
         if ($validator->fails()) {
@@ -221,9 +227,9 @@ class PageController extends Controller
 
     public function subscribeStore(Request $request)
     {
-         $validator = Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'email' => 'required|email'
+            'email' => 'required|email',
         ]);
 
         if ($validator->fails()) {
