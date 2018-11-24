@@ -2,15 +2,17 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use App\Category;
-use App\Image;
 use App\Event;
+use App\Image;
 use App\News;
 use App\Observers\CategoryObserver;
-use App\Observers\ImageObserver;
 use App\Observers\EventObserver;
+use App\Observers\ImageObserver;
 use App\Observers\NewsObserver;
+use App\Observers\SlideObserver;
+use App\Slide;
+use Illuminate\Support\ServiceProvider;
 
 class ObserverServiceProvider extends ServiceProvider
 {
@@ -25,6 +27,7 @@ class ObserverServiceProvider extends ServiceProvider
         Image::observe(ImageObserver::class);
         Event::observe(EventObserver::class);
         News::observe(NewsObserver::class);
+        Slide::observe(SlideObserver::class);
     }
 
     /**
