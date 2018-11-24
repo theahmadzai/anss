@@ -2,42 +2,36 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-use Storage;
+use App\Traits\Date as DateTrait;
+use App\Traits\Image as ImageTrait;
+use App\Traits\Thumbnail as ThumbnailTrait;
 use Carbon\Carbon;
-use App\Traits\Thumbnail;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Event extends Model
 {
-    use Thumbnail;
+    use SoftDeletes;
+    use ThumbnailTrait;
+    use ImageTrait;
+    use DateTrait;
 
     protected $table = 'events';
 
-    public function getImageAttribute($image)
+    protected $guarded = [];
+
+    protected $attributes = [
+        'tags' => 'None',
+    ];
+
+    public function scopeUpcoming(Builder $builder)
     {
-        return Storage::url($image ?? 'default/image.png');
+        return $builder->whereDate('date', '>=', Carbon::now());
     }
 
-    public function getDateAttribute($value)
+    public function scopePast(Builder $builder)
     {
-        return Carbon::parse($value);
-    }
-
-    public static function getPastEvents($value = null)
-    {
-        if($value != null) {
-            return self::whereDate('date', '<=', Carbon::now())->latest()->limit(3)->get();
-        }
-
-        return self::whereDate('date', '<=', Carbon::now())->get();
-    }
-
-    public static function getUpcomingEvents($value = null)
-    {
-        if($value != null) {
-            return self::whereDate('date', '>=', Carbon::now())->latest()->limit(3)->get();
-        }
-
-        return self::whereDate('date', '>=', Carbon::now())->get();
+        return $builder->whereDate('date', '<=', Carbon::now());
     }
 }

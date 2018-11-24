@@ -2,30 +2,28 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Traits\Date as DateTrait;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Appointment extends Model
 {
+    use SoftDeletes;
+    use DateTrait;
+
     protected $table = 'appointments';
 
-    public static function getAppointments()
+    protected $guarded = [];
+
+    public function scopeUnbooked(Builder $builder)
     {
-        return self::whereDate('timing', '>=', Carbon::now())->get();
+        return $builder->where('status', 0);
     }
 
-    public static function getAvailableAppointments()
+    public function scopeUnexpired(Builder $builder)
     {
-        return self::where('status', 0)->whereDate('timing', '>', Carbon::now())->get();
-    }
-
-    public static function getAvailableAppointment($id)
-    {
-        return self::where('id', $id)->where('status', 0)->whereDate('timing', '>', Carbon::now())->first();
-    }
-
-    public function getTimingAttribute($value)
-    {
-        return Carbon::parse($value);
+        return $builder->whereDate('date', '>=', Carbon::now());
     }
 }
