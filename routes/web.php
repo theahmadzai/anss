@@ -9,7 +9,7 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 // Home
 Route::get('/', 'PageController@index')->name('home');
@@ -55,7 +55,7 @@ Route::post('/subscribe', 'PageController@subscribeStore');
 Auth::routes(['verify' => true]);
 
 // User
-Route::prefix('/user')->group(function() {
+Route::prefix('/user')->group(function () {
 
     // Profile
     Route::get('/', 'UserController@index');
@@ -63,27 +63,27 @@ Route::prefix('/user')->group(function() {
 });
 
 // Admin
-Route::prefix('/admin')->group(function() {
+Route::prefix('/admin')->group(function () {
 
     // Panel
-    Route::get('/', 'AdminController@index');
+    Route::get('/', 'Admin\AdminController@index');
 
     // Categories
-    Route::resource('/categories', 'CategoryController');
+    Route::resource('/categories', 'Admin\CategoryController');
 
     // Images
-    Route::resource('/images', 'ImageController');
+    Route::resource('/images', 'Admin\ImageController');
 
     // Slider
-    Route::resource('/slides', 'SlideController');
+    Route::resource('/slides', 'Admin\SlideController');
 
     // Appointments
-    Route::resource('/appointments', 'AppointmentController');
+    Route::resource('/appointments', 'Admin\AppointmentController');
 
     // News
-    Route::resource('/news', 'NewsController');
+    Route::resource('/news', 'Admin\NewsController');
 
     // Events
-    Route::resource('/events', 'EventsController');
+    Route::resource('/events', 'Admin\EventsController');
 
 });
