@@ -84,6 +84,6 @@ Route::prefix('/admin')->group(function () {
     Route::resource('/news', 'Admin\NewsController');
 
     // Events
-    Route::resource('/events', 'Admin\EventsController');
+    Route::resource('/events', 'Admin\EventController');
 
 });
