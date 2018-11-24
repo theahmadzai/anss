@@ -11,7 +11,7 @@ class Contact extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $request;
+    private $request;
 
     public function __construct(Request $request)
     {
@@ -23,7 +23,7 @@ class Contact extends Mailable
         return $this->from($this->request->email, $this->request->name)
             ->to('info@anss.ca', 'ANSS Foundation')
             ->subject($this->request->subject)
-            ->view('emails.contact')
+            ->markdown('emails.contact')
             ->with([
                 'name' => $this->request->name,
                 'email' => $this->request->email,

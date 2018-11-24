@@ -23,7 +23,7 @@ class Appointment extends Mailable
         $mail = $this->from($this->request->email, $this->request->name)
             ->to('info@anss.ca', 'ANSS Foundation')
             ->subject('New Appointment Booked')
-            ->view('emails.appointment');
+            ->markdown('emails.appointment');
 
         if ($this->request->hasFile('files')) {
             $files = $this->request->file('files');
