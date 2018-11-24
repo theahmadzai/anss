@@ -6,13 +6,19 @@ use App\Image;
 
 class ImageObserver
 {
-    public function creating(Image $event)
+    public function creating(Image $image)
     {
-        $event->createThumbnail(200, 200);
+        if (request()->hasFile('image')) {
+            $image->image = request()->image->store('public/images');
+            $image->createThumbnail(200, 200);
+        }
     }
 
-    public function updating(Image $event)
+    public function updating(Image $image)
     {
-        $event->createThumbnail(200, 200);
+        if (request()->hasFile('image')) {
+            $image->image = request()->image->store('public/images');
+            $image->createThumbnail(200, 200);
+        }
     }
 }

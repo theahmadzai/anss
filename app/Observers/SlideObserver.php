@@ -6,13 +6,19 @@ use App\Slide;
 
 class SlideObserver
 {
-    public function creating(Slide $event)
+    public function creating(Slide $slide)
     {
-        $event->createThumbnail();
+        if (request()->hasFile('image')) {
+            $slide->image = request()->image->store('public/slides');
+            $slide->createThumbnail();
+        }
     }
 
-    public function updating(Slide $event)
+    public function updating(Slide $slide)
     {
-        $event->createThumbnail();
+        if (request()->hasFile('image')) {
+            $slide->image = request()->image->store('public/slides');
+            $slide->createThumbnail();
+        }
     }
 }
