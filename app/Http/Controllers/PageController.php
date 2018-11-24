@@ -205,7 +205,7 @@ class PageController extends Controller
             'email' => 'required|email',
             'subject' => 'required',
             'message' => 'required|min:100',
-            'g-recaptcha-response' => new ReCaptcha(),
+            'g-recaptcha-response' => new ReCaptcha(new \GuzzleHttp\Client()),
         ]);
 
         if ($validator->fails()) {
