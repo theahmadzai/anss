@@ -208,6 +208,7 @@ label {
 
   &__wide {
     flex-basis: 70%;
+    max-width: 70%;
     min-height: 500px;
 
     & > *:first-child {
