@@ -8,6 +8,8 @@
         <br>
         <a href="/admin/images">Images</a>
         <br>
+        <a href="/admin/slides">Slides</a>
+        <br>
         <a href="/admin/appointments">Appointments</a>
         <br>
         <a href="/admin/news">News</a>

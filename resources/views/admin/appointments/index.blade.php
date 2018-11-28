@@ -13,7 +13,7 @@
             @foreach ($appointments as $appointment)
                 <div style="display:grid; grid-template-columns:15% 50% 10% auto auto auto; gap:2rem; border-bottom:1px solid white; padding:0.5rem; color:#444;">
                     <div>
-                        {{ $appointment->timing->diffForHumans() }}
+                        {{ $appointment->date->diffForHumans() }}
                     </div>
                     <div>
                         {{ str_limit($appointment->description, 50, '...') }}

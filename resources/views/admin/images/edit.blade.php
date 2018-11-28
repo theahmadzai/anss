@@ -18,13 +18,13 @@
 
             <div class="form__control">
                 <label for="">Category</label>
-                <select name="category">
+                <select name="category_id">
                     @foreach ($categories as $category)
-                        <option value="{{$category->id}}" {{ old('category', $image->category_id) == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
+                        <option value="{{$category->id}}" {{ old('category_id', $image->category) == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
                     @endforeach
                 </select>
-                @if ($errors->has('category'))
-                    <p>{{ $errors->first('category') }}</p>
+                @if ($errors->has('category_id'))
+                    <p>{{ $errors->first('category_id') }}</p>
                 @endif
             </div>
 

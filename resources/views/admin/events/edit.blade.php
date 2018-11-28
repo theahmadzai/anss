@@ -26,7 +26,7 @@
 
             <div class="form__control">
                 <label for="">Date</label>
-                <input type="datetime-local" name="date" value="{{ old('date', $event->date) }}">
+                <input type="datetime-local" name="date" value="{{ old('date', $event->date->format('Y-m-d\TH:i')) }}">
                 @if ($errors->has('date'))
                     <p>{{ $errors->first('date') }}</p>
                 @endif

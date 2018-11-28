@@ -25,6 +25,14 @@
             </div>
 
             <div class="form__control">
+                <label for="">Date</label>
+                <input type="datetime-local" name="date" value="{{ old('date', $news->date->format('Y-m-d\TH:i')) }}">
+                @if ($errors->has('date'))
+                    <p>{{ $errors->first('date') }}</p>
+                @endif
+            </div>
+
+            <div class="form__control">
                 <label for="">Tags <sup><i>(separated by comma)</i></sup></label>
                 <input type="text" name="tags" value="{{ old('tags', $news->tags) }}">
                 @if ($errors->has('tags'))

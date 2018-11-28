@@ -13,7 +13,7 @@
 
         <div style="display:grid; margin-bottom:2rem; background:#efefef; padding:0.2rem;">
             <div style="padding:0 1rem; font-size:0.7rem;">
-                <p>{{$appointment->timing->toDayDateTimeString()}}</p>
+                <p>{{$appointment->date->toDayDateTimeString()}}</p>
             </div>
             <div style="background:white; padding:0 1rem;">
                 <p>{{$appointment->description}}</p>

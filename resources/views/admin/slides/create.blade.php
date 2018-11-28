@@ -4,7 +4,7 @@
 
     <div style="padding:2rem;">
 
-        <form method="POST" action="/admin/images" enctype="multipart/form-data">
+        <form method="POST" action="/admin/slides" enctype="multipart/form-data">
             @csrf
 
             <div class="form__control">
@@ -12,18 +12,6 @@
                 <input type="text" name="title" value="{{ old('title') }}">
                 @if ($errors->has('title'))
                     <p>{{ $errors->first('title') }}</p>
-                @endif
-            </div>
-
-            <div class="form__control">
-                <label for="">Category</label>
-                <select name="category_id">
-                    @foreach ($categories as $category)
-                        <option value="{{$category->id}}" {{ old('category_id') == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
-                    @endforeach
-                </select>
-                @if ($errors->has('category_id'))
-                    <p>{{ $errors->first('category_id') }}</p>
                 @endif
             </div>
 
@@ -36,10 +24,10 @@
             </div>
 
             <div class="form__control">
-                <label for="">Description</label>
-                <textarea name="description">{{ old('description') }}</textarea>
-                @if ($errors->has('description'))
-                    <p>{{ $errors->first('description') }}</p>
+                <label for="">Link</label>
+                <input type="text" name="link" value="{{ old('link') }}">
+                @if ($errors->has('link'))
+                    <p>{{ $errors->first('link') }}</p>
                 @endif
             </div>
 

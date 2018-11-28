@@ -5,7 +5,7 @@
     <div style="padding:2rem; display:grid; grid-template-columns:auto 30%;">
 
 
-        <img src="{{$image->url}}" alt="{{$image->title}}">
+        <img src="{{$image->image}}" alt="{{$image->title}}">
 
         <div>
             <p><b>Title: </b>{{$image->title ?: 'None'}}</p>

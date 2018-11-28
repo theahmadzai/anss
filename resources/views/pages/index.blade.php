@@ -8,7 +8,7 @@
         @if($slides)
             @foreach ($slides as $slide)
                 <div class="slide">
-                    <img src="{{$slide->url}}" alt="{{$slide->title}}">
+                    <img src="{{$slide->image}}" alt="{{$slide->title}}">
                     <p>{{$slide->title}}</p>
                     <a href="{{$slide->description}}">Read More</a>
                 </div>
@@ -107,7 +107,7 @@
             <div class="news">
                 <div class="news__head">
                     <figure class="image">
-                        <img src="{{$news->image}}" alt="{{$news->title}}">
+                        <img src="{{$news->thumbnail()}}" alt="{{$news->title}}">
                     </figure>
                 </div>
                 <div class="news__body">
@@ -144,7 +144,7 @@
             <div class="news">
                 <div class="news__head">
                     <figure class="image">
-                        <img src="{{$news->image}}" alt="{{$news->title}}">
+                        <img src="{{$news->thumbnail()}}" alt="{{$news->title}}">
                     </figure>
                 </div>
                 <div class="news__body">

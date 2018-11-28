@@ -9,9 +9,9 @@
 
             <div class="form__control">
                 <label for="">Timing</label>
-                <input type="datetime-local" name="timing" value="{{ old('timing') }}">
-                @if ($errors->has('timing'))
-                    <p>{{ $errors->first('timing') }}</p>
+                <input type="datetime-local" name="date" value="{{ old('date') }}">
+                @if ($errors->has('date'))
+                    <p>{{ $errors->first('date') }}</p>
                 @endif
             </div>
 

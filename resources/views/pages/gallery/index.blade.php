@@ -26,7 +26,7 @@
                 <div id="lightbox" class="grid">
                     @foreach ($images as $image)
                         <div class="grid__item">
-                            <a href="{{$image->url}}" data-caption="{{$image->title}}">
+                            <a href="{{$image->image}}" data-caption="{{$image->title}}">
                                 <img src="{{$image->thumbnail()}}" alt="{{$image->title}}">
                                 <p>{{$image->title}}</p>
                             </a>

@@ -10,9 +10,9 @@
 
             <div class="form__control">
                 <label for="">Timing</label>
-                <input type="datetime-local" name="timing" value="{{ old('timing', $appointment->timing->format('Y-m-d\TH:i')) }}">
-                @if ($errors->has('timing'))
-                    <p>{{ $errors->first('timing') }}</p>
+                <input type="datetime-local" name="date" value="{{ old('date', $appointment->date->format('Y-m-d\TH:i')) }}">
+                @if ($errors->has('date'))
+                    <p>{{ $errors->first('date') }}</p>
                 @endif
             </div>
 

@@ -22,7 +22,7 @@
                     @foreach ($appointments as $appointment)
                     <div class="appointments__item">
                         <div class="datetime">
-                            <p>{{$appointment->timing->diffForHumans()}}</p>
+                            <p>{{$appointment->date->diffForHumans()}}</p>
                         </div>
                         <div>
                             <p>{{str_limit($appointment->description, 30, '...')}}</p>
@@ -30,7 +30,7 @@
                         <div class="book">
                         @if ($appointment->status == 1)
                             <p>Already booked</p>
-                        @elseif ($appointment->timing < \Carbon\Carbon::now())
+                        @elseif ($appointment->date < \Carbon\Carbon::now())
                             <p>Not available</p>
                         @else
                             <button><a href="/appointments/{{$appointment->id}}">Book</a></button>
