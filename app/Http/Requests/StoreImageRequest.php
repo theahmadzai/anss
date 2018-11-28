@@ -15,7 +15,7 @@ class StoreImageRequest extends FormRequest
     {
         return [
             'title' => 'required|min:5|max:50',
-            'category' => 'required|exists:categories,id',
+            'category_id' => 'required|exists:categories,id',
             'description' => 'nullable',
             'image' => ($this->method() == 'PUT' ? '' : 'required|') . 'file|image',
         ];
