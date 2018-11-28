@@ -13,8 +13,8 @@ class CreateImagesTable extends Migration
             $table->string('title')->nullable();
             $table->string('image')->nullable();
             $table->text('description')->nullable();
-            $table->integer('category')->unsigned();
-            $table->foreign('category')->references('id')->on('categories')->onDelete('cascade');
+            $table->integer('category_id')->unsigned();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });
