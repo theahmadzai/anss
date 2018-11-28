@@ -1,7 +1,7 @@
 <header class="header">
     <div class="header__left">
         <a href="/" class="logo">
-            <img src="{{ asset('img/logo1.png') }}" alt="Afghan Network for Social Services">
+            <img src="{{ asset('img/SmallLogo.png') }}" alt="Afghan Network for Social Services">
         </a>
     </div>
 

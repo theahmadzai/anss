@@ -9,7 +9,11 @@
     </div>
 
     <div class="container">
-        <div class="container__narrow"></div>
+        <div class="container__narrow">
+            <a href="/strategic-plans">Strategic Plans</a> <br>
+            <a href="/board-of-directors">Board of Directors</a>
+        </div>
+
         <div class="container__wide">
         <div style="padding:2rem; background:#fafafa;">
         <h2 style="margin-bottom:1rem; background:#333; color:#eee; padding:1rem;">INTRODUCTION</h2>

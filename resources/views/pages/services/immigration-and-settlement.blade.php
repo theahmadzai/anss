@@ -9,10 +9,14 @@
     </div>
 
     <div class="container">
-        <div class="container__narrow"></div>
+        <div class="container__narrow">
+            <a href="/immigration-and-settlement">Immigration and Settlement</a>
+            <a href="/cultural-environmental-and-educational">Cultural, environmental promotion and educational services</a>
+            <a href="/networking-and-community-based-research">Networking, Research and Advocacy</a>
+        </div>
 
         <div class="container__wide">
-            <h2 style="padding:2rem;">Immigration & Settlement Services</h2>
+            <h2 style="padding:2rem; text-align:center;">Immigration & Settlement Services</h2>
 
             <ul style="padding:2rem;list-style-type:disc;">
                 <li>Immigration and citizenship applications</li>

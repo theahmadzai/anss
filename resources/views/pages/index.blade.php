@@ -134,43 +134,6 @@
     </div>
     @endif
 
-    @if ($past_events)
-    <div class="shadow-separator"></div>
-    <h2 class="nice-heading">Past Events</h2>
-
-    <div class="row">
-        @foreach ($past_events as $news)
-        <div class="col">
-            <div class="news">
-                <div class="news__head">
-                    <figure class="image">
-                        <img src="{{$news->thumbnail()}}" alt="{{$news->title}}">
-                    </figure>
-                </div>
-                <div class="news__body">
-                    <div class="date">
-                        <div class="day">
-                            {{$news->created_at->day}}
-                        </div>
-                        <div class="month">
-                            {{$news->created_at->shortEnglishMonth}}
-                        </div>
-                        <div class="year">
-                            {{$news->created_at->year}}
-                        </div>
-                    </div>
-                    <div class="news__body__content">
-                        <a href="/latest-news/{{$news->id}}"><h3>{{$news->title}}</h3></a>
-                        <p>{{ str_limit($news->content, 200) }}</p>
-                        <a href="/past-events/{{$news->id}}">Read more</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        @endforeach
-    </div>
-    @endif
-
     <div class="subscribe">
         <a href="/contact">CONTACT US</a>
     </div>

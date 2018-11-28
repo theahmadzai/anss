@@ -12,7 +12,7 @@
         <div class="container__narrow">
             @if($categories->count())
                 @foreach ($categories as $category)
-                    <a style="display:block;" href="/gallery/{{$category->id}}">{{$category->name}}</a>
+                    <a style="background:#f9f9f9; border-bottom:1px solid #eaeaea; padding:0.25rem 1rem;  margin-bottom:0.5rem; display:block;" href="/gallery/{{$category->id}}">{{$category->name}}</a>
                 @endforeach
             @else
                 <p>No categories</p>

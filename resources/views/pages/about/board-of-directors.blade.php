@@ -9,7 +9,11 @@
     </div>
 
     <div class="container">
-        <div class="container__narrow"></div>
+        <div class="container__narrow">
+            <a href="/about">Who we are</a> <br>
+            <a href="/strategic-plans">Strategic Plans</a>
+        </div>
+
         <div class="container__wide"></div>
     </div>
 
