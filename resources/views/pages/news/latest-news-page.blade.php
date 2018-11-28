@@ -16,7 +16,7 @@
                         <img src="{{$news_->image}}" alt="{{$news_->title}}">
                     </figure>
                     <div class="datetime">
-                        <i class="icon icon-calendar"></i><span>{{ $news_->created_at }}</span>
+                        <i class="icon icon-calendar"></i><span>{{ $news_->date }}</span>
                     </div>
                     <div class="tags">
                         <i class="icon icon-price-tag"></i><span>{{ $news_->tags ?? 'ANSS Foundation' }}</span>
