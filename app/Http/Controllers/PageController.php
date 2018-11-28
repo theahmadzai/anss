@@ -26,13 +26,13 @@ class PageController extends Controller
         $slides = Slide::get() ?? null;
         $latest_news = News::latest()->limit(9)->get() ?? null;
         $upcoming_events = Event::upcoming()->latest()->limit(3)->get() ?? null;
-        $past_events = Event::past()->latest()->limit(3)->get() ?? null;
+        // $past_events = Event::past()->latest()->limit(3)->get() ?? null;
 
         return view('pages.index', [
             'slides' => $slides,
             'latest_news' => $latest_news,
             'upcoming_events' => $upcoming_events,
-            'past_events' => $past_events,
+            // 'past_events' => $past_events,
         ]);
     }
 
