@@ -83,7 +83,7 @@ class PageController extends Controller
     public function upcomingEvents($id = null)
     {
         if ($id === null) {
-            return view('pages.events.upcoming-events', ['events_' => Event::getUpcomingEvents()]);
+            return view('pages.events.upcoming-events', ['events_' => Event::upcoming()->get()]);
         }
 
         return view('pages.events.upcoming-events-page', ['event_' => Event::find($id)]);
@@ -92,7 +92,7 @@ class PageController extends Controller
     public function pastEvents($id = null)
     {
         if ($id === null) {
-            return view('pages.events.past-events', ['events_' => Event::getPastEvents()]);
+            return view('pages.events.past-events', ['events_' => Event::past()->get()]);
         }
 
         return view('pages.events.past-events-page', ['event_' => Event::find($id)]);
@@ -118,8 +118,8 @@ class PageController extends Controller
         return view('pages.gallery.index', [
             'categories' => Category::where('slug', '!=', 'slider')->get(),
             'images' => !$id
-            ? Image::where('category', '!=', Category::where('slug', 'slider')->first()->id ?? null)->paginate(9)
-            : Image::where('category', $id)->paginate(9),
+            ? Image::where('category_id', '!=', Category::where('slug', 'slider')->first()->id ?? null)->paginate(9)
+            : Image::where('category_id', $id)->paginate(9),
         ]);
     }
 
