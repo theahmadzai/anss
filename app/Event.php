@@ -27,11 +27,11 @@ class Event extends Model
 
     public function scopeUpcoming(Builder $builder)
     {
-        return $builder->whereDate('date', '>=', Carbon::now());
+        return $builder->whereDate('date', '>', Carbon::now());
     }
 
     public function scopePast(Builder $builder)
     {
-        return $builder->whereDate('date', '<=', Carbon::now());
+        return $builder->whereDate('date', '<', Carbon::now());
     }
 }
