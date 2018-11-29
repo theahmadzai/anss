@@ -20,7 +20,6 @@ Route::get('/strategic-plans', 'PageController@strategicPlans');
 Route::get('/board-of-directors', 'PageController@boardOfDirectors');
 
 // Services
-Route::get('/services', 'PageController@services');
 Route::get('/immigration-and-settlement', 'PageController@immigrationAndSettlement');
 Route::get('/cultural-environmental-and-educational', 'PageController@culturalEnvironmentalAndEducational');
 Route::get('/networking-and-community-based-research', 'PageController@networkingAndCommunityBasedResearch');
