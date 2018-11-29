@@ -8,7 +8,7 @@
         {{ $news->title }}
     @endcomponent
 
-    <div class="container container--center">
+    <div class="container container--center" style="flex-direction: column; margin-bottom:2rem;">
         <article class="article">
             <div class="article__image">
                 <img src="{{ $news->image }}" alt="{{ $news->title }}">
@@ -28,6 +28,9 @@
                 <p>{{ $news->content }}</p>
             </div>
         </article>
+
+        @include('partials.disqus')
+
     </div>
 
 @endsection

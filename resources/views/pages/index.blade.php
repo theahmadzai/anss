@@ -60,36 +60,34 @@
         </div>
     </div>
 
-    @if ($latest_news)
+    @if ($latest_news->count() > 0)
     <div class="shadow-separator"></div>
     <h2 class="nice-heading">Latest News</h2>
 
-    <div id="news-slider" class="row">
+    <div id="news-slider">
         @foreach ($latest_news as $news)
-        <div class="col">
-            <div class="news">
-                <div class="news__head">
-                    <figure class="image">
-                        <img src="{{$news->thumbnail()}}" alt="{{$news->title}}">
-                    </figure>
+        <div class="news">
+            <div class="news__head">
+                <figure class="image">
+                    <img src="{{$news->thumbnail()}}" alt="{{$news->title}}">
+                </figure>
+            </div>
+            <div class="news__body">
+                <div class="date">
+                    <div class="day">
+                        {{$news->date->day}}
+                    </div>
+                    <div class="month">
+                        {{$news->date->shortEnglishMonth}}
+                    </div>
+                    <div class="year">
+                        {{$news->date->year}}
+                    </div>
                 </div>
-                <div class="news__body">
-                    <div class="date">
-                        <div class="day">
-                            {{$news->created_at->day}}
-                        </div>
-                        <div class="month">
-                            {{$news->created_at->shortEnglishMonth}}
-                        </div>
-                        <div class="year">
-                            {{$news->created_at->year}}
-                        </div>
-                    </div>
-                    <div class="news__body__content">
-                        <a href="/latest-news/{{$news->id}}"><h3>{{$news->title}}</h3></a>
-                        <p>{{ str_limit($news->content, 200) }}</p>
-                        <a href="/latest-news/{{$news->id}}">Read more</a>
-                    </div>
+                <div class="news__body__content">
+                    <a href="/news/{{$news->id}}"><h3>{{$news->title}}</h3></a>
+                    <p>{{ str_limit($news->content, 200) }}</p>
+                    <a href="/news/{{$news->id}}">Read more</a>
                 </div>
             </div>
         </div>
@@ -97,35 +95,35 @@
     </div>
     @endif
 
-    @if ($upcoming_events)
+    @if ($upcoming_events->count() > 0)
     <div class="shadow-separator"></div>
     <h2 class="nice-heading">Upcoming Events</h2>
 
     <div class="row">
-        @foreach ($upcoming_events as $news)
+        @foreach ($upcoming_events as $event)
         <div class="col">
             <div class="news">
                 <div class="news__head">
                     <figure class="image">
-                        <img src="{{$news->thumbnail()}}" alt="{{$news->title}}">
+                        <img src="{{$event->thumbnail()}}" alt="{{$event->title}}">
                     </figure>
                 </div>
                 <div class="news__body">
                     <div class="date">
                         <div class="day">
-                            {{$news->created_at->day}}
+                            {{$event->date->day}}
                         </div>
                         <div class="month">
-                            {{$news->created_at->shortEnglishMonth}}
+                            {{$event->date->shortEnglishMonth}}
                         </div>
                         <div class="year">
-                            {{$news->created_at->year}}
+                            {{$event->date->year}}
                         </div>
                     </div>
                     <div class="news__body__content">
-                        <a href="/latest-news/{{$news->id}}"><h3>{{$news->title}}</h3></a>
-                        <p>{{ str_limit($news->content, 200) }}</p>
-                        <a href="/upcoming-events/{{$news->id}}">Read more</a>
+                        <a href="/events/upcoming/{{$event->id}}"><h3>{{$event->title}}</h3></a>
+                        <p>{{ str_limit($event->content, 200) }}</p>
+                        <a href="/events/upcoming/{{$event->id}}">Read more</a>
                     </div>
                 </div>
             </div>
