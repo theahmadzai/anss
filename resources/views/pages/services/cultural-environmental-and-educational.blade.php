@@ -9,17 +9,27 @@
     </div>
 
     <div class="container">
-        <div class="container__narrow"></div>
 
         <div class="container__wide">
-            <h2 style="padding:2rem;">Cultural, environmental promotion and educational services</h2>
-
-            <ul style="padding:2rem;list-style-type:disc;">
-                <li>Referrals for Credentialed Assessment of educational documents</li>
-                <li>Organizing community events to raise awareness about environmental protection, waste collection and disposal, food safety and mental health</li>
-                <li>To organize cultural events</li>
-                <li>To promote cultural diversity through educational programs</li>
-            </ul>
+            <div class="segment">
+                <h2 class="segment__header">Cultural, environmental promotion and educational services</h2>
+                <div class="segment__body">
+                    <ul>
+                        <li>
+                        <p>Referrals for Credentialed Assessment of educational documents</p>
+                        </li>
+                        <li>
+                            <p>Organizing community events to raise awareness about environmental protection, waste collection and disposal, food safety and mental health</p>
+                        </li>
+                        <li>
+                            <p>To organize cultural events</p>
+                        </li>
+                        <li>
+                            <p>To promote cultural diversity through educational programs</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 

@@ -12,7 +12,7 @@
         <div class="container__wide">
             <div class="row">
                 <article class="col col--full article">
-                    <figure class="image margin--bottom">
+                    <figure class="image image--wide margin--bottom">
                         <img src="{{$news_->image}}" alt="{{$news_->title}}">
                     </figure>
                     <div class="datetime">

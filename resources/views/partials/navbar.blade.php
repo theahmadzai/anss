@@ -28,7 +28,7 @@
     </li>
 
     <li class="navbar__item">
-        <a class="navbar__link" href="/services">Services</a>
+        <a class="navbar__link" href="/immigration-and-settlement">Services</a>
 
         <ul class="dropdown">
             <li class="dropdown__item">

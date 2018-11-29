@@ -9,23 +9,34 @@
     </div>
 
     <div class="container">
-        <div class="container__narrow">
-            <a href="/immigration-and-settlement">Immigration and Settlement</a>
-            <a href="/cultural-environmental-and-educational">Cultural, environmental promotion and educational services</a>
-            <a href="/networking-and-community-based-research">Networking, Research and Advocacy</a>
-        </div>
 
         <div class="container__wide">
-            <h2 style="padding:2rem; text-align:center;">Immigration & Settlement Services</h2>
+            <div class="segment">
+                <h2 class="segment__header">Immigration & Settlement Services</h2>
+                <div class="segment__body">
+                    <ul>
+                        <li>
+                            <p>Immigration and citizenship applications</p>
+                        </li>
+                        <li>
+                            <p>Housing applications</p>
+                        </li>
+                        <li>
+                            <p>Sponsorship applications</p>
+                        </li>
+                        <li>
+                            <p>Employment (Find work, volunteering, work permit, Resume and cover letters, etc)</p>
+                        </li>
+                        <li>
+                            <p>Referrals to family doctors, psychiatrists, lawyers, and legal aid, schools, LINC, and ESL/FSL; and shelters</p>
+                        </li>
+                        <li>
+                            <p>Translation and interpretation services in English, Pashto, Farsi/Dari, Urdu and Arabic</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
-            <ul style="padding:2rem;list-style-type:disc;">
-                <li>Immigration and citizenship applications</li>
-                <li>Housing applications</li>
-                <li>Sponsorship applications</li>
-                <li>Employment (Find work, volunteering, work permit, Resume and cover letters, etc)</li>
-                <li>Referrals to family doctors, psychiatrists, lawyers, and legal aid, schools, LINC, and ESL/FSL; and shelters</li>
-                <li>Translation and interpretation services in English, Pashto, Farsi/Dari, Urdu and Arabic</li>
-            </ul>
         </div>
     </div>
 

@@ -11,40 +11,42 @@
     <div class="container">
         <div class="container__wide">
             <div class="container__row">
-                <form method="POST" action="/login">
-                    @csrf
+                <div style="padding:2rem;">
+                    <form method="POST" action="/login">
+                        @csrf
 
-                    <div class="form__control">
-                        <label for="email">Email</label>
-                        <input type="text" name="email" id="email" value="{{ old('email') }}" required autofocus>
-                        @if ($errors->has('email'))
-                            <span role="alert">
-                                <strong>{{ $errors->first('email') }}</strong>
-                            </span>
-                        @endif
-                    </div>
+                        <div class="form__control">
+                            <label for="email">Email</label>
+                            <input type="text" name="email" id="email" value="{{ old('email') }}" required autofocus>
+                            @if ($errors->has('email'))
+                                <span role="alert">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif
+                        </div>
 
-                    <div class="form__control">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" id="password" required>
-                         @if ($errors->has('password'))
-                            <span role="alert">
-                                <strong>{{ $errors->first('password') }}</strong>
-                            </span>
-                        @endif
-                    </div>
+                        <div class="form__control">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" required>
+                            @if ($errors->has('password'))
+                                <span role="alert">
+                                    <strong>{{ $errors->first('password') }}</strong>
+                                </span>
+                            @endif
+                        </div>
 
-                    <div class="form__control">
-                        <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                        <label for="remember">Remember Me</label>
-                    </div>
+                        <div class="form__control">
+                            <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                            <label for="remember">Remember Me</label>
+                        </div>
 
-                    <div class="form__control">
-                        <button class="button">Log in</button>
-                    </div>
+                        <div class="form__control">
+                            <button class="button">Log in</button>
+                        </div>
 
-                     <a class="btn btn-link" href="/password/reset">Forgot Your Password?</a>
-                </form>
+                        <a class="btn btn-link" href="/password/reset">Forgot Your Password?</a>
+                    </form>
+                </div>
             </div>
         </div>
 

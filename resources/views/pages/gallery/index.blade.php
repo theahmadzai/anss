@@ -10,6 +10,8 @@
 
     <div class="container">
         <div class="container__narrow">
+            <h4 style="margin-bottom:1rem;">Categories</h4>
+
             @if($categories->count())
                 @foreach ($categories as $category)
                     <a style="background:#f9f9f9; border-bottom:1px solid #eaeaea; padding:0.25rem 1rem;  margin-bottom:0.5rem; display:block;" href="/gallery/{{$category->id}}">{{$category->name}}</a>
