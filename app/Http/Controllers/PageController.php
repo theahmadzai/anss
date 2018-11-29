@@ -57,11 +57,6 @@ class PageController extends Controller
     /**
      * Services
      */
-    public function services()
-    {
-        return view('pages.services.index');
-    }
-
     public function immigrationAndSettlement()
     {
         return view('pages.services.immigration-and-settlement');
