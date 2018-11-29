@@ -1,6 +1,6 @@
 .navbar {
   display: grid;
-  background: $blue;
+  background: $primary;
   grid-template-columns: repeat(8, auto);
 
   @media $tablet {
@@ -10,10 +10,10 @@
 
   &__item {
     position: relative;
-    border-left: 1px solid $blue-light;
+    border-left: 1px solid $secondary;
 
     @media $tablet {
-      border-top: 1px solid $blue-light;
+      border-top: 1px solid $secondary;
       border-left: none;
     }
 
@@ -34,7 +34,7 @@
     text-align: center;
 
     &:hover {
-      background-color: $blue-light;
+      background-color: $secondary;
       color: #ffffff;
     }
   }

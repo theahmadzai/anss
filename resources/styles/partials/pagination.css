@@ -9,7 +9,7 @@
     margin: 0 0.25rem;
     border: 1px solid #dddddd;
     transition: background-color 0.3s;
-    color: $red;
+    color: $primary;
     text-decoration: none;
 
     .page-link {
@@ -19,13 +19,13 @@
   }
 
   .page-item.active {
-    border: 1px solid $red;
-    background-color: $red;
+    border: 1px solid $primary;
+    background-color: $primary;
     color: #ffffff;
   }
 
   .page-item:hover:not(.active) {
-    border-color: $red;
+    border-color: $primary;
     background-color: #dddddd;
   }
 }

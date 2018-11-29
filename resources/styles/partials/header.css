@@ -109,14 +109,14 @@
     button {
       padding: 0 1rem;
       border: none;
-      background: $red;
+      background: $primary;
       font-size: 0.6rem;
       font-weight: bold;
       color: #ffffff;
       cursor: pointer;
 
       &:hover {
-        background: $red-light;
+        background: $secondary;
       }
     }
   }

@@ -211,6 +211,10 @@ label {
     max-width: 70%;
     min-height: 500px;
 
+    @media $tablet {
+      max-width: 100%;
+    }
+
     & > *:first-child {
       margin-top: 0;
     }

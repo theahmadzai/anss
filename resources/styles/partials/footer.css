@@ -97,7 +97,7 @@
         cursor: pointer;
 
         &:hover {
-          background: $red;
+          background: $primary;
           color: #ffffff;
         }
       }
@@ -118,9 +118,9 @@
         color: #ffffff;
 
         &:hover {
-          border-color: $red;
+          border-color: $primary;
           background: #ffffff;
-          color: $red;
+          color: $primary;
         }
       }
     }

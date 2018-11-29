@@ -3,7 +3,7 @@
   height: 100%;
   padding: 1rem;
   border-radius: 2px;
-  background: $red;
+  background: $primary;
   overflow: hidden;
   color: #ffffff;
 
@@ -15,7 +15,7 @@
     width: 100%;
     height: 170px;
     transform: skewY(310deg);
-    background: linear-gradient(-90deg, $red-light, $red);
+    background: linear-gradient(-90deg, $secondary, $primary);
   }
 
   h2,

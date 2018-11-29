@@ -1,0 +1,40 @@
+.bod {
+  display: flex;
+  padding: 3rem 0;
+  border-bottom: 1px solid #dddddd;
+
+  @media $tablet {
+    flex-direction: column;
+    padding: 3rem 1.5rem;
+  }
+
+  &__left {
+    flex-basis: 30%;
+    padding: 1rem;
+
+    img {
+      width: 100%;
+      height: auto;
+      min-height: 180px;
+      border: 2px solid $primary;
+    }
+  }
+
+  &__right {
+    flex-basis: 70%;
+    padding: 1rem;
+
+    h3 {
+      border-bottom: 3px solid $secondary;
+      font-size: 2rem;
+      color: $primary;
+      text-transform: uppercase;
+    }
+
+    p {
+      line-height: 1.6rem;
+      color: #000000;
+      text-align: justify;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+.segment {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 0;
+
+  @media $tablet {
+    margin: 3rem 1.5rem;
+  }
+
+  &__header {
+    border-bottom: 3px solid $primary;
+    color: $primary;
+    text-transform: uppercase;
+  }
+
+  &__body {
+    p {
+      font-size: 1.1rem;
+      line-height: 2rem;
+      color: #000000;
+      text-align: justify;
+    }
+
+    ul {
+      padding: 1rem;
+      list-style-type: disc;
+    }
+  }
+}
