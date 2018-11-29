@@ -23,35 +23,37 @@ class PageController extends Controller
      */
     public function index()
     {
-        $slides = Slide::get() ?? null;
-        $latest_news = News::latest()->limit(9)->get() ?? null;
-        $upcoming_events = Event::upcoming()->latest()->limit(3)->get() ?? null;
-        // $past_events = Event::past()->latest()->limit(3)->get() ?? null;
+        $slides = Slide::get();
+        $latest_news = News::latest()->limit(9)->get();
+        $upcoming_events = Event::upcoming()->latest()->limit(3)->get();
 
         return view('pages.index', [
             'slides' => $slides,
             'latest_news' => $latest_news,
             'upcoming_events' => $upcoming_events,
-            // 'past_events' => $past_events,
-        ]);
+        ])
+        ->withTitle('Home');
     }
 
     /**
      * About
      */
-    public function about()
+    public function whoWeAre()
     {
-        return view('pages.about.index');
+        return view('pages.about.who-we-are')
+        ->withTitle('Who we are');
     }
 
     public function strategicPlans()
     {
-        return view('pages.about.strategic-plans');
+        return view('pages.about.strategic-plans')
+        ->withTitle('Strategic Plans');
     }
 
     public function boardOfDirectors()
     {
-        return view('pages.about.board-of-directors');
+        return view('pages.about.board-of-directors')
+        ->withTitle('Board of Directors');
     }
 
     /**
@@ -59,17 +61,20 @@ class PageController extends Controller
      */
     public function immigrationAndSettlement()
     {
-        return view('pages.services.immigration-and-settlement');
+        return view('pages.services.immigration-and-settlement')
+        ->withTitle('Immigration and Settlement');
     }
 
     public function culturalEnvironmentalAndEducational()
     {
-        return view('pages.services.cultural-environmental-and-educational');
+        return view('pages.services.cultural-environmental-and-educational')
+        ->withTitle('Cultural Environmental & Educational');
     }
 
     public function networkingAndCommunityBasedResearch()
     {
-        return view('pages.services.networking-and-community-based-research');
+        return view('pages.services.networking-and-community-based-research')
+        ->withTitle('Networking & Community Based Research');
     }
 
     /**
@@ -78,19 +83,29 @@ class PageController extends Controller
     public function upcomingEvents($id = null)
     {
         if ($id === null) {
-            return view('pages.events.upcoming-events', ['events_' => Event::upcoming()->get()]);
+            return  view('pages.events.events', [
+                'events' => Event::upcoming()->get()
+            ])
+            ->withTitle('Upcoming Events');
         }
 
-        return view('pages.events.upcoming-events-page', ['event_' => Event::find($id)]);
+        return view('pages.events.event', [
+            'event' => Event::find($id)
+        ]);
     }
 
     public function pastEvents($id = null)
     {
         if ($id === null) {
-            return view('pages.events.past-events', ['events_' => Event::past()->get()]);
+            return view('pages.events.events', [
+                'events' => Event::past()->get()
+            ])
+            ->withTitle('Past Events');
         }
 
-        return view('pages.events.past-events-page', ['event_' => Event::find($id)]);
+        return view('pages.events.event', [
+            'event' => Event::find($id)
+        ]);
     }
 
     /**
@@ -99,10 +114,15 @@ class PageController extends Controller
     public function latestNews($id = null)
     {
         if ($id === null) {
-            return view('pages.news.latest-news', ['news_' => News::all()]);
+            return view('pages.news.news', [
+                'news' => News::get()
+            ])
+            ->withTitle('Latest News');
         }
 
-        return view('pages.news.latest-news-page', ['news_' => News::find($id)]);
+        return view('pages.news.new', [
+            'news' => News::find($id)
+        ]);
     }
 
     /**
@@ -111,11 +131,10 @@ class PageController extends Controller
     public function gallery($id = null)
     {
         return view('pages.gallery.index', [
-            'categories' => Category::where('slug', '!=', 'slider')->get(),
-            'images' => !$id
-            ? Image::where('category_id', '!=', Category::where('slug', 'slider')->first()->id ?? null)->paginate(9)
-            : Image::where('category_id', $id)->paginate(9),
-        ]);
+            'categories' => Category::get(),
+            'images' => !$id ? Image::paginate(9) : Image::where('category_id', $id)->paginate(9),
+        ])
+        ->withTitle('Gallery');
     }
 
     /**
@@ -124,8 +143,9 @@ class PageController extends Controller
     public function appointments()
     {
         return view('pages.appointments.index', [
-            'appointments' => Appointment::unexpired()->get() ?? null,
-        ]);
+            'appointments' => Appointment::unexpired()->get()
+        ])
+        ->withTitle('Appointments');
     }
 
     public function appointmentsPage($id = null)
@@ -136,7 +156,10 @@ class PageController extends Controller
             abort(404);
         }
 
-        return view('pages.appointments.book', ['appointment' => $appointment]);
+        return view('pages.appointments.book', [
+            'appointment' => $appointment
+        ])
+        ->withTitle('Book an Appointment');
     }
 
     public function appointmentsBook(Request $request, $id)
@@ -182,7 +205,8 @@ class PageController extends Controller
      */
     public function donate()
     {
-        return view('pages.donate.index');
+        return view('pages.donate.index')
+        ->withTitle('Donate');
     }
 
     /**
@@ -190,7 +214,8 @@ class PageController extends Controller
      */
     public function contact()
     {
-        return view('pages.contact.index');
+        return view('pages.contact.index')
+        ->withTitle('Contact Us');
     }
 
     public function contactMail(Request $request)
@@ -217,7 +242,8 @@ class PageController extends Controller
      */
     public function subscribe()
     {
-        return view('pages.subscribe.index');
+        return view('pages.subscribe.index')
+        ->withTitle('Subscribe');
     }
 
     public function subscribeStore(Request $request)

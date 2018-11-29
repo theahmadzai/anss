@@ -20,6 +20,6 @@ class News extends Model
     protected $guarded = [];
 
     protected $attributes = [
-        'tags' => 'None',
+        'tags' => 'ANSS Foundation',
     ];
 }

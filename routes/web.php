@@ -15,7 +15,7 @@
 Route::get('/', 'PageController@index')->name('home');
 
 // About
-Route::get('/about', 'PageController@about');
+Route::get('/who-we-are', 'PageController@whoWeAre');
 Route::get('/strategic-plans', 'PageController@strategicPlans');
 Route::get('/board-of-directors', 'PageController@boardOfDirectors');
 
@@ -25,11 +25,11 @@ Route::get('/cultural-environmental-and-educational', 'PageController@culturalEn
 Route::get('/networking-and-community-based-research', 'PageController@networkingAndCommunityBasedResearch');
 
 // Events
-Route::get('/upcoming-events/{id?}', 'PageController@upcomingEvents');
-Route::get('/past-events/{id?}', 'PageController@pastEvents');
+Route::get('/events/past/{id?}', 'PageController@pastEvents');
+Route::get('/events/upcoming/{id?}', 'PageController@upcomingEvents');
 
 // Latest News
-Route::get('/latest-news/{id?}', 'PageController@latestNews');
+Route::get('/news/{id?}', 'PageController@latestNews');
 
 // Gallery
 Route::get('/gallery/{id?}', 'PageController@gallery');

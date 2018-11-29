@@ -22,7 +22,7 @@ class Event extends Model
     protected $guarded = [];
 
     protected $attributes = [
-        'tags' => 'None',
+        'tags' => 'ANSS Foundation',
     ];
 
     public function scopeUpcoming(Builder $builder)
