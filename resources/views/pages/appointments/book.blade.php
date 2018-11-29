@@ -1,13 +1,13 @@
 
 @extends('layouts.master')
 
-@section('title', 'Appointments')
+@section('title', $title)
 
 @section('content')
 
-    <div class="bar">
-        <h1>Book Appointments</h1>
-    </div>
+    @component('components.head')
+        {{ $title }}
+    @endcomponent
 
     <div style="padding:2rem 4rem;">
 

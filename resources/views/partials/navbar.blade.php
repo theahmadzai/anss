@@ -10,11 +10,11 @@
     </li>
 
     <li class="navbar__item">
-        <a class="navbar__link" href="/about">About Us</a>
+        <a class="navbar__link" href="/who-we-are">About Us</a>
 
         <ul class="dropdown">
             <li class="dropdown__item">
-                <a class="dropdown__link" href="/about">Who we are</a>
+                <a class="dropdown__link" href="/who-we-are">Who we are</a>
             </li>
 
             <li class="dropdown__item">
@@ -46,21 +46,21 @@
     </li>
 
     <li class="navbar__item">
-        <a class="navbar__link" href="/past-events">Events</a>
+        <a class="navbar__link" href="/events/past">Events</a>
 
         <ul class="dropdown">
             <li class="dropdown__item">
-                <a class="dropdown__link" href="/past-events">Past Events</a>
+                <a class="dropdown__link" href="/events/past">Past Events</a>
             </li>
 
             <li class="dropdown__item">
-                <a class="dropdown__link" href="/upcoming-events">Upcoming Events</a>
+                <a class="dropdown__link" href="/events/upcoming">Upcoming Events</a>
             </li>
         </ul>
     </li>
 
     <li class="navbar__item">
-        <a class="navbar__link" href="/latest-news">Latest News</a>
+        <a class="navbar__link" href="/news">Latest News</a>
     </li>
 
     <li class="navbar__item">

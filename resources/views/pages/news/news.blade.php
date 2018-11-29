@@ -1,35 +1,35 @@
 @extends('layouts.master')
 
-@section('title', 'Latest News')
+@section('title', $title)
 
 @section('content')
 
-    <div class="bar">
-        <h1>Latest News</h1>
-    </div>
+    @component('components.head')
+        {{ $title }}
+    @endcomponent
 
     <div class="container">
         <div class="container__wide">
-            @if ($news_)
+            @if ($news)
             <div class="row">
-            @foreach ($news_ as $news)
+            @foreach ($news as $news)
                 <div class="col col--full border--bottom">
                     <div class="view">
                         <div class="date">
                             <div class="day">
-                                {{$news->created_at->day}}
+                                {{$news->date->day}}
                             </div>
                             <div class="month">
-                                {{$news->created_at->shortEnglishMonth}}
+                                {{$news->date->shortEnglishMonth}}
                             </div>
                             <div class="year">
-                                {{$news->created_at->year}}
+                                {{$news->date->year}}
                             </div>
                         </div>
                         <div class="view__content">
-                            <a href="/latest-news/{{$news->id}}"><h3>{{$news->title}}</h3></a>
+                            <a href="/news/{{$news->id}}"><h3>{{$news->title}}</h3></a>
                             <p>{{ str_limit($news->content, 300) }}</p>
-                            <a class="button" href="/latest-news/{{$news->id}}">Read More</a>
+                            <a class="button" href="/news/{{$news->id}}">Read More</a>
                         </div>
                     </div>
                 </div>

@@ -1,12 +1,12 @@
 @extends('layouts.master')
 
-@section('title', 'Appointments')
+@section('title', $title)
 
 @section('content')
 
-    <div class="bar">
-        <h1>Appointments</h1>
-    </div>
+    @component('components.head')
+        {{ $title }}
+    @endcomponent
 
     <div class="container">
         <div class="container__narrow"></div>

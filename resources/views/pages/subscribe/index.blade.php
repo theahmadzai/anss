@@ -1,8 +1,12 @@
 @extends('layouts.master')
 
-@section('title', 'Subscribe')
+@section('title', $title)
 
 @section('content')
+
+    @component('components.head')
+        {{ $title }}
+    @endcomponent
 
     <div style="padding:2rem;">
 
