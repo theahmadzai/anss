@@ -13,6 +13,7 @@
                 <a href="#" class="sm" style="color:green;"><i class="icon icon-instagram"></i></a>
                 <a href="/contact">Contact Us</a>
                 <a href="#">FAQ</a>
+                <a href="/webmail"><i class="icon icon-envelop"></i> Webmail Login</a>
 
                 @guest
                 <a href="/login">Login</a>
