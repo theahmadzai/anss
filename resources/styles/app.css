@@ -15,47 +15,9 @@
 @import './partials/news';
 @import './partials/view';
 @import './partials/article';
-@import './partials/bod';
+@import './partials/profile';
 @import './partials/segment';
 @import './partials/pagination';
-
-.appointments {
-  display: flex;
-  flex-direction: column;
-  margin: 4rem;
-  padding-top: 4rem;
-
-  &__item {
-    display: grid;
-    background: #fafafa;
-    grid-template-columns: 25% 50% 25%;
-
-    div {
-      padding: 0.5rem 0;
-      border: 1px solid #efefef;
-      text-align: center;
-
-      &:hover {
-        background: #ffffff;
-      }
-
-      button {
-        margin: 0;
-        padding: 0.2rem 1rem;
-        border: 1px solid #eeeeee;
-        color: $primary;
-        cursor: pointer;
-
-        &:hover {
-          color: $green;
-        }
-      }
-
-      p {
-        margin: 0;
-        font-size: 0.8rem;
-        color: #777777;
-      }
-    }
-  }
-}
+@import './partials/double';
+@import './partials/section';
+@import './partials/appointments';

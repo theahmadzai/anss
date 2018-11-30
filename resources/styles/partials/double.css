@@ -1,0 +1,25 @@
+.double {
+  display: flex;
+  justify-content: space-between;
+
+  @media $tablet {
+    flex-direction: column;
+  }
+
+  &__left {
+    flex-basis: 48%;
+
+    @media $tablet {
+      order: 2;
+    }
+  }
+
+  &__right {
+    flex-basis: 48%;
+
+    @media $tablet {
+      order: 1;
+      margin-bottom: 1rem;
+    }
+  }
+}
