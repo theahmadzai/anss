@@ -10,7 +10,7 @@
 
     <div class="footer__right">
         <div class="column">
-            <h2 class="column__head">Subscribe Us</h2>
+            <h2 class="column__head">Subscribe to Updates & Newsletter</h2>
             <div class="column__body">
                 <form method="POST" action="/subscribe">
                     @csrf
@@ -39,5 +39,5 @@
 </footer>
 
 <footer class="copyrights">
-    <p>© <span>Copyright</span> 2014 by <span>Afghan Network of Social Services</span>. All Rights Reserved. <span>Privacy and Disclaimer</span></p>
+    <p>© <span>Copyright</span> 2018 by <span>ANSS Foundation</span>. All Rights Reserved. <span>Privacy and Disclaimer</span></p>
 </footer>
