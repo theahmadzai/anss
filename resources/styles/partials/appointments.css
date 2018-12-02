@@ -1,0 +1,38 @@
+.appointments {
+  display: flex;
+  flex-flow: column;
+
+  &__item {
+    display: flex;
+
+    div {
+      flex-basis: 33.33%;
+      padding: 0.8rem;
+      border-bottom: 1px solid $red-light;
+      color: #111111;
+      text-align: left;
+
+      button {
+        padding: 0.4rem 2rem;
+        border: 1px solid $red;
+        background: $red;
+
+        a {
+          color: #ffffff;
+        }
+      }
+    }
+
+    &:nth-child(even) {
+      background: #f9f9f9;
+    }
+
+    &--header {
+      div {
+        background: $red-light;
+        font-weight: 700;
+        color: #ffffff;
+      }
+    }
+  }
+}

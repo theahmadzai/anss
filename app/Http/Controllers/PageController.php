@@ -243,7 +243,7 @@ class PageController extends Controller
     public function subscribe()
     {
         return view('pages.subscribe.index')
-        ->withTitle('Subscribe');
+        ->withTitle('Subscribe to Updates and Newsletter');
     }
 
     public function subscribeStore(Request $request)

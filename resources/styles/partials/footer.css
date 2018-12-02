@@ -1,6 +1,6 @@
 .footer {
   display: flex;
-  background: #4c4c4c;
+  background: $red;
 
   @media $tablet {
     flex-direction: column;
@@ -21,7 +21,7 @@
       width: 100%;
       height: 100px;
       transform: skewY(150deg);
-      background: linear-gradient(-90deg, #2c2c2c, #4c4c4c);
+      background: linear-gradient(-90deg, $red-light, $red);
     }
   }
 
@@ -48,6 +48,7 @@
   }
 
   &__head {
+    margin-right: 0.5rem;
     font-size: 1.1rem;
     font-weight: 500;
     color: #fefefe;
@@ -58,8 +59,8 @@
 
     p {
       padding: 0.5rem 0;
-      background: #4c4c4c;
-      font-size: 0.8rem;
+      background: $red;
+      font-size: 0.9rem;
       line-height: 1.5rem;
     }
 
@@ -75,8 +76,8 @@
         padding: 0.3rem 1rem;
         outline: none;
         border: none;
-        border-radius: 3px;
-        background: #6c6c6c;
+        border: 1px solid #cccccc;
+        background: transparent;
         font-size: 0.8rem;
         color: #ffffff;
 
@@ -90,14 +91,14 @@
         padding: 0.4rem 1.3rem;
         outline: none;
         border: 0;
-        border-radius: 3px;
-        background: #3c3c3c;
+        border: 1px solid #cccccc;
+        background: $red;
         font-size: 0.8rem;
-        color: #ffffff;
+        color: #cccccc;
         cursor: pointer;
 
         &:hover {
-          background: $primary;
+          background: $red-light;
           color: #ffffff;
         }
       }
