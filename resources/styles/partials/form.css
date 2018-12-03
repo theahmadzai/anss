@@ -1,0 +1,56 @@
+.form {
+  display: flex;
+  flex-direction: column;
+
+  &__item {
+    padding: 0.8rem 0;
+
+    &--inline {
+      display: flex;
+      align-items: center;
+    }
+
+    p {
+      font-size: 0.8rem;
+      color: red;
+    }
+  }
+
+  textarea {
+    width: 50%;
+    height: 80px;
+    margin-top: 0.5rem;
+  }
+
+  .input {
+    display: block;
+    width: 250px;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .file {
+    margin-top: 0.5rem;
+  }
+
+  .label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #666666;
+
+    &--inline {
+      margin: 0 0.5rem;
+    }
+
+    span {
+      color: #ef7411;
+    }
+  }
+
+  textarea,
+  input,
+  button {
+    outline: none;
+  }
+}

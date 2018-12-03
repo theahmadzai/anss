@@ -72,13 +72,11 @@
 
 .toggle {
   display: none;
-  margin: 0 auto 1rem auto;
+  margin: 0 auto;
   padding: 0.5rem;
   padding-bottom: 0;
   outline: none;
-  border: 0;
   border: 1px solid #dddddd;
-  border-bottom: 0;
   background: none;
   cursor: pointer;
 

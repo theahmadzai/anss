@@ -145,22 +145,6 @@ ul {
   list-style: none;
 }
 
-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #666666;
-
-  span {
-    color: #ef7411;
-  }
-}
-
-.form__control {
-  margin-bottom: 1.5rem;
-}
-
 .wrapper {
   max-width: $content-width-wide;
   margin: 0 auto;
