@@ -14,6 +14,7 @@
 @import './partials/card';
 @import './partials/news';
 @import './partials/view';
+@import './partials/articles';
 @import './partials/article';
 @import './partials/profile';
 @import './partials/segment';
@@ -21,3 +22,5 @@
 @import './partials/double';
 @import './partials/section';
 @import './partials/appointments';
+@import './partials/gallery';
+@import './partials/form';
