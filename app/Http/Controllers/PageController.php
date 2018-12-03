@@ -84,7 +84,7 @@ class PageController extends Controller
     {
         if ($id === null) {
             return  view('pages.events.events', [
-                'events' => Event::upcoming()->get()
+                'events' => Event::upcoming()->paginate(5)
             ])
             ->withTitle('Upcoming Events');
         }
@@ -98,7 +98,7 @@ class PageController extends Controller
     {
         if ($id === null) {
             return view('pages.events.events', [
-                'events' => Event::past()->get()
+                'events' => Event::past()->paginate(5)
             ])
             ->withTitle('Past Events');
         }
@@ -115,7 +115,7 @@ class PageController extends Controller
     {
         if ($id === null) {
             return view('pages.news.news', [
-                'news' => News::get()
+                'news' => News::paginate(4)
             ])
             ->withTitle('Latest News');
         }
@@ -128,11 +128,40 @@ class PageController extends Controller
     /**
      * Gallery
      */
-    public function gallery($id = null)
+    public function gallery(Request $request)
     {
+        $query = new Image;
+
+        $category = $request->old('category');
+        $order = $request->old('order');
+        $search = $request->old('search');
+        $range = $request->old('range');
+
+        if(!empty($request->category)) {
+            $category = $request->category;
+            $query = $query->where('category_id', $category);
+        }
+
+        if(!empty($request->order)) {
+            $order = $request->order;
+            $query = $query->orderBy('id', $order);
+        }
+
+        if(!empty($request->search)) {
+            $search = $request->search;
+            $query = $query->where('title', 'like', '%'.$search.'%');
+        }
+
+        if(!empty($request->range)) {
+            $range = $request->range;
+            $query = $query->paginate($range);
+        } else {
+            $query = $query->paginate(12);
+        }
+
         return view('pages.gallery.index', [
             'categories' => Category::get(),
-            'images' => !$id ? Image::paginate(9) : Image::where('category_id', $id)->paginate(9),
+            'images' => $query,
         ])
         ->withTitle('Gallery');
     }
