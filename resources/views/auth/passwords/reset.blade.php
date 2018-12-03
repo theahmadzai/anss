@@ -1,54 +1,46 @@
 @extends('layouts.master')
 
-@section('title', 'User account')
+@section('title', 'Reset Password')
 
 @section('content')
 
-    <div class="bar">
-        <h2>Reset Password</h2>
-    </div>
+    @component('components.head')
+        Reset Password
+    @endcomponent
 
-    <div class="container">
-        <div class="container__wide">
-            <div class="container__row">
-                <form method="POST" action="/password/reset">
-                    @csrf
+    <section class="section">
 
-                    <input type="hidden" name="token" value="{{ $token }}">
+        <form class="form" method="POST" action="/password/reset">
+            @csrf
 
-                    <div class="form__control">
-                        <label for="email">Email</label>
-                        <input type="text" name="email" id="email" value="{{ old('email') }}" required autofocus>
-                        @if ($errors->has('email'))
-                            <span role="alert">
-                                <strong>{{ $errors->first('email') }}</strong>
-                            </span>
-                        @endif
-                    </div>
+            <input type="hidden" name="token" value="{{ $token }}">
 
-                    <div class="form__control">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" id="password" required>
-                         @if ($errors->has('password'))
-                            <span role="alert">
-                                <strong>{{ $errors->first('password') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-
-                    <div class="form__control">
-                        <label for="password_confirmation">Confirm Password</label>
-                        <input type="password" name="password_confirmation" id="password_confirmation" required>
-                    </div>
-
-                    <div class="form__control">
-                        <button class="button">Reset Password</button>
-                    </div>
-                </form>
+            <div class="form__item">
+                <label class="label">Email <span>*</span></label>
+                <input class="input" type="text" name="email" value="{{ old('email') }}" required autofocus>
+                @if ($errors->has('email'))
+                    <p>{{ $errors->first('email') }}</p>
+                @endif
             </div>
-        </div>
 
-        <div class="container__narrow"></div>
-    </div>
+            <div class="form__item">
+                <label class="label">Password <span>*</span></label>
+                <input class="input" type="password" name="password" required>
+                @if ($errors->has('password'))
+                    <p>{{ $errors->first('password') }}</p>
+                @endif
+            </div>
+
+            <div class="form__item">
+                <label class="label">Confirm Password <span>*</span></label>
+                <input class="input" type="password" name="password_confirmation" required>
+            </div>
+
+            <div class="form__item">
+                <button class="button">Reset Password</button>
+            </div>
+        </form>
+
+    </section>
 
 @endsection

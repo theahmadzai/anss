@@ -20,7 +20,7 @@
                 <label for="">Category</label>
                 <select name="category_id">
                     @foreach ($categories as $category)
-                        <option value="{{$category->id}}" {{ old('category_id', $image->category) == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
+                        <option value="{{$category->id}}" {{ old('category_id', $image->category->id) == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
                     @endforeach
                 </select>
                 @if ($errors->has('category_id'))

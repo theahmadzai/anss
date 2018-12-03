@@ -8,7 +8,7 @@
         {{ $event->title }}
     @endcomponent
 
-    <div class="container container--center">
+    <section class="section">
         <article class="article">
             <div class="article__image">
                 <img src="{{$event->image}}" alt="{{$event->title}}">
@@ -32,6 +32,6 @@
                 <p>{{ $event->content }}</p>
             </div>
         </article>
-    </div>
+    </section>
 
 @endsection

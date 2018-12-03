@@ -40,6 +40,10 @@
                     </div>
                 @endforeach
                 </div>
+
+                <div class="paging">
+                    {{ $events->links() }}
+                </div>
             @endif
         </div>
 

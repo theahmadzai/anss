@@ -1,62 +1,52 @@
 @extends('layouts.master')
 
-@section('title', 'User account')
+@section('title', 'Sign Up')
 
 @section('content')
 
-    <div class="bar">
-        <h2>User account</h2>
-    </div>
+    @component('components.head')
+        Create an account
+    @endcomponent
 
-    <div class="container">
-        <div class="container__wide">
-            <div class="container__row">
-                <form method="POST" action="/register">
-                    @csrf
+    <section class="section">
 
-                    <div class="form__control">
-                        <label for="email">Name</label>
-                        <input type="text" name="name" id="name" value="{{ old('name') }}" required autofocus>
-                        @if ($errors->has('name'))
-                            <span role="alert">
-                                <strong>{{ $errors->first('name') }}</strong>
-                            </span>
-                        @endif
-                    </div>
+        <form class="form" method="POST" action="/register">
+            @csrf
 
-                    <div class="form__control">
-                        <label for="email">Email</label>
-                        <input type="text" name="email" id="email" value="{{ old('email') }}" required>
-                        @if ($errors->has('email'))
-                            <span role="alert">
-                                <strong>{{ $errors->first('email') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-
-                    <div class="form__control">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" id="password" required>
-                         @if ($errors->has('password'))
-                            <span role="alert">
-                                <strong>{{ $errors->first('password') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-
-                    <div class="form__control">
-                        <label for="password_confirmation">Confirm Password</label>
-                        <input type="password" name="password_confirmation" id="password_confirmation" required>
-                    </div>
-
-                    <div class="form__control">
-                        <button class="button">Register</button>
-                    </div>
-                </form>
+            <div class="form__item">
+                <label class="label">Name <span>*</span></label>
+                <input class="input" type="text" name="name" value="{{ old('name') }}" required autofocus>
+                @if ($errors->has('name'))
+                    <p>{{ $errors->first('name') }}</p>
+                @endif
             </div>
-        </div>
 
-        <div class="container__narrow"></div>
-    </div>
+            <div class="form__item">
+                <label class="label">Email <span>*</span></label>
+                <input class="input" type="text" name="email" value="{{ old('email') }}" required>
+                @if ($errors->has('email'))
+                    <p>{{ $errors->first('email') }}</p>
+                @endif
+            </div>
+
+            <div class="form__item">
+                <label class="label">Password <span>*</span></label>
+                <input class="input" type="password" name="password" required>
+                    @if ($errors->has('password'))
+                    <p>{{ $errors->first('password') }}</p>
+                @endif
+            </div>
+
+            <div class="form__item">
+                <label class="label">Confirm Password <span>*</span></label>
+                <input class="input" type="password" name="password_confirmation" required>
+            </div>
+
+            <div class="form__item">
+                <button class="button">Register</button>
+            </div>
+        </form>
+
+    </section>
 
 @endsection

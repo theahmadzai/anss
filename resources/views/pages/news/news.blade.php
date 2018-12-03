@@ -8,39 +8,36 @@
         {{ $title }}
     @endcomponent
 
-    <div class="container">
-        <div class="container__wide">
-            @if ($news)
-            <div class="row">
-            @foreach ($news as $news)
-                <div class="col col--full border--bottom">
-                    <div class="view">
+    <section class="section">
+        @if ($news)
+            <div class="articles">
+                @foreach ($news as $new)
+                    <div class="articles__item">
                         <div class="date">
                             <div class="day">
-                                {{$news->date->day}}
+                                {{$new->date->day}}
                             </div>
                             <div class="month">
-                                {{$news->date->shortEnglishMonth}}
+                                {{$new->date->shortEnglishMonth}}
                             </div>
                             <div class="year">
-                                {{$news->date->year}}
+                                {{$new->date->year}}
                             </div>
                         </div>
-                        <div class="view__content">
-                            <a href="/news/{{$news->id}}"><h3>{{$news->title}}</h3></a>
-                            <p>{{ str_limit($news->content, 300) }}</p>
-                            <a class="button" href="/news/{{$news->id}}">Read More</a>
+                        <div class="content">
+                            <h2 class="content__heading"><a href="/news/{{$new->id}}">{{$new->title}}</a></h2>
+                            <p class="content__tags"><i class="icon icon-price-tag"></i>{{ $new->tags }}</p>
+                            <p class="content__text">{{ str_limit($new->content, 300) }}..</p>
+                            <a class="content__link" href="/news/{{$new->id}}">Read More</a>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
             </div>
-            @endif
-        </div>
 
-        <div class="container__narrow">
-
-        </div>
-    </div>
+            <div class="paging">
+                {{ $news->links() }}
+            </div>
+        @endif
+    </section>
 
 @endsection

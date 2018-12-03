@@ -9,61 +9,60 @@
         {{ $title }}
     @endcomponent
 
-    <div style="padding:2rem 4rem;">
+    <section class="section">
 
-        <div style="display:grid; margin-bottom:2rem; background:#efefef; padding:0.2rem;">
-            <div style="padding:0 1rem; font-size:0.7rem;">
-                <p>{{$appointment->date->toDayDateTimeString()}}</p>
-            </div>
-            <div style="background:white; padding:0 1rem;">
-                <p>{{$appointment->description}}</p>
-            </div>
+        <div style="padding:1rem; background:#a7a7a7; color:#ffffff;">
+            <p>{{$appointment->date->toDayDateTimeString()}}</p>
+        </div>
+        <div style="padding:1rem; background:#f9f9f9;">
+            <p>{{$appointment->description}}</p>
         </div>
 
-        <form method="POST" action="/appointments/{{$appointment->id}}" enctype="multipart/form-data">
+        <form class="form" method="POST" action="/appointments/{{$appointment->id}}" enctype="multipart/form-data">
             @csrf
 
-            <div class="form__control">
-                <label for="">Name <span>*</span></label>
-                <input type="text" name="name" value="{{ old('name') }}">
+            <div class="form__item">
+                <label class="label">Name <span>*</span></label>
+                <input class="input" type="text" name="name" value="{{ old('name') }}">
                 @if ($errors->has('name'))
                     <p>{{ $errors->first('name') }}</p>
                 @endif
             </div>
 
-            <div class="form__control">
-                <label for="">E-mail Address <span>*</span></label>
-                <input type="email" name="email" value="{{ old('email') }}">
+            <div class="form__item">
+                <label class="label">E-mail Address <span>*</span></label>
+                <input class="input" type="email" name="email" value="{{ old('email') }}">
                 @if ($errors->has('email'))
                     <p>{{ $errors->first('email') }}</p>
                 @endif
             </div>
 
-            <div class="form__control">
-                <label for="">phone</label>
-                <input type="tel" name="phone" value="{{ old('phone') }}">
+            <div class="form__item">
+                <label class="label">phone</label>
+                <input class="input" type="tel" name="phone" value="{{ old('phone') }}">
                 @if ($errors->has('phone'))
                     <p>{{ $errors->first('phone') }}</p>
                 @endif
             </div>
 
-            <div class="form__control">
-                <label for="">Message</label>
+            <div class="form__item">
+                <label class="label">Message</label>
                 <textarea name="message">{{ old('message') }}</textarea>
                 @if ($errors->has('message'))
                     <p>{{ $errors->first('message') }}</p>
                 @endif
             </div>
 
-            <div class="form__control">
-                <label for="">Files</label>
-                <input type="file" name="files[]" multiple>
+            <div class="form__item">
+                <label class="label">Files</label>
+                <input class="file" type="file" name="files[]" multiple>
             </div>
 
-            <div class="form__control">
+            <div class="form__item">
                 <button class="button">Book</button>
             </div>
         </form>
-    </div>
+
+    </section>
 
 @endsection
