@@ -8,7 +8,7 @@
             @csrf
 
             <div class="form__control">
-                <label for="">Name</label>
+                <label>Name</label>
                 <input type="text" name="name" value="{{ old('name') }}">
                 @if ($errors->has('name'))
                     <p>{{ $errors->first('name') }}</p>

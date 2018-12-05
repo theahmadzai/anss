@@ -9,7 +9,7 @@
             @method('PUT')
 
             <div class="form__control">
-                <label for="">Title</label>
+                <label>Title</label>
                 <input type="text" name="title" value="{{ old('title', $image->title) }}">
                 @if ($errors->has('title'))
                     <p>{{ $errors->first('title') }}</p>
@@ -17,7 +17,7 @@
             </div>
 
             <div class="form__control">
-                <label for="">Category</label>
+                <label>Category</label>
                 <select name="category_id">
                     @foreach ($categories as $category)
                         <option value="{{$category->id}}" {{ old('category_id', $image->category->id) == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
@@ -29,7 +29,7 @@
             </div>
 
             <div class="form__control">
-                <label for="">Image</label>
+                <label>Image</label>
                 <input type="file" name="image">
                 @if ($errors->has('image'))
                     <p>{{ $errors->first('image') }}</p>
@@ -37,7 +37,7 @@
             </div>
 
              <div class="form__control">
-                <label for="">Description</label>
+                <label>Description</label>
                 <textarea name="description">{{ old('description', $image->description) }}</textarea>
                 @if ($errors->has('description'))
                     <p>{{ $errors->first('description') }}</p>

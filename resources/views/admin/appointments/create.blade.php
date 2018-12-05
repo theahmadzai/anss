@@ -8,7 +8,7 @@
             @csrf
 
             <div class="form__control">
-                <label for="">Timing</label>
+                <label>Timing</label>
                 <input type="datetime-local" name="date" value="{{ old('date') }}">
                 @if ($errors->has('date'))
                     <p>{{ $errors->first('date') }}</p>
@@ -16,7 +16,7 @@
             </div>
 
              <div class="form__control">
-                <label for="">Description</label>
+                <label>Description</label>
                 <textarea name="description">{{ old('description') }}</textarea>
                 @if ($errors->has('description'))
                     <p>{{ $errors->first('description') }}</p>

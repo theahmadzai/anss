@@ -9,7 +9,7 @@
             @method('PUT')
 
             <div class="form__control">
-                <label for="">Title</label>
+                <label>Title</label>
                 <input type="text" name="title" value="{{ old('title', $event->title) }}">
                 @if ($errors->has('title'))
                     <p>{{ $errors->first('title') }}</p>
@@ -17,7 +17,7 @@
             </div>
 
             <div class="form__control">
-                <label for="">Venue</label>
+                <label>Venue</label>
                 <input type="text" name="venue" value="{{ old('venue', $event->venue) }}">
                 @if ($errors->has('venue'))
                     <p>{{ $errors->first('venue') }}</p>
@@ -25,7 +25,7 @@
             </div>
 
             <div class="form__control">
-                <label for="">Date</label>
+                <label>Date</label>
                 <input type="datetime-local" name="date" value="{{ old('date', $event->date->format('Y-m-d\TH:i')) }}">
                 @if ($errors->has('date'))
                     <p>{{ $errors->first('date') }}</p>
@@ -33,7 +33,7 @@
             </div>
 
             <div class="form__control">
-                <label for="">Image</label>
+                <label>Image</label>
                 <input type="file" name="image">
                 @if ($errors->has('image'))
                     <p>{{ $errors->first('image') }}</p>
@@ -41,7 +41,7 @@
             </div>
 
             <div class="form__control">
-                <label for="">Tags <sup><i>(separated by comma)</i></sup></label>
+                <label>Tags <sup><i>(separated by comma)</i></sup></label>
                 <input type="text" name="tags" value="{{ old('tags', $event->tags) }}">
                 @if ($errors->has('tags'))
                     <p>{{ $errors->first('tags') }}</p>
@@ -49,7 +49,7 @@
             </div>
 
             <div class="form__control">
-                <label for="">Content</label>
+                <label>Content</label>
                 <textarea name="content">{{old('content', $event->content)}}</textarea>
                 @if ($errors->has('content'))
                     <p>{{ $errors->first('content') }}</p>

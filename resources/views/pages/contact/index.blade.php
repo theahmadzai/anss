@@ -31,8 +31,8 @@
                 @if ($errors->has('email'))
                     <p>{{ $errors->first('email') }}</p>
                 @endif
-
             </div>
+
             <div class="form__item">
                 <label class="label">Subject <span>*</span></label>
                 <input class="input" type="text" name="subject" value="{{ old('subject') }}">
