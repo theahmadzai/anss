@@ -32,7 +32,7 @@ class PageController extends Controller
             'latest_news' => $latest_news,
             'upcoming_events' => $upcoming_events,
         ])
-        ->withTitle('Home');
+            ->withTitle('Home');
     }
 
     /**
@@ -41,19 +41,19 @@ class PageController extends Controller
     public function whoWeAre()
     {
         return view('pages.about.who-we-are')
-        ->withTitle('Who we are');
+            ->withTitle('Who we are');
     }
 
     public function strategicPlans()
     {
         return view('pages.about.strategic-plans')
-        ->withTitle('Strategic Plans');
+            ->withTitle('Strategic Plans');
     }
 
     public function boardOfDirectors()
     {
         return view('pages.about.board-of-directors')
-        ->withTitle('Board of Directors');
+            ->withTitle('Board of Directors');
     }
 
     /**
@@ -62,19 +62,19 @@ class PageController extends Controller
     public function immigrationAndSettlement()
     {
         return view('pages.services.immigration-and-settlement')
-        ->withTitle('Immigration and Settlement');
+            ->withTitle('Immigration and Settlement');
     }
 
     public function culturalEnvironmentalAndEducational()
     {
         return view('pages.services.cultural-environmental-and-educational')
-        ->withTitle('Cultural Environmental & Educational');
+            ->withTitle('Cultural Environmental & Educational');
     }
 
     public function networkingAndCommunityBasedResearch()
     {
         return view('pages.services.networking-and-community-based-research')
-        ->withTitle('Networking & Community Based Research');
+            ->withTitle('Networking & Community Based Research');
     }
 
     /**
@@ -83,14 +83,14 @@ class PageController extends Controller
     public function upcomingEvents($id = null)
     {
         if ($id === null) {
-            return  view('pages.events.events', [
-                'events' => Event::upcoming()->paginate(5)
+            return view('pages.events.events', [
+                'events' => Event::upcoming()->paginate(5),
             ])
-            ->withTitle('Upcoming Events');
+                ->withTitle('Upcoming Events');
         }
 
         return view('pages.events.event', [
-            'event' => Event::find($id)
+            'event' => Event::find($id),
         ]);
     }
 
@@ -98,13 +98,13 @@ class PageController extends Controller
     {
         if ($id === null) {
             return view('pages.events.events', [
-                'events' => Event::past()->paginate(5)
+                'events' => Event::past()->paginate(5),
             ])
-            ->withTitle('Past Events');
+                ->withTitle('Past Events');
         }
 
         return view('pages.events.event', [
-            'event' => Event::find($id)
+            'event' => Event::find($id),
         ]);
     }
 
@@ -115,13 +115,13 @@ class PageController extends Controller
     {
         if ($id === null) {
             return view('pages.news.news', [
-                'news' => News::paginate(4)
+                'news' => News::paginate(4),
             ])
-            ->withTitle('Latest News');
+                ->withTitle('Latest News');
         }
 
         return view('pages.news.new', [
-            'news' => News::find($id)
+            'news' => News::find($id),
         ]);
     }
 
@@ -137,22 +137,22 @@ class PageController extends Controller
         $search = $request->old('search');
         $range = $request->old('range');
 
-        if(!empty($request->category)) {
+        if (!empty($request->category)) {
             $category = $request->category;
             $query = $query->where('category_id', $category);
         }
 
-        if(!empty($request->order)) {
+        if (!empty($request->order)) {
             $order = $request->order;
             $query = $query->orderBy('id', $order);
         }
 
-        if(!empty($request->search)) {
+        if (!empty($request->search)) {
             $search = $request->search;
-            $query = $query->where('title', 'like', '%'.$search.'%');
+            $query = $query->where('title', 'like', '%' . $search . '%');
         }
 
-        if(!empty($request->range)) {
+        if (!empty($request->range)) {
             $range = $request->range;
             $query = $query->paginate($range);
         } else {
@@ -163,7 +163,7 @@ class PageController extends Controller
             'categories' => Category::get(),
             'images' => $query,
         ])
-        ->withTitle('Gallery');
+            ->withTitle('Gallery');
     }
 
     /**
@@ -172,9 +172,9 @@ class PageController extends Controller
     public function appointments()
     {
         return view('pages.appointments.index', [
-            'appointments' => Appointment::unexpired()->get()
+            'appointments' => Appointment::unexpired()->get(),
         ])
-        ->withTitle('Appointments');
+            ->withTitle('Appointments');
     }
 
     public function appointmentsPage($id = null)
@@ -186,9 +186,9 @@ class PageController extends Controller
         }
 
         return view('pages.appointments.book', [
-            'appointment' => $appointment
+            'appointment' => $appointment,
         ])
-        ->withTitle('Book an Appointment');
+            ->withTitle('Book an Appointment');
     }
 
     public function appointmentsBook(Request $request, $id)
@@ -235,7 +235,7 @@ class PageController extends Controller
     public function donate()
     {
         return view('pages.donate.index')
-        ->withTitle('Donate');
+            ->withTitle('Donate');
     }
 
     /**
@@ -244,7 +244,7 @@ class PageController extends Controller
     public function contact()
     {
         return view('pages.contact.index')
-        ->withTitle('Contact Us');
+            ->withTitle('Contact Us');
     }
 
     public function contactMail(Request $request)
@@ -272,7 +272,7 @@ class PageController extends Controller
     public function subscribe()
     {
         return view('pages.subscribe.index')
-        ->withTitle('Subscribe to Updates and Newsletter');
+            ->withTitle('Subscribe to Updates and Newsletter');
     }
 
     public function subscribeStore(Request $request)
