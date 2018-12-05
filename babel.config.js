@@ -5,7 +5,7 @@ module.exports = (api) => {
     '@babel/env'
   ]
 
-  isProduction && presets.push(...[
+  isProduction && presets.concat(...[
     'minify'
   ])
 
