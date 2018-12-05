@@ -58,6 +58,7 @@ Route::prefix('/user')->group(function () {
 
     // Profile
     Route::get('/', 'UserController@index');
+    Route::post('/', 'UserController@update');
 
 });
 
