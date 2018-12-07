@@ -54,18 +54,20 @@ Route::post('/subscribe', 'PageController@subscribeStore');
 Auth::routes(['verify' => true]);
 
 // User
-Route::prefix('/user')->group(function () {
+Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
+
+    // User Panel
+    Route::get('/', 'User\UserController@index');
 
     // Profile
-    Route::get('/', 'UserController@index');
-    Route::post('/', 'UserController@update');
+    Route::resource('/profile', 'User\ProfileController');
 
 });
 
 // Admin
-Route::prefix('/admin')->group(function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 
-    // Panel
+    // Admin Panel
     Route::get('/', 'Admin\AdminController@index');
 
     // Categories
