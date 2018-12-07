@@ -23,10 +23,10 @@ $(document).ready(() => {
   // Slider
   $('#slider').slick({
     infinite: true,
-    autoplay: true,
-    adaptiveHeight: true
+    autoplay: true
   })
 
+  // News Slider
   $('#news-slider').slick({
     infinite: true,
     autoplay: true,
