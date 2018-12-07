@@ -12,10 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Event extends Model
 {
-    use SoftDeletes;
-    use ThumbnailTrait;
-    use ImageTrait;
-    use DateTrait;
+    use SoftDeletes, ThumbnailTrait, ImageTrait, DateTrait;
 
     protected $table = 'events';
 

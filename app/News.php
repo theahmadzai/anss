@@ -10,10 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class News extends Model
 {
-    use SoftDeletes;
-    use DateTrait;
-    use ThumbnailTrait;
-    use ImageTrait;
+    use SoftDeletes, DateTrait, ThumbnailTrait, ImageTrait;
 
     protected $table = 'news';
 

@@ -10,8 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Appointment extends Model
 {
-    use SoftDeletes;
-    use DateTrait;
+    use SoftDeletes, DateTrait;
 
     protected $table = 'appointments';
 
