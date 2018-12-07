@@ -43,7 +43,7 @@ class CategoryController extends Controller
 
     public function update(StoreCategoryRequest $request, Category $category)
     {
-        $category = Category::find($category->id)->update($request->validated());
+        Category::find($category->id)->update($request->validated());
 
         return back()->with('status', 'Category Updated Successfully!');
     }
