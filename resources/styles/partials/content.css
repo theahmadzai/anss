@@ -1,0 +1,45 @@
+.content {
+  margin-left: 1rem;
+
+  @media $tablet {
+    margin-left: 0;
+  }
+
+  &__heading {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+
+    a {
+      color: #888888;
+
+      &:hover {
+        color: #666666;
+      }
+    }
+  }
+
+  &__info {
+    margin-bottom: 1rem;
+
+    i {
+      margin-right: 0.5rem;
+    }
+  }
+
+  &__text {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    text-align: justify;
+  }
+
+  &__link {
+    padding: 0.2rem 0.5rem;
+    background: #cccccc;
+    color: #ffffff;
+
+    &:hover {
+      background: #aaaaaa;
+      color: #ffffff;
+    }
+  }
+}
