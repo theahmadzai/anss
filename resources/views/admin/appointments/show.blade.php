@@ -2,35 +2,16 @@
 
 @section('panel')
 
-    <div style="display:grid; padding:2rem;">
+    <section class="section">
 
-        <div>
-            <p><b>Timing: </b>{{$appointment->timing->toDayDateTimeString()}}</p>
-        </div>
+        <p><b>Timing: </b>{{$appointment->date->toDayDateTimeString()}}</p>
+        <p><b>Name: </b>{{$appointment->name}}</p>
+        <p><b>Email: </b>{{$appointment->email}}</p>
+        <p><b>Category: </b>{{$appointment->category}}</p>
+        <p><b>Email: </b>{{$appointment->email}}</p>
+        <p><b>Status: </b>{{$appointment->status}}</p>
+        <p><b>Message: </b>{{$appointment->message}}</p>
 
-        <div>
-            <p><b>Description: </b>{{$appointment->description}}</p>
-        </div>
-
-        <div>
-            <p><b>Name: </b>{{$appointment->name ?: 'None'}}</p>
-        </div>
-
-        <div>
-            <p><b>Email: </b>{{$appointment->email ?: 'None'}}</p>
-        </div>
-
-        <div>
-            <p><b>Phone: </b>{{$appointment->phone ?: 'None'}}</p>
-        </div>
-
-        <div>
-            <p><b>Message: </b>{{$appointment->message ?: 'None'}}</p>
-        </div>
-
-        <div>
-            <p><b>Status: </b>{{$appointment->status ? 'Booked' : 'Not Booked'}}</p>
-        </div>
-    </div>
+    </section>
 
 @endsection

@@ -2,24 +2,13 @@
 
 @section('panel')
 
-    <div style="display:grid; padding:2rem;">
+    <section class="section">
 
-        <div>
-            <p><b>Name: </b>{{$category->name}}</p>
-        </div>
+        <p><b>Name: </b>{{$category->name}}</p>
+        <p><b>Slug: </b>{{$category->slug}}</p>
+        <p><b>Created At: </b>{{$category->created_at->toDayDateTimeString()}}</p>
+        <p><b>Updated At: </b>{{$category->updated_at->toDayDateTimeString()}}</p>
 
-        <div>
-            <p><b>Slug: </b>{{$category->slug}}</p>
-        </div>
-
-        <div>
-            <p><b>Created At: </b>{{$category->created_at->toDayDateTimeString()}}</p>
-        </div>
-
-        <div>
-            <p><b>Updated At: </b>{{$category->updated_at->toDayDateTimeString()}}</p>
-        </div>
-
-    </div>
+    </section>
 
 @endsection

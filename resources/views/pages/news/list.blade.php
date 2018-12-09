@@ -8,6 +8,12 @@
         {{ $title }}
     @endcomponent
 
-    @each('components.profile', $directors, 'director', 'components.empty')
+    <div class="articles">
+
+        @each('components.news.item', $articles, 'article', 'components.empty')
+
+    </div>
+
+    {{ $articles->links() }}
 
 @endsection

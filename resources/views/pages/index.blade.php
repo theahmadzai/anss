@@ -136,3 +136,5 @@
         <a href="/contact">CONTACT US</a>
     </div>
 @endsection
+
+@include('components.slick')

@@ -2,28 +2,34 @@
 
 @section('panel')
 
-    <div style="padding:2rem;">
-        <a href="/admin/slides/create" style="padding:0.5rem 1rem; background:#eaeaea;">Create Slide</a>
-    </div>
+    <section class="section">
 
-    <div style="padding:2rem; display:grid; grid-template-columns:auto auto auto; grid-template-rows:auto;gap:2rem;">
+        <a href="{{ url('admin/slides/create') }}" class="button margin-bottom-2">Create Slide</a>
 
-        @foreach ($slides as $slide)
-            <div style="display:flex; flex-direction: column;">
-                <div style="display:grid; grid-template-columns: auto 5% 5% 5%; gap:1rem;">
-                    <span>{{str_limit($slide->title, 10, '...')}}</span>
-                    <a href="/admin/slides/{{$slide->id}}"><span class="icon icon-eye"></span></a>
-                    <a href="/admin/slides/{{$slide->id}}/edit"><span class="icon icon-pencil"></span></a>
-                    <form method="POST" action="/admin/slides/{{ $slide->id }}">
-                        @csrf
-                        @method('DELETE')
-                        <a href="#" onclick="this.parentElement.submit();"><span class="icon icon-bin"></span></a>
-                    </form>
+        <div class="boxes">
+            @foreach ($slides as $slide)
+                <div class="boxes__item">
+                    <div class="boxes__item__controls">
+                        <a href="{{ url('admin/slides/' . $slide->id) }}">
+                            <span class="icon icon-eye"></span>
+                        </a>
+
+                        <a href="{{ url('admin/slides/' . $slide->id . '/edit') }}">
+                            <span class="icon icon-pencil"></span>
+                        </a>
+
+                        <form method="POST" action="{{ url('admin/slides/' . $slide->id) }}">
+                            @csrf
+                            @method('DELETE')
+                            <a href="#" onclick="this.parentElement.submit();"><span class="icon icon-bin"></span></a>
+                        </form>
+                    </div>
+
+                    <img src="{{$slide->thumbnail()}}" alt="{{$slide->title}}">
                 </div>
-                <img src="{{$slide->thumbnail()}}" alt="{{$slide->title}}">
-            </div>
-        @endforeach
+            @endforeach
+        </div>
 
-    </div>
+    </section>
 
 @endsection

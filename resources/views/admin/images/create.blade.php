@@ -2,24 +2,24 @@
 
 @section('panel')
 
-    <div style="padding:2rem;">
+    <section class="section">
 
-        <form method="POST" action="/admin/images" enctype="multipart/form-data">
+        <form class="form" method="POST" action="{{ url('admin/images') }}" enctype="multipart/form-data">
             @csrf
 
-            <div class="form__control">
-                <label>Title</label>
-                <input type="text" name="title" value="{{ old('title') }}">
+            <div class="form__item">
+                <label class="label">Title</label>
+                <input class="input" type="text" name="title" value="{{ old('title') }}">
                 @if ($errors->has('title'))
                     <p>{{ $errors->first('title') }}</p>
                 @endif
             </div>
 
-            <div class="form__control">
-                <label>Category</label>
-                <select name="category_id">
+            <div class="form__item">
+                <label class="label">Category</label>
+                <select class="input" name="category_id">
                     @foreach ($categories as $category)
-                        <option value="{{$category->id}}" {{ old('category_id') == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
+                        <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
                     @endforeach
                 </select>
                 @if ($errors->has('category_id'))
@@ -27,27 +27,27 @@
                 @endif
             </div>
 
-            <div class="form__control">
-                <label>Image</label>
-                <input type="file" name="image">
+            <div class="form__item">
+                <label class="label">Image</label>
+                <input class="file" type="file" name="image">
                 @if ($errors->has('image'))
                     <p>{{ $errors->first('image') }}</p>
                 @endif
             </div>
 
-            <div class="form__control">
-                <label>Description</label>
+            <div class="form__item">
+                <label class="label">Description</label>
                 <textarea name="description">{{ old('description') }}</textarea>
                 @if ($errors->has('description'))
                     <p>{{ $errors->first('description') }}</p>
                 @endif
             </div>
 
-            <div class="form__control">
-                <button>Upload</button>
+            <div class="form__item">
+                <button class="button">Upload</button>
             </div>
         </form>
 
-    </div>
+    </section>
 
 @endsection

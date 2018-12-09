@@ -1,16 +1,16 @@
 @extends('layouts.master')
 
-@section('title', 'Profile')
+@section('title', $article->title)
 
 @section('content')
 
     @component('components.head')
-        Welcome, {{ Auth::user()->name ?? Auth::user()->email }}
+        {{ $article->title }}
     @endcomponent
 
     <section class="section">
 
-        <a href="/profile-edit">Edit your profile</a>
+        @include('components.article')
 
     </section>
 

@@ -1,7 +1,13 @@
 @component('mail::message')
-# Booked by: {{ $name }}
-# Email: {{ $email }}
-# Phone: {{ $phone }}
+*** Booked by:*** {{ $name }}
+
+*** Email:*** {{ $email }}
+
+*** Phone:*** {{ $phone }}
+
+*** Category:*** {{ $category }}
+
+*** Date:*** {{ $date }}
 
 {{ $text }}
 
@@ -9,6 +15,5 @@
 ANSS Foundation
 @endcomponent
 
-Thanks,<br>
 {{ config('app.name') }}
 @endcomponent

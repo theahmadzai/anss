@@ -9,7 +9,7 @@
     @endcomponent
 
     <section class="section">
-        <ul class="list">
+        <ul class="listtype">
             <li>
                 <p>Immigration and citizenship applications</p>
             </li>

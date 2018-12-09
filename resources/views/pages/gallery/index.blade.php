@@ -38,7 +38,7 @@
 
                         <div class="filter__item">
                             <i class="icon icon-equalizer"></i>
-                            <input type="range" name="range" min="3" max="18" step="3" value="{{old('range', request()->range)}}" onchange="this.form.submit();">
+                            <input type="range" name="range" min="4" max="20" step="4" value="{{old('range', request()->range)}}" onchange="this.form.submit();">
                         </div>
                     </form>
                 @endif
@@ -64,3 +64,5 @@
     </section>
 
 @endsection
+
+@include('components.slick')
