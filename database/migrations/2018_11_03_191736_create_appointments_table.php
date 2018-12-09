@@ -10,12 +10,12 @@ class CreateAppointmentsTable extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->increments('id');
-            $table->datetime('date');
-            $table->text('description');
-            $table->string('name')->nullable();
-            $table->string('email')->nullable();
+            $table->string('name');
+            $table->string('email');
             $table->string('phone')->nullable();
-            $table->text('message')->nullable();
+            $table->datetime('date');
+            $table->enum('category', [1, 2, 3, 4, 5])->default(5);
+            $table->text('message');
             $table->boolean('status')->default(false);
             $table->timestamps();
             $table->softDeletes();
