@@ -6,7 +6,6 @@
 
   @media $tablet {
     flex-direction: column;
-    padding: 3rem 0;
   }
 
   &:nth-child(odd) {
