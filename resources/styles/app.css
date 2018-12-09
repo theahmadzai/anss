@@ -4,6 +4,7 @@
 @import './icons';
 @import './settings';
 @import './layout';
+@import './partials/head';
 @import './partials/slider';
 @import './partials/header';
 @import './partials/navbar';
@@ -24,3 +25,8 @@
 @import './partials/appointments';
 @import './partials/gallery';
 @import './partials/form';
+@import './partials/date';
+@import './partials/content';
+@import './partials/admin';
+@import './partials/list-view';
+@import './partials/boxes';
