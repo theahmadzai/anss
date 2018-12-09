@@ -16,13 +16,21 @@ class Appointment extends Model
 
     protected $guarded = [];
 
-    public function scopeUnbooked(Builder $builder)
-    {
-        return $builder->where('status', 0);
-    }
-
     public function scopeUnexpired(Builder $builder)
     {
         return $builder->whereDate('date', '>=', Carbon::now());
+    }
+
+    public function getCategoryAttribute($value)
+    {
+        $categories = [
+            '1' => 'General',
+            '2' => 'Settlement',
+            '3' => 'Employment',
+            '4' => 'Referrals',
+            '5' => 'Other'
+        ];
+
+        return $categories[$value];
     }
 }
