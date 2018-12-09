@@ -1,0 +1,36 @@
+.admin-panel {
+  display: flex;
+
+  @media $tablet {
+    flex-direction: column;
+  }
+}
+
+.admin-sidebar {
+  display: flex;
+  flex-basis: 20%;
+  flex-direction: column;
+  background: $primary;
+
+  &__link {
+    display: block;
+    padding: 0.5rem 0;
+    padding-left: 2rem;
+    border-bottom: 1px solid $secondary;
+    color: #ffffff;
+
+    &:hover {
+      background-color: $secondary;
+      color: #ffffff;
+    }
+
+    &.active {
+      background-color: $secondary;
+      color: #ffffff;
+    }
+  }
+}
+
+.admin-section {
+  flex-basis: 80%;
+}
