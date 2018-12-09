@@ -20,6 +20,11 @@
     width: 50%;
     height: 80px;
     margin-top: 0.5rem;
+    padding: 0.5rem;
+
+    @media $tablet {
+      width: 100%;
+    }
   }
 
   .input {
