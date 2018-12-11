@@ -16,6 +16,10 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
+        if (!Auth::check()) {
+            return redirect('/');
+        }
+
         if (Auth::user()->role != 3) {
             return redirect('/');
         }
