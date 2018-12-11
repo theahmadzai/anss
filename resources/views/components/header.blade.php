@@ -18,7 +18,7 @@
                 @guest
                 <a href="/login">Login</a>
                 @else
-                <a href="/user/{{ Auth::user()->id }}"><i class="icon icon-user"></i> Profile</a>
+                <a href="/profile"><i class="icon icon-user"></i> Profile</a>
                     @if (Auth::user()->role == 3)
                     <a href="/admin"><i class="icon icon-terminal"></i> Admin</a>
                     @endif
