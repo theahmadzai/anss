@@ -39,7 +39,7 @@
 
             <div class="form__item">
                 <label class="label">Timing <span>*</span></label>
-                <input class="input" type="datetime-local" name="date" value="{{ old('date') }}">
+                <input class="input" id="datetimepicker" type="text" name="date" value="{{ old('date') }}">
                 @if ($errors->has('date'))
                     <p>{{ $errors->first('date') }}</p>
                 @endif
@@ -80,3 +80,5 @@
     </section>
 
 @endsection
+
+@include('components.flatpickr')
