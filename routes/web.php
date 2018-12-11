@@ -24,45 +24,39 @@ Route::get('/immigration-and-settlement', 'PageController@immigrationAndSettleme
 Route::get('/cultural-environmental-and-educational', 'PageController@culturalEnvironmentalAndEducational');
 Route::get('/networking-and-community-based-research', 'PageController@networkingAndCommunityBasedResearch');
 
-// Events
-Route::get('/events/past/{id?}', 'PageController@pastEvents');
-Route::get('/events/upcoming/{id?}', 'PageController@upcomingEvents');
-
-// Latest News
-Route::get('/news/{id?}', 'PageController@latestNews');
-
 // Gallery
 Route::get('/gallery', 'PageController@gallery');
-
-// Appointments
-Route::get('/appointments', 'PageController@appointments');
-Route::get('/appointments/{id}', 'PageController@appointmentsPage');
-Route::post('/appointments/{id}', 'PageController@appointmentsBook');
 
 // Donate
 Route::get('/donate', 'PageController@donate');
 
+// Latest News
+Route::get('/news/{id?}', 'PageController@news');
+
+// Events
+Route::get('/past-events', 'PageController@pastEvents');
+Route::get('/upcoming-events', 'PageController@upcomingEvents');
+Route::get('/events/{id}', 'PageController@events');
+
+// Appointments
+Route::get('/appointments', 'PageController@appointments');
+Route::post('/appointments', 'PageController@postAppointments');
+
 // Contact
 Route::get('/contact', 'PageController@contact');
-Route::post('/contact', 'PageController@contactMail');
+Route::post('/contact', 'PageController@postContact');
 
 // Subscribe
 Route::get('/subscribe', 'PageController@subscribe');
-Route::post('/subscribe', 'PageController@subscribeStore');
+Route::post('/subscribe', 'PageController@postSubscribe');
 
 // Authentication
 Auth::routes(['verify' => true]);
 
-// User
-Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
-
-    // User Panel
-    Route::get('/', 'User\UserController@index');
-
-    // Profile
-    Route::resource('/profile', 'User\ProfileController');
-
-});
+// Profile
+Route::resource('/profile', 'User\ProfileController')->only([
+    'index', 'show', 'edit', 'update'
+]);
 
 // Admin
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
@@ -79,13 +73,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     // Slider
     Route::resource('/slides', 'Admin\SlideController');
 
-    // Appointments
-    Route::resource('/appointments', 'Admin\AppointmentController');
-
     // News
     Route::resource('/news', 'Admin\NewsController');
 
     // Events
     Route::resource('/events', 'Admin\EventController');
+
+    // Appointments
+    Route::resource('/appointments', 'Admin\AppointmentController')->only([
+        'index', 'show', 'destroy'
+    ]);
 
 });
