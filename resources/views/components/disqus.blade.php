@@ -1,14 +1,10 @@
 <div id="disqus_thread"></div>
 
+@push('scripts')
 <script>
-
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-
 var disqus_config = function () {
     this.page.url = '{{ Request::url() }}';
-    this.page.identifier = {{ $news->id }};
+    this.page.identifier = {{ $article->id }};
 };
 
 (function() {
@@ -18,3 +14,4 @@ var disqus_config = function () {
     (d.head || d.body).appendChild(s);
 })();
 </script>
+@endpush

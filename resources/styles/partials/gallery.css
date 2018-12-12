@@ -1,0 +1,103 @@
+.gallery {
+  background: #eeeeee;
+
+  &__empty {
+    display: block;
+    width: 100%;
+    margin: 0.25rem;
+    margin-top: -0.25rem;
+    padding: 0.5rem;
+    background: #f9f9f9;
+  }
+
+  &__controls {
+    padding: 0.5rem;
+    padding-bottom: 0;
+
+    .filter {
+      margin-bottom: 0.5rem;
+      padding: 0.5rem;
+      background: #f9f9f9;
+
+      &__item {
+        display: inline-block;
+        margin-right: 2rem;
+
+        @media $tablet {
+          margin: 0.5rem 0;
+        }
+
+        i {
+          margin-right: 0.5rem;
+        }
+
+        select,
+        input {
+          outline: none;
+        }
+
+        input[type=range] {
+          height: 10px;
+          cursor: pointer;
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+
+    .pagination {
+      padding: 0.5rem;
+    }
+  }
+
+  &__images {
+    display: grid;
+    padding: 0.25rem;
+    grid-template-columns: repeat(4, 25%);
+
+    @media $tablet-wide {
+      grid-template-columns: repeat(3, 33.33%);
+    }
+
+    @media $tablet {
+      grid-template-columns: repeat(2, 50%);
+    }
+
+    @media $phone-wide {
+      grid-template-columns: 100%;
+    }
+  }
+
+  &__image {
+    position: relative;
+    max-height: auto;
+    margin: 0.25rem;
+    background: #f9f9f9;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+
+    p {
+      position: absolute;
+      bottom: 0;
+      display: none;
+      width: 100%;
+      padding: 0.25rem;
+      opacity: 0.8;
+      background: #111111;
+      font-size: 0.8rem;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    &:hover {
+      p {
+        display: block;
+      }
+    }
+  }
+}

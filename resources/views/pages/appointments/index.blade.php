@@ -9,37 +9,76 @@
     @endcomponent
 
     <section class="section">
-        @if ($appointments->count())
-        <div class="appointments">
-            <div class="appointments__item appointments__item--header">
-                <div>Timing</div>
-                <div>Description</div>
-                <div>Status</div>
-            </div>
-            @foreach ($appointments as $appointment)
-            <div class="appointments__item">
-                <div>{{$appointment->date->diffForHumans()}}</div>
-                <div>{{str_limit($appointment->description, 150, '...')}}</div>
-                <div>
-                @if ($appointment->status == 1)
-                    <p>Already booked</p>
-                @elseif ($appointment->date < \Carbon\Carbon::now())
-                    <p>Not available</p>
-                @else
-                    <button><a href="/appointments/{{$appointment->id}}">Book</a></button>
-                @endif
-                </div>
-            </div>
-            @endforeach
-        </div>
-        @else
-        <h2 style="padding:2rem; text-align:center;">No appointments available!</h2>
-        @endif
 
-        <div style="text-align:center;margin:3rem 0;">
-            <h2>Contact instead?</h2>
-            <a href="/contact" style="padding:0.5rem 1rem; background:brown; color:white; border-radius:5px; display:inline-block; margin-top:2rem;">Contact Us</a>
-        </div>
+        <form class="form" method="POST" action="/appointments" enctype="multipart/form-data">
+            @csrf
+
+            <div class="form__item">
+                <label class="label">Name <span>*</span></label>
+                <input class="input" type="text" name="name" value="{{ old('name') }}">
+                @if ($errors->has('name'))
+                    <p>{{ $errors->first('name') }}</p>
+                @endif
+            </div>
+
+            <div class="form__item">
+                <label class="label">E-mail Address <span>*</span></label>
+                <input class="input" type="email" name="email" value="{{ old('email') }}">
+                @if ($errors->has('email'))
+                    <p>{{ $errors->first('email') }}</p>
+                @endif
+            </div>
+
+            <div class="form__item">
+                <label class="label">Phone</label>
+                <input class="input" type="tel" name="phone" value="{{ old('phone') }}">
+                @if ($errors->has('phone'))
+                    <p>{{ $errors->first('phone') }}</p>
+                @endif
+            </div>
+
+            <div class="form__item">
+                <label class="label">Timing <span>*</span></label>
+                <input class="input" id="datetimepicker" type="text" name="date" value="{{ old('date') }}">
+                @if ($errors->has('date'))
+                    <p>{{ $errors->first('date') }}</p>
+                @endif
+            </div>
+
+            <div class="form__item">
+                <label class="label">Category <span>*</span></label>
+                <select class="input" name="category">
+                    <option value="1" {{ old('category') == 1 ? 'selected' : ''}}>General</option>
+                    <option value="2" {{ old('category') == 2 ? 'selected' : ''}}>Settlement</option>
+                    <option value="3" {{ old('category') == 3 ? 'selected' : ''}}>Employment</option>
+                    <option value="4" {{ old('category') == 4 ? 'selected' : ''}}>Referrals</option>
+                    <option value="5" {{ old('category') == 5 ? 'selected' : ''}}>Other</option>
+                </select>
+                @if ($errors->has('category'))
+                    <p>{{ $errors->first('category') }}</p>
+                @endif
+            </div>
+
+            <div class="form__item">
+                <label class="label">Message <span>*</span></label>
+                <textarea name="message">{{ old('message') }}</textarea>
+                @if ($errors->has('message'))
+                    <p>{{ $errors->first('message') }}</p>
+                @endif
+            </div>
+
+            <div class="form__item">
+                <label class="label">Attachments</label>
+                <input class="file" type="file" name="files[]" multiple>
+            </div>
+
+            <div class="form__item">
+                <button class="button">Book</button>
+            </div>
+        </form>
+
     </section>
 
 @endsection
+
+@include('components.flatpickr')

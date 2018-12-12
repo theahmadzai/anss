@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class Contact extends Mailable
+class ContactMail extends Mailable
 {
     use Queueable, SerializesModels;
 

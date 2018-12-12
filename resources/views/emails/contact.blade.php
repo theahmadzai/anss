@@ -1,5 +1,5 @@
 @component('mail::message')
-# {{ $subject }}
+## {{ $subject }}
 
 {{ $text }}
 
@@ -7,6 +7,5 @@
 ANSS Foundation
 @endcomponent
 
-Thanks,<br>
 {{ config('app.name') }}
 @endcomponent

@@ -9,7 +9,7 @@
     @endcomponent
 
     <section class="section">
-        <ul class="list">
+        <ul class="listtype">
             <li>
             <p>Referrals for Credentialed Assessment of educational documents</p>
             </li>

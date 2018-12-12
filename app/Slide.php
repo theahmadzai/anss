@@ -9,9 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Slide extends Model
 {
-    use SoftDeletes;
-    use ThumbnailTrait;
-    use ImageTrait;
+    use SoftDeletes, ThumbnailTrait, ImageTrait;
 
     protected $table = 'slides';
 

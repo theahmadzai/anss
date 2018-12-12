@@ -6,11 +6,11 @@ module.exports = (api) => {
     'precss': {}
   }
 
-  isProduction && [
-    'css-mqpacker',
-    'autoprefixer',
-    'cssnano'
-  ].forEach(plugin => plugins[plugin] = {})
+  isProduction && Object.assign(plugins, {
+    'css-mqpacker': {},
+    'autoprefixer': {},
+    'cssnano': {}
+  })
 
   return {
     plugins

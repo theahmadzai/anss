@@ -1,0 +1,34 @@
+.articles {
+  display: flex;
+  flex-direction: column;
+
+  &__item {
+    display: flex;
+    padding: 2rem;
+    border-bottom: 1px solid #eeeeee;
+
+    @media $tablet {
+      flex-direction: column;
+    }
+
+    &:nth-child(even) {
+      background: #f9f9f9;
+    }
+
+    img {
+      width: 200px;
+      height: 200px;
+      margin-right: 1rem;
+
+      @media $tablet {
+        height: auto;
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+
+      @media $phone-wide {
+        width: 100%;
+      }
+    }
+  }
+}

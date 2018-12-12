@@ -1,41 +1,4 @@
 /**********************
-*        Date         *
-***********************/
-
-.date {
-  display: flex;
-  flex-direction: column;
-
-  .day,
-  .month,
-  .year {
-    padding: 0.5rem 0.5rem;
-    font-weight: 600;
-    color: #ffffff;
-    text-align: center;
-  }
-
-  .month,
-  .year {
-    background: $secondary;
-    font-size: 0.8rem;
-  }
-
-  .day {
-    background: $primary;
-    font-size: 1.1rem;
-  }
-
-  .month {
-    padding-bottom: 0;
-  }
-
-  .year {
-    padding-top: 0;
-  }
-}
-
-/**********************
 *        Image        *
 ***********************/
 
@@ -177,6 +140,10 @@
   }
 }
 
+.margin-bottom-2 {
+  margin-bottom: 2rem;
+}
+
 /**********************
 *     Pointer         *
 ***********************/
@@ -192,11 +159,24 @@
   text-align: justify;
 }
 
-.list {
+.listtype {
   display: block;
   margin-left: 1rem;
   list-style: disc;
   font-size: 1rem;
   line-height: 1.8rem;
   color: #111111;
+}
+
+.empty {
+  padding: 2rem;
+  color: #111111;
+}
+
+.status-message {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: #eaeaea;
+  font-size: 1rem;
+  color: $red;
 }

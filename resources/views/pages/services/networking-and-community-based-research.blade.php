@@ -9,7 +9,7 @@
     @endcomponent
 
     <section class="section">
-        <ul class="list">
+        <ul class="listtype">
             <li>
                 <p>Identify gross-root community concerns and issues through conducting researches</p>
             </li>

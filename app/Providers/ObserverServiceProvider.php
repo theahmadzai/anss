@@ -11,7 +11,9 @@ use App\Observers\EventObserver;
 use App\Observers\ImageObserver;
 use App\Observers\NewsObserver;
 use App\Observers\SlideObserver;
+use App\Observers\UserObserver;
 use App\Slide;
+use App\User;
 use Illuminate\Support\ServiceProvider;
 
 class ObserverServiceProvider extends ServiceProvider
@@ -28,6 +30,7 @@ class ObserverServiceProvider extends ServiceProvider
         Event::observe(EventObserver::class);
         News::observe(NewsObserver::class);
         Slide::observe(SlideObserver::class);
+        User::observe(UserObserver::class);
     }
 
     /**

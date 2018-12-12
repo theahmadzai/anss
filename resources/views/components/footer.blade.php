@@ -14,8 +14,8 @@
             <div class="column__body">
                 <form method="POST" action="/subscribe">
                     @csrf
-                    <input name="name" type="text" placeholder="Full Name">
-                    <input name="email" type="email" placeholder="Email Address">
+                    <input name="name" type="text" placeholder="Full Name" value="{{ old('name')}}" class="@if($errors->has('name')) has-error @endif">
+                    <input name="email" type="email" placeholder="Email Address" value="{{ old('email')}}" class="@if($errors->has('email')) has-error @endif">
                     <button>Subscribe</button>
                 </form>
             </div>
@@ -25,12 +25,12 @@
             <h2 class="column__head">Social Links</h2>
             <div class="column__body">
                 <div class="sm-icons">
-                    <a href="#"><i class="icon icon-twitter"></i></a>
-                    <a href="https://www.facebook.com/Ansspage/"><i class="icon icon-facebook"></i></a>
-                    <a href="#"><i class="icon icon-instagram"></i></a>
-                    <a href="#"><i class="icon icon-youtube"></i></a>
-                    <a href="#"><i class="icon icon-flickr"></i></a>
-                    <a href="#"><i class="icon icon-google-plus"></i></a>
+                    <a href="https://twitter.com/AnssFoundation" target="blank"><i class="icon icon-twitter"></i></a>
+                    <a href="https://www.facebook.com/ANSSFoundation/" target="blank"><i class="icon icon-facebook"></i></a>
+                    <a href="https://www.instagram.com/anss_foundation/" target="blank"><i class="icon icon-instagram"></i></a>
+                    <a href="#" target="blank"><i class="icon icon-youtube"></i></a>
+                    <a href="#" target="blank"><i class="icon icon-flickr"></i></a>
+                    <a href="#" target="blank"><i class="icon icon-google-plus"></i></a>
                 </div>
             </div>
         </div>
@@ -38,6 +38,6 @@
 
 </footer>
 
-<footer class="copyrights">
+<div class="copyrights">
     <p>© <span>Copyright</span> 2018 by <span>ANSS Foundation</span>. All Rights Reserved. <span>Privacy and Disclaimer</span></p>
-</footer>
+</div>

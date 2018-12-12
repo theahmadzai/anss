@@ -1,60 +1,48 @@
 @extends('layouts.master')
 
-@section('title', 'User account')
+@section('title', 'Login')
 
 @section('content')
 
-    <div class="bar">
-        <h2>User account</h2>
-    </div>
+    @component('components.head')
+        Login
+    @endcomponent
 
-    <div class="container">
-        <div class="container__wide">
-            <div class="container__row">
-                <div style="padding:2rem;">
-                    <form method="POST" action="/login">
-                        @csrf
+    <section class="section">
 
-                        <div class="form__control">
-                            <label for="email">Email</label>
-                            <input type="text" name="email" id="email" value="{{ old('email') }}" required autofocus>
-                            @if ($errors->has('email'))
-                                <span role="alert">
-                                    <strong>{{ $errors->first('email') }}</strong>
-                                </span>
-                            @endif
-                        </div>
+        <p>Don't have an account? <a href="/register">Sign up</a></p>
 
-                        <div class="form__control">
-                            <label for="password">Password</label>
-                            <input type="password" name="password" id="password" required>
-                            @if ($errors->has('password'))
-                                <span role="alert">
-                                    <strong>{{ $errors->first('password') }}</strong>
-                                </span>
-                            @endif
-                        </div>
+        <form class="form" method="POST" action="/login">
+            @csrf
 
-                        <div class="form__control">
-                            <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                            <label for="remember">Remember Me</label>
-                        </div>
-
-                        <div class="form__control">
-                            <button class="button">Log in</button>
-                        </div>
-
-                        <a class="btn btn-link" href="/password/reset">Forgot Your Password?</a>
-                    </form>
-                </div>
+            <div class="form__item">
+                <label class="label">Email <span>*</span></label>
+                <input class="input" type="text" name="email" value="{{ old('email') }}" required autofocus>
+                @if ($errors->has('email'))
+                    <p>{{ $errors->first('email') }}</p>
+                @endif
             </div>
-        </div>
 
-        <div class="container__narrow">
-            <h3 style="margin-bottom:1rem;">Links</h3>
-            <div><a href="/register">Sign Up</a></div>
-            <div><a href="/subscribe">Subscribe</a></div>
-        </div>
-    </div>
+            <div class="form__item">
+                <label class="label">Password <span>*</span></label>
+                <input class="input" type="password" name="password" required>
+                @if ($errors->has('password'))
+                    <p>{{ $errors->first('password') }}</p>
+                @endif
+            </div>
+
+            <div class="form__item form__item--inline">
+                <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                <label class="label label--inline">Remember Me</label>
+            </div>
+
+            <div class="form__item">
+                <button class="button">Log in</button>
+            </div>
+        </form>
+
+        <a href="/password/reset">Forgot Your Password?</a>
+
+    </section>
 
 @endsection

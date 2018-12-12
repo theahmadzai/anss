@@ -1,0 +1,29 @@
+.date {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+
+  @media $tablet {
+    flex-direction: row;
+  }
+
+  .day,
+  .month,
+  .year {
+    padding: 0.5rem 0.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-align: center;
+  }
+
+  .month,
+  .year {
+    background: $secondary;
+    font-size: 0.8rem;
+  }
+
+  .day {
+    background: $primary;
+    font-size: 1.1rem;
+  }
+}

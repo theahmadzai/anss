@@ -46,15 +46,15 @@
     </li>
 
     <li class="navbar__item">
-        <a class="navbar__link" href="/events/past">Events</a>
+        <a class="navbar__link" href="/past-events">Events</a>
 
         <ul class="dropdown">
             <li class="dropdown__item">
-                <a class="dropdown__link" href="/events/past">Past Events</a>
+                <a class="dropdown__link" href="/past-events">Past Events</a>
             </li>
 
             <li class="dropdown__item">
-                <a class="dropdown__link" href="/events/upcoming">Upcoming Events</a>
+                <a class="dropdown__link" href="/upcoming-events">Upcoming Events</a>
             </li>
         </ul>
     </li>

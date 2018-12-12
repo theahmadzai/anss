@@ -2,18 +2,14 @@
 
 @section('panel')
 
-    <div style="padding:2rem; display:grid; grid-template-columns:auto 30%;">
-
+    <section class="section">
 
         <img src="{{$slide->image}}" alt="{{$slide->title}}">
+        <p><b>Title: </b>{{$slide->title}}</p>
+        <p><b>Link: </b>{{$slide->link}}</p>
+        <p><b>Upload Date: </b>{{$slide->created_at->diffForHumans()}}</p>
+        <p><b>Last Modified: </b>{{$slide->updated_at->diffForHumans()}}</p>
 
-        <div>
-            <p><b>Title: </b>{{$slide->title ?: 'None'}}</p>
-            <p><b>Link: </b>{{$slide->link ?: 'None'}}</p>
-            <p><b>Upload Date: </b>{{$slide->created_at->diffForHumans()}}</p>
-            <p><b>Last Modified: </b>{{$slide->updated_at->diffForHumans()}}</p>
-        </div>
-
-    </div>
+    </section>
 
 @endsection

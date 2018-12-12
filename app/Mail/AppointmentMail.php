@@ -2,12 +2,13 @@
 
 namespace App\Mail;
 
+use App\Appointment;
 use Illuminate\Bus\Queueable;
 use Illuminate\Http\Request;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class Appointment extends Mailable
+class AppointmentMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -41,11 +42,15 @@ class Appointment extends Mailable
             }
         }
 
+        $appointment = new Appointment($this->request->all());
+
         return $mail->with([
-            'name' => $this->request->name,
-            'email' => $this->request->email,
-            'phone' => $this->request->phone,
-            'text' => $this->request->message,
+            'name' => $appointment->name,
+            'email' => $appointment->email,
+            'phone' => $appointment->phone,
+            'category' => $appointment->category,
+            'date' => $appointment->date->toDayDateTimeString(),
+            'text' => $appointment->message,
         ]);
     }
 }

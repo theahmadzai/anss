@@ -1,7 +1,7 @@
 .article {
   display: flex;
   flex-direction: column;
-  padding: 3rem 0;
+  margin-bottom: 4rem;
 
   &__image {
     width: 100%;
@@ -26,9 +26,7 @@
     text-transform: uppercase;
   }
 
-  &__date,
-  &__tags,
-  &__venue {
+  &__info {
     margin-bottom: 1rem;
     font-size: 1rem;
     color: #222222;

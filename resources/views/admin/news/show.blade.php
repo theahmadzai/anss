@@ -2,29 +2,15 @@
 
 @section('panel')
 
-    <div style="display:grid; padding:2rem;">
+    <section class="section">
 
-        <img src="{{$news->image}}" alt="{{$news->title}}" style="width:600px; height:200px;">
+        <img src="{{$news->image}}" alt="{{$news->title}}">
+        <p><b>Date: </b>{{$news->created_at->toDayDateTimeString()}}</p>
+        <p><b>Title: </b>{{$news->title}}</p>
+        <p><b>Tags: </b>{{$news->tags}}</p>
+        <p><b>Content: </b>{{$news->content}}</p>
+        <p><b>Last Modified: </b>{{$news->updated_at->toDayDateTimeString()}}</p>
 
-        <div>
-            <p><b>Date: </b>{{$news->created_at->toDayDateTimeString()}}</p>
-        </div>
-
-        <div>
-            <p><b>Title: </b>{{$news->title}}</p>
-        </div>
-
-        <div>
-            <p><b>Tags: </b>{{$news->tags ?: 'None'}}</p>
-        </div>
-
-        <div>
-            <p style="word-wrap: break-word; width:700px;"><b>Content: </b>{{$news->content ?: 'None'}}</p>
-        </div>
-
-        <div>
-            <p><b>Last Modified: </b>{{$news->updated_at->toDayDateTimeString()}}</p>
-        </div>
-    </div>
+    </section>
 
 @endsection

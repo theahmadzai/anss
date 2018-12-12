@@ -8,36 +8,61 @@
         {{ $title }}
     @endcomponent
 
-    <div class="container">
-        <div class="container__narrow">
-            <h4 style="margin-bottom:1rem;">Categories</h4>
+    <section class="section">
+        <div class="gallery">
+            <div class="gallery__controls">
+                @if($categories->count())
+                    <form class="filter" id="gallery-controls">
+                        <div class="filter__item">
+                            <i class="icon icon-filter"></i>
+                            <select name="category" onchange="this.form.submit();">
+                                <option value="0" selected>All</option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}" {{request()->category == $category->id ? 'selected' : ''}}>{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
 
-            @if($categories->count())
-                @foreach ($categories as $category)
-                    <a style="background:#f9f9f9; border-bottom:1px solid #eaeaea; padding:0.25rem 1rem;  margin-bottom:0.5rem; display:block;" href="/gallery/{{$category->id}}">{{$category->name}}</a>
-                @endforeach
-            @else
-                <p>No categories</p>
-            @endif
-        </div>
+                        <div class="filter__item">
+                            <i class="icon icon-sort-amount-asc"></i>
+                            <select name="order" onchange="this.form.submit();">
+                                <option value="asc" {{request()->order == 'asc' ? 'selected' : ''}}>Latest</option>
+                                <option value="desc" {{request()->order == 'desc' ? 'selected' : ''}}>Oldest</option>
+                            </select>
+                        </div>
 
-        <div class="container__wide">
-            {{$images->links()}}
+                        <div class="filter__item">
+                            <i class="icon icon-search"></i>
+                            <input type="search" name="search" value="{{ old('search', request()->search) }}">
+                        </div>
 
-            @if ($images->count())
-                <div id="lightbox" class="grid">
+                        <div class="filter__item">
+                            <i class="icon icon-equalizer"></i>
+                            <input type="range" name="range" min="4" max="20" step="4" value="{{old('range', request()->range)}}" onchange="this.form.submit();">
+                        </div>
+                    </form>
+                @endif
+
+                {{ $images->appends(request()->query())->links() }}
+            </div>
+
+            <div class="gallery__images" id="lightbox">
+                @if ($images->count())
                     @foreach ($images as $image)
-                        <div class="grid__item">
-                            <a href="{{$image->image}}" data-caption="{{$image->title}}">
-                                <img src="{{$image->thumbnail()}}" alt="{{$image->title}}">
-                                <p>{{$image->title}}</p>
+                        <div class="gallery__image">
+                            <a href="{{ $image->image }}" data-caption="{{ $image->title }}">
+                                <img src="{{ $image->thumbnail() }}" alt="{{ $image->title }}">
+                                <p>{{ $image->title }}</p>
                             </a>
                         </div>
                     @endforeach
-                </div>
-            @else
-                <h2 style="padding:2rem; text-align:center;">No images added currently!</h2>
-            @endif
+                @else
+                    <div class="gallery__empty">No images added currently!</div>
+                @endif
+            </div>
         </div>
-    </div>
+    </section>
+
 @endsection
+
+@include('components.slick')

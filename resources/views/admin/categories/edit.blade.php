@@ -2,25 +2,25 @@
 
 @section('panel')
 
-    <div style="padding:2rem;">
+    <section class="section">
 
-        <form method="POST" action="/admin/categories/{{$category->id}}">
+        <form class="form" method="POST" action="{{ url('admin/categories/' . $category->id) }}">
             @csrf
             @method('PUT')
 
-            <div class="form__control">
-                <label for="">Name</label>
-                <input type="text" name="name" value="{{ old('name', $category->name) }}">
+            <div class="form__item">
+                <label class="label">Name</label>
+                <input class="input" type="text" name="name" value="{{ old('name', $category->name) }}">
                 @if ($errors->has('name'))
                     <p>{{ $errors->first('name') }}</p>
                 @endif
             </div>
 
-            <div class="form__control">
-                <button>Update</button>
+            <div class="form__item">
+                <button class="button">Update</button>
             </div>
         </form>
 
-    </div>
+    </section>
 
 @endsection

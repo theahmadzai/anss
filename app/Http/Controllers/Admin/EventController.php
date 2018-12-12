@@ -43,7 +43,7 @@ class EventController extends Controller
 
     public function update(StoreEventRequest $request, Event $event)
     {
-        $event = Event::find($event->id)->update($request->validated());
+        Event::find($event->id)->update($request->validated());
 
         return back()->with('status', 'Event Updated Successfully!');
     }

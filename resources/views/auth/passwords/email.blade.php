@@ -1,43 +1,37 @@
 @extends('layouts.master')
 
-@section('title', 'User account')
+@section('title', 'Email Verification')
 
 @section('content')
 
-    <div class="bar">
-        <h2>Reset Password</h2>
-    </div>
+    @component('components.head')
+        Email Verification
+    @endcomponent
 
-    <div class="container">
-        <div class="container__wide">
-            <div class="container__row">
-                @if (session('status'))
-                    <div role="alert">
-                        {{ session('status') }}
-                    </div>
-                @endif
+   <section class="section">
 
-                <form method="POST" action="/password/email">
-                    @csrf
-
-                    <div class="form__control">
-                        <label for="email">Email</label>
-                        <input type="text" name="email" id="email" value="{{ old('email') }}" required autofocus>
-                        @if ($errors->has('email'))
-                            <span role="alert">
-                                <strong>{{ $errors->first('email') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-
-                    <div class="form__control">
-                        <button class="button">Send Password Reset Link</button>
-                    </div>
-                </form>
+        @if (session('status'))
+            <div role="alert">
+                {{ session('status') }}
             </div>
-        </div>
+        @endif
 
-        <div class="container__narrow"></div>
-    </div>
+        <form class="form" method="POST" action="/password/email">
+            @csrf
+
+            <div class="form__item">
+                <label class="label">Email</label>
+                <input type="text" name="email" value="{{ old('email') }}" required autofocus>
+                @if ($errors->has('email'))
+                    <p>{{ $errors->first('email') }}</p>
+                @endif
+            </div>
+
+            <div class="form__item">
+                <button class="button">Send Password Reset Link</button>
+            </div>
+        </form>
+
+    </section>
 
 @endsection
