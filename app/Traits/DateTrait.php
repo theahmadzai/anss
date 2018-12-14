@@ -4,7 +4,7 @@ namespace App\Traits;
 
 use Carbon\Carbon;
 
-trait Date
+trait DateTrait
 {
     public function getDateAttribute($value)
     {

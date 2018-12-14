@@ -6,16 +6,14 @@ use App\Appointment;
 use App\Category;
 use App\Event;
 use App\Image;
-use App\Mail\AppointmentMail;
 use App\Mail\ContactMail;
 use App\News;
 use App\Rules\ReCaptcha;
 use App\Slide;
 use App\Subscriber;
+use File;
 use Illuminate\Http\Request;
 use Mail;
-use Validator;
-use File;
 
 class PageController extends Controller
 {
@@ -55,7 +53,7 @@ class PageController extends Controller
     {
         $directors = File::get(public_path('storage/json/directors.json'));
         return view('pages.about.board-of-directors', [
-            'directors' => json_decode($directors, true)
+            'directors' => json_decode($directors, true),
         ])
             ->withTitle('Board of Directors');
     }
@@ -89,7 +87,7 @@ class PageController extends Controller
         return view('pages.events.list', [
             'articles' => Event::upcoming()->paginate(5),
         ])
-        ->withTitle('Upcoming Events');
+            ->withTitle('Upcoming Events');
     }
 
     public function pastEvents()
@@ -97,31 +95,18 @@ class PageController extends Controller
         return view('pages.events.list', [
             'articles' => Event::past()->paginate(5),
         ])
-        ->withTitle('Past Events');
-    }
-
-    public function events(int $id)
-    {
-        return view('pages.events.show', [
-            'article' => Event::findOrFail($id),
-        ]);
+            ->withTitle('Past Events');
     }
 
     /**
      * Latest News
      */
-    public function news(int $id = null)
+    public function latestNews()
     {
-        if ($id === null) {
-            return view('pages.news.list', [
-                'articles' => News::paginate(5),
-            ])
+        return view('pages.news.list', [
+            'articles' => News::paginate(5),
+        ])
             ->withTitle('Latest News');
-        }
-
-        return view('pages.news.show', [
-            'article' => News::findOrFail($id),
-        ]);
     }
 
     /**
@@ -168,29 +153,10 @@ class PageController extends Controller
     /**
      * Appointments
      */
-    public function appointments()
+    public function bookAppointments()
     {
         return view('pages.appointments.index')
             ->withTitle('Book an Appointment');
-    }
-
-    public function postAppointments(Request $request)
-    {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'phone' => 'nullable|numeric',
-            'date' => 'required|date',
-            'category' => 'required|in:1,2,3,4,5',
-            'message' => 'required|max:2000',
-            'file' => 'nullable|file',
-        ]);
-
-        Appointment::create($request->all());
-
-        Mail::send(new AppointmentMail($request));
-
-        return view('pages.redirects.success')->with('status', 'Appointment Booked Successfully!');
     }
 
     /**

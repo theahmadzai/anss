@@ -1,17 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Event;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreEventRequest;
 
 class EventController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin')->except(['show']);
+    }
+
     public function index()
     {
         return view('admin.events.index', [
-            'events' => Event::all(),
+            'events' => Event::latest()->get(),
+            'deleted_events' => Event::onlyTrashed()->get(),
         ]);
     }
 
@@ -29,8 +34,8 @@ class EventController extends Controller
 
     public function show(Event $event)
     {
-        return view('admin.events.show', [
-            'event' => $event,
+        return view('pages.events.show', [
+            'article' => $event,
         ]);
     }
 

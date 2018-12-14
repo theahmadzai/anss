@@ -4,17 +4,17 @@
 
     <div style="padding:2rem;">
 
-        <a href="/admin/categories">Categories</a>
+        <a href="categories">Categories</a>
         <br>
-        <a href="/admin/images">Images</a>
+        <a href="images">Images</a>
         <br>
-        <a href="/admin/slides">Slides</a>
+        <a href="slides">Slides</a>
         <br>
-        <a href="/admin/appointments">Appointments</a>
+        <a href="appointments">Appointments</a>
         <br>
-        <a href="/admin/news">News</a>
+        <a href="news">News</a>
         <br>
-        <a href="/admin/events">Events</a>
+        <a href="events">Events</a>
 
     </div>
 

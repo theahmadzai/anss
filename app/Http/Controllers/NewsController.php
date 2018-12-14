@@ -1,17 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreNewsRequest;
 use App\News;
 
 class NewsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin')->except(['show']);
+    }
+
     public function index()
     {
         return view('admin.news.index', [
-            'news' => News::all(),
+            'news' => News::latest()->get(),
+            'deleted_news' => News::onlyTrashed()->get(),
         ]);
     }
 
@@ -29,8 +34,8 @@ class NewsController extends Controller
 
     public function show(News $news)
     {
-        return view('admin.news.show', [
-            'news' => $news,
+        return view('pages.news.show', [
+            'article' => $news,
         ]);
     }
 

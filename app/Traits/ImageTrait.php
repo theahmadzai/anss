@@ -4,7 +4,7 @@ namespace App\Traits;
 
 use Storage;
 
-trait Image
+trait ImageTrait
 {
     public function getImageAttribute($value)
     {

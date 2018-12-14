@@ -1,18 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers;
 
-use App\User;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateProfileRequest;
+use App\User;
 use Auth;
 
 class ProfileController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('show');
+        $this->middleware('auth')->except(['show']);
     }
 
     public function index()
@@ -23,7 +21,7 @@ class ProfileController extends Controller
     public function show(User $profile)
     {
         return view('user.profile.show', [
-            'profile' => $profile
+            'profile' => $profile,
         ]);
     }
 

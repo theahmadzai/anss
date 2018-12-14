@@ -11,6 +11,9 @@
 |
  */
 
+// Authentication
+Auth::routes(['verify' => true]);
+
 // Home
 Route::get('/', 'PageController@index')->name('home');
 
@@ -31,16 +34,14 @@ Route::get('/gallery', 'PageController@gallery');
 Route::get('/donate', 'PageController@donate');
 
 // Latest News
-Route::get('/news/{id?}', 'PageController@news');
+Route::get('/latest-news', 'PageController@latestNews');
 
 // Events
 Route::get('/past-events', 'PageController@pastEvents');
 Route::get('/upcoming-events', 'PageController@upcomingEvents');
-Route::get('/events/{id}', 'PageController@events');
 
-// Appointments
-Route::get('/appointments', 'PageController@appointments');
-Route::post('/appointments', 'PageController@postAppointments');
+// // Appointments
+Route::get('/book-appointment', 'PageController@bookAppointments');
 
 // Contact
 Route::get('/contact', 'PageController@contact');
@@ -50,38 +51,32 @@ Route::post('/contact', 'PageController@postContact');
 Route::get('/subscribe', 'PageController@subscribe');
 Route::post('/subscribe', 'PageController@postSubscribe');
 
-// Authentication
-Auth::routes(['verify' => true]);
+// Categories
+Route::resource('/categories', 'CategoryController');
+
+// Images
+Route::resource('/images', 'ImageController');
+
+// Slider
+Route::resource('/slides', 'SlideController');
+
+// News
+Route::resource('/news', 'NewsController');
+
+// Events
+Route::resource('/events', 'EventController');
+
+// Appointments
+Route::resource('/appointments', 'AppointmentController')->only([
+    'index', 'show', 'destroy', 'store',
+]);
 
 // Profile
-Route::resource('/profile', 'User\ProfileController')->only([
-    'index', 'show', 'edit', 'update'
+Route::resource('/profile', 'ProfileController')->only([
+    'index', 'show', 'edit', 'update',
 ]);
 
 // Admin
-Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
-
-    // Admin Panel
-    Route::get('/', 'Admin\AdminController@index');
-
-    // Categories
-    Route::resource('/categories', 'Admin\CategoryController');
-
-    // Images
-    Route::resource('/images', 'Admin\ImageController');
-
-    // Slider
-    Route::resource('/slides', 'Admin\SlideController');
-
-    // News
-    Route::resource('/news', 'Admin\NewsController');
-
-    // Events
-    Route::resource('/events', 'Admin\EventController');
-
-    // Appointments
-    Route::resource('/appointments', 'Admin\AppointmentController')->only([
-        'index', 'show', 'destroy'
-    ]);
-
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/', 'AdminController@index');
 });

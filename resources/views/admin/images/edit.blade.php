@@ -4,7 +4,7 @@
 
     <section class="section">
 
-        <form class="form" method="POST" action="{{ url('admin/images/' . $image->id) }}" enctype="multipart/form-data">
+        <form class="form" method="POST" action="{{ url('images/' . $image->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -18,7 +18,7 @@
 
             <div class="form__item">
                 <label class="label">Category</label>
-                <select name="category_id">
+                <select class="input" name="category_id">
                     @foreach ($categories as $category)
                         <option value="{{ $category->id }}" {{ old('category_id', $image->category->id) == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
                     @endforeach

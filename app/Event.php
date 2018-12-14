@@ -2,9 +2,9 @@
 
 namespace App;
 
-use App\Traits\Date as DateTrait;
-use App\Traits\Image as ImageTrait;
-use App\Traits\Thumbnail as ThumbnailTrait;
+use App\Traits\DateTrait;
+use App\Traits\ImageTrait;
+use App\Traits\ThumbnailTrait;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;

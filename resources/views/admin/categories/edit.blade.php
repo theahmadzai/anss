@@ -4,7 +4,7 @@
 
     <section class="section">
 
-        <form class="form" method="POST" action="{{ url('admin/categories/' . $category->id) }}">
+        <form class="form" method="POST" action="{{ url('categories/' . $category->id) }}">
             @csrf
             @method('PUT')
 

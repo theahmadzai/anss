@@ -2,10 +2,10 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Storage;
-use Carbon\Carbon;
 
 class User extends Authenticatable
 {

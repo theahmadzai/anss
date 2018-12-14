@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Traits\Date as DateTrait;
+use App\Traits\DateTrait;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -28,7 +28,7 @@ class Appointment extends Model
             '2' => 'Settlement',
             '3' => 'Employment',
             '4' => 'Referrals',
-            '5' => 'Other'
+            '5' => 'Other',
         ];
 
         return $categories[$value];

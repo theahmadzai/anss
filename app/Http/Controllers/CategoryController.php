@@ -1,17 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Category;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCategoryRequest;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     public function index()
     {
         return view('admin.categories.index', [
             'categories' => Category::all(),
+            'deleted_categories' => Category::onlyTrashed()->get(),
         ]);
     }
 

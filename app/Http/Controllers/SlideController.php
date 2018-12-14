@@ -1,17 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreSlideRequest;
 use App\Slide;
 
 class SlideController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     public function index()
     {
         return view('admin.slides.index', [
-            'slides' => Slide::all(),
+            'slides' => Slide::latest()->paginate(6),
         ]);
     }
 

@@ -45,10 +45,6 @@
             </div>
         </div>
 
-        @auth
-            <a class="button" href="{{ url('profile/'. $profile->id . '/edit')}}">Edit your profile</a>
-        @endauth
-
     </section>
 
 @endsection
