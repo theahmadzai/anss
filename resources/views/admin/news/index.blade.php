@@ -41,6 +41,24 @@
             @endforeach
         </div>
 
+        <div class="list">
+            <div class="list__item list__item--header">
+                <div></div>
+                <div></div>
+                <div>Deleted Items</div>
+            </div>
+
+            @foreach ($deleted_news as $new)
+                <div class="list__item">
+                    <div><b>{{ $loop->iteration }}</b></div>
+
+                    <div>{{ $new->date->diffForHumans() }}</div>
+
+                    <div>{{ str_limit($new->title, 30) }}</div>
+                </div>
+            @endforeach
+        </div>
+
     </section>
 
 @endsection

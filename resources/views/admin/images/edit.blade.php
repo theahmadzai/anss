@@ -18,7 +18,7 @@
 
             <div class="form__item">
                 <label class="label">Category</label>
-                <select name="category_id">
+                <select class="input" name="category_id">
                     @foreach ($categories as $category)
                         <option value="{{ $category->id }}" {{ old('category_id', $image->category->id) == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
                     @endforeach

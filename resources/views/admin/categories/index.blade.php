@@ -41,6 +41,24 @@
             @endforeach
         </div>
 
+        <div class="list">
+            <div class="list__item list__item--header">
+                <div></div>
+                <div></div>
+                <div>Deleted Items</div>
+            </div>
+
+            @foreach ($deleted_categories as $category)
+                <div class="list__item">
+                    <div><b>{{ $loop->iteration }}</b></div>
+
+                    <div>{{ $category->name }}</div>
+
+                    <div>{{ $category->slug }}</div>
+                </div>
+            @endforeach
+        </div>
+
     </section>
 
 @endsection

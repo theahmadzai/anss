@@ -30,6 +30,8 @@
             @endforeach
         </div>
 
+    {{ $images->links() }}
+
     </section>
 
 @endsection

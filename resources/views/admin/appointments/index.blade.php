@@ -38,6 +38,26 @@
             @endforeach
         </div>
 
+        <div class="list">
+            <div class="list__item list__item--header">
+                <div></div>
+                <div></div>
+                <div>Deleted Items</div>
+            </div>
+
+            @foreach ($deleted_appointments as $appointment)
+                <div class="list__item">
+                    <div><b>{{ $loop->iteration }}</b></div>
+
+                    <div>{{ $appointment->date->diffForHumans() }}</div>
+
+                    <div>{{ str_limit($appointment->name, 30) }}</div>
+
+                    <div>{{ $appointment->category }}</div>
+                </div>
+            @endforeach
+        </div>
+
     </section>
 
 @endsection

@@ -30,6 +30,8 @@
             @endforeach
         </div>
 
+        {{ $slides->links() }}
+
     </section>
 
 @endsection
