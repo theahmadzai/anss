@@ -1,6 +1,7 @@
 .boxes {
+  margin-bottom:2rem;
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 32% 32% 32%;
   gap: 1rem;
 
   @media $tablet {
