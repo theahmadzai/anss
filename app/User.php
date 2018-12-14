@@ -2,11 +2,11 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Storage;
-use Carbon\Carbon;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
