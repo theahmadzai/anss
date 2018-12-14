@@ -15,7 +15,8 @@ class EventController extends Controller
     public function index()
     {
         return view('admin.events.index', [
-            'events' => Event::all(),
+            'events' => Event::latest()->get(),
+            'deleted_events' => Event::onlyTrashed()->get(),
         ]);
     }
 

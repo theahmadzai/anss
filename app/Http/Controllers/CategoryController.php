@@ -16,6 +16,7 @@ class CategoryController extends Controller
     {
         return view('admin.categories.index', [
             'categories' => Category::all(),
+            'deleted_categories' => Category::onlyTrashed()->get(),
         ]);
     }
 

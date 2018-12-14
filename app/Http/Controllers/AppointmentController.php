@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Appointment;
 use App\Http\Requests\StoreAppointmentRequest;
+use App\Mail\AppointmentMail;
+use Mail;
 
 class AppointmentController extends Controller
 {
@@ -15,11 +17,12 @@ class AppointmentController extends Controller
     public function index()
     {
         return view('admin.appointments.index', [
-            'appointments' => Appointment::all(),
+            'appointments' => Appointment::latest()->get(),
+            'deleted_appointments' => Appointment::onlyTrashed()->get(),
         ]);
     }
 
-    public function store(StoreAppointmentRequest $appointment)
+    public function store(StoreAppointmentRequest $request)
     {
         Appointment::create($request->validated());
 

@@ -15,7 +15,8 @@ class NewsController extends Controller
     public function index()
     {
         return view('admin.news.index', [
-            'news' => News::all(),
+            'news' => News::latest()->get(),
+            'deleted_news' => News::onlyTrashed()->get(),
         ]);
     }
 

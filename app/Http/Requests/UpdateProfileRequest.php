@@ -18,7 +18,7 @@ class UpdateProfileRequest extends FormRequest
         return [
             'name' => 'nullable',
             'email' => 'required|email', Rule::unique('users')->ignore(Auth::user()->id),
-            'phone' => 'nullable|numeric',
+            'phone' => 'nullable|digits_between:8,15',
             'address' => 'nullable',
             'dob' => 'nullable|date',
             'description' => 'nullable',

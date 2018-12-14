@@ -16,7 +16,7 @@ class StoreAppointmentRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|email',
-            'phone' => 'nullable|numeric',
+            'phone' => 'nullable|digits_between:8,15',
             'date' => 'required|date',
             'category' => 'required|in:1,2,3,4,5',
             'message' => 'required|max:2000',
