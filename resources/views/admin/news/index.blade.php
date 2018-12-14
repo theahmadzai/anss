@@ -4,7 +4,7 @@
 
     <section class="section">
 
-        <a href="{{ url('admin/news/create') }}" class="button margin-bottom-2">Create News</a>
+        <a href="{{ url('news/create') }}" class="button margin-bottom-2">Create News</a>
 
         <div class="list">
             <div class="list__item list__item--header">
@@ -23,15 +23,15 @@
                     <div>{{ str_limit($new->title, 30) }}</div>
 
                     <div class="list__item__actions">
-                        <a href="{{ url('admin/news/' . $new->id) }}">
+                        <a href="{{ url('news/' . $new->id) }}">
                             <span class="icon icon-eye"></span>
                         </a>
 
-                        <a href="{{ url('admin/news/' . $new->id . '/edit') }}">
+                        <a href="{{ url('news/' . $new->id . '/edit') }}">
                             <span class="icon icon-pencil"></span>
                         </a>
 
-                        <form method="POST" action="{{ url('admin/news/' . $new->id) }}">
+                        <form method="POST" action="{{ url('news/' . $new->id) }}">
                             @csrf
                             @method('DELETE')
                             <a href="#" onclick="this.parentElement.submit();"><span class="icon icon-bin"></span></a>

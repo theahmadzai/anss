@@ -60,7 +60,7 @@
     </li>
 
     <li class="navbar__item">
-        <a class="navbar__link" href="/news">Latest News</a>
+        <a class="navbar__link" href="/latest-news">Latest News</a>
     </li>
 
     <li class="navbar__item">
@@ -68,7 +68,7 @@
     </li>
 
     <li class="navbar__item">
-        <a class="navbar__link" href="/appointments">Appointments</a>
+        <a class="navbar__link" href="/book-appointment">Appointments</a>
     </li>
 
     <li class="navbar__item">

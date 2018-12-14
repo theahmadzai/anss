@@ -28,14 +28,12 @@
                     <a href="https://twitter.com/AnssFoundation" target="blank"><i class="icon icon-twitter"></i></a>
                     <a href="https://www.facebook.com/ANSSFoundation/" target="blank"><i class="icon icon-facebook"></i></a>
                     <a href="https://www.instagram.com/anss_foundation/" target="blank"><i class="icon icon-instagram"></i></a>
+                    <a href="https://plus.google.com/u/0/108515786460467545307" target="blank"><i class="icon icon-google-plus"></i></a>
                     <a href="#" target="blank"><i class="icon icon-youtube"></i></a>
-                    <a href="#" target="blank"><i class="icon icon-flickr"></i></a>
-                    <a href="#" target="blank"><i class="icon icon-google-plus"></i></a>
                 </div>
             </div>
         </div>
     </div>
-
 </footer>
 
 <div class="copyrights">

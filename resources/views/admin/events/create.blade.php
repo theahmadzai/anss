@@ -4,7 +4,7 @@
 
     <section class="section">
 
-        <form class="form" method="POST" action="{{ url('admin/events') }}" enctype="multipart/form-data">
+        <form class="form" method="POST" action="{{ url('events') }}" enctype="multipart/form-data">
             @csrf
 
             <div class="form__item">

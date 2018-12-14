@@ -4,7 +4,7 @@
 
     <section class="section">
 
-        <form class="form" method="POST" action="{{ url('admin/categories') }}">
+        <form class="form" method="POST" action="{{ url('categories') }}">
             @csrf
 
             <div class="form__item">

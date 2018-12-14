@@ -24,11 +24,11 @@
                     <div>{{ $appointment->category }}</div>
 
                     <div class="list__item__actions">
-                        <a href="{{ url('admin/appointments/' . $appointment->id) }}">
+                        <a href="{{ url('appointments/' . $appointment->id) }}">
                             <span class="icon icon-eye"></span>
                         </a>
 
-                        <form method="POST" action="{{ url('admin/appointments/' . $appointment->id) }}">
+                        <form method="POST" action="{{ url('appointments/' . $appointment->id) }}">
                             @csrf
                             @method('DELETE')
                             <a href="#" onclick="this.parentElement.submit();"><span class="icon icon-bin"></span></a>
