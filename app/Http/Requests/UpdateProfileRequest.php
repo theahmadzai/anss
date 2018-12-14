@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests;
 
+use Auth;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-use Auth;
 
 class UpdateProfileRequest extends FormRequest
 {
@@ -17,7 +17,7 @@ class UpdateProfileRequest extends FormRequest
     {
         return [
             'name' => 'nullable',
-            'email' => 'required|email',Rule::unique('users')->ignore(Auth::user()->id),
+            'email' => 'required|email', Rule::unique('users')->ignore(Auth::user()->id),
             'phone' => 'nullable|numeric',
             'address' => 'nullable',
             'dob' => 'nullable|date',

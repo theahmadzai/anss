@@ -10,7 +10,6 @@ class UserObserver
     {
         if (request()->hasFile('avatar')) {
             $user->avatar = request()->avatar->store('public/avatars');
-            // $user->createThumbnail(150, 150);
         }
     }
 }
