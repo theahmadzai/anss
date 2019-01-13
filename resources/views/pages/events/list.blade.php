@@ -9,9 +9,7 @@
     @endcomponent
 
     <div class="articles">
-
         @each('components.events.item', $articles, 'article', 'components.empty')
-
     </div>
 
     {{ $articles->links() }}
