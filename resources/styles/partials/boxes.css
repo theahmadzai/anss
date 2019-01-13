@@ -1,6 +1,6 @@
 .boxes {
-  margin-bottom:2rem;
   display: grid;
+  margin-bottom: 2rem;
   grid-template-columns: 32% 32% 32%;
   gap: 1rem;
 
