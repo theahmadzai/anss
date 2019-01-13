@@ -4,33 +4,9 @@
 
 @section('content')
 
-    <div id="slider" class="slider">
-        @if($slides)
-            @foreach ($slides as $slide)
-                <div class="slide">
-                    <img src="{{$slide->image}}" alt="{{$slide->title}}">
-                    <p>{{$slide->title}}</p>
-                    <a href="{{$slide->link}}" target="blank">Read More</a>
-                </div>
-            @endforeach
-        @endif
-    </div>
+    @include('components.slider')
 
-    <div class="plate">
-        <div class="waves-wrapper">
-            <div class="waves">
-                <svg viewBox="0 0 800 600">
-                    <path d="M0,13 C66.6666667,-3.66666667 133.333333,-3.66666667 200,13 C266.666667,29.6666667 333.333333,29.6666667 400,13 C466.666667,-3.66666667 533.333333,-3.66666667 600,13 C666.666667,29.6666667 733.333333,29.6666667 800,13 L800,563 L0,563 L0,13 Z"
-                        fill="rgba(39, 69, 141, 1)"></path>
-                    <path d="M0,13 C66.6666667,-3.66666667 133.333333,-3.66666667 200,13 C266.666667,29.6666667 333.333333,29.6666667 400,13 C466.666667,-3.66666667 533.333333,-3.66666667 600,13 C666.666667,29.6666667 733.333333,29.6666667 800,13 L800,563 L0,563 L0,13 Z"
-                        fill="rgba(29, 143, 166, 1)"></path>
-                    <path d="M0,13 C66.6666667,-3.66666667 133.333333,-3.66666667 200,13 C266.666667,29.6666667 333.333333,29.6666667 400,13 C466.666667,-3.66666667 533.333333,-3.66666667 600,13 C666.666667,29.6666667 733.333333,29.6666667 800,13 L800,563 L0,563 L0,13 Z"
-                        fill="rgba(29, 43, 166, 1)"></path>
-                </svg>
-            </div>
-        </div>
-    </div>
-
+    @include('components.plate')
 
     <div class="row">
         <div class="col">
@@ -61,80 +37,35 @@
     </div>
 
     @if ($latest_news->count() > 0)
-    <div class="shadow-separator"></div>
-    <h2 class="nice-heading">Latest News</h2>
+        <div class="shadow-separator"></div>
+        <h2 class="nice-heading">Latest News</h2>
 
-    <div id="news-slider">
-        @foreach ($latest_news as $news)
-        <div class="news">
-            <div class="news__head">
-                <figure class="image">
-                    <img src="{{$news->thumbnail()}}" alt="{{$news->title}}">
-                </figure>
-            </div>
-            <div class="news__body">
-                <div class="date">
-                    <div class="day">
-                        {{$news->date->day}}
-                    </div>
-                    <div class="month">
-                        {{$news->date->shortEnglishMonth}}
-                    </div>
-                    <div class="year">
-                        {{$news->date->year}}
-                    </div>
-                </div>
-                <div class="news__body__content">
-                    <a href="/news/{{$news->id}}"><h3>{{$news->title}}</h3></a>
-                    <p>{{ str_limit($news->content, 200) }}</p>
-                    <a href="/news/{{$news->id}}">Read more</a>
-                </div>
-            </div>
+        <div class="headlines-list">
+            @foreach ($latest_news as $headline)
+                @include('components.headline', [
+                    'link' => 'news'
+                ])
+            @endforeach
         </div>
-        @endforeach
-    </div>
     @endif
 
     @if ($upcoming_events->count() > 0)
-    <div class="shadow-separator"></div>
-    <h2 class="nice-heading">Upcoming Events</h2>
+        <div class="shadow-separator"></div>
+        <h2 class="nice-heading">Upcoming Events</h2>
 
-    <div class="row">
-        @foreach ($upcoming_events as $event)
-        <div class="col">
-            <div class="news">
-                <div class="news__head">
-                    <figure class="image">
-                        <img src="{{$event->thumbnail()}}" alt="{{$event->title}}">
-                    </figure>
-                </div>
-                <div class="news__body">
-                    <div class="date">
-                        <div class="day">
-                            {{$event->date->day}}
-                        </div>
-                        <div class="month">
-                            {{$event->date->shortEnglishMonth}}
-                        </div>
-                        <div class="year">
-                            {{$event->date->year}}
-                        </div>
-                    </div>
-                    <div class="news__body__content">
-                        <a href="/events/upcoming/{{$event->id}}"><h3>{{$event->title}}</h3></a>
-                        <p>{{ str_limit($event->content, 200) }}</p>
-                        <a href="/events/upcoming/{{$event->id}}">Read more</a>
-                    </div>
-                </div>
-            </div>
+        <div class="headlines-list">
+            @foreach ($upcoming_events as $headline)
+                @include('components.headline', [
+                    'link' => 'events'
+                ])
+            @endforeach
         </div>
-        @endforeach
-    </div>
     @endif
 
     <div class="subscribe">
         <a href="/contact">CONTACT US</a>
     </div>
+
 @endsection
 
 @include('components.slick')

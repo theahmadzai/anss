@@ -9,11 +9,9 @@
     @endcomponent
 
     <section class="section">
-
         @include('components.article')
 
         @include('components.disqus')
-
     </section>
 
 @endsection

@@ -10,8 +10,6 @@
 
     <section class="section">
 
-        <h2 style="margin-bottom:1rem;">Contact Form</h2>
-
         <p>Thank you for using this form to leave us a message. Required fields marked with *.</p>
 
         <form class="form" method="POST" action="/contact">

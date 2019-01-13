@@ -9,9 +9,7 @@
     @endcomponent
 
     <section class="section">
-
         @include('components.article')
-
     </section>
 
 @endsection

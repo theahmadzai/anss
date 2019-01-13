@@ -1,0 +1,67 @@
+.headlines-list {
+  display: grid;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+  grid-template-columns: 33% 33% 33%;
+
+  @media $tablet {
+    grid-template-columns: 50% 50%;
+  }
+}
+
+.headline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+
+  &__head {
+    border-bottom: 3px solid $primary;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+
+    &__heading {
+      min-height: 40px;
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    &__content {
+      display: flex;
+
+      @media $tablet {
+        flex-direction: column;
+      }
+
+      p {
+        margin-bottom: 1.5rem;
+        margin-left: 1rem;
+        font-size: 0.88rem;
+        text-align: justify;
+
+        @media $tablet {
+          margin-left: 0;
+        }
+      }
+    }
+
+    &__readmore {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      padding: 0.25rem 0.5rem;
+      background: #aaaaaa;
+      color: #ffffff;
+
+      &:hover {
+        background: $secondary;
+        color: #ffffff;
+      }
+    }
+  }
+}
