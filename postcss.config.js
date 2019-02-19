@@ -1,18 +1,18 @@
 module.exports = (api) => {
-  const isProduction = api.env === 'production'
+  const isProduction = api.env === 'production';
 
-  let plugins = {
+  const plugins = {
     'postcss-import': {},
     'precss': {}
-  }
+  };
 
   isProduction && Object.assign(plugins, {
     'css-mqpacker': {},
     'autoprefixer': {},
     'cssnano': {}
-  })
+  });
 
   return {
     plugins
-  }
-}
+  };
+};
