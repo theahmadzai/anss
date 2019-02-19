@@ -1,17 +1,17 @@
-const gulp = require('gulp')
-const sourcemaps = require('gulp-sourcemaps')
-const uglify = require('gulp-uglify')
-const postcss = require('gulp-postcss')
-const rollup = require('gulp-better-rollup')
-const babel = require('rollup-plugin-babel')
-const resolve = require('rollup-plugin-node-resolve')
-const browserSync = require('browser-sync')
+const gulp = require('gulp');
+const sourcemaps = require('gulp-sourcemaps');
+const uglify = require('gulp-uglify');
+const postcss = require('gulp-postcss');
+const rollup = require('gulp-better-rollup');
+const babel = require('rollup-plugin-babel');
+const resolve = require('rollup-plugin-node-resolve');
+const browserSync = require('browser-sync');
 
 gulp.task('styles:prod', () => {
   return gulp.src('./resources/styles/app.css')
     .pipe(postcss())
-    .pipe(gulp.dest('./public/css'))
-})
+    .pipe(gulp.dest('./public/css'));
+});
 
 gulp.task('styles:dev', () => {
   return gulp.src('./resources/styles/app.css')
@@ -19,8 +19,8 @@ gulp.task('styles:dev', () => {
     .pipe(postcss())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./public/css'))
-    .pipe(browserSync.reload({ stream: true }))
-})
+    .pipe(browserSync.reload({ stream: true }));
+});
 
 gulp.task('scripts:prod', () => {
   return gulp.src('./resources/scripts/app.js')
@@ -38,8 +38,8 @@ gulp.task('scripts:prod', () => {
     }
     ))
     .pipe(uglify())
-    .pipe(gulp.dest('./public/js'))
-})
+    .pipe(gulp.dest('./public/js'));
+});
 
 gulp.task('scripts:dev', () => {
   return gulp.src('./resources/scripts/app.js')
@@ -59,8 +59,8 @@ gulp.task('scripts:dev', () => {
     ))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./public/js'))
-    .pipe(browserSync.reload({ stream: true }))
-})
+    .pipe(browserSync.reload({ stream: true }));
+});
 
 gulp.task('serve', gulp.series('styles:dev', 'scripts:dev', () => {
   browserSync({
@@ -71,18 +71,18 @@ gulp.task('serve', gulp.series('styles:dev', 'scripts:dev', () => {
     open: true,
     notify: false,
     logLevel: 'warn'
-  })
-}))
+  });
+}));
 
 gulp.task('dev', gulp.parallel( 'serve', () => {
   gulp.watch('./resources/views/**/*.blade.php').on('change', (path) => {
     return gulp.src(path)
-      .pipe(browserSync.reload({ stream: true }))
-  })
-  gulp.watch('./resources/styles/**/*.css', gulp.series('styles:dev'))
-  gulp.watch('./resources/scripts/**/*.js', gulp.series('scripts:dev'))
-}))
+      .pipe(browserSync.reload({ stream: true }));
+  });
+  gulp.watch('./resources/styles/**/*.css', gulp.series('styles:dev'));
+  gulp.watch('./resources/scripts/**/*.js', gulp.series('scripts:dev'));
+}));
 
-gulp.task('prod', gulp.series('styles:prod', 'scripts:prod'))
+gulp.task('prod', gulp.series('styles:prod', 'scripts:prod'));
 
-gulp.task('default', gulp.series('dev'))
+gulp.task('default', gulp.series('dev'));
