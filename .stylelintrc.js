@@ -1,3 +1,3 @@
 module.exports = {
-  extends: [ 'stylelint-config-immortal' ]
+  extends: ['stylelint-config-immortal']
 };
