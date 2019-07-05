@@ -12,7 +12,7 @@ Homestead.yaml
 .phpunit.result.cache
 npm-debug.log
 yarn-error.log
-package-json.lock
+package-lock.json
 composer.lock
 yarn.lock
 /public/js/libs
