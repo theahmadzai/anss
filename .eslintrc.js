@@ -7,6 +7,6 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  extends: [ 'eslint:recommended', 'immortal' ],
+  extends: ['eslint:recommended', 'immortal'],
   rules: {}
 };
