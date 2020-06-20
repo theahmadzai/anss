@@ -29,13 +29,13 @@ gulp.task('scripts:prod', () => {
         resolve(),
         babel()
       ],
-      external: ['jquery']
+      external: [ 'jquery' ]
     }, {
-        format: 'iife',
-        globals: {
-          jquery: '$'
-        }
+      format: 'iife',
+      globals: {
+        jquery: '$'
       }
+    }
     ))
     .pipe(uglify())
     .pipe(gulp.dest('./public/js'));
@@ -49,13 +49,13 @@ gulp.task('scripts:dev', () => {
         resolve(),
         babel()
       ],
-      external: ['jquery']
+      external: [ 'jquery' ]
     }, {
-        format: 'iife',
-        globals: {
-          jquery: '$'
-        }
+      format: 'iife',
+      globals: {
+        jquery: '$'
       }
+    }
     ))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./public/js'))
