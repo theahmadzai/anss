@@ -3,45 +3,32 @@
 namespace App\Http\Controllers;
 
 use App\Appointment;
+use App\AppointmentCategory;
 use App\Http\Requests\StoreAppointmentRequest;
 use App\Mail\AppointmentMail;
 use Mail;
 
 class AppointmentController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('admin')->except(['create', 'store']);
-    }
-
     public function index()
     {
-        return view('admin.appointments.index', [
-            'appointments' => Appointment::latest()->get(),
-            'deleted_appointments' => Appointment::onlyTrashed()->get(),
+        return view('pages.appointments.index', [
+            'appointment_categories' => AppointmentCategory::all(),
         ]);
     }
 
-    public function store(StoreAppointmentRequest $request)
+    public function submit(StoreAppointmentRequest $request)
     {
-        Appointment::create($request->validated());
+        $path = $request->hasFile('attachment')
+            ? $path = $request->attachment->store('attachments', 'public')
+            : null;
 
-        Mail::send(new AppointmentMail($request));
+        $appointment = Appointment::create(array_merge($request->validated(), [
+            'attachment' => $path,
+        ]));
+
+        Mail::send(new AppointmentMail($appointment));
 
         return view('pages.redirects.success')->with('status', 'Appointment Booked Successfully!');
-    }
-
-    public function show(Appointment $appointment)
-    {
-        return view('admin.appointments.show', [
-            'appointment' => $appointment,
-        ]);
-    }
-
-    public function destroy(Appointment $appointment)
-    {
-        $appointment->delete();
-
-        return back()->with('status', 'Appointment Deleted Successfully!');
     }
 }
