@@ -6,18 +6,27 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateSlidesTable extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::create('slides', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('title')->nullable();
-            $table->string('image')->nullable();
+            $table->bigIncrements('id');
+            $table->string('title');
+            $table->string('image');
             $table->string('link')->nullable();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
         Schema::dropIfExists('slides');
