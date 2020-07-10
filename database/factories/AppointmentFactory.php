@@ -1,14 +1,19 @@
 <?php
 
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+
+use App\Appointment;
+use App\AppointmentCategory;
 use Faker\Generator as Faker;
 
-$factory->define(App\Appointment::class, function (Faker $faker) {
+$factory->define(Appointment::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->email,
         'phone' => $faker->tollFreePhoneNumber,
-        'category' => $faker->biasedNumberBetween(1, 5),
-        'message' => $faker->text,
         'date' => $faker->dateTimeBetween('now', '+ 5 days'),
+        'message' => $faker->text,
+        'status' => $faker->randomElement([true, false]),
+        'appointment_category_id' => AppointmentCategory::all()->random(),
     ];
 });

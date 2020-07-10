@@ -1,12 +1,18 @@
 <?php
 
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+
+use App\Event;
 use Faker\Generator as Faker;
 
-$factory->define(App\Event::class, function (Faker $faker) {
-    return [
+$factory->define(Event::class, function (Faker $faker) {
+    return      [
         'title' => $faker->sentence(6),
-        'venue' => $faker->sentence(1),
-        'content' => $faker->sentence(30),
+        'slug' => $faker->slug,
+        'image' => 'default.png',
+        'venue' => $faker->city,
         'date' => $faker->dateTimeBetween('- 7 days', '+ 7 days'),
+        'tags' => $faker->word,
+        'content' => $faker->sentence(30),
     ];
 });
