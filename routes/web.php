@@ -9,74 +9,45 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
- */
-
-// Authentication
-Auth::routes(['verify' => true]);
+*/
 
 // Home
-Route::get('/', 'PageController@index')->name('home');
+Route::get('/', 'HomeController@index');
 
 // About
-Route::get('/who-we-are', 'PageController@whoWeAre');
-Route::get('/strategic-plans', 'PageController@strategicPlans');
-Route::get('/board-of-directors', 'PageController@boardOfDirectors');
+Route::view('who-we-are', 'pages.about.who-we-are');
+Route::view('strategic-plans', 'pages.about.strategic-plans');
+Route::view('board-of-directors', 'pages.about.board-of-directors', [
+    'directors' => json_decode(File::get(public_path('storage/json/directors.json')), true),
+]);
 
 // Services
-Route::get('/immigration-and-settlement', 'PageController@immigrationAndSettlement');
-Route::get('/cultural-environmental-and-educational', 'PageController@culturalEnvironmentalAndEducational');
-Route::get('/networking-and-community-based-research', 'PageController@networkingAndCommunityBasedResearch');
+Route::view('immigration-and-settlement', 'pages.services.immigration-and-settlement');
+Route::view('cultural-environmental-and-educational', 'pages.services.cultural-environmental-and-educational');
+Route::view('networking-and-community-based-research', 'pages.services.networking-and-community-based-research');
 
 // Gallery
-Route::get('/gallery', 'PageController@gallery');
-
-// Donate
-Route::get('/donate', 'PageController@donate');
-
-// Latest News
-Route::get('/latest-news', 'PageController@latestNews');
-
-// Events
-Route::get('/past-events', 'PageController@pastEvents');
-Route::get('/upcoming-events', 'PageController@upcomingEvents');
-
-// // Appointments
-Route::get('/book-appointment', 'PageController@bookAppointments');
-
-// Contact
-Route::get('/contact', 'PageController@contact');
-Route::post('/contact', 'PageController@postContact');
-
-// Subscribe
-Route::get('/subscribe', 'PageController@subscribe');
-Route::post('/subscribe', 'PageController@postSubscribe');
-
-// Categories
-Route::resource('/categories', 'CategoryController');
-
-// Images
-Route::resource('/images', 'ImageController');
-
-// Slider
-Route::resource('/slides', 'SlideController');
+Route::get('gallery', 'GalleryController@index');
 
 // News
-Route::resource('/news', 'NewsController');
+Route::get('news', 'NewsController@index');
+Route::get('news/{news}', 'NewsController@show');
 
-// Events
-Route::resource('/events', 'EventController');
+Route::get('/events/past', 'EventController@pastEvents');
+Route::get('/events/upcoming', 'EventController@upcomingEvents');
+Route::get('/events/{event}', 'EventController@show');
 
 // Appointments
-Route::resource('/appointments', 'AppointmentController')->only([
-    'index', 'show', 'destroy', 'store',
-]);
+Route::get('book-appointment', 'AppointmentController@index');
+Route::post('book-appointment', 'AppointmentController@submit');
 
-// Profile
-Route::resource('/profile', 'ProfileController')->only([
-    'index', 'show', 'edit', 'update',
-]);
+// Contact
+Route::get('contact-us', 'ContactController@index');
+Route::post('contact-us', 'ContactController@submit');
 
-// Admin
-Route::group(['prefix' => 'admin'], function () {
-    Route::get('/', 'AdminController@index');
-});
+// Subscribe
+Route::get('subscribe', 'SubscriberController@index');
+Route::post('subscribe', 'SubscriberController@submit');
+
+// Donate
+Route::view('donate', 'pages.donate.index');
