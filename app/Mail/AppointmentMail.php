@@ -2,55 +2,48 @@
 
 namespace App\Mail;
 
-use App\Appointment;
 use Illuminate\Bus\Queueable;
-use Illuminate\Http\Request;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
 class AppointmentMail extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
 
-    private $request;
+    private $appointment;
 
-    public function __construct(Request $request)
+    /**
+     * Create a new message instance.
+     *
+     * @param mixed $appointment
+     *
+     * @return void
+     */
+    public function __construct($appointment)
     {
-        $this->request = $request;
+        $this->appointment = $appointment;
     }
 
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
     public function build()
     {
-        $mail = $this->from($this->request->email, $this->request->name)
-            ->to('info@anss.ca', 'ANSS Foundation')
+        return $this->from($this->appointment->email, $this->appointment->name)
+            ->to(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
             ->subject('New Appointment Booked')
-            ->markdown('emails.appointment');
-
-        if ($this->request->hasFile('files')) {
-            $files = $this->request->file('files');
-            $size = sizeOf($files);
-
-            for ($i = 0; $i < $size; $i++) {
-                $file = $files[$i];
-
-                if ($file->isValid()) {
-                    $mail->attach($file->getRealPath(), [
-                        'as' => $file->getClientOriginalName(),
-                        'mime' => $file->getMimeType(),
-                    ]);
-                }
-            }
-        }
-
-        $appointment = new Appointment($this->request->all());
-
-        return $mail->with([
-            'name' => $appointment->name,
-            'email' => $appointment->email,
-            'phone' => $appointment->phone,
-            'category' => $appointment->category,
-            'date' => $appointment->date->toDayDateTimeString(),
-            'text' => $appointment->message,
-        ]);
+            ->attachFromStorageDisk('public', $this->appointment->attachment)
+            ->markdown('mails.appointment')
+            ->with([
+                'name' => $this->appointment->name,
+                'email' => $this->appointment->email,
+                'phone' => $this->appointment->phone,
+                'date' => $this->appointment->date->toFormattedDateString(),
+                'category' => $this->appointment->appointmentCategory->name,
+                'message' => $this->appointment->message,
+            ]);
     }
 }

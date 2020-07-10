@@ -3,32 +3,52 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Http\Request;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
 class ContactMail extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
+    public $subject;
 
-    private $request;
+    private $name;
+    private $email;
+    private $message;
 
-    public function __construct(Request $request)
+    /**
+     * Create a new message instance.
+     *
+     * @param mixed $contact
+     * @param mixed $name
+     * @param mixed $email
+     * @param mixed $subject
+     * @param mixed $message
+     *
+     * @return void
+     */
+    public function __construct($contact)
     {
-        $this->request = $request;
+        $this->name = $contact['name'];
+        $this->email = $contact['email'];
+        $this->subject = $contact['subject'];
+        $this->message = $contact['message'];
     }
 
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
     public function build()
     {
-        return $this->from($this->request->email, $this->request->name)
-            ->to('info@anss.ca', 'ANSS Foundation')
-            ->subject($this->request->subject)
-            ->markdown('emails.contact')
+        return $this->from($this->email, $this->name)
+            ->to(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
+            ->subject($this->subject)
+            ->markdown('mails.contact')
             ->with([
-                'name' => $this->request->name,
-                'email' => $this->request->email,
-                'subject' => $this->request->subject,
-                'text' => $this->request->message,
+                'subject' => $this->subject,
+                'message' => $this->message,
             ]);
     }
 }
