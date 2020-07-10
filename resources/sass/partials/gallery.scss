@@ -1,13 +1,13 @@
 .gallery {
-  background: #eeeeee;
+  background: #eee;
 
   &__empty {
+    background: #f9f9f9;
     display: block;
-    width: 100%;
     margin: 0.25rem;
     margin-top: -0.25rem;
     padding: 0.5rem;
-    background: #f9f9f9;
+    width: 100%;
   }
 
   &__controls {
@@ -15,15 +15,15 @@
     padding-bottom: 0;
 
     .filter {
+      background: #f9f9f9;
       margin-bottom: 0.5rem;
       padding: 0.5rem;
-      background: #f9f9f9;
 
       &__item {
         display: inline-block;
         margin-right: 2rem;
 
-        @media $tablet {
+        @media (max-width: #{$tablet}) {
           margin: 0.5rem 0;
         }
 
@@ -37,8 +37,8 @@
         }
 
         input[type=range] {
-          height: 10px;
           cursor: pointer;
+          height: 10px;
 
           &:focus {
             outline: none;
@@ -54,44 +54,44 @@
 
   &__images {
     display: grid;
-    padding: 0.25rem;
     grid-template-columns: repeat(4, 25%);
+    padding: 0.25rem;
 
-    @media $tablet-wide {
+    @media (max-width: #{$tablet-wide}) {
       grid-template-columns: repeat(3, 33.33%);
     }
 
-    @media $tablet {
+    @media (max-width: #{$tablet}) {
       grid-template-columns: repeat(2, 50%);
     }
 
-    @media $phone-wide {
+    @media (max-width: #{$phone-wide}) {
       grid-template-columns: 100%;
     }
   }
 
   &__image {
-    position: relative;
-    max-height: auto;
-    margin: 0.25rem;
     background: #f9f9f9;
+    margin: 0.25rem;
+    max-height: auto;
     overflow: hidden;
+    position: relative;
 
     img {
       width: 100%;
     }
 
     p {
-      position: absolute;
+      background: #111;
       bottom: 0;
+      color: #fff;
       display: none;
-      width: 100%;
-      padding: 0.25rem;
-      opacity: 0.8;
-      background: #111111;
       font-size: 0.8rem;
-      color: #ffffff;
+      opacity: 0.8;
+      padding: 0.25rem;
+      position: absolute;
       text-align: center;
+      width: 100%;
     }
 
     &:hover {

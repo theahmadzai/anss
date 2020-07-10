@@ -1,12 +1,12 @@
 .head {
-  width: 100%;
-  padding: 2rem;
   border-bottom: 1px solid #e0e0e0;
   box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.03);
   color: $red;
+  padding: 2rem;
+  width: 100%;
 
-  @media $tablet {
-    margin-top: 1rem;
+  @media (max-width: #{$tablet}) {
     border-top: 1px solid #e0e0e0;
+    margin-top: 1rem;
   }
 }

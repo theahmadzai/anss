@@ -1,27 +1,27 @@
 .footer {
-  display: flex;
   background: $red;
+  display: flex;
 
-  @media $tablet {
+  @media (max-width: #{$tablet}) {
     flex-direction: column;
   }
 
   &__left {
-    position: relative;
     flex: 1;
-    padding: 2rem;
-    transform-style: preserve-3d;
     overflow: hidden;
+    padding: 2rem;
+    position: relative;
+    transform-style: preserve-3d;
 
     &::before {
+      background: linear-gradient(-90deg, $red-light, $red);
       content: '';
+      height: 100px;
+      left: 0;
       position: absolute;
       top: 0;
-      left: 0;
-      width: 100%;
-      height: 100px;
       transform: skewY(150deg);
-      background: linear-gradient(-90deg, $red-light, $red);
+      width: 100%;
     }
   }
 
@@ -31,7 +31,7 @@
     justify-content: space-between;
     padding: 2rem;
 
-    @media $tablet {
+    @media (max-width: #{$tablet}) {
       flex-wrap: wrap;
     }
   }
@@ -41,48 +41,48 @@
   position: relative;
   z-index: 50;
 
-  @media $phone-wide {
+  @media (max-width: #{$phone-wide}) {
     &:last-child {
       margin-top: 2rem;
     }
   }
 
   &__head {
-    margin-right: 0.5rem;
+    color: #fefefe;
     font-size: 1.1rem;
     font-weight: 500;
-    color: #fefefe;
+    margin-right: 0.5rem;
   }
 
   &__body {
-    color: #dddddd;
+    color: #ddd;
 
     p {
-      padding: 0.5rem 0;
       background: $red;
       font-size: 0.9rem;
       line-height: 1.5rem;
+      padding: 0.5rem 0;
     }
 
     form {
-      margin-top: 1.5rem;
       margin-right: 1rem;
+      margin-top: 1.5rem;
 
       input {
+        background: transparent;
+        border: none;
+        border: 1px solid #ccc;
+        color: #fff;
         display: block;
-        width: auto;
+        font-size: 0.8rem;
         height: 25px;
         margin-bottom: 0.5rem;
-        padding: 0.3rem 1rem;
         outline: none;
-        border: none;
-        border: 1px solid #cccccc;
-        background: transparent;
-        font-size: 0.8rem;
-        color: #ffffff;
+        padding: 0.3rem 1rem;
+        width: auto;
 
         &::placeholder {
-          color: #cccccc;
+          color: #ccc;
         }
       }
 
@@ -91,40 +91,40 @@
       }
 
       button {
-        margin: 0;
-        padding: 0.4rem 1.3rem;
-        outline: none;
-        border: 0;
-        border: 1px solid #cccccc;
         background: $red;
-        font-size: 0.8rem;
-        color: #cccccc;
+        border: 0;
+        border: 1px solid #ccc;
+        color: #ccc;
         cursor: pointer;
+        font-size: 0.8rem;
+        margin: 0;
+        outline: none;
+        padding: 0.4rem 1.3rem;
 
         &:hover {
           background: $red-light;
-          color: #ffffff;
+          color: #fff;
         }
       }
     }
 
     .sm-icons {
       display: grid;
-      margin-top: 2rem;
       font-size: 1rem;
       gap: 1.5rem 1rem;
       grid-template-columns: auto auto auto;
+      margin-top: 2rem;
 
       i {
+        border: 2px solid #fff;
+        border-radius: 50%;
+        color: #fff;
         margin-bottom: 0.5rem;
         padding: 0.5rem;
-        border: 2px solid #ffffff;
-        border-radius: 50%;
-        color: #ffffff;
 
         &:hover {
+          background: #fff;
           border-color: $primary;
-          background: #ffffff;
           color: $primary;
         }
       }
@@ -134,8 +134,8 @@
 
 .copyrights {
   background: #424242;
+  color: #888;
   font-size: 0.7rem;
-  color: #888888;
 
   p {
     margin: 0;
@@ -143,7 +143,7 @@
     text-align: center;
 
     span {
-      color: #eeeeee;
+      color: #eee;
     }
   }
 }

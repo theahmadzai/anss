@@ -20,12 +20,12 @@ $primary: rgba(39, 69, 141, 1);
 $secondary: rgba(52, 89, 166, 1);
 
 /* Media Queries */
-$phone: (max-width: 20em);
-$phone-wide: (max-width: 30.0625em);
-$tablet: (max-width: 40.0625em);
-$tablet-wide: (max-width: 60.0626em);
-$laptop: (max-width: 64.0625em);
-$desktop: (min-width: 80.0625em);
+$phone: 20em;
+$phone-wide: 30.0625em;
+$tablet: 40.0625em;
+$tablet-wide: 60.0626em;
+$laptop: 64.0625em;
+$desktop: 80.0625em;
 
 /* Content Width */
 $content-width: 38rem;

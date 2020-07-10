@@ -3,7 +3,7 @@
   flex-direction: column;
   padding: 3rem 0;
 
-  @media $tablet {
+  @media (max-width: #{$tablet}) {
     margin: 3rem 1.5rem;
   }
 
@@ -15,15 +15,15 @@
 
   &__body {
     p {
+      color: #000;
       font-size: 1.1rem;
       line-height: 2rem;
-      color: #000000;
       text-align: justify;
     }
 
     ul {
-      padding: 1rem;
       list-style-type: disc;
+      padding: 1rem;
     }
   }
 }

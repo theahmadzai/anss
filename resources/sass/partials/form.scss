@@ -6,32 +6,32 @@
     padding: 0.8rem 0;
 
     &--inline {
-      display: flex;
       align-items: center;
+      display: flex;
     }
 
     p {
-      font-size: 0.8rem;
       color: red;
+      font-size: 0.8rem;
     }
   }
 
   textarea {
-    width: 50%;
     height: 80px;
     margin-top: 0.5rem;
     padding: 0.5rem;
+    width: 50%;
 
-    @media $tablet {
+    @media (max-width: #{$tablet}) {
       width: 100%;
     }
   }
 
   .input {
     display: block;
-    width: 250px;
     margin-top: 0.5rem;
     padding: 0.5rem;
+    width: 250px;
   }
 
   .file {
@@ -39,10 +39,10 @@
   }
 
   .label {
+    color: #666;
     display: block;
     font-size: 0.85rem;
     font-weight: 600;
-    color: #666666;
 
     &--inline {
       margin: 0 0.5rem;

@@ -1,34 +1,34 @@
 .boxes {
   display: grid;
-  margin-bottom: 2rem;
-  grid-template-columns: 32% 32% 32%;
   gap: 1rem;
+  grid-template-columns: 32% 32% 32%;
+  margin-bottom: 2rem;
 
-  @media $tablet {
+  @media (max-width: #{$tablet}) {
     grid-template-columns: auto auto;
   }
 
-  @media $phone-wide {
+  @media (max-width: #{$phone-wide}) {
     grid-template-columns: auto;
   }
 
   &__item {
-    display: block;
     background: white;
+    display: block;
 
     &__controls {
-      display: grid;
-      padding: 0.3rem 0;
       background: #f9f9f9;
-      text-align: center;
+      display: grid;
       grid-template-columns: auto auto auto;
+      padding: 0.3rem 0;
+      text-align: center;
     }
 
     img {
-      width: 100%;
       height: 200px;
+      width: 100%;
 
-      @media $phone-wide {
+      @media (max-width: #{$phone-wide}) {
         height: auto;
       }
     }

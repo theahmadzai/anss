@@ -2,7 +2,7 @@
   font-family: icomoon;
   font-style: normal;
   font-weight: normal;
-  src: url('../fonts/icomoon.ttf?iiezf6') format('truetype'), url('../fonts/icomoon.woff?iiezf6') format('woff'), url('../fonts/icomoon.svg?iiezf6#icomoon') format('svg');
+  src: url('../../public/fonts/icomoon.ttf?iiezf6') format('truetype'), url('../../public/fonts/icomoon.woff?iiezf6') format('woff'), url('../../public/fonts/icomoon.svg?iiezf6#icomoon') format('svg');
 }
 
 .icon {
@@ -13,8 +13,8 @@
   font-variant: normal;
   font-weight: normal;
   line-height: 1;
-  text-transform: none;
   speak: none;
+  text-transform: none;
 }
 
 .icon-home::before {

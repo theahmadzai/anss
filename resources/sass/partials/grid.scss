@@ -8,7 +8,7 @@
   flex: 33.33%;
   flex-flow: column;
 
-  @media $tablet {
+  @media (max-width: #{$tablet}) {
     flex: 100%;
     margin: 1rem 0;
   }
@@ -20,19 +20,19 @@
 
 .grid {
   display: grid;
-  padding: 0.5rem;
   grid-template-columns: repeat(3, 33.33%);
+  padding: 0.5rem;
 
-  @media $tablet {
+  @media (max-width: #{$tablet}) {
     grid-template-columns: 100%;
   }
 
   .grid__item {
-    position: relative;
+    background: #ddd;
+    border: 1px solid #ccc;
     margin: 0.5rem;
-    border: 1px solid #cccccc;
-    background: #dddddd;
     overflow: hidden;
+    position: relative;
 
     &:hover {
       p {
@@ -45,16 +45,16 @@
     }
 
     p {
-      position: absolute;
+      background: #000;
       bottom: 0;
-      z-index: 50;
+      color: #fff;
       display: none;
-      padding: 0.2rem 0.4rem;
-      opacity: 0.6;
-      background: #000000;
       font-size: 0.7rem;
       font-weight: 600;
-      color: #ffffff;
+      opacity: 0.6;
+      padding: 0.2rem 0.4rem;
+      position: absolute;
+      z-index: 50;
     }
   }
 }

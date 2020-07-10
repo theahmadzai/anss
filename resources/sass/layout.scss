@@ -10,22 +10,21 @@
 
 html {
   box-sizing: border-box;
-  height: 100vh;
   font-size: 16px;
+  height: 100vh;
 }
 
 body {
-  height: 100vh;
-  margin: 0;
-  padding: 0;
   background: #efefef;
-  overflow-x: hidden;
+  color: rgba(0, 0, 0, 0.7);
   font-family: $text-font-family;
   font-size: 90%;
   -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
+  height: 100vh;
   line-height: 150%;
-  color: rgba(0, 0, 0, 0.7);
+  margin: 0;
+  overflow-x: hidden;
+  padding: 0;
   text-rendering: optimizeLegibility;
   word-wrap: break-word;
 }
@@ -39,11 +38,11 @@ h2,
 h3,
 h4,
 h5 {
-  margin: 0;
-  padding: 0;
   font-family: $header-font-family;
   font-weight: 500;
   line-height: 1.28571429em;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
@@ -71,8 +70,8 @@ h5 {
 *******************************/
 
 p {
-  margin: 0;
   line-height: 1.4285em;
+  margin: 0;
 }
 
 /* Links */
@@ -134,21 +133,27 @@ input::selection {
 
 img {
   display: inline-block;
-  vertical-align: middle;
-  max-width: 100%;
   height: auto;
+  max-width: 100%;
+  vertical-align: middle;
 }
 
 ul {
+  list-style: none;
   margin: 0;
   padding: 0;
-  list-style: none;
 }
 
 .wrapper {
-  max-width: $content-width-wide;
-  margin: 0 auto;
-  padding: 0;
-  background: #ffffff;
+  background: #fff;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  max-width: $content-width-wide;
+  padding: 0;
+}
+
+.top-line {
+  background-image: linear-gradient(to right, #000, #f00, #0f0);
+  height: 2.5px;
+  width: 100%;
 }

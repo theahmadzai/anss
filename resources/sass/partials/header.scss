@@ -1,10 +1,10 @@
 .header {
-  display: flex;
   align-items: center;
-  width: 100%;
+  display: flex;
   padding: 0.5rem 1rem;
+  width: 100%;
 
-  @media $tablet {
+  @media (max-width: #{$tablet}) {
     flex-direction: column;
     padding: 0;
   }
@@ -12,8 +12,8 @@
   &__left {
     .logo {
       img {
-        width: 200px;
         height: 120.8px;
+        width: 200px;
       }
     }
   }
@@ -24,7 +24,7 @@
     flex-direction: column;
     padding-right: 1rem;
 
-    @media $tablet {
+    @media (max-width: #{$tablet}) {
       padding-right: 0;
     }
   }
@@ -34,9 +34,9 @@
   display: flex;
   justify-content: flex-end;
 
-  @media $tablet {
+  @media (max-width: #{$tablet}) {
     justify-content: space-around;
-    margin: 0.5rem 0 1rem 0;
+    margin: 0.5rem 0 1rem;
 
     .sm {
       display: none;
@@ -44,30 +44,30 @@
   }
 
   &__main {
+    align-items: flex-end;
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
 
     a {
-      margin-right: 0.5rem;
       font-size: 0.8rem;
+      margin-right: 0.5rem;
 
       &::after {
+        color: #aaa;
         content: '|';
         margin-left: 0.5rem;
-        color: #aaaaaa;
       }
 
       &:last-child {
-        margin-right: 0;
-        padding: 0 0.5rem;
+        background: $color1;
         border: 1px solid $color1;
         border-radius: 5px;
-        background: $color1;
-        color: #ffffff;
+        color: #fff;
+        margin-right: 0;
+        padding: 0 0.5rem;
 
         &:hover {
-          background: #ffffff;
+          background: #fff;
           color: $color1;
         }
 
@@ -85,13 +85,13 @@
   justify-content: flex-end;
   margin-top: 1rem;
 
-  @media $tablet {
+  @media (max-width: #{$tablet}) {
     display: none;
   }
 
   &__main {
-    display: flex;
     align-items: center;
+    display: flex;
 
     input,
     button {
@@ -101,19 +101,19 @@
     }
 
     input {
-      padding: 0 0.8rem;
-      border: 1px solid #dddddd;
+      border: 1px solid #ddd;
       font-size: 0.8rem;
+      padding: 0 0.8rem;
     }
 
     button {
-      padding: 0 1rem;
-      border: none;
       background: $primary;
+      border: none;
+      color: #fff;
+      cursor: pointer;
       font-size: 0.6rem;
       font-weight: bold;
-      color: #ffffff;
-      cursor: pointer;
+      padding: 0 1rem;
 
       &:hover {
         background: $secondary;

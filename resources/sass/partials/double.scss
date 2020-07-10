@@ -2,14 +2,14 @@
   display: flex;
   justify-content: space-between;
 
-  @media $tablet {
+  @media (max-width: #{$tablet}) {
     flex-direction: column;
   }
 
   &__left {
     flex-basis: 48%;
 
-    @media $tablet {
+    @media (max-width: #{$tablet}) {
       order: 2;
     }
   }
@@ -17,9 +17,9 @@
   &__right {
     flex-basis: 48%;
 
-    @media $tablet {
-      order: 1;
+    @media (max-width: #{$tablet}) {
       margin-bottom: 1rem;
+      order: 1;
     }
   }
 }

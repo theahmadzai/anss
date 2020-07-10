@@ -6,19 +6,19 @@
     display: flex;
 
     div {
+      border-bottom: 1px solid $red-light;
+      color: #111;
       flex-basis: 33.33%;
       padding: 0.8rem;
-      border-bottom: 1px solid $red-light;
-      color: #111111;
       text-align: left;
 
       button {
-        padding: 0.4rem 2rem;
-        border: 1px solid $red;
         background: $red;
+        border: 1px solid $red;
+        padding: 0.4rem 2rem;
 
         a {
-          color: #ffffff;
+          color: #fff;
         }
       }
     }
@@ -30,8 +30,8 @@
     &--header {
       div {
         background: $red-light;
+        color: #fff;
         font-weight: 700;
-        color: #ffffff;
       }
     }
   }

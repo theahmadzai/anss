@@ -3,11 +3,11 @@
   flex-direction: column;
 
   &__item {
+    border-bottom: 1px solid #eee;
     display: flex;
     padding: 2rem;
-    border-bottom: 1px solid #eeeeee;
 
-    @media $tablet {
+    @media (max-width: #{$tablet}) {
       flex-direction: column;
     }
 
@@ -16,17 +16,17 @@
     }
 
     img {
-      width: 200px;
       height: 200px;
       margin-right: 1rem;
+      width: 200px;
 
-      @media $tablet {
+      @media (max-width: #{$tablet}) {
         height: auto;
-        margin-right: 0;
         margin-bottom: 1rem;
+        margin-right: 0;
       }
 
-      @media $phone-wide {
+      @media (max-width: #{$phone-wide}) {
         width: 100%;
       }
     }

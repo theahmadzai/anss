@@ -4,13 +4,13 @@
 
 .image {
   margin: 0;
-  padding: 0;
   overflow: hidden;
+  padding: 0;
 
   img {
-    width: auto;
     height: 130px;
     transition: all 500ms ease;
+    width: auto;
 
     &:hover {
       opacity: 0.8;
@@ -29,13 +29,13 @@
 *  Shadow spearator   *
 ***********************/
 .shadow-separator {
-  width: 100%;
-  height: 30px;
-  margin: 2rem 0;
-  border-top: 1px solid #eeeeee;
-  background-image: url('../img/shadow.png');
+  background-image: url('../../../public/img/shadow.png');
   background-position: center -1px;
   background-repeat: no-repeat;
+  border-top: 1px solid #eee;
+  height: 30px;
+  margin: 2rem 0;
+  width: 100%;
 }
 
 /**********************
@@ -43,9 +43,9 @@
 ***********************/
 
 .nice-heading {
-  margin: 2rem 0;
-  font-weight: 300;
   color: $primary;
+  font-weight: 300;
+  margin: 2rem 0;
   text-align: center;
   text-transform: uppercase;
 }
@@ -55,40 +55,40 @@
 ***********************/
 
 .subscribe {
-  position: relative;
+  background: $primary;
   display: flex;
   justify-content: space-around;
-  padding: 4rem 0;
-  transform-style: preserve-3d;
-  background: $primary;
   overflow: hidden;
+  padding: 4rem 0;
+  position: relative;
+  transform-style: preserve-3d;
 
   &::before {
+    background: linear-gradient(-90deg, $primary, $secondary);
     content: '';
+    height: 200px;
+    left: 0;
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 200px;
     transform: skewY(190deg);
-    background: linear-gradient(-90deg, $primary, $secondary);
+    width: 100%;
   }
 
   a {
-    z-index: 50;
-    padding: 0.6rem 2.5rem;
+    background: #fff;
     border: 2px solid $primary;
     border-radius: 5px;
-    background: #ffffff;
-    font-weight: 600;
     color: $primary;
+    font-weight: 600;
+    padding: 0.6rem 2.5rem;
     text-align: center;
     text-transform: uppercase;
+    z-index: 50;
 
     &:hover {
-      border: 2px solid #ffffff;
       background: $primary;
-      color: #ffffff;
+      border: 2px solid #fff;
+      color: #fff;
     }
   }
 }
@@ -98,21 +98,21 @@
 ***********************/
 
 .button {
-  display: inline-block;
-  padding: 0.4rem 0.8rem;
-  outline: none;
+  background-color: $primary;
   border: none;
   border-radius: 3px;
-  background-color: $primary;
-  transition: background-color 100ms ease-out;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
   font-size: 0.8rem;
   font-weight: 600;
-  color: #ffffff;
-  cursor: pointer;
+  outline: none;
+  padding: 0.4rem 0.8rem;
+  transition: background-color 100ms ease-out;
 
   &:hover {
     background-color: silver;
-    color: #ffffff;
+    color: #fff;
   }
 }
 
@@ -122,7 +122,7 @@
 
 .border {
   &--bottom {
-    border-bottom: 1px solid #eeeeee;
+    border-bottom: 1px solid #eee;
 
     &:last-child {
       border-bottom: none;
@@ -153,30 +153,30 @@
 }
 
 .t1 {
+  color: #111;
   font-size: 1rem;
   line-height: 1.8rem;
-  color: #111111;
   text-align: justify;
 }
 
 .listtype {
+  color: #111;
   display: block;
-  margin-left: 1rem;
-  list-style: disc;
   font-size: 1rem;
   line-height: 1.8rem;
-  color: #111111;
+  list-style: disc;
+  margin-left: 1rem;
 }
 
 .empty {
+  color: #111;
   padding: 2rem;
-  color: #111111;
 }
 
 .status-message {
-  width: 100%;
-  padding: 1rem 2rem;
   background: #eaeaea;
-  font-size: 1rem;
   color: $red;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  width: 100%;
 }
