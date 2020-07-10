@@ -1,16 +1,16 @@
 @extends('layouts.master')
 
-@section('title', $title)
+@section('title', 'Book an Appointment')
 
 @section('content')
 
     @component('components.head')
-        {{ $title }}
+        Book an Appointment
     @endcomponent
 
     <section class="section">
 
-        <form class="form" method="POST" action="/appointments" enctype="multipart/form-data">
+        <form class="form" method="POST" action="{{ url()->current() }}" enctype="multipart/form-data">
             @csrf
 
             <div class="form__item">
@@ -39,7 +39,7 @@
 
             <div class="form__item">
                 <label class="label">Timing <span>*</span></label>
-                <input class="input" id="datetimepicker" type="text" name="date" value="{{ old('date') }}">
+                <input class="input" type="date" name="date" value="{{ old('date') }}">
                 @if ($errors->has('date'))
                     <p>{{ $errors->first('date') }}</p>
                 @endif
@@ -47,15 +47,13 @@
 
             <div class="form__item">
                 <label class="label">Category <span>*</span></label>
-                <select class="input" name="category">
-                    <option value="1" {{ old('category') == 1 ? 'selected' : ''}}>General</option>
-                    <option value="2" {{ old('category') == 2 ? 'selected' : ''}}>Settlement</option>
-                    <option value="3" {{ old('category') == 3 ? 'selected' : ''}}>Employment</option>
-                    <option value="4" {{ old('category') == 4 ? 'selected' : ''}}>Referrals</option>
-                    <option value="5" {{ old('category') == 5 ? 'selected' : ''}}>Other</option>
+                <select class="input" name="appointment_category_id">
+                    @foreach ($appointment_categories as $category)
+                        <option value="{{$category->id}}" {{ old('appointment_category_id') == $category->name ? 'selected' : ''}}>{{$category->name}}</option>
+                    @endforeach
                 </select>
-                @if ($errors->has('category'))
-                    <p>{{ $errors->first('category') }}</p>
+                @if ($errors->has('appointment_category_id'))
+                    <p>{{ $errors->first('appointment_category_id') }}</p>
                 @endif
             </div>
 
@@ -68,8 +66,8 @@
             </div>
 
             <div class="form__item">
-                <label class="label">Attachments</label>
-                <input class="file" type="file" name="files[]" multiple>
+                <label class="label">Attachment</label>
+                <input class="file" type="file" name="attachment">
             </div>
 
             <div class="form__item">
@@ -80,5 +78,3 @@
     </section>
 
 @endsection
-
-@include('components.flatpickr')

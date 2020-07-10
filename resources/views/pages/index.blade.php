@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', $title)
+@section('title', 'Home')
 
 @section('content')
 
@@ -63,7 +63,7 @@
     @endif
 
     <div class="subscribe">
-        <a href="/contact">CONTACT US</a>
+        <a href="/contact-us">CONTACT US</a>
     </div>
 
 @endsection

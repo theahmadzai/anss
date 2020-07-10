@@ -1,18 +1,18 @@
 @extends('layouts.master')
 
-@section('title', $title)
+@section('title', 'Contact Us')
 
 @section('content')
 
     @component('components.head')
-        {{ $title }}
+        Contact Us
     @endcomponent
 
     <section class="section">
 
-        <p>Thank you for using this form to leave us a message. Required fields marked with *.</p>
+        <p>Thank you for using this form to leave us a message. Required fields are marked with *.</p>
 
-        <form class="form" method="POST" action="/contact">
+        <form class="form" method="POST" action="{{ url()->current() }}">
             @csrf
 
             <div class="form__item">

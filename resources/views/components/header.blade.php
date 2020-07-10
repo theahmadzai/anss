@@ -11,21 +11,15 @@
                 <a href="https://twitter.com/AnssFoundation" target="blank" class="sm" style="color:black;"><i class="icon icon-twitter"></i></a>
                 <a href="https://www.facebook.com/ANSSFoundation/" target="blank" class="sm" style="color:red;"><i class="icon icon-facebook"></i></a>
                 <a href="https://www.instagram.com/anss_foundation/" target="blank" class="sm" style="color:green;"><i class="icon icon-instagram"></i></a>
-                <a href="/contact">Contact Us</a>
+                <a href="/contact-us">Contact Us</a>
+                <a href="/subscribe">Subscribe</a>
                 <a href="#">FAQ</a>
                 <a href="/webmail" target="blank"><i class="icon icon-envelop"></i> Webmail Login</a>
 
                 @guest
-                <a href="/login">Login</a>
+                <a href="/admin/login">Login</a>
                 @else
-                <a href="/profile"><i class="icon icon-user"></i> Profile</a>
-                    @if (Auth::user()->role == 3)
-                    <a href="/admin"><i class="icon icon-terminal"></i> Admin</a>
-                    @endif
-                    <form method="POST" action="/logout" style="display:inline;">
-                        @csrf
-                        <a href="#" onclick="this.parentElement.submit();"><i class="icon icon-switch"></i> Logout</a>
-                    </form>
+                <a href="/admin">Admin Panel</a>
                 @endguest
             </div>
         </div>

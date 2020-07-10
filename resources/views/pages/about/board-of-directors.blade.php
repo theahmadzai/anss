@@ -1,11 +1,11 @@
 @extends('layouts.master')
 
-@section('title', $title)
+@section('title', 'Board of Directors')
 
 @section('content')
 
     @component('components.head')
-        {{ $title }}
+        Board of Directors
     @endcomponent
 
     @each('components.profile', $directors, 'director', 'components.empty')

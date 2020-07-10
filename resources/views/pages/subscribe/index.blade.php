@@ -1,16 +1,16 @@
 @extends('layouts.master')
 
-@section('title', $title)
+@section('title', 'Subscribe to Updates and Newsletter')
 
 @section('content')
 
     @component('components.head')
-        {{ $title }}
+        Subscribe to Updates and Newsletter
     @endcomponent
 
     <section class="section">
 
-        <form class="form" method="POST" action="/subscribe">
+        <form class="form" method="POST" action="{{ url()->current() }}">
             @csrf
 
             <div class="form__item">

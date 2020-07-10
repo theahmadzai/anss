@@ -1,6 +1,6 @@
 <article class="article">
     <div class="article__image">
-        <img src="{{ $article->image }}" alt="{{ $article->title }}">
+        <img src="{{ $article->imagePath }}" alt="{{ $article->title }}">
     </div>
 
     <h2 class="article__title">{{ $article->title }}</h2>

@@ -1,11 +1,11 @@
 @extends('layouts.master')
 
-@section('title', $title)
+@section('title', 'Donate')
 
 @section('content')
 
     @component('components.head')
-        {{ $title }}
+        Donate
     @endcomponent
 
     <div class="section">

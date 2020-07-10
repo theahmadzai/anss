@@ -1,11 +1,11 @@
 @extends('layouts.master')
 
-@section('title', $title)
+@section('title', 'Networking & Community Based Research')
 
 @section('content')
 
     @component('components.head')
-        {{ $title }}
+        Networking & Community Based Research
     @endcomponent
 
     <section class="section">

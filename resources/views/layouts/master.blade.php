@@ -16,7 +16,7 @@
     </head>
     <body>
         <div class="wrapper">
-            <div id="top-line"></div>
+            <div class="top-line"></div>
 
             @include('components.header')
 
@@ -29,6 +29,11 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         @stack('scripts')
-        <script src="/js/app.js"></script>
+        <script>
+            $('#toggle').click(function (e) {
+                $('#toggle').toggleClass('toggle--change')
+                $('#navbar').slideToggle()
+            })
+        </script>
     </body>
 </html>

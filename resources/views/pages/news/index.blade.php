@@ -1,15 +1,15 @@
 @extends('layouts.master')
 
-@section('title', $title)
+@section('title', 'Latest News')
 
 @section('content')
 
     @component('components.head')
-        {{ $title }}
+        Latest News
     @endcomponent
 
     <div class="articles">
-        @each('components.events.item', $articles, 'article', 'components.empty')
+        @each('components.news_preview', $articles, 'article', 'components.empty')
     </div>
 
     {{ $articles->links() }}

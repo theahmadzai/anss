@@ -1,11 +1,11 @@
 @extends('layouts.master')
 
-@section('title', $title)
+@section('title', 'Immigration and Settlement')
 
 @section('content')
 
     @component('components.head')
-        {{ $title }}
+        Immigration and Settlement
     @endcomponent
 
     <section class="section">
