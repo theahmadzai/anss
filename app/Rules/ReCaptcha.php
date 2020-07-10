@@ -2,39 +2,49 @@
 
 namespace App\Rules;
 
-use GuzzleHttp\Client as Guzzle;
 use Illuminate\Contracts\Validation\Rule;
 
 class ReCaptcha implements Rule
 {
     private $client;
 
-    public function __construct(Guzzle $client)
+    /**
+     * Create a new rule instance.
+     *
+     * @return void
+     */
+    public function __construct(\GuzzleHttp\Client $client)
     {
         $this->client = $client;
     }
 
+    /**
+     * Determine if the validation rule passes.
+     *
+     * @param string $attribute
+     * @param mixed  $value
+     *
+     * @return bool
+     */
     public function passes($attribute, $value)
     {
-        $response = $this->verifyReCaptcha($value);
-
-        return $response->success;
-    }
-
-    public function message()
-    {
-        return trans('validation.recaptcha');
-    }
-
-    private function verifyReCaptcha($response)
-    {
-        $request = $this->client->post('https://www.google.com/recaptcha/api/siteverify', [
+        $response = $this->client->post('https://www.google.com/recaptcha/api/siteverify', [
             'form_params' => [
                 'secret' => env('NOCAPTCHA_SECRET'),
-                'response' => $response,
+                'response' => $value,
             ],
         ]);
 
-        return json_decode($request->getBody());
+        return json_decode($response->getBody())->success;
+    }
+
+    /**
+     * Get the validation error message.
+     *
+     * @return string
+     */
+    public function message()
+    {
+        return trans('validation.recaptcha');
     }
 }
