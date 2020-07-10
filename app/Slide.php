@@ -2,16 +2,18 @@
 
 namespace App;
 
-use App\Traits\ImageTrait;
-use App\Traits\ThumbnailTrait;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Storage;
 
 class Slide extends Model
 {
-    use SoftDeletes, ThumbnailTrait, ImageTrait;
+    public function getThumbnailPathAttribute()
+    {
+        return Storage::disk('public')->url('thumbnails/'.$this->image);
+    }
 
-    protected $table = 'slides';
-
-    protected $guarded = [];
+    public function getImagePathAttribute()
+    {
+        return Storage::disk('public')->url('images/'.$this->image);
+    }
 }

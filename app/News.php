@@ -2,21 +2,34 @@
 
 namespace App;
 
-use App\Traits\DateTrait;
-use App\Traits\ImageTrait;
-use App\Traits\ThumbnailTrait;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Storage;
+use Str;
 
 class News extends Model
 {
-    use SoftDeletes, DateTrait, ThumbnailTrait, ImageTrait;
-
-    protected $table = 'news';
-
-    protected $guarded = [];
-
-    protected $attributes = [
-        'tags' => 'ANSS Foundation',
+    protected $dates = [
+        'date',
     ];
+
+    public function getThumbnailPathAttribute()
+    {
+        return Storage::disk('public')->url('thumbnails/'.$this->image);
+    }
+
+    public function getImagePathAttribute()
+    {
+        return Storage::disk('public')->url('images/'.$this->image);
+    }
+
+    public function setTitleAttribute($value)
+    {
+        $this->attributes['title'] = $value;
+        $this->attributes['slug'] = Str::slug($value);
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

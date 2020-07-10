@@ -2,24 +2,16 @@
 
 namespace App;
 
-use App\Traits\DateTrait;
-use App\Traits\ImageTrait;
-use App\Traits\ThumbnailTrait;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Storage;
+use Str;
 
 class Event extends Model
 {
-    use SoftDeletes, ThumbnailTrait, ImageTrait, DateTrait;
-
-    protected $table = 'events';
-
-    protected $guarded = [];
-
-    protected $attributes = [
-        'tags' => 'ANSS Foundation',
+    protected $dates = [
+        'date',
     ];
 
     public function scopeUpcoming(Builder $builder)
@@ -30,5 +22,26 @@ class Event extends Model
     public function scopePast(Builder $builder)
     {
         return $builder->whereDate('date', '<', Carbon::now());
+    }
+
+    public function getThumbnailPathAttribute()
+    {
+        return Storage::disk('public')->url('thumbnails/'.$this->image);
+    }
+
+    public function getImagePathAttribute()
+    {
+        return Storage::disk('public')->url('images/'.$this->image);
+    }
+
+    public function setTitleAttribute($value)
+    {
+        $this->attributes['title'] = $value;
+        $this->attributes['slug'] = Str::slug($value);
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

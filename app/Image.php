@@ -2,21 +2,18 @@
 
 namespace App;
 
-use App\Traits\ImageTrait;
-use App\Traits\ThumbnailTrait;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Storage;
 
 class Image extends Model
 {
-    use SoftDeletes, ThumbnailTrait, ImageTrait;
-
-    protected $table = 'images';
-
-    protected $guarded = [];
-
-    public function category()
+    public function getThumbnailPathAttribute()
     {
-        return $this->belongsTo(Category::class, 'category_id', 'id');
+        return Storage::disk('public')->url('thumbnails/'.$this->image);
+    }
+
+    public function getImagePathAttribute()
+    {
+        return Storage::disk('public')->url('images/'.$this->image);
     }
 }
