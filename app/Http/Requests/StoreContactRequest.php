@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\ReCaptcha;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreAppointmentRequest extends FormRequest
+class StoreContactRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,11 +27,9 @@ class StoreAppointmentRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|email',
-            'phone' => 'nullable|numeric|digits_between:9,13',
-            'date' => 'required|date|after_or_equal:today',
-            'message' => 'required|max:2000',
-            'attachment' => 'nullable|file',
-            'appointment_category_id' => 'required|unique:appointment_categories',
+            'subject' => 'required',
+            'message' => 'required|min:100',
+            'g-recaptcha-response' => new ReCaptcha(new \GuzzleHttp\Client()),
         ];
     }
 }
