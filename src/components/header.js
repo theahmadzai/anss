@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { Image } from 'antd'
+import { StaticImage } from 'gatsby-plugin-image'
 import useSiteMetadata from '../hooks/use-sitemetadata'
 import * as styles from './header.module.less'
 import Navbar from './navbar'
@@ -20,13 +20,13 @@ const Header = () => {
         }}
       >
         <Link to="/">
-          <Image
-            src="/logo.png"
-            height="108px"
-            width="178.81px"
-            alt={title}
-            preview={false}
+          <StaticImage
             className={styles.logo}
+            src="../../static/logo.png"
+            alt={title}
+            layout="fixed"
+            placeholder="tracedSVG"
+            aspectRatio={1.66}
           />
         </Link>
 

@@ -23,7 +23,6 @@ const AppointmentsPage = () => {
   const [fileList, setFileList] = useState([])
 
   const onAttachmentsUploaded = ({ fileList: newFileList }) => {
-    console.log(newFileList)
     setFileList(newFileList)
   }
 
