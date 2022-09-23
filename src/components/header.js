@@ -26,7 +26,6 @@ const Header = () => {
             alt={title}
             layout="fixed"
             placeholder="tracedSVG"
-            aspectRatio={1.66}
           />
         </Link>
 
