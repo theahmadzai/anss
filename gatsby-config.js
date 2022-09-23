@@ -108,9 +108,6 @@ module.exports = {
         queries: [newsQuery, eventsQuery],
       },
     },
-    'gatsby-plugin-sharp',
-    'gatsby-plugin-image',
-    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-import',
       options: {
@@ -124,26 +121,29 @@ module.exports = {
         lessOptions: {
           javascriptEnabled: true,
           modifyVars: {
-            '@primary-color': 'rgba(39, 69, 141, 1)',
+            '@primary-color': '#27458D',
             '@font-size-base': '16px',
             '@font-family': 'Open Sans',
           },
         },
       },
     },
-    'gatsby-plugin-minify-classnames',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'ANSS Foundation',
         short_name: 'ANSS',
         start_url: '/',
-        background_color: 'rgba(39, 69, 141, 1)',
-        theme_color: 'rgba(39, 69, 141, 1)',
+        background_color: '#27458D',
+        theme_color: '#27458D',
         display: 'standalone',
         icon: './static/icon.png',
       },
     },
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-image',
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-minify-classnames',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-offline',
   ],
