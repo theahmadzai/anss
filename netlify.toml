@@ -1,0 +1,10 @@
+[[plugins]]
+  package = "@netlify/plugin-gatsby"
+
+[build]
+  publish = "public"
+  command = "npm run build"
+  functions = "functions"
+
+[dev]
+  autoLaunch = false

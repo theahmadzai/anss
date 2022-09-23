@@ -1,0 +1,89 @@
+.nav {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.toggleNav {
+  display: block;
+  font-size: 1.5rem;
+  padding: 1.5rem;
+
+  @media screen and (min-width: 768px) {
+    display: none !important;
+  }
+}
+
+.navMobile {
+  display: flex;  
+  flex-direction: column;
+
+  @media screen and (min-width: 768px) {
+    display: none;    
+  }
+}
+
+.navDesktop {
+  display: none;
+  
+  @media screen and (min-width: 768px) {    
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background: var(--primary-color);
+    color: #FFFFFF;
+  }
+}
+
+.subNav {
+  position: relative;
+
+  &:hover .subNavItems {
+    display: block;
+  }
+}
+
+.subNavItems {
+  display: none;
+  position: absolute;
+  z-index: 200;
+  width: 100%;
+  border: 1px solid #EFEFEF;
+  background: #FFFFFF;
+
+  .link {
+    border-bottom: 1px solid #EFEFEF; 
+  }
+  
+  @media screen and (min-width: 768px) {    
+    width: 185px;
+    background: var(--primary-color);
+    border: none;       
+
+    .link {
+      border-bottom: 1px solid var(--secondary-color); 
+    }
+  }  
+}
+
+.link {  
+  color: inherit;
+  display: block;
+  padding: 0.7rem 1.2rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 800ms ease;
+
+  @media screen and (min-width: 768px) {
+    border-right: 1px solid var(--secondary-color);    
+  }
+  
+  &:hover {
+    background: #f9f9f9;        
+  }
+}
+
+.active {
+  background: var(--secondary-color) !important;
+  color: #fff !important;
+}
