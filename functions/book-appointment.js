@@ -12,7 +12,7 @@ exports.handler = async event => {
   }
 
   try {
-    const { name, email, phone, date, category, message, attachments } =
+    const { name, email, phone, date, category, message, files } =
       await parser.parse(event)
 
     if (!name || !email || !date || !category || !message) {
@@ -35,7 +35,7 @@ exports.handler = async event => {
         Category: ${category}\n
         Message: ${message}
       `,
-      attachments,
+      attachments: files,
     })
 
     await faunadb.query(

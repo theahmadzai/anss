@@ -22,8 +22,8 @@ const AppointmentsPage = () => {
   const [formStatus, setFormStatus] = useState(formState.IDLE)
   const [fileList, setFileList] = useState([])
 
-  const onAttachmentsUploaded = ({ fileList: newFileList }) => {
-    setFileList(newFileList)
+  const onAttachmentsUploaded = ({ fileList }) => {
+    setFileList(fileList)
   }
 
   const handleFinish = async values => {
@@ -32,7 +32,7 @@ const AppointmentsPage = () => {
     const formData = new FormData()
 
     Object.entries(values).forEach(([k, v]) => formData.append(k, v))
-    fileList.forEach(file => formData.append('attachments', file.originFileObj))
+    fileList.forEach(file => formData.append('files', file.originFileObj))
 
     try {
       await fetch('/.netlify/functions/book-appointment', {
@@ -159,7 +159,11 @@ const AppointmentsPage = () => {
             fileList={fileList}
             onChange={onAttachmentsUploaded}
             onPreview={() => void 0}
-            customRequest={({ onSuccess, file }) => onSuccess(null, file)}
+            customRequest={({ onSuccess, file }) => {
+              setTimeout(() => {
+                onSuccess(file)
+              }, 0)
+            }}
             multiple
           >
             <div>
