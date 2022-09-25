@@ -7,65 +7,49 @@ const mailer = require('./lib/mailer')
  * @param {import('stripe').default.Checkout.Session} session
  */
 const handleCheckoutComplete = async session => {
-  console.info('Incomming event: ', session.id)
+  console.info('Incomming event', session.id)
 
-  const now = Date.now()
-
-  const memberPayload = {
-    session_id: session.id,
-    customer_id: session.customer,
-    subscription_id: session.subscription,
-    livemode: session.livemode,
-    plan_price: session.amount_total,
-    email: session.customer_email,
-    password: Math.floor(100000 + Math.random() * 900000),
-    updated_at: now,
-  }
-
-  if (!memberPayload.email) {
-    console.info('Invalid email given.')
-
-    return
-  }
-
-  try {
-    const { data, ref } = await faunadb.query(
-      q.Get(q.Match(q.Index('unique_members_by_email'), memberPayload.email))
-    )
-
-    if (data.session_id === memberPayload.session_id) {
-      console.info('Duplicate session.')
-
-      return
-    }
-
-    await faunadb.query(q.Update(ref, { data: memberPayload }))
-  } catch (error) {
-    await faunadb.query(
+  const { data: member } = await faunadb.query(
+    q.If(
+      q.Exists(q.Match(q.Index('unique_members_by_session_id'), session.id)),
+      q.Get(q.Match(q.Index('unique_members_by_session_id'), session.id)),
       q.Create(q.Collection('members'), {
-        data: { ...memberPayload, created_at: now },
+        data: {
+          id: Math.floor(100000 + Math.random() * 900000),
+          session_id: session.id,
+          customer_id: session.customer,
+          subscription_id: session.subscription,
+          livemode: session.livemode,
+          plan_price: session.amount_total,
+          email: session.customer_email ?? 'info@anss.ca',
+          updated_at: Date.now(),
+          created_at: Date.now(),
+        },
       })
     )
-  }
+  )
+
+  console.log(member)
 
   try {
     await mailer.sendMail({
       from: `"ANSS Foundation" <admin@anss.ca>`,
-      to: memberPayload.email,
-      replyTo: memberPayload.email,
+      to: member.email,
+      replyTo: member.email,
       subject: `ANSS Foundation: Membership status update`,
       text: `
       Please find your membership details below:-
 
-      Email: ${memberPayload.email}\n
-      Password: ${memberPayload.password}\n
+      Member ID: ${member.id}
+
+      Please keep your member id safe this will act as your pin to protected membership content.
       
       Regards,
       ANSS Foundation
     `,
     })
   } catch (error) {
-    console.info('Could not send email to', memberPayload.email)
+    console.info('Could not send email to', member.email)
   }
 }
 
