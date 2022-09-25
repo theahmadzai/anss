@@ -45,4 +45,4 @@ const WhoWeArePage = () => {
 
 export default WhoWeArePage
 
-export const Head = () => <SEO title="Who we are" />
+export const Head = () => <SEO title="Who we are" pathname="/who-we-are" />

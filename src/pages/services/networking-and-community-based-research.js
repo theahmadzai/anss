@@ -37,5 +37,8 @@ const NetworkingAndCommunityBasedResearch = () => {
 export default NetworkingAndCommunityBasedResearch
 
 export const Head = () => (
-  <SEO title="Networking &amp; Community Based Research" />
+  <SEO
+    title="Networking &amp; Community Based Research"
+    pathname="/services/networking-and-community-based-research"
+  />
 )

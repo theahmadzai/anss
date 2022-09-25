@@ -55,4 +55,6 @@ const BoardOfDirectors = () => {
 
 export default BoardOfDirectors
 
-export const Head = () => <SEO title="Board of directors" />
+export const Head = () => (
+  <SEO title="Board of directors" pathname="/strategic-plans" />
+)

@@ -73,6 +73,8 @@ const Event = ({ data: { event } }) => {
   )
 }
 
-export const Head = ({ data: { event } }) => <SEO title={event.title} />
+export const Head = ({ data: { event } }) => (
+  <SEO title={event.title} pathname={'/events/' + event.slug} />
+)
 
 export default Event

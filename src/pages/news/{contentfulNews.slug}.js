@@ -59,6 +59,8 @@ const News = ({ data: { news } }) => {
   )
 }
 
-export const Head = ({ data: { news } }) => <SEO title={news.title} />
+export const Head = ({ data: { news } }) => (
+  <SEO title={news.title} pathname={'/news/' + news.slug} />
+)
 
 export default News

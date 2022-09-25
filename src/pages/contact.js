@@ -121,4 +121,4 @@ const ContactPage = () => {
 
 export default ContactPage
 
-export const Head = () => <SEO title="Contact" />
+export const Head = () => <SEO title="Contact" pathname="/contact" />

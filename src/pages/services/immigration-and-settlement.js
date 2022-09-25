@@ -38,4 +38,9 @@ const ImmigrationAndSettlement = () => {
 
 export default ImmigrationAndSettlement
 
-export const Head = () => <SEO title="Immigration and Settlement" />
+export const Head = () => (
+  <SEO
+    title="Immigration and Settlement"
+    pathname="/services/immigration-and-settlement"
+  />
+)

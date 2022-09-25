@@ -22,4 +22,4 @@ const NotFoundPage = () => {
 
 export default NotFoundPage
 
-export const Head = () => <SEO title="Not Found" />
+export const Head = () => <SEO title="Not Found" pathname="/404" />

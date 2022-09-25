@@ -59,4 +59,4 @@ const LatestNews = () => {
 
 export default LatestNews
 
-export const Head = () => <SEO title="Latest News" />
+export const Head = () => <SEO title="Latest News" pathname="/news" />

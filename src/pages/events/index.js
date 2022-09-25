@@ -76,4 +76,4 @@ const Events = () => {
 
 export default Events
 
-export const Head = () => <SEO title="Events" />
+export const Head = () => <SEO title="Events" pathname="/events" />

@@ -189,4 +189,4 @@ const AppointmentsPage = () => {
 
 export default AppointmentsPage
 
-export const Head = () => <SEO title="Appointments" />
+export const Head = () => <SEO title="Appointments" pathname="/appointments" />

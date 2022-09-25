@@ -39,4 +39,6 @@ const StrategicPlans = () => {
 
 export default StrategicPlans
 
-export const Head = () => <SEO title="Strategic Plans" />
+export const Head = () => (
+  <SEO title="Strategic Plans" pathname="/strategic-plans" />
+)
