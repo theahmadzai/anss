@@ -48,12 +48,13 @@ const handleCheckoutComplete = async session => {
     )
   }
 
-  await mailer.sendMail({
-    from: `"ANSS Foundation" <admin@anss.ca>`,
-    to: memberPayload.email,
-    replyTo: memberPayload.email,
-    subject: `ANSS Foundation: Membership status update`,
-    text: `
+  try {
+    await mailer.sendMail({
+      from: `"ANSS Foundation" <admin@anss.ca>`,
+      to: memberPayload.email,
+      replyTo: memberPayload.email,
+      subject: `ANSS Foundation: Membership status update`,
+      text: `
       Please find your membership details below:-
 
       Email: ${memberPayload.email}\n
@@ -62,7 +63,10 @@ const handleCheckoutComplete = async session => {
       Regards,
       ANSS Foundation
     `,
-  })
+    })
+  } catch (error) {
+    console.info('Could not send email to', memberPayload.email)
+  }
 }
 
 exports.handler = async ({ body, headers }) => {
