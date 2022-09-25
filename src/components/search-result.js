@@ -3,6 +3,9 @@ import { Link } from 'gatsby'
 import { useInstantSearch, Index } from 'react-instantsearch-hooks-web'
 import { List, Avatar } from 'antd'
 
+const { Item } = List
+const { Meta } = Item
+
 const ScopedResults = () => {
   const { scopedResults } = useInstantSearch()
 
@@ -23,8 +26,8 @@ const ScopedResults = () => {
       bordered
       dataSource={hits}
       renderItem={hit => (
-        <List.Item key={hit.slug}>
-          <List.Item.Meta
+        <Item key={hit.slug}>
+          <Meta
             avatar={<Avatar src={hit.imageUrl} />}
             title={
               <Link
@@ -42,7 +45,7 @@ const ScopedResults = () => {
               />
             }
           />
-        </List.Item>
+        </Item>
       )}
     />
   )

@@ -10,7 +10,11 @@ const Search = ({ ...props }) => {
   const debouncedShowResults = useDebounce(showResults, 400)
 
   const searchClient = useMemo(
-    () => algoliasearch('6KT8JUCIJ2', 'f77367b43fa2fa0dd94b0711ac38a61e'),
+    () =>
+      algoliasearch(
+        process.env.GATSBY_ALGOLIA_APP_ID,
+        process.env.GATSBY_ALGOLIA_SEARCH_KEY
+      ),
     []
   )
 
