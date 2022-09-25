@@ -67,8 +67,8 @@ const eventsQuery = {
 
 module.exports = {
   siteMetadata: {
+    siteUrl: process.env.GATSBY_STIE_URL || `https://anss.ca`,
     title: `ANSS`,
-    siteUrl: `https://anss.ca`,
     description:
       'ANSS Foundation established by a team of professional Afghans in Toronto, Canada and is a non-political, non-profit and an impartial organization, established in 2017.',
     social: {
@@ -93,6 +93,14 @@ module.exports = {
         spaceId: 'lr1qbgzzmuyd',
       },
     },
+    {
+      resolve: `gatsby-source-stripe`,
+      options: {
+        objects: ['Product', 'Price', 'Subscription'],
+        secretKey: process.env.STRIPE_SECRET_KEY,
+        downloadFiles: true,
+      },
+    },
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-plugin-google-analytics',
@@ -103,8 +111,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-algolia`,
       options: {
-        appId: process.env.ALGOLIA_APP_ID,
-        apiKey: process.env.ALGOLIA_API_KEY,
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_KEY,
         queries: [newsQuery, eventsQuery],
       },
     },

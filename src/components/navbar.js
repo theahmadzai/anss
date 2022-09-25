@@ -42,7 +42,7 @@ const NavLinks = props => (
     <NavLink href="/news">Latest News</NavLink>
     <NavLink href="/appointments">Appointments</NavLink>
     <NavLink href="/contact">Contact</NavLink>
-    <NavLink href="/donate">Donate</NavLink>
+    <NavLink href="/membership">Membership</NavLink>
   </nav>
 )
 
