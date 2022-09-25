@@ -2,8 +2,8 @@ const { query: q } = require('faunadb')
 const mailer = require('./lib/mailer')
 const faunadb = require('./lib/faunadb')
 
-exports.handler = async event => {
-  if (event.httpMethod !== 'POST') {
+exports.handler = async ({ httpMethod, body }) => {
+  if (httpMethod !== 'POST') {
     return {
       statusCode: 410,
       body: JSON.stringify({ message: 'Unsupported Request Method' }),
@@ -11,7 +11,7 @@ exports.handler = async event => {
   }
 
   try {
-    const { name, email, message } = JSON.parse(event.body)
+    const { name, email, message } = JSON.parse(body)
 
     if (!name || !email || !message) {
       return {

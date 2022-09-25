@@ -2,8 +2,8 @@ const Stripe = require('stripe').default
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 
-exports.handler = async event => {
-  if (event.httpMethod !== 'GET') {
+exports.handler = async ({ httpMethod, queryStringParameters }) => {
+  if (httpMethod !== 'GET') {
     return {
       statusCode: 410,
       body: JSON.stringify({ message: 'Unsupported Request Method' }),
@@ -11,7 +11,7 @@ exports.handler = async event => {
   }
 
   try {
-    const { id, email } = event.queryStringParameters
+    const { id, email } = queryStringParameters
 
     if (!id || !email) {
       return {

@@ -1,8 +1,8 @@
 const { query: q } = require('faunadb')
 const faunadb = require('./lib/faunadb')
 
-exports.handler = async event => {
-  if (event.httpMethod !== 'GET') {
+exports.handler = async ({ httpMethod, queryStringParameters }) => {
+  if (httpMethod !== 'GET') {
     return {
       statusCode: 410,
       body: JSON.stringify({ message: 'Unsupported Request Method' }),
@@ -10,7 +10,7 @@ exports.handler = async event => {
   }
 
   try {
-    const { email } = event.queryStringParameters
+    const { email } = queryStringParameters
 
     if (!email) {
       return {

@@ -29,8 +29,6 @@ const handleCheckoutComplete = async session => {
     )
   )
 
-  console.log(member)
-
   try {
     await mailer.sendMail({
       from: `"ANSS Foundation" <admin@anss.ca>`,
