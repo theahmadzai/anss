@@ -7,7 +7,6 @@ const mailer = require('./lib/mailer')
  * @param {import('stripe').default.Checkout.Session} session
  */
 const handleCheckoutComplete = async session => {
-  console.time('start')
   console.info('Incomming event: ', session.id)
 
   const now = Date.now()
