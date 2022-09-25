@@ -47,7 +47,9 @@ const handleCheckoutComplete = async session => {
     console.timeEnd('get')
     console.time('update')
     const { data: updatedMember } = await faunadb.query(
-      q.Update(data.ref, { data: memberPayload })
+      q.Update(q.Ref(q.Collection('members'), data.ref), {
+        data: memberPayload,
+      })
     )
     console.log('success update', updatedMember)
     console.timeEnd('update')
