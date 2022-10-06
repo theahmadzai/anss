@@ -35,7 +35,7 @@ const MembersPage = ({
         renderItem={member => (
           <List.Item key={member.id}>
             <List.Item.Meta
-              avatar={<Avatar srcSet={member.image.url} />}
+              avatar={<Avatar src={member.image.url} />}
               title={member.name}
               description={member.tier}
             />
