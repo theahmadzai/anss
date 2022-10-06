@@ -28,17 +28,16 @@ const NavLinks = props => (
       </div>
     </div>
     <div className={styles.subNav}>
-      <NavLink href="/programs/immigration-and-settlement">Programs</NavLink>
+      <NavLink href="/programs/refugee-sponsorship">Programs</NavLink>
       <div className={styles.subNavItems}>
-        <NavLink href="/programs/immigration-and-settlement">
-          Immigration and Settlement
+        <NavLink href="/programs/refugee-sponsorship">
+          Refugee Sponsorship
         </NavLink>
-        <NavLink href="/programs/cultural-environmental-and-educational">
-          Cultural, Environmental &amp; Educational
+        <NavLink href="/programs/settlement-services">
+          Settlement Services
         </NavLink>
-        <NavLink href="/programs/networking-and-community-based-research">
-          Networking &amp; Community Based Research
-        </NavLink>
+        <NavLink href="/programs/social-services">Social Services</NavLink>
+        <NavLink href="/programs/cultural-programs">Cultural Programs</NavLink>
       </div>
     </div>
     <div className={styles.subNav}>

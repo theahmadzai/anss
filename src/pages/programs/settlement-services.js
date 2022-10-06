@@ -6,10 +6,10 @@ import PageHeader from '../../components/page-header'
 
 const { Paragraph } = Typography
 
-const ImmigrationAndSettlement = () => {
+const SettlementServicesPage = () => {
   return (
     <Layout>
-      <PageHeader title="Immigration and Settlement" />
+      <PageHeader title="Settlement Services" />
 
       <Row style={{ padding: '1.5rem' }}>
         <Paragraph>
@@ -36,11 +36,8 @@ const ImmigrationAndSettlement = () => {
   )
 }
 
-export default ImmigrationAndSettlement
+export default SettlementServicesPage
 
 export const Head = () => (
-  <SEO
-    title="Immigration and Settlement"
-    pathname="/programs/immigration-and-settlement"
-  />
+  <SEO title="Settlement Services" pathname="/programs/settlement-services" />
 )
