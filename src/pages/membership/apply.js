@@ -11,9 +11,9 @@ import {
   Divider,
 } from 'antd'
 import { MoneyCollectOutlined } from '@ant-design/icons'
-import SEO from '../components/seo'
-import Layout from '../components/layout'
-import PageHeader from '../components/page-header'
+import SEO from '../../components/seo'
+import Layout from '../../components/layout'
+import PageHeader from '../../components/page-header'
 
 const { Text } = Typography
 
@@ -43,7 +43,7 @@ export const query = graphql`
   }
 `
 
-const MembershipPage = ({ data: { allStripePrice } }) => {
+const ApplyPage = ({ data: { allStripePrice } }) => {
   const [form] = Form.useForm()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedId, setSelectedId] = useState(null)
@@ -62,7 +62,7 @@ const MembershipPage = ({ data: { allStripePrice } }) => {
 
   return (
     <Layout>
-      <PageHeader title="Membership" />
+      <PageHeader title="Apply for Membership" />
 
       <List
         size="large"
@@ -130,6 +130,8 @@ const MembershipPage = ({ data: { allStripePrice } }) => {
   )
 }
 
-export default MembershipPage
+export default ApplyPage
 
-export const Head = () => <SEO title="Membership" pathname="/membership" />
+export const Head = () => (
+  <SEO title="Apply for Membership" pathname="/membership/apply" />
+)

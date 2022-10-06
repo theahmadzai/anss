@@ -41,7 +41,14 @@ const NavLinks = props => (
         </NavLink>
       </div>
     </div>
-    <NavLink href="/membership">Membership</NavLink>
+    <div className={styles.subNav}>
+      <NavLink href="/membership/benefits">Membership</NavLink>
+      <div className={styles.subNavItems}>
+        <NavLink href="/membership/benefits">Membership Benefits</NavLink>
+        <NavLink href="/membership/apply">Apply for Membership</NavLink>
+        <NavLink href="/membership/members">Current Members</NavLink>
+      </div>
+    </div>
     <NavLink href="/events">Events</NavLink>
     <NavLink href="/news">Latest News</NavLink>
     <NavLink href="/appointments">Appointments</NavLink>
