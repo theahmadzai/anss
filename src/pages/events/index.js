@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { List, Row, Col, Typography } from 'antd'
 import {
@@ -8,7 +8,6 @@ import {
   CompassOutlined,
   ClockCircleOutlined,
 } from '@ant-design/icons'
-import useEvents from '../../hooks/use-events'
 import SEO from '../../components/seo'
 import Layout from '../../components/layout'
 import PageHeader from '../../components/page-header'
@@ -16,9 +15,38 @@ import PageHeader from '../../components/page-header'
 const { Item } = List
 const { Title, Text, Paragraph } = Typography
 
-const Events = () => {
-  const events = useEvents()
+export const query = graphql`
+  query {
+    allContentfulEvent(sort: { order: DESC, fields: date }) {
+      nodes {
+        id
+        title
+        slug
+        tags
+        location
+        date
+        image {
+          gatsbyImageData(
+            layout: CONSTRAINED
+            placeholder: TRACED_SVG
+            aspectRatio: 1
+            quality: 90
+            formats: [AUTO, WEBP]
+          )
+        }
+        body {
+          body
+        }
+      }
+    }
+  }
+`
 
+const Events = ({
+  data: {
+    allContentfulEvent: { nodes: events },
+  },
+}) => {
   return (
     <Layout>
       <PageHeader title="Events" />

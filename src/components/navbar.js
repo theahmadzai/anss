@@ -20,29 +20,33 @@ const NavLinks = props => (
       <NavLink href="/about/who-we-are">About</NavLink>
       <div className={styles.subNavItems}>
         <NavLink href="/about/who-we-are">Who we are</NavLink>
-        <NavLink href="/about/strategic-plans">Strategic Plans</NavLink>
+        <NavLink href="/about/executive-management">
+          Executive Management
+        </NavLink>
         <NavLink href="/about/board-of-directors">Board of Directors</NavLink>
+        <NavLink href="/about/board-of-trustees">Board of Trustees</NavLink>
       </div>
     </div>
     <div className={styles.subNav}>
-      <NavLink href="/services/immigration-and-settlement">Services</NavLink>
+      <NavLink href="/programs/immigration-and-settlement">Programs</NavLink>
       <div className={styles.subNavItems}>
-        <NavLink href="/services/immigration-and-settlement">
+        <NavLink href="/programs/immigration-and-settlement">
           Immigration and Settlement
         </NavLink>
-        <NavLink href="/services/cultural-environmental-and-educational">
+        <NavLink href="/programs/cultural-environmental-and-educational">
           Cultural, Environmental &amp; Educational
         </NavLink>
-        <NavLink href="/services/networking-and-community-based-research">
+        <NavLink href="/programs/networking-and-community-based-research">
           Networking &amp; Community Based Research
         </NavLink>
       </div>
     </div>
+    <NavLink href="/membership">Membership</NavLink>
     <NavLink href="/events">Events</NavLink>
     <NavLink href="/news">Latest News</NavLink>
     <NavLink href="/appointments">Appointments</NavLink>
     <NavLink href="/contact">Contact</NavLink>
-    <NavLink href="/membership">Membership</NavLink>
+    <NavLink href="/donate">Donate</NavLink>
   </nav>
 )
 

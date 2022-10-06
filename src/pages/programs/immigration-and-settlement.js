@@ -41,6 +41,6 @@ export default ImmigrationAndSettlement
 export const Head = () => (
   <SEO
     title="Immigration and Settlement"
-    pathname="/services/immigration-and-settlement"
+    pathname="/programs/immigration-and-settlement"
   />
 )

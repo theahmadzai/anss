@@ -1,9 +1,8 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { List, Row, Col, Typography, Button } from 'antd'
 import { TagOutlined, CalendarOutlined } from '@ant-design/icons'
-import useNews from '../../hooks/use-news'
 import SEO from '../../components/seo'
 import Layout from '../../components/layout'
 import PageHeader from '../../components/page-header'
@@ -11,9 +10,37 @@ import PageHeader from '../../components/page-header'
 const { Item } = List
 const { Title, Text, Paragraph } = Typography
 
-const LatestNews = () => {
-  const news = useNews()
+export const query = graphql`
+  query {
+    allContentfulNews(sort: { order: DESC, fields: date }) {
+      nodes {
+        id
+        title
+        slug
+        tags
+        date
+        image {
+          gatsbyImageData(
+            layout: CONSTRAINED
+            placeholder: TRACED_SVG
+            aspectRatio: 1
+            quality: 90
+            formats: [AUTO, WEBP]
+          )
+        }
+        body {
+          body
+        }
+      }
+    }
+  }
+`
 
+const LatestNews = ({
+  data: {
+    allContentfulNews: { nodes: news },
+  },
+}) => {
   return (
     <Layout>
       <PageHeader title="News" />

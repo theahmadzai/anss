@@ -33,13 +33,9 @@ export const query = graphql`
         currency
         unit_amount
         type
-        recurring {
-          interval
-          interval_count
-        }
+        nickname
         product {
           id
-          images
           name
         }
       }
@@ -82,20 +78,9 @@ const MembershipPage = ({ data: { allStripePrice } }) => {
             ]}
           >
             <List.Item.Meta
-              avatar={<Avatar src={price.product.images?.[0]} />}
+              avatar={<Avatar src={price.product?.images?.[0]} />}
               title={price.product.name}
-              description={
-                <div>
-                  {price.type === 'recurring' ? (
-                    <p>
-                      Renewed every {price.recurring.interval_count}&nbsp;
-                      {price.recurring.interval}
-                    </p>
-                  ) : (
-                    <p>Lifetime</p>
-                  )}
-                </div>
-              }
+              description={price.nickname}
             />
             <div>{toCurrency(price.unit_amount, price.currency)}</div>
           </List.Item>

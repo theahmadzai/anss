@@ -7,15 +7,14 @@ import Layout from '../../components/layout'
 import PageHeader from '../../components/page-header'
 
 const { Item } = List
-const { Title, Text, Paragraph } = Typography
+const { Title, Paragraph } = Typography
 
 export const query = graphql`
   query {
-    allContentfulDirector(sort: { order: DESC, fields: id }) {
+    allContentfulManager(sort: { order: DESC, fields: id }) {
       nodes {
         id
         name
-        designation
         image {
           gatsbyImageData(
             layout: FULL_WIDTH
@@ -33,25 +32,25 @@ export const query = graphql`
   }
 `
 
-const BoardOfDirectors = ({
+const ExecutiveManagement = ({
   data: {
-    allContentfulDirector: { nodes: directors },
+    allContentfulManager: { nodes: managers },
   },
 }) => {
   return (
     <Layout>
-      <PageHeader title="Board of directors" />
+      <PageHeader title="Executive Management" />
 
       <List
         size="large"
-        dataSource={directors}
-        renderItem={director => (
+        dataSource={managers}
+        renderItem={manager => (
           <Item>
             <Row gutter={[24, 24]}>
               <Col span={24} sm={8} md={6}>
                 <GatsbyImage
-                  image={getImage(director.image)}
-                  alt={director.name}
+                  image={getImage(manager.image)}
+                  alt={manager.name}
                 />
               </Col>
               <Col span={24} sm={16} md={18}>
@@ -59,19 +58,13 @@ const BoardOfDirectors = ({
                   level={2}
                   style={{ marginBottom: 8, fontSize: '1.2rem' }}
                 >
-                  {director.name}
+                  {manager.name}
                 </Title>
-                <Text
-                  style={{ display: 'block', marginBottom: 8 }}
-                  strong={true}
-                >
-                  {director.designation}
-                </Text>
                 <Paragraph
                   align="justify"
                   ellipsis={{ rows: 5, expandable: true }}
                 >
-                  {director.description.description}
+                  {manager.description.description}
                 </Paragraph>
               </Col>
             </Row>
@@ -82,8 +75,8 @@ const BoardOfDirectors = ({
   )
 }
 
-export default BoardOfDirectors
+export default ExecutiveManagement
 
 export const Head = () => (
-  <SEO title="Board of directors" pathname="/strategic-plans" />
+  <SEO title="Executive Management" pathname="/executive-management" />
 )

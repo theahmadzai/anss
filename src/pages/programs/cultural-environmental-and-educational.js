@@ -36,6 +36,6 @@ export default CulturalEnvironmentalAndEducational
 export const Head = () => (
   <SEO
     title="Cultural, Environmental &amp; Educational"
-    pathname="/services/cultural-environmental-and-educational"
+    pathname="/programs/cultural-environmental-and-educational"
   />
 )
