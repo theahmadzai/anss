@@ -43,7 +43,11 @@ export const query = graphql`
   }
 `
 
-const ApplyPage = ({ data: { allStripePrice } }) => {
+const ApplyPage = ({
+  data: {
+    allStripePrice: { nodes: prices },
+  },
+}) => {
   const [form] = Form.useForm()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedId, setSelectedId] = useState(null)
@@ -66,7 +70,7 @@ const ApplyPage = ({ data: { allStripePrice } }) => {
 
       <List
         size="large"
-        dataSource={allStripePrice.nodes}
+        dataSource={prices}
         renderItem={price => (
           <List.Item
             key={price.id}
