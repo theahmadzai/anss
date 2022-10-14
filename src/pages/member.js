@@ -95,9 +95,9 @@ const MemberPage = () => {
         onCancel={() => setIsModalOpen(false)}
       >
         <Form
+          form={form}
           layout="vertical"
           colon={false}
-          form={form}
           onFinish={handleSubmit}
           noValidate
         >

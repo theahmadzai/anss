@@ -17,27 +17,16 @@ import PageHeader from '../../components/page-header'
 
 const { Text } = Typography
 
-const toCurrency = (amount, currency) => {
-  return new Intl.NumberFormat('en-US', { style: 'currency', currency }).format(
-    amount / 100
-  )
-}
-
 export const query = graphql`
   query {
-    allStripePrice(
-      filter: { active: { eq: true }, product: { active: { eq: true } } }
-    ) {
+    allMembershipPlan(sort: { fields: price, order: DESC }) {
       nodes {
         id
+        price
         currency
-        unit_amount
-        type
-        nickname
-        product {
-          id
-          name
-        }
+        title
+        description
+        images
       }
     }
   }
@@ -45,7 +34,7 @@ export const query = graphql`
 
 const ApplyPage = ({
   data: {
-    allStripePrice: { nodes: prices },
+    allMembershipPlan: { nodes: plans },
   },
 }) => {
   const [form] = Form.useForm()
@@ -70,23 +59,28 @@ const ApplyPage = ({
 
       <List
         size="large"
-        dataSource={prices}
-        renderItem={price => (
+        dataSource={plans}
+        renderItem={plan => (
           <List.Item
-            key={price.id}
+            key={plan.id}
             actions={[
-              <Button key={0} onClick={handlePurchase(price.id)}>
+              <Button key={0} onClick={handlePurchase(plan.id)}>
                 <MoneyCollectOutlined />
                 Purchase
               </Button>,
             ]}
           >
             <List.Item.Meta
-              avatar={<Avatar src={price.product?.images?.[0]} />}
-              title={price.product.name}
-              description={price.nickname}
+              avatar={<Avatar src={plan.images?.[0]} />}
+              title={plan.title}
+              description={plan.description}
             />
-            <div>{toCurrency(price.unit_amount, price.currency)}</div>
+            <div>
+              {new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: plan.currency,
+              }).format(plan.price / 100)}
+            </div>
           </List.Item>
         )}
       />
@@ -99,9 +93,9 @@ const ApplyPage = ({
         onCancel={() => setIsModalOpen(false)}
       >
         <Form
+          form={form}
           layout="horizontal"
           colon={false}
-          form={form}
           onFinish={({ email }) => handleCheckout(email)}
           noValidate
         >

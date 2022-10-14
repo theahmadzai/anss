@@ -35,7 +35,6 @@
     "gatsby-plugin-sitemap": "^5.23.0",
     "gatsby-source-contentful": "^7.21.0",
     "gatsby-source-filesystem": "^4.23.0",
-    "gatsby-source-stripe": "^4.0.0",
     "gatsby-transformer-sharp": "^4.23.0",
     "lambda-multipart-parser": "^1.0.1",
     "nodemailer": "^6.7.8",

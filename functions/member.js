@@ -26,7 +26,10 @@ exports.handler = async ({ httpMethod, body }) => {
       )
 
       const subscription = await stripe.subscriptions.retrieve(
-        member.subscription_id
+        member.subscription_id,
+        {
+          expand: ['items.data.price.product'],
+        }
       )
 
       if (subscription.status !== 'active') {
@@ -34,8 +37,6 @@ exports.handler = async ({ httpMethod, body }) => {
       }
 
       const price = subscription.items.data?.[0]?.price
-
-      const product = await stripe.products.retrieve(price.product)
 
       return {
         statusCode: 200,
@@ -49,8 +50,8 @@ exports.handler = async ({ httpMethod, body }) => {
             current_period_end: subscription.current_period_end,
           },
           product: {
-            name: product.name,
-            images: product.images,
+            name: price.product.name,
+            images: price.product.images,
             amount: price.unit_amount,
             currency: price.currency,
           },

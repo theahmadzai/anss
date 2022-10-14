@@ -93,14 +93,6 @@ module.exports = {
         spaceId: 'lr1qbgzzmuyd',
       },
     },
-    {
-      resolve: `gatsby-source-stripe`,
-      options: {
-        objects: ['Product', 'Price', 'Subscription'],
-        secretKey: process.env.STRIPE_SECRET_KEY,
-        downloadFiles: true,
-      },
-    },
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-plugin-google-analytics',

@@ -9,22 +9,33 @@ exports.handler = async ({ httpMethod, queryStringParameters }) => {
   }
 
   try {
-    const { id, email } = queryStringParameters
+    const { amount, email } = queryStringParameters
 
-    if (!id || !email) {
+    if (!amount && !email) {
       return {
         statusCode: 400,
         body: JSON.stringify({ message: 'Invalid input' }),
       }
     }
 
-    const price = await stripe.prices.retrieve(id)
-
     const session = await stripe.checkout.sessions.create({
-      line_items: [{ price: price.id, quantity: 1 }],
-      mode: price.type === 'recurring' ? 'subscription' : 'payment',
-      success_url: process.env.GATSBY_STIE_URL + '/member',
-      cancel_url: process.env.GATSBY_STIE_URL + '/membership',
+      line_items: [
+        {
+          price_data: {
+            product_data: {
+              name: 'Donation',
+            },
+            unit_amount: amount,
+            currency: 'CAD',
+            tax_behavior: 'exclusive',
+          },
+          quantity: 1,
+        },
+      ],
+      mode: 'payment',
+      submit_type: 'donate',
+      success_url: process.env.GATSBY_STIE_URL,
+      cancel_url: process.env.GATSBY_STIE_URL + '/donate',
       automatic_tax: { enabled: true },
       customer_email: email,
     })
