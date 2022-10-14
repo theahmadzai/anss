@@ -11,9 +11,9 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
       crossOrigin="true"
     />,
     <link
-      key={0}
+      key={2}
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Maven+Pro:400,500,700|Open+Sans:300,400,400i,600,700,800"
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700,800&display=swap"
     />,
   ])
 }
