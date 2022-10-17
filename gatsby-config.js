@@ -144,7 +144,6 @@ module.exports = {
     'gatsby-plugin-image',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-minify-classnames',
-    'gatsby-plugin-sitemap',
     'gatsby-plugin-offline',
   ],
 }
