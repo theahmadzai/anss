@@ -155,7 +155,10 @@ const IndexPage = ({
           alignItems: 'center',
         }}
       >
-        <Link style={{ display: 'block', margin: '0 auto' }}>
+        <Link
+          to="/membership/benefits"
+          style={{ display: 'block', margin: '0 auto' }}
+        >
           <Button
             shape="round"
             type="primary"
