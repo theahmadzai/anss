@@ -26,8 +26,8 @@ exports.handler = async ({ httpMethod, body }) => {
       replyTo: email,
       subject: `Contact form submitted by ${name}`,
       text: `
-        Name: ${name}\n
-        Email: ${email}\n
+        Name: ${name}
+        Email: ${email}
         Message: ${message}
       `,
     })

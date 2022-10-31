@@ -28,11 +28,11 @@ exports.handler = async event => {
       replyTo: email,
       subject: `Appointment booked by ${name}`,
       text: `
-        Name: ${name}\n
-        Email: ${email}\n
-        Phone: ${phone}\n
-        Date: ${new Date(date).toDateString()}\n
-        Category: ${category}\n
+        Name: ${name}
+        Email: ${email}
+        Phone: ${phone}
+        Date: ${new Date(date).toDateString()}
+        Category: ${category}
         Message: ${message}
       `,
       attachments: files,
