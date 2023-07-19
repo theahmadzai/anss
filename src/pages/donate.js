@@ -21,7 +21,7 @@ const DonatePage = () => {
   const handleFinish = ({ amount, email }) => {
     window.open(
       `/.netlify/functions/donate?amount=${amount * 100}&email=${email}`,
-      '_self'
+      '_self',
     )
   }
 

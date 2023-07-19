@@ -15,23 +15,23 @@
 }
 
 .navMobile {
-  display: flex;  
+  display: flex;
   flex-direction: column;
 
   @media screen and (min-width: 768px) {
-    display: none;    
+    display: none;
   }
 }
 
 .navDesktop {
   display: none;
-  
-  @media screen and (min-width: 768px) {    
+
+  @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: row;
     width: 100%;
     background: var(--primary-color);
-    color: #FFFFFF;
+    color: #ffffff;
   }
 }
 
@@ -48,25 +48,25 @@
   position: absolute;
   z-index: 200;
   width: 100%;
-  border: 1px solid #EFEFEF;
-  background: #FFFFFF;
+  border: 1px solid #efefef;
+  background: #ffffff;
 
   .link {
-    border-bottom: 1px solid #EFEFEF; 
+    border-bottom: 1px solid #efefef;
   }
-  
-  @media screen and (min-width: 768px) {    
+
+  @media screen and (min-width: 768px) {
     width: 185px;
     background: var(--primary-color);
-    border: none;       
+    border: none;
 
     .link {
-      border-bottom: 1px solid var(--secondary-color); 
+      border-bottom: 1px solid var(--secondary-color);
     }
-  }  
+  }
 }
 
-.link {  
+.link {
   color: inherit;
   display: block;
   padding: 0.7rem 1.2rem;
@@ -75,11 +75,11 @@
   transition: background 800ms ease;
 
   @media screen and (min-width: 768px) {
-    border-right: 1px solid var(--secondary-color);    
+    border-right: 1px solid var(--secondary-color);
   }
-  
+
   &:hover {
-    background: #f9f9f9;        
+    background: #f9f9f9;
   }
 }
 

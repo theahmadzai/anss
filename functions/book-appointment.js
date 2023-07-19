@@ -48,7 +48,7 @@ exports.handler = async event => {
           category,
           message,
         },
-      })
+      }),
     )
 
     return {

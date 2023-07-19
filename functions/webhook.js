@@ -25,8 +25,8 @@ const handleCheckoutComplete = async session => {
           updated_at: Date.now(),
           created_at: Date.now(),
         },
-      })
-    )
+      }),
+    ),
   )
 
   try {
@@ -58,7 +58,7 @@ exports.handler = async ({ body, headers }) => {
     event = stripe.webhooks.constructEvent(
       body,
       headers['stripe-signature'],
-      process.env.STRIPE_WEBHOOK_SECRET
+      process.env.STRIPE_WEBHOOK_SECRET,
     )
   } catch (error) {
     return {

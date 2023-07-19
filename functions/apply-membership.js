@@ -35,8 +35,8 @@ exports.handler = async ({ httpMethod, body }) => {
             updated_at: Date.now(),
             created_at: Date.now(),
           },
-        })
-      )
+        }),
+      ),
     )
     console.log(member)
 

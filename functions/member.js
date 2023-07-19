@@ -22,14 +22,14 @@ exports.handler = async ({ httpMethod, body }) => {
 
     try {
       const { data: member } = await faunadb.query(
-        q.Get(q.Match(q.Index('unique_members_by_id'), Number(id)))
+        q.Get(q.Match(q.Index('unique_members_by_id'), Number(id))),
       )
 
       const subscription = await stripe.subscriptions.retrieve(
         member.subscription_id,
         {
           expand: ['items.data.price.product'],
-        }
+        },
       )
 
       if (subscription.status !== 'active') {

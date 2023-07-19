@@ -18,7 +18,7 @@ const { Paragraph } = Typography
 
 const toCurrency = (amount, currency) => {
   return new Intl.NumberFormat('en-US', { style: 'currency', currency }).format(
-    amount / 100
+    amount / 100,
   )
 }
 
@@ -61,13 +61,13 @@ const MemberPage = () => {
                 avatar={<Avatar src={data.product.images?.[0]} />}
                 description={toCurrency(
                   data.product.amount,
-                  data.product.currency
+                  data.product.currency,
                 )}
               />
               <Paragraph style={{ marginTop: '1.5rem' }}>
                 Subscription ends on&nbsp;
                 {new Date(
-                  data.subscription.current_period_end * 1000
+                  data.subscription.current_period_end * 1000,
                 ).toDateString()}
               </Paragraph>
             </Card>

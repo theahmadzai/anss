@@ -29,8 +29,8 @@ exports.handler = async ({ httpMethod, queryStringParameters }) => {
             date: Date.now(),
             notifications: true,
           },
-        })
-      )
+        }),
+      ),
     )
 
     return {

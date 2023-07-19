@@ -26,7 +26,7 @@ const newsQuery = {
         imageUrl,
         body,
         ...props,
-      })
+      }),
     ),
   indexName: 'news',
   settings: { attributesToSnippet: [`body:20`] },
@@ -59,7 +59,7 @@ const eventsQuery = {
         imageUrl,
         body,
         ...props,
-      })
+      }),
     ),
   indexName: 'events',
   settings: { attributesToSnippet: [`body:20`] },

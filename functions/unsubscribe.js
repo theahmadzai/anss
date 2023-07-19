@@ -25,11 +25,11 @@ exports.handler = async ({ httpMethod, queryStringParameters }) => {
         q.Delete(
           q.Select(
             'ref',
-            q.Get(q.Match(q.Index('unique_subscribers_by_email'), email))
-          )
+            q.Get(q.Match(q.Index('unique_subscribers_by_email'), email)),
+          ),
         ),
-        null
-      )
+        null,
+      ),
     )
 
     return {

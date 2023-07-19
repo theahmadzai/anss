@@ -39,7 +39,7 @@ exports.handler = async ({ httpMethod, body }) => {
           email,
           message,
         },
-      })
+      }),
     )
 
     return {
