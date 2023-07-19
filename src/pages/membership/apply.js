@@ -25,7 +25,7 @@ const { Paragraph } = Typography
 
 export const query = graphql`
   query {
-    allMembershipPlan(sort: { fields: price, order: DESC }) {
+    allMembershipPlan(sort: { price: DESC }) {
       nodes {
         id
         price

@@ -7,7 +7,7 @@ import PageHeader from '../../components/page-header'
 
 export const query = graphql`
   query {
-    allContentfulMember(sort: { order: DESC, fields: tier }) {
+    allContentfulMember(sort: { tier: DESC }) {
       nodes {
         id
         name

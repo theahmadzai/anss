@@ -1,5 +1,5 @@
 import React from 'react'
-import { BackTop } from 'antd'
+import { FloatButton } from 'antd'
 import Header from './header'
 import Footer from './footer'
 import * as styles from './layout.module.less'
@@ -11,7 +11,7 @@ const Layout = ({ children, ...props }) => {
       <Header />
       <main {...props}>{children}</main>
       <Footer />
-      <BackTop />
+      <FloatButton.BackTop />
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { PageHeader as AntdPageHeader } from 'antd'
+import { PageHeader as AntdPageHeader } from '@ant-design/pro-layout'
 import * as styles from './page-header.module.less'
 
 /**

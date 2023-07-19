@@ -11,7 +11,7 @@ const { Title, Text, Paragraph } = Typography
 
 export const query = graphql`
   query {
-    allContentfulDirector(sort: { order: DESC, fields: id }) {
+    allContentfulDirector(sort: { id: DESC }) {
       nodes {
         id
         name
@@ -19,7 +19,7 @@ export const query = graphql`
         image {
           gatsbyImageData(
             layout: FULL_WIDTH
-            placeholder: TRACED_SVG
+            placeholder: DOMINANT_COLOR
             aspectRatio: 1
             quality: 90
             formats: [AUTO, WEBP]

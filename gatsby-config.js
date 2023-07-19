@@ -66,6 +66,7 @@ const eventsQuery = {
 }
 
 module.exports = {
+  trailingSlash: 'never',
   siteMetadata: {
     siteUrl: process.env.GATSBY_STIE_URL || `https://anss.ca`,
     title: `ANSS`,

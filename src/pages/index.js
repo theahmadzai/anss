@@ -18,7 +18,7 @@ export const query = graphql`
         image {
           gatsbyImageData(
             layout: CONSTRAINED
-            placeholder: TRACED_SVG
+            placeholder: DOMINANT_COLOR
             aspectRatio: 1
             quality: 90
             formats: [AUTO, WEBP]
@@ -27,7 +27,7 @@ export const query = graphql`
       }
     }
 
-    allContentfulNews(sort: { order: DESC, fields: date }, limit: 3) {
+    allContentfulNews(sort: { date: DESC }, limit: 3) {
       nodes {
         id
         title
@@ -37,7 +37,7 @@ export const query = graphql`
         image {
           gatsbyImageData(
             layout: CONSTRAINED
-            placeholder: TRACED_SVG
+            placeholder: DOMINANT_COLOR
             aspectRatio: 1
             quality: 90
             formats: [AUTO, WEBP]

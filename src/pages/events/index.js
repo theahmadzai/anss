@@ -17,7 +17,7 @@ const { Title, Text, Paragraph } = Typography
 
 export const query = graphql`
   query {
-    allContentfulEvent(sort: { order: DESC, fields: date }) {
+    allContentfulEvent(sort: { date: DESC }) {
       nodes {
         id
         title
@@ -28,7 +28,7 @@ export const query = graphql`
         image {
           gatsbyImageData(
             layout: CONSTRAINED
-            placeholder: TRACED_SVG
+            placeholder: DOMINANT_COLOR
             aspectRatio: 1
             quality: 90
             formats: [AUTO, WEBP]

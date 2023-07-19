@@ -11,14 +11,14 @@ const { Title, Paragraph } = Typography
 
 export const query = graphql`
   query {
-    allContentfulTrustee(sort: { order: DESC, fields: id }) {
+    allContentfulTrustee(sort: { id: DESC }) {
       nodes {
         id
         name
         image {
           gatsbyImageData(
             layout: FULL_WIDTH
-            placeholder: TRACED_SVG
+            placeholder: DOMINANT_COLOR
             aspectRatio: 1
             quality: 90
             formats: [AUTO, WEBP]

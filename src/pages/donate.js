@@ -37,7 +37,7 @@ const DonatePage = () => {
       <Row style={{ padding: '1.5rem' }} gutter={32}>
         <Col span={24} md={12}>
           <StaticImage
-            src="../../images/donate.jpg"
+            src="../images/donate.jpg"
             alt="Donate"
             placeholder="blurred"
           />

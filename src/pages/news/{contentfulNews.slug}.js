@@ -19,7 +19,7 @@ export const query = graphql`
       image {
         gatsbyImageData(
           layout: FULL_WIDTH
-          placeholder: TRACED_SVG
+          placeholder: DOMINANT_COLOR
           aspectRatio: 2
           height: 250
           quality: 100
