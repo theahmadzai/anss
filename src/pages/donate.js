@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { StaticImage } from 'gatsby-plugin-image'
 import SEO from '../components/seo'
 import Layout from '../components/layout'
 import PageHeader from '../components/page-header'
@@ -34,7 +35,14 @@ const DonatePage = () => {
       <PageHeader title="Donate" />
 
       <Row style={{ padding: '1.5rem' }} gutter={32}>
-        <Col span={24} md={12}></Col>
+        <Col span={24} md={12}>
+          <StaticImage
+            src="../../images/donate.jpg"
+            alt="Donate"
+            placeholder="blurred"
+          />
+        </Col>
+
         <Col span={24} md={12}>
           <Form
             form={form}

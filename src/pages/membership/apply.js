@@ -15,7 +15,13 @@ import SEO from '../../components/seo'
 import Layout from '../../components/layout'
 import PageHeader from '../../components/page-header'
 
-const { Text } = Typography
+const getPlanPrice = plan =>
+  new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: plan.currency,
+  }).format(plan.price / 100)
+
+const { Paragraph } = Typography
 
 export const query = graphql`
   query {
@@ -39,18 +45,26 @@ const ApplyPage = ({
 }) => {
   const [form] = Form.useForm()
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [selectedId, setSelectedId] = useState(null)
+  const [selectedPlan, setSelectedPlan] = useState(null)
 
-  const handlePurchase = id => () => {
-    setSelectedId(id)
-    setIsModalOpen(true)
-  }
-
-  const handleCheckout = email => {
-    window.open(
-      `/.netlify/functions/checkout?id=${selectedId}&email=${email}`,
-      '_self'
-    )
+  const handleFinish = async values => {
+    try {
+      await fetch('/.netlify/functions/apply-membership', {
+        method: 'POST',
+        body: JSON.stringify({
+          plan: selectedPlan.title,
+          price: getPlanPrice(selectedPlan),
+          ...values,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      setIsModalOpen(false)
+      form.resetFields()
+    } catch (err) {
+      //
+    }
   }
 
   return (
@@ -64,7 +78,13 @@ const ApplyPage = ({
           <List.Item
             key={plan.id}
             actions={[
-              <Button key={0} onClick={handlePurchase(plan.id)}>
+              <Button
+                key={0}
+                onClick={() => {
+                  setSelectedPlan(plan)
+                  setIsModalOpen(true)
+                }}
+              >
                 <MoneyCollectOutlined />
                 Purchase
               </Button>,
@@ -75,40 +95,43 @@ const ApplyPage = ({
               title={plan.title}
               description={plan.description}
             />
-            <div>
-              {new Intl.NumberFormat('en-US', {
-                style: 'currency',
-                currency: plan.currency,
-              }).format(plan.price / 100)}
-            </div>
+            <div>{getPlanPrice(plan)}</div>
           </List.Item>
         )}
       />
 
       <Modal
-        title="Confirmation"
+        title="Apply"
         open={isModalOpen}
         okText="Continue"
         onOk={form.submit}
         onCancel={() => setIsModalOpen(false)}
       >
-        <Form
-          form={form}
-          layout="horizontal"
-          colon={false}
-          onFinish={({ email }) => handleCheckout(email)}
-          noValidate
-        >
-          <Text>
-            Please enter your email address your membership confirmation and
-            login details will be sent to this address.
-          </Text>
+        <Form form={form} layout="vertical" onFinish={handleFinish} noValidate>
+          <Paragraph>
+            Please fill in all the details below. Your membership application
+            will be reviewed and you will be notified via the given email as
+            soon as possible.
+          </Paragraph>
 
-          <Divider dashed />
+          <Divider />
 
           <Form.Item
-            name="email"
+            label="Name"
+            name="name"
+            rules={[
+              {
+                required: true,
+                message: 'Please type your full name.',
+              },
+            ]}
+          >
+            <Input type="text" placeholder="Full name" />
+          </Form.Item>
+
+          <Form.Item
             label="Email Address"
+            name="email"
             rules={[
               {
                 required: true,
@@ -121,6 +144,10 @@ const ApplyPage = ({
             ]}
           >
             <Input type="email" placeholder="example@mail.com" />
+          </Form.Item>
+
+          <Form.Item label="Phone" name="phone">
+            <Input type="tel" placeholder="+123********" />
           </Form.Item>
         </Form>
       </Modal>
