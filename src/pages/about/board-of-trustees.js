@@ -48,22 +48,13 @@ const BoardOfTrustees = ({
           <Item>
             <Row gutter={[24, 24]}>
               <Col span={24} sm={8} md={6}>
-                <GatsbyImage
-                  image={getImage(trustee.image)}
-                  alt={trustee.name}
-                />
+                <GatsbyImage image={getImage(trustee.image)} alt={trustee.name} />
               </Col>
               <Col span={24} sm={16} md={18}>
-                <Title
-                  level={2}
-                  style={{ marginBottom: 8, fontSize: '1.2rem' }}
-                >
+                <Title level={2} style={{ marginBottom: 8, fontSize: '1.2rem' }}>
                   {trustee.name}
                 </Title>
-                <Paragraph
-                  align="justify"
-                  ellipsis={{ rows: 5, expandable: true }}
-                >
+                <Paragraph align="justify" ellipsis={{ rows: 5, expandable: true }}>
                   {trustee.description.description}
                 </Paragraph>
               </Col>
@@ -77,6 +68,4 @@ const BoardOfTrustees = ({
 
 export default BoardOfTrustees
 
-export const Head = () => (
-  <SEO title="Board of Trustees" pathname="/board-of-trustees" />
-)
+export const Head = () => <SEO title="Board of Trustees" pathname="/board-of-trustees" />

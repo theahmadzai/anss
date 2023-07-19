@@ -46,8 +46,7 @@ const ContactPage = () => {
       <PageHeader title="Contact Us" />
 
       <Paragraph style={{ padding: '1.5rem 1.5rem 0 1.5rem' }}>
-        Thank you for using this form to leave us a message. Required fields are
-        marked with *.
+        Thank you for using this form to leave us a message. Required fields are marked with *.
       </Paragraph>
 
       <Form
@@ -56,8 +55,7 @@ const ContactPage = () => {
         size="large"
         onFinish={handleFinish}
         scrollToFirstError
-        noValidate
-      >
+        noValidate>
         <Item
           label="Name"
           name="name"
@@ -66,8 +64,7 @@ const ContactPage = () => {
               required: true,
               message: 'Please type your full name.',
             },
-          ]}
-        >
+          ]}>
           <Input type="text" placeholder="Full name" />
         </Item>
 
@@ -83,8 +80,7 @@ const ContactPage = () => {
               type: 'email',
               message: 'Please type a valid email.',
             },
-          ]}
-        >
+          ]}>
           <Input type="email" placeholder="example@email.com" />
         </Item>
 
@@ -100,17 +96,12 @@ const ContactPage = () => {
               max: 3000,
               message: 'Your message cannot exceed 3000 characters.',
             },
-          ]}
-        >
+          ]}>
           <TextArea rows={4} placeholder="Write your query here..." showCount />
         </Item>
 
         <Item style={{ paddingTop: '1rem' }}>
-          <Button
-            type="ghost"
-            htmlType="submit"
-            loading={formStatus === formState.SUBMITTING}
-          >
+          <Button type="ghost" htmlType="submit" loading={formStatus === formState.SUBMITTING}>
             Submit
           </Button>
         </Item>

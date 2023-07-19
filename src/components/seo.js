@@ -2,11 +2,7 @@ import React, { Fragment } from 'react'
 import useSiteMetadata from '../hooks/use-sitemetadata'
 
 const SEO = ({ title, description, pathname }) => {
-  const {
-    siteUrl,
-    title: defaultTitle,
-    description: defaultDescription,
-  } = useSiteMetadata()
+  const { siteUrl, title: defaultTitle, description: defaultDescription } = useSiteMetadata()
 
   title = `${title} | ${defaultTitle}`
   description ??= defaultDescription

@@ -13,6 +13,4 @@ const BenefitsPage = () => {
 
 export default BenefitsPage
 
-export const Head = () => (
-  <SEO title="Membership Benefits" pathname="/membership/benefits" />
-)
+export const Head = () => <SEO title="Membership Benefits" pathname="/membership/benefits" />

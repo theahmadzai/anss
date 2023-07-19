@@ -22,12 +22,7 @@ exports.handler = async ({ httpMethod, queryStringParameters }) => {
     await faunadb.query(
       q.If(
         q.Exists(q.Match(q.Index('unique_subscribers_by_email'), email)),
-        q.Delete(
-          q.Select(
-            'ref',
-            q.Get(q.Match(q.Index('unique_subscribers_by_email'), email)),
-          ),
-        ),
+        q.Delete(q.Select('ref', q.Get(q.Match(q.Index('unique_subscribers_by_email'), email)))),
         null,
       ),
     )

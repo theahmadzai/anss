@@ -55,10 +55,7 @@ const LatestNews = ({
                 <GatsbyImage image={getImage(news.image)} alt={news.title} />
               </Col>
               <Col span={24} sm={16} md={18}>
-                <Title
-                  level={2}
-                  style={{ marginBottom: 8, fontSize: '1.2rem' }}
-                >
+                <Title level={2} style={{ marginBottom: 8, fontSize: '1.2rem' }}>
                   {news.title}
                 </Title>
                 <Text style={{ display: 'block', marginBottom: 8 }}>

@@ -12,8 +12,7 @@ exports.handler = async event => {
   }
 
   try {
-    const { name, email, phone, date, category, message, files } =
-      await parser.parse(event)
+    const { name, email, phone, date, category, message, files } = await parser.parse(event)
 
     if (!name || !email || !date || !category || !message) {
       return {

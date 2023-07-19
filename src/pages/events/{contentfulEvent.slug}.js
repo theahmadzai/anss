@@ -44,11 +44,7 @@ const Event = ({ data: { event } }) => {
     <Layout>
       <PageHeader title={event.title} />
 
-      <GatsbyImage
-        style={{ height: '300px' }}
-        image={getImage(event.image)}
-        alt={event.title}
-      />
+      <GatsbyImage style={{ height: '300px' }} image={getImage(event.image)} alt={event.title} />
 
       <div style={{ padding: '1.5rem' }}>
         <Text style={{ display: 'block', marginBottom: 8 }}>

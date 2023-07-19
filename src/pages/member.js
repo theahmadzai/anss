@@ -1,15 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {
-  Button,
-  Modal,
-  Form,
-  Input,
-  Card,
-  Row,
-  Col,
-  Typography,
-  Avatar,
-} from 'antd'
+import { Button, Modal, Form, Input, Card, Row, Col, Typography, Avatar } from 'antd'
 import SEO from '../components/seo'
 import Layout from '../components/layout'
 import PageHeader from '../components/page-header'
@@ -17,9 +7,7 @@ import PageHeader from '../components/page-header'
 const { Paragraph } = Typography
 
 const toCurrency = (amount, currency) => {
-  return new Intl.NumberFormat('en-US', { style: 'currency', currency }).format(
-    amount / 100,
-  )
+  return new Intl.NumberFormat('en-US', { style: 'currency', currency }).format(amount / 100)
 }
 
 const MemberPage = () => {
@@ -59,23 +47,17 @@ const MemberPage = () => {
               <Card.Meta
                 title={data.product.name}
                 avatar={<Avatar src={data.product.images?.[0]} />}
-                description={toCurrency(
-                  data.product.amount,
-                  data.product.currency,
-                )}
+                description={toCurrency(data.product.amount, data.product.currency)}
               />
               <Paragraph style={{ marginTop: '1.5rem' }}>
                 Subscription ends on&nbsp;
-                {new Date(
-                  data.subscription.current_period_end * 1000,
-                ).toDateString()}
+                {new Date(data.subscription.current_period_end * 1000).toDateString()}
               </Paragraph>
             </Card>
 
             <Button
               style={{ marginTop: '1.5rem' }}
-              onClick={() => sessionStorage.removeItem('LOCAL_STATE')}
-            >
+              onClick={() => sessionStorage.removeItem('LOCAL_STATE')}>
               Logout
             </Button>
           </Col>
@@ -92,15 +74,8 @@ const MemberPage = () => {
         open={isModalOpen}
         okText="Authorize"
         onOk={form.submit}
-        onCancel={() => setIsModalOpen(false)}
-      >
-        <Form
-          form={form}
-          layout="vertical"
-          colon={false}
-          onFinish={handleSubmit}
-          noValidate
-        >
+        onCancel={() => setIsModalOpen(false)}>
+        <Form form={form} layout="vertical" colon={false} onFinish={handleSubmit} noValidate>
           <Form.Item
             name="id"
             label="Member ID"
@@ -109,8 +84,7 @@ const MemberPage = () => {
                 required: true,
                 message: 'Please type your member id.',
               },
-            ]}
-          >
+            ]}>
             <Input type="text" placeholder="Member ID" />
           </Form.Item>
         </Form>

@@ -1,10 +1,6 @@
 import React from 'react'
 import { Row, Col, Typography } from 'antd'
-import {
-  FacebookOutlined,
-  TwitterOutlined,
-  InstagramOutlined,
-} from '@ant-design/icons'
+import { FacebookOutlined, TwitterOutlined, InstagramOutlined } from '@ant-design/icons'
 import useSiteMetadata from '../hooks/use-sitemetadata'
 import Subscribe from './subscribe'
 import * as styles from './footer.module.less'
@@ -37,8 +33,8 @@ const Footer = () => {
               Social Links
             </Title>
             <Paragraph>
-              Subscribe to our RSS feed or follow us on Facebook, Twitter or
-              Instagram for the latest updates.
+              Subscribe to our RSS feed or follow us on Facebook, Twitter or Instagram for the
+              latest updates.
             </Paragraph>
             <div className={styles.icons}>
               <a href={social.facebook} rel="noreferrer" target="_blank">
@@ -56,8 +52,7 @@ const Footer = () => {
       </div>
 
       <div className={styles.copyrights}>
-        &copy; Copyright {new Date().getFullYear()} by ANSS Foundation. All
-        Rights Reserved.
+        &copy; Copyright {new Date().getFullYear()} by ANSS Foundation. All Rights Reserved.
       </div>
     </footer>
   )

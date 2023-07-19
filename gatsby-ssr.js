@@ -4,12 +4,7 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
   setHtmlAttributes({ lang: 'en' })
   setHeadComponents([
     <link key={0} rel="preconnect" href="https://fonts.googleapis.com" />,
-    <link
-      key={1}
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossOrigin="true"
-    />,
+    <link key={1} rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />,
     <link
       key={2}
       rel="stylesheet"

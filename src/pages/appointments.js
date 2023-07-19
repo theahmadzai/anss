@@ -59,8 +59,7 @@ const AppointmentsPage = () => {
         size="large"
         onFinish={handleFinish}
         scrollToFirstError
-        noValidate
-      >
+        noValidate>
         <Item
           label="Name"
           name="name"
@@ -69,8 +68,7 @@ const AppointmentsPage = () => {
               required: true,
               message: 'Please type your full name.',
             },
-          ]}
-        >
+          ]}>
           <Input type="text" placeholder="Full name" />
         </Item>
 
@@ -88,8 +86,7 @@ const AppointmentsPage = () => {
                   type: 'email',
                   message: 'Please type a valid email.',
                 },
-              ]}
-            >
+              ]}>
               <Input type="email" placeholder="example@email.com" />
             </Item>
           </Col>
@@ -111,8 +108,7 @@ const AppointmentsPage = () => {
                   required: true,
                   message: 'Please choose a date.',
                 },
-              ]}
-            >
+              ]}>
               <Input type="date" />
             </Item>
           </Col>
@@ -126,8 +122,7 @@ const AppointmentsPage = () => {
                   required: true,
                   message: 'Please select a category.',
                 },
-              ]}
-            >
+              ]}>
               <Select>
                 <Option value="General">General</Option>
                 <Option value="Settlement">Settlement</Option>
@@ -147,8 +142,7 @@ const AppointmentsPage = () => {
               required: true,
               message: 'Please type your query.',
             },
-          ]}
-        >
+          ]}>
           <TextArea rows={4} placeholder="Write your query here..." showCount />
         </Item>
 
@@ -164,8 +158,7 @@ const AppointmentsPage = () => {
                 onSuccess(file)
               }, 0)
             }}
-            multiple
-          >
+            multiple>
             <div>
               <PlusOutlined />
               <div style={{ marginTop: 8 }}>Upload</div>
@@ -174,11 +167,7 @@ const AppointmentsPage = () => {
         </Item>
 
         <Item>
-          <Button
-            type="ghost"
-            htmlType="submit"
-            loading={formStatus === formState.SUBMITTING}
-          >
+          <Button type="ghost" htmlType="submit" loading={formStatus === formState.SUBMITTING}>
             Submit
           </Button>
         </Item>

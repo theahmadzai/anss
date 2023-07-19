@@ -59,16 +59,10 @@ const Events = ({
             <Link to={`/events/${event.slug}`}>
               <Row gutter={[24, 24]}>
                 <Col span={24} sm={8} md={6}>
-                  <GatsbyImage
-                    image={getImage(event.image)}
-                    alt={event.title}
-                  />
+                  <GatsbyImage image={getImage(event.image)} alt={event.title} />
                 </Col>
                 <Col span={24} sm={16} md={18}>
-                  <Title
-                    level={2}
-                    style={{ marginBottom: 8, fontSize: '1.2rem' }}
-                  >
+                  <Title level={2} style={{ marginBottom: 8, fontSize: '1.2rem' }}>
                     {event.title}
                   </Title>
                   <Text style={{ display: 'block', marginBottom: 8 }}>
@@ -85,9 +79,7 @@ const Events = ({
                   </Text>
                   <Text style={{ display: 'block', marginBottom: 8 }}>
                     <ClockCircleOutlined style={{ marginRight: 8 }} />
-                    {new Date(event.date) > Date.now()
-                      ? 'Upcoming Event'
-                      : 'Past Event'}
+                    {new Date(event.date) > Date.now() ? 'Upcoming Event' : 'Past Event'}
                   </Text>
                   <Paragraph align="justify" ellipsis={{ rows: 3 }}>
                     {event.body.body}

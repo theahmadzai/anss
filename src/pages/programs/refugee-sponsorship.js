@@ -14,13 +14,10 @@ const RefugeeSponsorshipPage = () => {
       <Row style={{ padding: '1.5rem' }}>
         <Paragraph>
           <ul>
+            <li>Referrals for Credentialed Assessment of educational documents</li>
             <li>
-              Referrals for Credentialed Assessment of educational documents
-            </li>
-            <li>
-              Organizing community events to raise awareness about environmental
-              protection, waste collection and disposal, food safety and mental
-              health
+              Organizing community events to raise awareness about environmental protection, waste
+              collection and disposal, food safety and mental health
             </li>
             <li>To organize cultural events</li>
             <li>To promote cultural diversity through educational programs</li>

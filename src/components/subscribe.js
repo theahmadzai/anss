@@ -21,8 +21,7 @@ const Subscribe = () => {
             type: 'email',
             message: 'Please type a valid email.',
           },
-        ]}
-      >
+        ]}>
         <Input type="email" placeholder="example@mail.com" />
       </Item>
 

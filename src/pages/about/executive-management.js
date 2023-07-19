@@ -48,22 +48,13 @@ const ExecutiveManagement = ({
           <Item>
             <Row gutter={[24, 24]}>
               <Col span={24} sm={8} md={6}>
-                <GatsbyImage
-                  image={getImage(manager.image)}
-                  alt={manager.name}
-                />
+                <GatsbyImage image={getImage(manager.image)} alt={manager.name} />
               </Col>
               <Col span={24} sm={16} md={18}>
-                <Title
-                  level={2}
-                  style={{ marginBottom: 8, fontSize: '1.2rem' }}
-                >
+                <Title level={2} style={{ marginBottom: 8, fontSize: '1.2rem' }}>
                   {manager.name}
                 </Title>
-                <Paragraph
-                  align="justify"
-                  ellipsis={{ rows: 5, expandable: true }}
-                >
+                <Paragraph align="justify" ellipsis={{ rows: 5, expandable: true }}>
                   {manager.description.description}
                 </Paragraph>
               </Col>
@@ -77,6 +68,4 @@ const ExecutiveManagement = ({
 
 export default ExecutiveManagement
 
-export const Head = () => (
-  <SEO title="Executive Management" pathname="/executive-management" />
-)
+export const Head = () => <SEO title="Executive Management" pathname="/executive-management" />

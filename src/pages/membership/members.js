@@ -48,6 +48,4 @@ const MembersPage = ({
 
 export default MembersPage
 
-export const Head = () => (
-  <SEO title="Current Members" pathname="/membership/members" />
-)
+export const Head = () => <SEO title="Current Members" pathname="/membership/members" />

@@ -38,11 +38,7 @@ const News = ({ data: { news } }) => {
     <Layout>
       <PageHeader title={news.title} />
 
-      <GatsbyImage
-        style={{ height: '300px' }}
-        image={getImage(news.image)}
-        alt={news.title}
-      />
+      <GatsbyImage style={{ height: '300px' }} image={getImage(news.image)} alt={news.title} />
 
       <div style={{ padding: '1.5rem' }}>
         <Text style={{ display: 'block', marginBottom: 8 }}>

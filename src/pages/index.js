@@ -65,8 +65,7 @@ const IndexPage = ({
         style={{
           position: 'relative',
           overflow: 'hidden',
-        }}
-      >
+        }}>
         {slides.map(slide => (
           <div key={slide.id}>
             <GatsbyImage
@@ -78,8 +77,7 @@ const IndexPage = ({
               style={{
                 padding: '1.5rem',
                 background: 'var(--primary-color)',
-              }}
-            >
+              }}>
               <Link to={slide.url} rel="nofollow" target="_blank">
                 <Title
                   level={2}
@@ -88,8 +86,7 @@ const IndexPage = ({
                     textAlign: 'center',
                     fontSize: '1.5rem',
                     color: '#FFFFFF',
-                  }}
-                >
+                  }}>
                   {slide.title}
                 </Title>
               </Link>
@@ -103,16 +100,13 @@ const IndexPage = ({
           <svg viewBox="0 0 800 600">
             <path
               d="M0,13 C66.6666667,-3.66666667 133.333333,-3.66666667 200,13 C266.666667,29.6666667 333.333333,29.6666667 400,13 C466.666667,-3.66666667 533.333333,-3.66666667 600,13 C666.666667,29.6666667 733.333333,29.6666667 800,13 L800,563 L0,563 L0,13 Z"
-              fill="#27458D"
-            ></path>
+              fill="#27458D"></path>
             <path
               d="M0,13 C66.6666667,-3.66666667 133.333333,-3.66666667 200,13 C266.666667,29.6666667 333.333333,29.6666667 400,13 C466.666667,-3.66666667 533.333333,-3.66666667 600,13 C666.666667,29.6666667 733.333333,29.6666667 800,13 L800,563 L0,563 L0,13 Z"
-              fill="#3459a6"
-            ></path>
+              fill="#3459a6"></path>
             <path
               d="M0,13 C66.6666667,-3.66666667 133.333333,-3.66666667 200,13 C266.666667,29.6666667 333.333333,29.6666667 400,13 C466.666667,-3.66666667 533.333333,-3.66666667 600,13 C666.666667,29.6666667 733.333333,29.6666667 800,13 L800,563 L0,563 L0,13 Z"
-              fill="#27458D"
-            ></path>
+              fill="#27458D"></path>
           </svg>
         </div>
       </div>
@@ -153,18 +147,9 @@ const IndexPage = ({
           border: '1px solid #F0F0F0',
           display: 'flex',
           alignItems: 'center',
-        }}
-      >
-        <Link
-          to="/membership/benefits"
-          style={{ display: 'block', margin: '0 auto' }}
-        >
-          <Button
-            shape="round"
-            type="primary"
-            size="large"
-            icon={<UserOutlined />}
-          >
+        }}>
+        <Link to="/membership/benefits" style={{ display: 'block', margin: '0 auto' }}>
+          <Button shape="round" type="primary" size="large" icon={<UserOutlined />}>
             Become our Member
           </Button>
         </Link>
@@ -195,15 +180,10 @@ const IndexPage = ({
                     image={getImage(news.image)}
                     alt={news.title}
                   />
-                }
-              >
+                }>
                 <Card.Meta
                   title={news.title}
-                  description={
-                    <Paragraph ellipsis={{ rows: 4 }}>
-                      {news.body.body}
-                    </Paragraph>
-                  }
+                  description={<Paragraph ellipsis={{ rows: 4 }}>{news.body.body}</Paragraph>}
                 />
               </Card>
             </Link>

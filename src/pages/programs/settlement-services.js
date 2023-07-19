@@ -18,16 +18,15 @@ const SettlementServicesPage = () => {
             <li>Housing applications</li>
             <li>Sponsorship applications</li>
             <li>
-              Employment (Find work, volunteering, work permit, Resume and cover
-              letters, etc)
+              Employment (Find work, volunteering, work permit, Resume and cover letters, etc)
             </li>
             <li>
-              Referrals to family doctors, psychiatrists, lawyers, and legal
-              aid, schools, LINC, and ESL/FSL; and shelters
+              Referrals to family doctors, psychiatrists, lawyers, and legal aid, schools, LINC, and
+              ESL/FSL; and shelters
             </li>
             <li>
-              Translation and interpretation services in English, Pashto,
-              Farsi/Dari, Urdu and Arabic
+              Translation and interpretation services in English, Pashto, Farsi/Dari, Urdu and
+              Arabic
             </li>
           </ul>
         </Paragraph>

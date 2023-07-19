@@ -1,15 +1,6 @@
 import React, { useState } from 'react'
 import { graphql } from 'gatsby'
-import {
-  List,
-  Avatar,
-  Button,
-  Modal,
-  Form,
-  Input,
-  Typography,
-  Divider,
-} from 'antd'
+import { List, Avatar, Button, Modal, Form, Input, Typography, Divider } from 'antd'
 import { MoneyCollectOutlined } from '@ant-design/icons'
 import SEO from '../../components/seo'
 import Layout from '../../components/layout'
@@ -83,13 +74,11 @@ const ApplyPage = ({
                 onClick={() => {
                   setSelectedPlan(plan)
                   setIsModalOpen(true)
-                }}
-              >
+                }}>
                 <MoneyCollectOutlined />
                 Purchase
               </Button>,
-            ]}
-          >
+            ]}>
             <List.Item.Meta
               avatar={<Avatar src={plan.images?.[0]} />}
               title={plan.title}
@@ -105,13 +94,11 @@ const ApplyPage = ({
         open={isModalOpen}
         okText="Continue"
         onOk={form.submit}
-        onCancel={() => setIsModalOpen(false)}
-      >
+        onCancel={() => setIsModalOpen(false)}>
         <Form form={form} layout="vertical" onFinish={handleFinish} noValidate>
           <Paragraph>
-            Please fill in all the details below. Your membership application
-            will be reviewed and you will be notified via the given email as
-            soon as possible.
+            Please fill in all the details below. Your membership application will be reviewed and
+            you will be notified via the given email as soon as possible.
           </Paragraph>
 
           <Divider />
@@ -124,8 +111,7 @@ const ApplyPage = ({
                 required: true,
                 message: 'Please type your full name.',
               },
-            ]}
-          >
+            ]}>
             <Input type="text" placeholder="Full name" />
           </Form.Item>
 
@@ -141,8 +127,7 @@ const ApplyPage = ({
                 type: 'email',
                 message: 'Please type a valid email.',
               },
-            ]}
-          >
+            ]}>
             <Input type="email" placeholder="example@mail.com" />
           </Form.Item>
 
@@ -157,6 +142,4 @@ const ApplyPage = ({
 
 export default ApplyPage
 
-export const Head = () => (
-  <SEO title="Apply for Membership" pathname="/membership/apply" />
-)
+export const Head = () => <SEO title="Apply for Membership" pathname="/membership/apply" />

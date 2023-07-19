@@ -14,18 +14,14 @@ const CulturalProgramsPage = () => {
       <Row style={{ padding: '1.5rem' }}>
         <Paragraph>
           <ul>
+            <li>Identify gross-root community concerns and issues through conducting researches</li>
             <li>
-              Identify gross-root community concerns and issues through
-              conducting researches
-            </li>
-            <li>
-              Proposing viable and evidence-informed recommendations to solve
-              community issues
+              Proposing viable and evidence-informed recommendations to solve community issues
             </li>
             <li>Organizing networking events and community gatherings</li>
             <li>
-              Facilitating employment opportunities and trainings, and referral
-              of jobseekers to employers
+              Facilitating employment opportunities and trainings, and referral of jobseekers to
+              employers
             </li>
           </ul>
         </Paragraph>
@@ -36,6 +32,4 @@ const CulturalProgramsPage = () => {
 
 export default CulturalProgramsPage
 
-export const Head = () => (
-  <SEO title="Cultural Programs" pathname="/programs/cultural-programs" />
-)
+export const Head = () => <SEO title="Cultural Programs" pathname="/programs/cultural-programs" />

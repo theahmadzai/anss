@@ -20,9 +20,7 @@ const NavLinks = props => (
       <NavLink href="/about/who-we-are">About</NavLink>
       <div className={styles.subNavItems}>
         <NavLink href="/about/who-we-are">Who we are</NavLink>
-        <NavLink href="/about/executive-management">
-          Executive Management
-        </NavLink>
+        <NavLink href="/about/executive-management">Executive Management</NavLink>
         <NavLink href="/about/board-of-directors">Board of Directors</NavLink>
         <NavLink href="/about/board-of-trustees">Board of Trustees</NavLink>
       </div>
@@ -30,12 +28,8 @@ const NavLinks = props => (
     <div className={styles.subNav}>
       <NavLink href="/programs/refugee-sponsorship">Programs</NavLink>
       <div className={styles.subNavItems}>
-        <NavLink href="/programs/refugee-sponsorship">
-          Refugee Sponsorship
-        </NavLink>
-        <NavLink href="/programs/settlement-services">
-          Settlement Services
-        </NavLink>
+        <NavLink href="/programs/refugee-sponsorship">Refugee Sponsorship</NavLink>
+        <NavLink href="/programs/settlement-services">Settlement Services</NavLink>
         <NavLink href="/programs/social-services">Social Services</NavLink>
         <NavLink href="/programs/cultural-programs">Cultural Programs</NavLink>
       </div>
@@ -64,18 +58,10 @@ const Navbar = () => {
     <nav className={styles.nav}>
       <NavLinks className={styles.navDesktop} />
 
-      <MenuOutlined
-        className={styles.toggleNav}
-        onClick={() => setIsOpen(true)}
-      />
+      <MenuOutlined className={styles.toggleNav} onClick={() => setIsOpen(true)} />
 
-      <Drawer
-        title={name}
-        open={isOpen}
-        closeable={false}
-        onClose={() => setIsOpen(false)}
-      >
-        <NavLinks className={styles.navMobile} />
+      <Drawer title={name} open={isOpen} closeable={false} onClose={() => setIsOpen(false)}>
+        <NavLinks className={styles.navMobsile} />
       </Drawer>
     </nav>
   )

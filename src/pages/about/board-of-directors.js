@@ -49,28 +49,16 @@ const BoardOfDirectors = ({
           <Item>
             <Row gutter={[24, 24]}>
               <Col span={24} sm={8} md={6}>
-                <GatsbyImage
-                  image={getImage(director.image)}
-                  alt={director.name}
-                />
+                <GatsbyImage image={getImage(director.image)} alt={director.name} />
               </Col>
               <Col span={24} sm={16} md={18}>
-                <Title
-                  level={2}
-                  style={{ marginBottom: 8, fontSize: '1.2rem' }}
-                >
+                <Title level={2} style={{ marginBottom: 8, fontSize: '1.2rem' }}>
                   {director.name}
                 </Title>
-                <Text
-                  style={{ display: 'block', marginBottom: 8 }}
-                  strong={true}
-                >
+                <Text style={{ display: 'block', marginBottom: 8 }} strong={true}>
                   {director.designation}
                 </Text>
-                <Paragraph
-                  align="justify"
-                  ellipsis={{ rows: 5, expandable: true }}
-                >
+                <Paragraph align="justify" ellipsis={{ rows: 5, expandable: true }}>
                   {director.description.description}
                 </Paragraph>
               </Col>
@@ -84,6 +72,4 @@ const BoardOfDirectors = ({
 
 export default BoardOfDirectors
 
-export const Head = () => (
-  <SEO title="Board of directors" pathname="/strategic-plans" />
-)
+export const Head = () => <SEO title="Board of directors" pathname="/strategic-plans" />

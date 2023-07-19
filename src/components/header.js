@@ -17,15 +17,14 @@ const Header = () => {
           display: 'flex',
           alignItems: 'flex-end',
           justifyContent: 'space-between',
-        }}
-      >
+        }}>
         <Link to="/">
           <StaticImage
             className={styles.logo}
             src="../../static/logo.png"
             alt={title}
             layout="fixed"
-            placeholder="tracedSVG"
+            placeholder="none"
           />
         </Link>
 
