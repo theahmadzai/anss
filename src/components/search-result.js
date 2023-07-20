@@ -61,6 +61,15 @@ const SearchResult = ({ show }) => {
         <Index indexName="events">
           <ScopedResults />
         </Index>
+        <Index indexName="directors">
+          <ScopedResults />
+        </Index>
+        <Index indexName="trustees">
+          <ScopedResults />
+        </Index>
+        <Index indexName="managers">
+          <ScopedResults />
+        </Index>
       </div>
     )
   )

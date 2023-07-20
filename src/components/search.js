@@ -16,7 +16,7 @@ const Search = ({ ...props }) => {
 
   return (
     <div {...props}>
-      <InstantSearch searchClient={searchClient} indexName="events">
+      <InstantSearch searchClient={searchClient} indexName="news">
         <SearchBox toggleResults={() => setShowResults(!showResults)} />
         <SearchResult show={debouncedShowResults} />
       </InstantSearch>

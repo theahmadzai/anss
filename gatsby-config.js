@@ -65,6 +65,115 @@ const eventsQuery = {
   settings: { attributesToSnippet: [`body:20`] },
 }
 
+const directorsQuery = {
+  query: `{
+    allContentfulDirector {
+      nodes {
+        id
+        name
+        designation
+        image {
+          url
+        }
+        description {
+          description
+        }
+      }
+    }
+  }`,
+  transformer: ({ data }) =>
+    data.allContentfulDirector.nodes.map(
+      ({
+        id,
+        image: { url: imageUrl },
+        name: title,
+        description: { description: body },
+        ...props
+      }) => ({
+        objectID: id,
+        slug: '/about/board-of-directors',
+        imageUrl,
+        title,
+        body,
+        ...props,
+      }),
+    ),
+  indexName: 'directors',
+  settings: { attributesToSnippet: [`body:20`] },
+}
+
+const trusteesQuery = {
+  query: `{
+    allContentfulTrustee {
+      nodes {
+        id
+        name
+        image {
+          url
+        }
+        description {
+          description
+        }
+      }
+    }
+  }`,
+  transformer: ({ data }) =>
+    data.allContentfulTrustee.nodes.map(
+      ({
+        id,
+        image: { url: imageUrl },
+        name: title,
+        description: { description: body },
+        ...props
+      }) => ({
+        objectID: id,
+        slug: '/about/board-of-trustees',
+        imageUrl,
+        title,
+        body,
+        ...props,
+      }),
+    ),
+  indexName: 'trustees',
+  settings: { attributesToSnippet: [`body:20`] },
+}
+
+const managersQuery = {
+  query: `{
+    allContentfulManager {
+      nodes {
+        id
+        name
+        image {
+          url
+        }
+        description {
+          description
+        }
+      }
+    }
+  }`,
+  transformer: ({ data }) =>
+    data.allContentfulManager.nodes.map(
+      ({
+        id,
+        image: { url: imageUrl },
+        name: title,
+        description: { description: body },
+        ...props
+      }) => ({
+        objectID: id,
+        slug: '/about/executive-management',
+        imageUrl,
+        title,
+        body,
+        ...props,
+      }),
+    ),
+  indexName: 'managers',
+  settings: { attributesToSnippet: [`body:20`] },
+}
+
 module.exports = {
   siteMetadata: {
     siteUrl: process.env.GATSBY_STIE_URL || `https://anss.ca`,
@@ -106,7 +215,7 @@ module.exports = {
       options: {
         appId: process.env.GATSBY_ALGOLIA_APP_ID,
         apiKey: process.env.ALGOLIA_ADMIN_KEY,
-        queries: [newsQuery, eventsQuery],
+        queries: [newsQuery, eventsQuery, directorsQuery, trusteesQuery, managersQuery],
       },
     },
     {
