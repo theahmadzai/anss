@@ -48,6 +48,29 @@ export const query = graphql`
         }
       }
     }
+
+    allContentfulEvent(sort: { date: DESC }, limit: 3) {
+      nodes {
+        id
+        title
+        slug
+        tags
+        location
+        date
+        image {
+          gatsbyImageData(
+            layout: CONSTRAINED
+            placeholder: DOMINANT_COLOR
+            aspectRatio: 1
+            quality: 90
+            formats: [AUTO, WEBP]
+          )
+        }
+        body {
+          body
+        }
+      }
+    }
   }
 `
 
@@ -55,6 +78,7 @@ const IndexPage = ({
   data: {
     allContentfulSlide: { nodes: slides },
     allContentfulNews: { nodes: news },
+    allContentfulEvent: { nodes: events },
   },
 }) => {
   return (
@@ -178,6 +202,42 @@ const IndexPage = ({
                 <Card.Meta
                   title={news.title}
                   description={<Paragraph ellipsis={{ rows: 4 }}>{news.body.body}</Paragraph>}
+                />
+              </Card>
+            </Link>
+          </List.Item>
+        )}
+      />
+
+      <Title level={2} align="center">
+        Events
+      </Title>
+
+      <List
+        style={{ padding: '1.5rem' }}
+        grid={{
+          gutter: [24, 24],
+          column: 3,
+          xs: 1,
+          sm: 2,
+          md: 3,
+        }}
+        dataSource={events.slice(Math.max(events.length - 3, 0))}
+        renderItem={event => (
+          <List.Item>
+            <Link to={'/events/' + event.slug}>
+              <Card
+                hoverable
+                cover={
+                  <GatsbyImage
+                    style={{ width: '100%', height: '200px' }}
+                    image={getImage(event.image)}
+                    alt={event.title}
+                  />
+                }>
+                <Card.Meta
+                  title={event.title}
+                  description={<Paragraph ellipsis={{ rows: 4 }}>{event.body.body}</Paragraph>}
                 />
               </Card>
             </Link>
