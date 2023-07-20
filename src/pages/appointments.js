@@ -31,7 +31,7 @@ const AppointmentsPage = () => {
 
     const formData = new FormData()
 
-    Object.entries(values).forEach(([k, v]) => formData.append(k, v))
+    Object.entries(values).forEach(([k, v]) => v && formData.append(k, v))
     fileList.forEach(file => formData.append('files', file.originFileObj))
 
     try {

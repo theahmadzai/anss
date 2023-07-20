@@ -92,7 +92,7 @@ const ApplyPage = ({
       <Modal
         title="Apply"
         open={isModalOpen}
-        okText="Continue"
+        okText="Submit"
         onOk={form.submit}
         onCancel={() => setIsModalOpen(false)}>
         <Form form={form} layout="vertical" onFinish={handleFinish} noValidate>
@@ -131,7 +131,15 @@ const ApplyPage = ({
             <Input type="email" placeholder="example@mail.com" />
           </Form.Item>
 
-          <Form.Item label="Phone" name="phone">
+          <Form.Item
+            label="Phone"
+            name="phone"
+            rules={[
+              {
+                required: true,
+                message: 'Please type your full name.',
+              },
+            ]}>
             <Input type="tel" placeholder="+123********" />
           </Form.Item>
         </Form>

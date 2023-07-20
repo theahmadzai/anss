@@ -27,7 +27,6 @@ exports.handler = async ({ httpMethod, queryStringParameters }) => {
           data: {
             email,
             date: Date.now(),
-            notifications: true,
           },
         }),
       ),

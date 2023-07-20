@@ -29,7 +29,7 @@ exports.handler = async event => {
       text: `
         Name: ${name}
         Email: ${email}
-        Phone: ${phone}
+        Phone: ${phone || 'Nil'}
         Date: ${new Date(date).toDateString()}
         Category: ${category}
         Message: ${message}

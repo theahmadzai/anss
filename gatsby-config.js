@@ -29,7 +29,7 @@ const newsQuery = {
       }),
     ),
   indexName: 'news',
-  settings: { attributesToSnippet: [`body:20`] },
+  settings: { attributesToSnippet: ['body:20'] },
 }
 
 const eventsQuery = {
@@ -62,7 +62,7 @@ const eventsQuery = {
       }),
     ),
   indexName: 'events',
-  settings: { attributesToSnippet: [`body:20`] },
+  settings: { attributesToSnippet: ['body:20'] },
 }
 
 const directorsQuery = {
@@ -99,7 +99,7 @@ const directorsQuery = {
       }),
     ),
   indexName: 'directors',
-  settings: { attributesToSnippet: [`body:20`] },
+  settings: { attributesToSnippet: ['body:20'] },
 }
 
 const trusteesQuery = {
@@ -135,7 +135,7 @@ const trusteesQuery = {
       }),
     ),
   indexName: 'trustees',
-  settings: { attributesToSnippet: [`body:20`] },
+  settings: { attributesToSnippet: ['body:20'] },
 }
 
 const managersQuery = {
@@ -171,19 +171,19 @@ const managersQuery = {
       }),
     ),
   indexName: 'managers',
-  settings: { attributesToSnippet: [`body:20`] },
+  settings: { attributesToSnippet: ['body:20'] },
 }
 
 module.exports = {
   siteMetadata: {
-    siteUrl: process.env.GATSBY_STIE_URL || `https://anss.ca`,
-    title: `ANSS`,
+    siteUrl: process.env.GATSBY_STIE_URL || 'https://anss.ca',
+    title: 'ANSS',
     description:
       'ANSS Foundation established by a team of professional Afghans in Toronto, Canada and is a non-political, non-profit and an impartial organization, established in 2017.',
     social: {
       facebook: 'https://www.facebook.com/ANSSFoundation/',
       twitter: 'https://twitter.com/AnssFoundation',
-      instagram: 'https://www.instagram.com/anss_foundation/',
+      instagram: 'https://www.instagram.com/anssfoundation/',
     },
   },
   trailingSlash: 'never',
@@ -200,7 +200,7 @@ module.exports = {
       resolve: 'gatsby-source-contentful',
       options: {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        spaceId: 'lr1qbgzzmuyd',
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
       },
     },
     'gatsby-transformer-sharp',
@@ -211,7 +211,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-algolia`,
+      resolve: 'gatsby-plugin-algolia',
       options: {
         appId: process.env.GATSBY_ALGOLIA_APP_ID,
         apiKey: process.env.ALGOLIA_ADMIN_KEY,
