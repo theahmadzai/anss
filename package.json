@@ -19,7 +19,6 @@
   },
   "dependencies": {
     "@ant-design/compatible": "^5.1.1",
-    "@ant-design/pro-layout": "^7.16.3",
     "algoliasearch": "^4.19.0",
     "antd": "^5.7.1",
     "dotenv": "^16.3.1",
@@ -28,7 +27,6 @@
     "gatsby-plugin-algolia": "^1.0.3",
     "gatsby-plugin-google-analytics": "^5.11.0",
     "gatsby-plugin-image": "^3.11.0",
-    "gatsby-plugin-import": "^2.1.7",
     "gatsby-plugin-less": "^7.11.0",
     "gatsby-plugin-manifest": "^5.11.0",
     "gatsby-plugin-minify-classnames": "^5.0.0",
@@ -46,7 +44,6 @@
     "stripe": "^12.13.0"
   },
   "devDependencies": {
-    "babel-plugin-import": "^1.13.6",
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",

@@ -43,7 +43,7 @@ const NavLinks = props => (
       </div>
     </div>
     <NavLink href="/events">Events</NavLink>
-    <NavLink href="/news">Latest News</NavLink>
+    <NavLink href="/news">News</NavLink>
     <NavLink href="/appointments">Appointments</NavLink>
     <NavLink href="/contact">Contact</NavLink>
     <NavLink href="/donate">Donate</NavLink>
@@ -61,7 +61,7 @@ const Navbar = () => {
       <MenuOutlined className={styles.toggleNav} onClick={() => setIsOpen(true)} />
 
       <Drawer title={name} open={isOpen} closeable={false} onClose={() => setIsOpen(false)}>
-        <NavLinks className={styles.navMobsile} />
+        <NavLinks className={styles.navMobile} />
       </Drawer>
     </nav>
   )

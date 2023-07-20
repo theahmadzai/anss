@@ -101,7 +101,7 @@ const ContactPage = () => {
         </Item>
 
         <Item style={{ paddingTop: '1rem' }}>
-          <Button type="ghost" htmlType="submit" loading={formStatus === formState.SUBMITTING}>
+          <Button htmlType="submit" loading={formStatus === formState.SUBMITTING}>
             Submit
           </Button>
         </Item>

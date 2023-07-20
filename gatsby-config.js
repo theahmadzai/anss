@@ -66,7 +66,6 @@ const eventsQuery = {
 }
 
 module.exports = {
-  trailingSlash: 'never',
   siteMetadata: {
     siteUrl: process.env.GATSBY_STIE_URL || `https://anss.ca`,
     title: `ANSS`,
@@ -78,6 +77,7 @@ module.exports = {
       instagram: 'https://www.instagram.com/anss_foundation/',
     },
   },
+  trailingSlash: 'never',
   plugins: [
     {
       resolve: 'gatsby-source-filesystem',
@@ -110,24 +110,7 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-import',
-      options: {
-        libraryName: 'antd',
-        style: true,
-      },
-    },
-    {
       resolve: 'gatsby-plugin-less',
-      options: {
-        lessOptions: {
-          javascriptEnabled: true,
-          modifyVars: {
-            '@primary-color': '#27458D',
-            '@font-size-base': '16px',
-            '@font-family': 'Open Sans',
-          },
-        },
-      },
     },
     {
       resolve: 'gatsby-plugin-manifest',

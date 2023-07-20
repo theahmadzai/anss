@@ -149,7 +149,7 @@ const IndexPage = ({
           alignItems: 'center',
         }}>
         <Link to="/membership/benefits" style={{ display: 'block', margin: '0 auto' }}>
-          <Button shape="round" type="primary" size="large" icon={<UserOutlined />}>
+          <Button type="primary" shape="round" size="large" icon={<UserOutlined />}>
             Become our Member
           </Button>
         </Link>

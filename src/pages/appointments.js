@@ -167,7 +167,7 @@ const AppointmentsPage = () => {
         </Item>
 
         <Item>
-          <Button type="ghost" htmlType="submit" loading={formStatus === formState.SUBMITTING}>
+          <Button htmlType="submit" loading={formStatus === formState.SUBMITTING}>
             Submit
           </Button>
         </Item>

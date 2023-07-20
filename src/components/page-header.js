@@ -1,12 +1,16 @@
 import React from 'react'
-import { PageHeader as AntdPageHeader } from '@ant-design/pro-layout'
-import * as styles from './page-header.module.less'
+import { Typography, Row } from 'antd'
 
-/**
- * @param {import('antd').PageHeaderProps} param
- */
-const PageHeader = props => {
-  return <AntdPageHeader className={styles.pageHeader} {...props} />
+const { Title } = Typography
+
+const PageHeader = ({ title }) => {
+  return (
+    <Row style={{ borderBottom: '1px solid #eeeeee', padding: '1.5rem' }}>
+      <Title level={1} style={{ fontSize: 23, lineHeight: 1, marginBottom: 0 }}>
+        {title}
+      </Title>
+    </Row>
+  )
 }
 
 export default PageHeader

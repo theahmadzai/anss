@@ -4,12 +4,11 @@ import Header from './header'
 import Footer from './footer'
 import * as styles from './layout.module.less'
 
-const Layout = ({ children, ...props }) => {
+const Layout = ({ children }) => {
   return (
     <div className={styles.layout}>
-      <div className={styles.topLine} />
       <Header />
-      <main {...props}>{children}</main>
+      <main>{children}</main>
       <Footer />
       <FloatButton.BackTop />
     </div>
