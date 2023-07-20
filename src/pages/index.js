@@ -59,17 +59,11 @@ const IndexPage = ({
 }) => {
   return (
     <Layout>
-      <Carousel
-        autoplay
-        dotPosition="right"
-        style={{
-          position: 'relative',
-          overflow: 'hidden',
-        }}>
+      <Carousel autoplay dotPosition="top" rows={1}>
         {slides.map(slide => (
           <div key={slide.id}>
             <GatsbyImage
-              style={{ width: '100%', height: '350px' }}
+              style={{ width: '100%', height: '400px' }}
               image={getImage(slide.image)}
               alt={slide.title}
             />
