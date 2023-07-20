@@ -91,7 +91,7 @@ const directorsQuery = {
         ...props
       }) => ({
         objectID: id,
-        slug: '/about/board-of-directors',
+        slug: '/about/board-of-directors#' + id,
         imageUrl,
         title,
         body,
@@ -127,7 +127,7 @@ const trusteesQuery = {
         ...props
       }) => ({
         objectID: id,
-        slug: '/about/board-of-trustees',
+        slug: '/about/board-of-trustees#' + id,
         imageUrl,
         title,
         body,
@@ -163,7 +163,7 @@ const managersQuery = {
         ...props
       }) => ({
         objectID: id,
-        slug: '/about/executive-management',
+        slug: '/about/executive-management#' + id,
         imageUrl,
         title,
         body,

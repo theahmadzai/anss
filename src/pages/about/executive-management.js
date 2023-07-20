@@ -45,7 +45,7 @@ const ExecutiveManagement = ({
         size="large"
         dataSource={managers}
         renderItem={manager => (
-          <Item>
+          <Item id={manager.id}>
             <Row gutter={[24, 24]}>
               <Col span={24} sm={8} md={6}>
                 <GatsbyImage image={getImage(manager.image)} alt={manager.name} />

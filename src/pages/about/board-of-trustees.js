@@ -45,7 +45,7 @@ const BoardOfTrustees = ({
         size="large"
         dataSource={trustees}
         renderItem={trustee => (
-          <Item>
+          <Item id={trustee.id}>
             <Row gutter={[24, 24]}>
               <Col span={24} sm={8} md={6}>
                 <GatsbyImage image={getImage(trustee.image)} alt={trustee.name} />

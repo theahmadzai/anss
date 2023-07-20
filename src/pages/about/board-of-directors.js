@@ -46,7 +46,7 @@ const BoardOfDirectors = ({
         size="large"
         dataSource={directors}
         renderItem={director => (
-          <Item>
+          <Item id={director.id}>
             <Row gutter={[24, 24]}>
               <Col span={24} sm={8} md={6}>
                 <GatsbyImage image={getImage(director.image)} alt={director.name} />
