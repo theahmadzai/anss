@@ -218,7 +218,6 @@ module.exports = {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
       },
     },
-    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
@@ -249,6 +248,7 @@ module.exports = {
       },
     },
     'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     'gatsby-plugin-image',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-minify-classnames',

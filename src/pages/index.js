@@ -19,7 +19,6 @@ export const query = graphql`
           gatsbyImageData(
             layout: CONSTRAINED
             placeholder: DOMINANT_COLOR
-            aspectRatio: 1
             quality: 90
             formats: [AUTO, WEBP]
           )
