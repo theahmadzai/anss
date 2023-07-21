@@ -15,6 +15,9 @@ const newsQuery = {
         body {
           body
         }
+        internal {
+          contentDigest
+        }
       }
     }
   }`,
@@ -48,6 +51,9 @@ const eventsQuery = {
         body {
           body
         }
+        internal {
+          contentDigest
+        }
       }
     }
   }`,
@@ -77,6 +83,9 @@ const directorsQuery = {
         }
         description {
           description
+        }
+        internal {
+          contentDigest
         }
       }
     }
@@ -114,6 +123,9 @@ const trusteesQuery = {
         description {
           description
         }
+        internal {
+          contentDigest
+        }
       }
     }
   }`,
@@ -149,6 +161,9 @@ const managersQuery = {
         }
         description {
           description
+        }
+        internal {
+          contentDigest
         }
       }
     }
