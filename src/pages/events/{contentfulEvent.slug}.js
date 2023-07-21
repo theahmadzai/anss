@@ -23,14 +23,7 @@ export const query = graphql`
       location
       date
       image {
-        gatsbyImageData(
-          layout: FULL_WIDTH
-          placeholder: DOMINANT_COLOR
-          aspectRatio: 2
-          height: 250
-          quality: 100
-          formats: [AUTO, WEBP]
-        )
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: DOMINANT_COLOR, formats: [AUTO, WEBP])
       }
       body {
         body
@@ -44,7 +37,7 @@ const Event = ({ data: { event } }) => {
     <Layout>
       <PageHeader title={event.title} />
 
-      <GatsbyImage style={{ height: '300px' }} image={getImage(event.image)} alt={event.title} />
+      <GatsbyImage style={{ height: '514px' }} image={getImage(event.image)} alt={event.title} />
 
       <div style={{ padding: '1.5rem' }}>
         <Text style={{ display: 'block', marginBottom: 8 }}>

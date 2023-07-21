@@ -31,101 +31,103 @@ const DonatePage = () => {
     <Layout>
       <PageHeader title="Donate" />
 
-      <Row style={{ padding: '1.5rem' }} gutter={32}>
-        <Col span={24} md={12}>
-          <StaticImage src="../images/donate.jpg" alt="Donate" placeholder="blurred" />
-        </Col>
+      <div style={{ overflow: 'hidden' }}>
+        <Row style={{ padding: '1.5rem' }} gutter={[32, 32]}>
+          <Col span={24} md={12}>
+            <StaticImage src="../images/donate.jpg" alt="Donate" placeholder="blurred" />
+          </Col>
 
-        <Col span={24} md={12}>
-          <Form form={form} layout="vertical" size="large" onFinish={handleFinish} noValidate>
-            <Row gutter={[24, 24]}>
-              <Col
-                span={8}
-                onClick={() => {
-                  setSelected(DONATIONS._10)
-                  form.setFieldValue('amount', 10)
-                }}>
-                <Input
-                  style={selected === DONATIONS._10 ? selectedStyles : {}}
-                  addonBefore="CA$"
-                  value={10}
-                  disabled={true}
-                  maxLength={16}
-                />
-              </Col>
-
-              <Col
-                span={8}
-                onClick={() => {
-                  setSelected(DONATIONS._25)
-                  form.setFieldValue('amount', 25)
-                }}>
-                <Input
-                  style={selected === DONATIONS._25 ? selectedStyles : {}}
-                  addonBefore="CA$"
-                  value={25}
-                  disabled={true}
-                  maxLength={16}
-                />
-              </Col>
-
-              <Col
-                span={8}
-                onClick={() => {
-                  setSelected(DONATIONS._50)
-                  form.setFieldValue('amount', 50)
-                }}>
-                <Input
-                  style={selected === DONATIONS._50 ? selectedStyles : {}}
-                  addonBefore="CA$"
-                  value={50}
-                  disabled={true}
-                  maxLength={16}
-                />
-              </Col>
-
-              <Col span={24} onClick={() => setSelected(DONATIONS.CUSTOM)}>
-                <Item
-                  name="amount"
-                  initialValue={50}
-                  rules={[
-                    {
-                      type: 'number',
-                      transform: v => Number(v),
-                      required: true,
-                      min: 1,
-                      message: 'Please enter a positive number',
-                    },
-                  ]}>
+          <Col span={24} md={12}>
+            <Form form={form} layout="vertical" size="large" onFinish={handleFinish} noValidate>
+              <Row gutter={[24, 24]}>
+                <Col
+                  span={8}
+                  onClick={() => {
+                    setSelected(DONATIONS._10)
+                    form.setFieldValue('amount', 10)
+                  }}>
                   <Input
-                    style={selected === DONATIONS.CUSTOM ? selectedStyles : {}}
-                    type="number"
-                    placeholder="Other amount"
+                    style={selected === DONATIONS._10 ? selectedStyles : {}}
                     addonBefore="CA$"
+                    value={10}
+                    disabled={true}
                     maxLength={16}
                   />
-                </Item>
-              </Col>
-            </Row>
+                </Col>
 
-            <Item
-              name="email"
-              rules={[
-                {
-                  required: true,
-                  type: 'email',
-                  message: 'Please type a valid email.',
-                },
-              ]}>
-              <Input type="email" placeholder="Email address" />
-            </Item>
+                <Col
+                  span={8}
+                  onClick={() => {
+                    setSelected(DONATIONS._25)
+                    form.setFieldValue('amount', 25)
+                  }}>
+                  <Input
+                    style={selected === DONATIONS._25 ? selectedStyles : {}}
+                    addonBefore="CA$"
+                    value={25}
+                    disabled={true}
+                    maxLength={16}
+                  />
+                </Col>
 
-            <Button type="primary" htmlType="submit">
-              Donate
-            </Button>
-          </Form>
-        </Col>
-      </Row>
+                <Col
+                  span={8}
+                  onClick={() => {
+                    setSelected(DONATIONS._50)
+                    form.setFieldValue('amount', 50)
+                  }}>
+                  <Input
+                    style={selected === DONATIONS._50 ? selectedStyles : {}}
+                    addonBefore="CA$"
+                    value={50}
+                    disabled={true}
+                    maxLength={16}
+                  />
+                </Col>
+
+                <Col span={24} onClick={() => setSelected(DONATIONS.CUSTOM)}>
+                  <Item
+                    name="amount"
+                    initialValue={50}
+                    rules={[
+                      {
+                        type: 'number',
+                        transform: v => Number(v),
+                        required: true,
+                        min: 1,
+                        message: 'Please enter a positive number',
+                      },
+                    ]}>
+                    <Input
+                      style={selected === DONATIONS.CUSTOM ? selectedStyles : {}}
+                      type="number"
+                      placeholder="Other amount"
+                      addonBefore="CA$"
+                      maxLength={16}
+                    />
+                  </Item>
+                </Col>
+              </Row>
+
+              <Item
+                name="email"
+                rules={[
+                  {
+                    required: true,
+                    type: 'email',
+                    message: 'Please type a valid email.',
+                  },
+                ]}>
+                <Input type="email" placeholder="Email address" />
+              </Item>
+
+              <Button type="primary" htmlType="submit">
+                Donate
+              </Button>
+            </Form>
+          </Col>
+        </Row>
+      </div>
     </Layout>
   )
 }

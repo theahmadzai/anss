@@ -59,9 +59,8 @@ export const query = graphql`
         date
         image {
           gatsbyImageData(
-            layout: CONSTRAINED
+            layout: FULL_WIDTH
             placeholder: DOMINANT_COLOR
-            aspectRatio: 1
             quality: 90
             formats: [AUTO, WEBP]
           )
@@ -83,13 +82,15 @@ const IndexPage = ({
 }) => {
   return (
     <Layout>
-      <Carousel autoplay dotPosition="top" rows={1}>
+      <Carousel autoplay dotPosition="top" rows={1} style={{ background: 'var(--primary-color)' }}>
         {slides.map(slide => (
           <div key={slide.id}>
             <GatsbyImage
-              style={{ width: '100%', height: '400px' }}
+              className="slideImage"
               image={getImage(slide.image)}
               alt={slide.title}
+              objectFit="contain"
+              imgStyle={{ objectPosition: 'top' }}
             />
             <div
               style={{
@@ -129,33 +130,35 @@ const IndexPage = ({
         </div>
       </div>
 
-      <Row style={{ padding: '1.5rem 3rem' }} gutter={[48, 48]}>
-        <Col span={24} sm={12} md={8}>
-          <div className="homeCard">
-            <h2>Vision</h2>
-            <p>Prosperous, connected and self-reliant communities</p>
-          </div>
-        </Col>
+      <div style={{ overflow: 'hidden' }}>
+        <Row style={{ padding: '1.5rem 3rem' }} gutter={[48, 48]}>
+          <Col span={24} sm={12} md={8}>
+            <div className="homeCard">
+              <h2>Vision</h2>
+              <p>Prosperous, connected and self-reliant communities</p>
+            </div>
+          </Col>
 
-        <Col span={24} sm={12} md={8}>
-          <div className="homeCard">
-            <h2>Mission</h2>
-            <p>To provide quality social services for concerned communities</p>
-          </div>
-        </Col>
+          <Col span={24} sm={12} md={8}>
+            <div className="homeCard">
+              <h2>Mission</h2>
+              <p>To provide quality social services for concerned communities</p>
+            </div>
+          </Col>
 
-        <Col span={24} sm={12} md={8}>
-          <div className="homeCard">
-            <h2>Core Values</h2>
-            <ul>
-              <li>Integrity</li>
-              <li>Transparency</li>
-              <li>Professionalism</li>
-              <li>Diversity</li>
-            </ul>
-          </div>
-        </Col>
-      </Row>
+          <Col span={24} sm={12} md={8}>
+            <div className="homeCard">
+              <h2>Core Values</h2>
+              <ul>
+                <li>Integrity</li>
+                <li>Transparency</li>
+                <li>Professionalism</li>
+                <li>Diversity</li>
+              </ul>
+            </div>
+          </Col>
+        </Row>
+      </div>
 
       <div
         style={{
@@ -194,7 +197,7 @@ const IndexPage = ({
                 hoverable
                 cover={
                   <GatsbyImage
-                    style={{ width: '100%', height: '200px' }}
+                    style={{ width: '100%', height: '250px' }}
                     image={getImage(news.image)}
                     alt={news.title}
                   />
@@ -230,7 +233,7 @@ const IndexPage = ({
                 hoverable
                 cover={
                   <GatsbyImage
-                    style={{ width: '100%', height: '200px' }}
+                    style={{ width: '100%', height: '250px' }}
                     image={getImage(event.image)}
                     alt={event.title}
                   />

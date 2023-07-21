@@ -50,30 +50,30 @@ const LatestNews = ({
         dataSource={news}
         renderItem={news => (
           <Item>
-            <Row gutter={[24, 24]}>
-              <Col span={24} sm={8} md={6}>
-                <GatsbyImage image={getImage(news.image)} alt={news.title} />
-              </Col>
-              <Col span={24} sm={16} md={18}>
-                <Title level={2} style={{ marginBottom: 8, fontSize: '1.2rem' }}>
-                  {news.title}
-                </Title>
-                <Text style={{ display: 'block', marginBottom: 8 }}>
-                  <TagOutlined style={{ marginRight: 8 }} />
-                  {news.tags}
-                </Text>
-                <Text style={{ display: 'block', marginBottom: 8 }}>
-                  <CalendarOutlined style={{ marginRight: 8 }} />
-                  {new Date(news.date).toDateString()}
-                </Text>
-                <Paragraph align="justify" ellipsis={{ rows: 3 }}>
-                  {news.body.body}
-                </Paragraph>
-                <Link to={`/news/${news.slug}`}>
+            <Link to={`/news/${news.slug}`}>
+              <Row gutter={[24, 24]}>
+                <Col span={24} sm={8} md={6}>
+                  <GatsbyImage image={getImage(news.image)} alt={news.title} />
+                </Col>
+                <Col span={24} sm={16} md={18}>
+                  <Title level={2} style={{ marginBottom: 8, fontSize: '1.2rem' }}>
+                    {news.title}
+                  </Title>
+                  <Text style={{ display: 'block', marginBottom: 8 }}>
+                    <TagOutlined style={{ marginRight: 8 }} />
+                    {news.tags}
+                  </Text>
+                  <Text style={{ display: 'block', marginBottom: 8 }}>
+                    <CalendarOutlined style={{ marginRight: 8 }} />
+                    {new Date(news.date).toDateString()}
+                  </Text>
+                  <Paragraph align="justify" ellipsis={{ rows: 3 }}>
+                    {news.body.body}
+                  </Paragraph>
                   <Button type="primary">Read More</Button>
-                </Link>
-              </Col>
-            </Row>
+                </Col>
+              </Row>
+            </Link>
           </Item>
         )}
       />

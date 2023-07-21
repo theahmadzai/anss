@@ -17,14 +17,7 @@ export const query = graphql`
       tags
       date
       image {
-        gatsbyImageData(
-          layout: FULL_WIDTH
-          placeholder: DOMINANT_COLOR
-          aspectRatio: 2
-          height: 250
-          quality: 100
-          formats: [AUTO, WEBP]
-        )
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: DOMINANT_COLOR, formats: [AUTO, WEBP])
       }
       body {
         body
@@ -38,7 +31,7 @@ const News = ({ data: { news } }) => {
     <Layout>
       <PageHeader title={news.title} />
 
-      <GatsbyImage style={{ height: '300px' }} image={getImage(news.image)} alt={news.title} />
+      <GatsbyImage style={{ height: '514px' }} image={getImage(news.image)} alt={news.title} />
 
       <div style={{ padding: '1.5rem' }}>
         <Text style={{ display: 'block', marginBottom: 8 }}>
