@@ -38,6 +38,13 @@ const ApplyPage = ({
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedPlan, setSelectedPlan] = useState(null)
 
+  const p = {}
+
+  plans.forEach(plan => {
+    p[plan.title] = p[plan.title] || []
+    p[plan.title].push(plan)
+  })
+
   const handleFinish = async values => {
     try {
       await fetch('/.netlify/functions/apply-membership', {
@@ -62,32 +69,32 @@ const ApplyPage = ({
     <Layout>
       <PageHeader title="Apply for Membership" />
 
-      <List
-        size="large"
-        dataSource={plans}
-        renderItem={plan => (
-          <List.Item
-            key={plan.id}
-            actions={[
-              <Button
-                key={0}
-                onClick={() => {
-                  setSelectedPlan(plan)
-                  setIsModalOpen(true)
-                }}>
-                <MoneyCollectOutlined />
-                Purchase
-              </Button>,
-            ]}>
-            <List.Item.Meta
-              avatar={<Avatar src={plan.images?.[0]} />}
-              title={plan.title}
-              description={plan.description}
-            />
-            <div>{getPlanPrice(plan)}</div>
-          </List.Item>
-        )}
-      />
+      {Object.entries(p).map(([key, value], index) => (
+        <List
+          header={<p>{key}</p>}
+          key={index.toString()}
+          size="large"
+          dataSource={value}
+          renderItem={plan => (
+            <List.Item
+              key={plan.id}
+              actions={[
+                <Button
+                  key={0}
+                  onClick={() => {
+                    setSelectedPlan(plan)
+                    setIsModalOpen(true)
+                  }}>
+                  <MoneyCollectOutlined />
+                  Purchase
+                </Button>,
+              ]}>
+              <List.Item.Meta avatar={<Avatar src={plan.images?.[0]} />} title={plan.description} />
+              <div>{getPlanPrice(plan)}</div>
+            </List.Item>
+          )}
+        />
+      ))}
 
       <Modal
         title="Apply"
