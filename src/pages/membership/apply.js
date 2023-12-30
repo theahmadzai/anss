@@ -71,7 +71,7 @@ const ApplyPage = ({
 
       {Object.entries(p).map(([key, value], index) => (
         <List
-          header={<p>{key}</p>}
+          header={<h2 style={{textAlign:'center',backgroundColor:'#3459a6',fontSize:'28px',fontWeight:'600',color:'white',padding:'8px',}}>{key}</h2>}
           key={index.toString()}
           size="large"
           dataSource={value}
