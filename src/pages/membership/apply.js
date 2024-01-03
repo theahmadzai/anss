@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { graphql } from 'gatsby'
-import { List, Avatar, Button, Modal, Form, Input, Typography, Divider } from 'antd'
+import { List, Avatar, Button, Modal, Form, Input, Typography, Divider,Row, Col } from 'antd'
 import { MoneyCollectOutlined } from '@ant-design/icons'
 import SEO from '../../components/seo'
 import Layout from '../../components/layout'
 import PageHeader from '../../components/page-header'
+import { StaticImage } from 'gatsby-plugin-image'
+
 
 const getPlanPrice = plan =>
   new Intl.NumberFormat('en-US', {
@@ -68,7 +70,15 @@ const ApplyPage = ({
   return (
     <Layout>
       <PageHeader title="Apply for Membership" />
-
+<Row style={{padding:'1rem'}}>
+  <Col span={24} md={12}>
+  
+  </Col>
+  <Col span={24} md={12}>
+  <StaticImage src='../../images/joinus.gif' alt='Joinus' placeholder='Join us gif'/>
+  </Col>
+</Row>
+       
       {Object.entries(p).map(([key, value], index) => (
         <List
           header={<h2 style={{textAlign:'center',backgroundColor:'#3459a6',fontSize:'28px',fontWeight:'600',color:'white',padding:'8px',}}>{key}</h2>}
