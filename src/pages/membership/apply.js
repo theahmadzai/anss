@@ -69,7 +69,7 @@ const ApplyPage = ({
 
   return (
     <Layout>
-      <PageHeader title="Membership Wonderland" />
+      <PageHeader title="Apply For Membership" />
 <Row style={{padding:'1rem'}}>
   <Col span={24} md={12}>
   {/* <h1 className={styles.title}>Membership Wonderland</h1> */}
