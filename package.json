@@ -19,7 +19,8 @@
   },
   "dependencies": {
     "@ant-design/compatible": "^5.1.1",
-    "@netlify/functions": "^2.8.1",
+    "@azure/msal-browser": "^3.19.0",
+    "@azure/msal-react": "^2.0.20",
     "algoliasearch": "^4.19.0",
     "antd": "^5.7.1",
     "dotenv": "^16.3.1",
@@ -46,6 +47,7 @@
     "stripe": "^12.13.0"
   },
   "devDependencies": {
+    "@netlify/functions": "^2.8.1",
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",
