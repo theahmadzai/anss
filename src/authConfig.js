@@ -18,11 +18,12 @@ export const msalConfig = {
     postLogoutRedirectUri: process.env.GATSBY_MSAL_POST_LOGOUT_REDIRECT_URI,
   },
   cache: {
-    cacheLocation: 'sessionStorage', // This configures where your cache will be stored
+    cacheLocation: 'localStorage', // This configures where your cache will be stored
     storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
     secureCookies: true,
   },
   system: {
+    allowNativeBroker: true,
     loggerOptions: {
       logLevel: LogLevel.Verbose,
       // personally identifiable information (PII)
@@ -58,9 +59,11 @@ export const msalConfig = {
  * By default, MSAL.js will add OIDC scopes (openid, profile, email) to any login request.
  * For more information about OIDC scopes, visit:
  * https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes
+ * @type {import('@azure/msal-browser').RedirectRequest}
  */
 export const loginRequest = {
   scopes: ['User.Read'],
+  redirectUri: `${process.env.GATSBY_MSAL_REDIRECT_URI}/member/login`,
 }
 
 /**
