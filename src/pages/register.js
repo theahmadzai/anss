@@ -109,7 +109,7 @@ export default function TestPage() {
     return response.ok ? true : false;
   };
 
-  /** @type FormRule*/
+  /** @type import("antd").FormRule */
   const nameRuleConfig = {
     pattern: /^\w+$/,
     min: 2,
@@ -118,7 +118,7 @@ export default function TestPage() {
     required: true,
     type: "string",
   };
-  /** @type FormRule*/
+  /** @type import("antd").FormRule */
   const phoneNumberRuleConfig = {
     type: "string",
     min: 9,
