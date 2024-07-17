@@ -7,7 +7,7 @@ import Layout from "../../components/layout";
 import SEO from "../../components/seo";
 
 
-export default function Signout() {
+export default function Logout() {
   const { instance, inProgress } = useMsal();
   const isAuthenticated = useIsAuthenticated();
 
@@ -31,7 +31,7 @@ export default function Signout() {
 
   return (
     <Layout>
-      <Spin style={{ height: "10vh" }}></Spin>
+      <Spin tip="Logging out..." />
     </Layout>
   );
 }

@@ -64,4 +64,4 @@ export default function Login() {
   );
 }
 
-export const Head = () => <SEO title="login" pathname="/auth/login" />;
+export const Head = () => <SEO title="login" pathname="/member/login" />;

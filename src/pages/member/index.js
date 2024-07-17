@@ -19,8 +19,8 @@ export default function Index() {
 
   return (
     <Layout>
-      <h1>{account?.name}</h1>
-      <h2>{account?.username}</h2>
+      <h1>{account.name}</h1>
+      <h2>{account.username}</h2>
 
 
       <ButtonGroup>

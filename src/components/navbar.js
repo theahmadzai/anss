@@ -55,8 +55,10 @@ const NavLinks = props => {
       <NavLink href="/contact">Contact</NavLink>
       <NavLink href="/donate">Donate</NavLink>
 
+      {/* navbar links to indicate their signed in status */}
       {props.className === styles.navMobile ? <hr /> : null}
 
+      {/*todo: align with style - fit onto screen width*/}
       <UnauthenticatedTemplate>
         <NavLink href="/member/login">Login</NavLink>
       </UnauthenticatedTemplate>
