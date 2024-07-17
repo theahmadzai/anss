@@ -20,12 +20,11 @@ export default async (req, context) => {
 
   try {
     const query = fql`${collection}.all()`;
-    const data = await fauna.query(query);
-    console.log(data);
-    return new Response(JSON.stringify(data))
+    const response = await fauna.query(query);
+    console.log(response);
+    return new Response(JSON.stringify(response.data.data))
   }
   catch (error) {
-    // console.dir(error);
     const type = error.code;
     const name = error.name;
     const code = error.httpStatus;

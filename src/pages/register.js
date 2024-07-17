@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
+import Error from "../components/error";
 import SEO from "../components/seo";
 import Layout from "../components/layout";
-import { Button, Checkbox, DatePicker, Form, Input, FormRule, Switch, Select } from "antd";
-import { Client, fql } from "fauna";
+import { Button, Checkbox, DatePicker, Form, Input, Switch, Select } from "antd";
 import PageHeader from "../components/page-header";
 
 const { TextArea } = Input;
@@ -13,50 +13,68 @@ const { Option } = Select;
 export default function TestPage() {
 
   const [legalStatusOptions, setLegalStatusOptions] = useState([]);
-  useEffect(() => {
-    (async () => {
-      setLegalStatusOptions(((
-        await fetch("/.netlify/functions/fauna", { body: JSON.stringify({ collection: "LegalStatus" }) })
-      ).json())
-        .data.data.map(legalStatus => {
-          return <Option key={legalStatus.id} value={legalStatus.name}>{legalStatus.name}</Option>;
-        }));
-    })();
-  }, []);
-
   const [serviceCheckboxes, setServiceCheckboxes] = useState([]);
-  useEffect(() => {
-    async function fetchServices() {
-      setServiceCheckboxes((await client.query(fql`Service.all()`)).data.data.map(service => {
-        const { name, id, description } = service;
-        return <FormItem
-          key={id}
-          initialValue={false}
-          valuePropName="checked"
 
-          label={name}
-          tooltip={description}
-          labelAlign="right"
-          colon={false}
-          labelCol={{ span: 7 }}
-          wrapperCol={{
-            span: 1,
-            autoFocus: true,
-            style: {
-              alignItems: "center",
-              justifyItems: "center",
-              justifySelf: "center",
-              justifyContent: "space-around",
-            },
-          }}
-          htmlFor={name}
-          name={["services", name]}
-        >
-          <Checkbox id={name} />
-        </FormItem>;
-      }));
+  async function getFaunaCollection(collection) {
+    return await (await fetch("/.netlify/functions/fauna", {
+      method: "POST",
+      body: JSON.stringify({ collection }),
+    })).json();
+  }
+
+  useEffect(() => {
+    async function fetchLegalStatuses() {
+      try {
+        let statuses = await getFaunaCollection('LegalStatus');
+        setLegalStatusOptions(statuses.map(status => <Option key={status.id}>{status.name}</Option>));
+      }
+      catch(e) {
+        console.error(e);
+        setLegalStatusOptions([<Option key="error"><Error key="error" /></Option>]);
+      }
     }
 
+    async function fetchServices() {
+      try {
+        let services = await getFaunaCollection('Services');
+
+        const toCheckbox = service => {
+          const { name, id, description } = service;
+          return <FormItem
+            key={id}
+            initialValue={false}
+            valuePropName="checked"
+
+            label={name}
+            tooltip={description}
+            labelAlign="right"
+            colon={false}
+            labelCol={{ span: 7 }}
+            wrapperCol={{
+              span: 1,
+              autoFocus: true,
+              style: {
+                alignItems: "center",
+                justifyItems: "center",
+                justifySelf: "center",
+                justifyContent: "space-around",
+              },
+            }}
+            htmlFor={name}
+            name={["services", name]}
+          >
+            <Checkbox id={name} />
+          </FormItem>;
+        };
+        setServiceCheckboxes(services.map(toCheckbox));
+      }
+      catch(e) {
+        setServiceCheckboxes([<Error key="error" />]);
+        console.error(e);
+      }
+    }
+
+    fetchLegalStatuses();
     fetchServices();
   }, []);
 
@@ -68,12 +86,10 @@ export default function TestPage() {
       services,
     } = values;
 
-    console.log("Received values of form: ", values);
-
     const sex = sexBool ? "female" : "male";
     const selectedServices = [];
-    for (const key in services)
-      if (services[key] === true)
+    for(const key in services)
+      if(services[key] === true)
         selectedServices.push(key);
 
     const client = { ...values, joinedDate: new Date(), sex, services: selectedServices };
@@ -89,9 +105,8 @@ export default function TestPage() {
     };
     const response = await fetch("/.netlify/functions/add-client", request);
 
+    // todo: user-facing confirmation
     return response.ok ? true : false;
-
-
   };
 
   /** @type FormRule*/
@@ -293,5 +308,5 @@ export default function TestPage() {
   );
 }
 
-export const Head = () => <SEO title="testing 12.3" pathname="/test" />;
+export const Head = () => <SEO title="register with ANSS" pathname="/register" />;
 
