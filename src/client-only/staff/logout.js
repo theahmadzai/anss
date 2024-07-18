@@ -2,9 +2,11 @@ import { InteractionStatus } from "@azure/msal-browser";
 import { useIsAuthenticated, useMsal } from "@azure/msal-react";
 import { Spin } from "antd";
 import { navigate } from "gatsby";
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import Layout from "../../components/layout";
 import SEO from "../../components/seo";
+import { isBrowser } from "../../utils/check-environment";
+import { fullStaffPaths } from "./routes";
 
 
 export default function Logout() {
@@ -12,7 +14,7 @@ export default function Logout() {
   const isAuthenticated = useIsAuthenticated();
 
 
-  const handleLogout = useCallback(async function() {
+  async function logout() {
     if(inProgress === InteractionStatus.None && isAuthenticated) {
       /** @type{import("@azure/msal-browser").EndSessionRequest} */
       const logoutRequest = {
@@ -24,16 +26,14 @@ export default function Logout() {
 
     await navigate("/");
     return null;
-  }, [inProgress, instance, isAuthenticated]);
+  }
 
-  handleLogout();
+  logout();
 
 
   return (
-    <Layout>
-      <Spin tip="Logging out..." />
-    </Layout>
+    <Spin tip="Logging out..." />
   );
 }
 
-export const Head = () => <SEO title="logout" pathname="/member/logout" />;
+export const Head = () => <SEO title="logout" pathname={fullStaffPaths.logout} />;

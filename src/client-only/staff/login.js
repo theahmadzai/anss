@@ -3,10 +3,11 @@ import { useIsAuthenticated, useMsal } from "@azure/msal-react";
 import {  Spin } from "antd";
 import { navigate } from "gatsby";
 import React, { useCallback, useEffect } from "react";
-import { loginRequest } from "../../authConfig";
+import { loginRequest } from "../../utils/auth-config";
 import Error from "../../components/error";
 import Layout from "../../components/layout";
 import SEO from "../../components/seo";
+import { fullStaffPaths } from "./routes";
 
 
 export default function Login() {
@@ -47,7 +48,7 @@ export default function Login() {
         return;
       }
 
-      await navigate("/member/index");
+      await navigate(fullStaffPaths.profile);
       return null;
     },
     [isAuthenticated, instance, inProgress, initialized]);
@@ -58,10 +59,8 @@ export default function Login() {
 
 
   return (
-    <Layout>
       <Spin />
-    </Layout>
   );
 }
 
-export const Head = () => <SEO title="login" pathname="/member/login" />;
+export const Head = () => <SEO title="login" pathname={fullStaffPaths.login} />;
