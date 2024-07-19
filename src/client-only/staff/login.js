@@ -1,7 +1,7 @@
-import { BrowserAuthError, InteractionStatus } from "@azure/msal-browser";
+import { BrowserAuthError, BrowserAuthErrorCodes, InteractionStatus } from "@azure/msal-browser";
 import { useIsAuthenticated, useMsal } from "@azure/msal-react";
 import { navigate } from "gatsby";
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import { loginRequest } from "../../utils/auth-config";
 import Error from "../../components/error";
 import SEO from "../../components/seo";
@@ -11,9 +11,8 @@ import { fullStaffPaths } from "./routes";
 export default function Login() {
   const { instance, inProgress } = useMsal();
   const isAuthenticated = useIsAuthenticated();
-  const [initialized, setInitialized] = React.useState(undefined);
 
-  async function login() {
+  const login = useCallback(async () => {
     if(!isAuthenticated)
     {
       try
@@ -25,15 +24,21 @@ export default function Login() {
       }
       catch(error)
       {
-        if(error instanceof BrowserAuthError && initialized !== true)
+        if(error instanceof BrowserAuthError)
         {
-          await instance.initialize();
-          setInitialized(true);
+          switch(error.errorCode)
+          {
+            case BrowserAuthErrorCodes.uninitializedPublicClientApplication:
+              await instance.initialize();
+              break;
+            case BrowserAuthErrorCodes.interactionInProgress:
+              await instance.handleRedirectPromise();
+              break;
+            default:
+              console.error(error);
+              break;
+          }
         }
-
-        else
-          console.error(error);
-        return <Error />;
       }
     }
 
@@ -44,7 +49,6 @@ export default function Login() {
       return <Error />;
     else if(accounts.length === 1)
       instance.setActiveAccount(accounts[0]);
-
     else
     {
       //todo: display popup to select available account
@@ -55,9 +59,12 @@ export default function Login() {
 
     await navigate(fullStaffPaths.profile);
     return null;
-  }
+  },
+    [isAuthenticated, instance, inProgress]);
 
-  login();
+  useEffect(() => {
+    login();
+  }, [login]);
 }
 
 export const Head = () => <SEO title="login" pathname={fullStaffPaths.login} />;
