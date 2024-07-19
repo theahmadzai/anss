@@ -2,7 +2,8 @@
  * Copyright (c) Microsoft Corporation. All rights reserved.
  * Licensed under the MIT License.
  */
-import { LogLevel } from '@azure/msal-browser'
+import { LogLevel } from '@azure/msal-browser';
+import { fullStaffPaths } from '../client-only/staff/routes';
 
 /**
  * Configuration object to be passed to MSAL instance on creation.
@@ -29,30 +30,31 @@ export const msalConfig = {
       // personally identifiable information (PII)
       piiLoggingEnabled: true,
       loggerCallback: (level, message, containsPii) => {
-        switch(level) {
+        switch(level)
+        {
           case LogLevel.Error:
-            console.error(message)
-            return
+            console.error(message);
+            return;
           case LogLevel.Info:
-            console.info(message)
-            return
+            console.info(message);
+            return;
           case LogLevel.Verbose:
-            console.debug(message)
-            return
+            console.debug(message);
+            return;
           case LogLevel.Warning:
-            console.warn(message)
-            return
+            console.warn(message);
+            return;
           case LogLevel.Trace:
-            console.trace(message)
-            return
+            console.trace(message);
+            return;
           default:
-            console.log('UNKNOWN LOG LEVEL: %s', message)
-            return
+            console.log('UNKNOWN LOG LEVEL: %s', message);
+            return;
         }
       },
     },
   },
-}
+};
 
 /**
  * Scopes you add here will be prompted for user consent during sign-in.
@@ -63,8 +65,8 @@ export const msalConfig = {
  */
 export const loginRequest = {
   scopes: ['User.Read'],
-  redirectUri: `${process.env.GATSBY_MSAL_REDIRECT_URI}/member/login`,
-}
+  redirectUri: `${process.env.GATSBY_MSAL_REDIRECT_URI}${fullStaffPaths.login}`,
+};
 
 /**
  * Add here the scopes to request when obtaining an access token for MS Graph API. For more information, see:
@@ -72,7 +74,7 @@ export const loginRequest = {
  */
 export const graphConfig = {
   graphMeEndpoint: 'https://graph.microsoft.com/v1.0/me', //e.g. https://graph.microsoft.com/v1.0/me
-}
+};
 
 
 /**

@@ -1,11 +1,8 @@
 import { InteractionStatus } from "@azure/msal-browser";
 import { useIsAuthenticated, useMsal } from "@azure/msal-react";
-import { Spin } from "antd";
 import { navigate } from "gatsby";
-import React, { useCallback, useEffect } from "react";
-import Layout from "../../components/layout";
+import React from "react";
 import SEO from "../../components/seo";
-import { isBrowser } from "../../utils/check-environment";
 import { fullStaffPaths } from "./routes";
 
 
@@ -29,11 +26,6 @@ export default function Logout() {
   }
 
   logout();
-
-
-  return (
-    <Spin tip="Logging out..." />
-  );
 }
 
 export const Head = () => <SEO title="logout" pathname={fullStaffPaths.logout} />;

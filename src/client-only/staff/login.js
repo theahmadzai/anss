@@ -1,11 +1,9 @@
 import { BrowserAuthError, InteractionStatus } from "@azure/msal-browser";
 import { useIsAuthenticated, useMsal } from "@azure/msal-react";
-import {  Spin } from "antd";
 import { navigate } from "gatsby";
-import React, { useCallback, useEffect } from "react";
+import React from "react";
 import { loginRequest } from "../../utils/auth-config";
 import Error from "../../components/error";
-import Layout from "../../components/layout";
 import SEO from "../../components/seo";
 import { fullStaffPaths } from "./routes";
 
@@ -15,52 +13,51 @@ export default function Login() {
   const isAuthenticated = useIsAuthenticated();
   const [initialized, setInitialized] = React.useState(undefined);
 
-  const login = useCallback(async() => {
-      if(!isAuthenticated) {
-        try {
-          if(inProgress === InteractionStatus.None)
-            await instance.loginRedirect(loginRequest);
-          else //handle in progress interaction
-            await instance.handleRedirectPromise();
-        }
-        catch(error) {
-          if(error instanceof BrowserAuthError && initialized !== true) {
-            await instance.initialize();
-            setInitialized(true);
-          }
-          else
-            console.error(error);
-          return <Error />;
-        }
+  async function login() {
+    if(!isAuthenticated)
+    {
+      try
+      {
+        if(inProgress === InteractionStatus.None)
+          await instance.loginRedirect(loginRequest);
+        else //handle in progress interaction
+          await instance.handleRedirectPromise();
       }
+      catch(error)
+      {
+        if(error instanceof BrowserAuthError && initialized !== true)
+        {
+          await instance.initialize();
+          setInitialized(true);
+        }
 
-      const accounts = instance.getAllAccounts();
-
-      // set the active account
-      if(accounts.length === 0)
+        else
+          console.error(error);
         return <Error />;
-      else if(accounts.length === 1)
-        instance.setActiveAccount(accounts[0]);
-      else {
-        //todo: display popup to select available account
-        console.log("multiple accounts");
-        console.log(accounts);
-        return;
       }
+    }
 
-      await navigate(fullStaffPaths.profile);
-      return null;
-    },
-    [isAuthenticated, instance, inProgress, initialized]);
+    const accounts = instance.getAllAccounts();
 
-  useEffect(() => {
-    login()
-  }, [login]);
+    // set the active account
+    if(accounts.length === 0)
+      return <Error />;
+    else if(accounts.length === 1)
+      instance.setActiveAccount(accounts[0]);
 
+    else
+    {
+      //todo: display popup to select available account
+      console.log("multiple accounts");
+      console.log(accounts);
+      return;
+    }
 
-  return (
-      <Spin />
-  );
+    await navigate(fullStaffPaths.profile);
+    return null;
+  }
+
+  login();
 }
 
 export const Head = () => <SEO title="login" pathname={fullStaffPaths.login} />;
