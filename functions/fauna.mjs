@@ -1,27 +1,28 @@
-import { Conext } from "@netlify/functions";
 import { fql, Client } from "fauna";
 
 /**
  *
  * @param req {Request}
- * @param context {Context}
+ * @param context {import('@netlify/functions').Context}}
  * @returns {Promise<Response>}
  */
 export default async (req, context) => {
   if (req.method !== "POST")
     return new Response(null, { status: 400 });
 
-  const fauna = new Client({
-    client_timeout_buffer_ms: process.env.FAUNADB_TIMEOUT,
-  });
+  const fauna = new Client();
 
   const { collection } = await req.json();
 
 
   try {
-    const query = fql`${collection}.all()`;
+    // collection name needs to be inserted before parsed by fql template function
+    // if not then it's inserted as a string literal
+    const collectionQuery = collection + ".all()";
+    const query = fql([collectionQuery]);
     const response = await fauna.query(query);
-    console.log(response);
+    console.debug("initial response", response);
+    console.debug("data:", response.data.data)
     return new Response(JSON.stringify(response.data.data))
   }
   catch (error) {

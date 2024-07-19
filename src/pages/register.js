@@ -36,7 +36,7 @@ export default function TestPage() {
 
     async function fetchServices() {
       try {
-        let services = await getFaunaCollection('Services');
+        let services = await getFaunaCollection('Service');
 
         const toCheckbox = service => {
           const { name, id, description } = service;
