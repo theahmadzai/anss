@@ -11,7 +11,7 @@ let client = undefined;
  * @param {import("@azure/msal-browser").AccountInfo} account - The account to be used for authentication.
  * @returns {import("@microsoft/microsoft-graph-client").Client} - The Microsoft Graph client.
  */
-export function createClient(publicClientApplication, account) {
+function createClient(publicClientApplication, account) {
     if(!client)
     {
         const authProvider = new AuthCodeMSALBrowserAuthenticationProvider(publicClientApplication, {
@@ -34,7 +34,7 @@ export function createClient(publicClientApplication, account) {
  * @see https://docs.microsoft.com/en-us/graph/api/user-get?view=graph-rest-1.0
  * @see https://docs.microsoft.com/en-us/graph/api/user-list?view=graph-rest-1.0
  */
-export async function getUserInfo() {
+async function getUserInfo() {
     const user = await client.api('/me').get();
     return user;
 }
@@ -45,7 +45,7 @@ export async function getUserInfo() {
  * @param {boolean} metaData - return the meta data of the photo
  * @return {Promise<Blob | photoMetaData>} The user's photo in blob format.
  */
-export async function getPhoto(metaData = false) {
+async function getPhoto(metaData = false) {
     const photo = await client
         .api(`/me/photo/${metaData ? '$value' : null}`)
         .responseType('blob')
@@ -64,3 +64,8 @@ export async function getPhoto(metaData = false) {
 /** @typedef { { "@odata.context": string businessPhones: Array<any>, displayName: string givenName: string jobTitle: string mail: string mobilePhone: any officeLocation: any preferredLanguage: any surname: string userPrincipalName: string id: string } } userInfo */
 // #endregion
 
+export default {
+    createClient,
+    getUserInfo,
+    getPhoto
+}

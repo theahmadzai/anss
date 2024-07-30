@@ -7,4 +7,4 @@
   functions = "functions"
 
 [dev]
-  autoLaunch = false
+  autoLaunch = true
