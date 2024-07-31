@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+<instance-profile id="t"
+                 name="Technical"
+                 start-page="Overview.dev.topic">
+
+    <toc-element topic="Overview.dev.topic"/>
+    <toc-element topic="Requirements_dev.md"/>
+    <toc-element topic="Database-Design.topic">
+    </toc-element>
+    <toc-element topic="Using-The-Database.topic"/>
+</instance-profile>

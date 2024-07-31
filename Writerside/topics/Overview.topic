@@ -6,12 +6,25 @@
        title="Overview" id="Overview">
 
     <p>
-        Overview articles give background information and provide context to a particular subject.
-        Their goal is to explain a concept, not to teach or give instructions.
+        <include from="snippets_lib.topic" element-id="anss"/>
+        uses <a href="https://fauna.com">FaunaDB</a> as a
+        <include from="snippets_lib.topic" element-id="db"/>
+        : to securely store, retrieve, and edit clients files and information.
     </p>
 
-    <chapter title="What is &lt;product/service/concept&gt;" id="overview-chapter">
-        <p>Provide some background and context, explain choices and alternatives.</p>
+    <chapter title="What is ANSS's database for?" id="database">
+        <p>ANSS's database is used
+            <emphasis>only</emphasis>
+            to store and retrieve
+            <emphasis>clients'</emphasis>
+            files and information. As well as some related staff files and information.
+        </p>
+
+        <p>Staff files and data can be stored using their Microsoft
+            (
+            <include from="snippets_lib.topic" element-id="anss-email"/>
+            ) Onedrive accounts or related Office 365 apps.
+        </p>
     </chapter>
     <chapter title="Glossary" id="glossary">
         <p>A definition list or a glossary:</p>

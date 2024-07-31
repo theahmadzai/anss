@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       title="Database Design" id="Database-Design" help-id="Database-Design">
+
+    <p>The outline and the database are listed below. The tables or documents (depending on the database) and their relationship are shown.</p>
+    <img src="ANSS_2024-07-30T20_25_19.643Z.svg" border-effect="line" alt="ANSS_2024-07-30T20_25_19.643Z.svg"/>
+    <p>The following principles were used in the design:</p>
+    <list>
+        <li>lowercase: for all table, column, view, etc. names and values where possible</li>
+        <li>snake_case: for all table, column, view, etc. names</li>
+        <li>first and second normalizaiton</li>
+    </list>
+
+    <chapter title="Continuing Development" id="continuing_development">
+        <p>The design was made with <a href="https://drawdb.vercel.app/editor">DrawDB</a>, a free database design tool. You can import the latest source file to continue or further inspect the design.</p>
+    </chapter>
+</topic>

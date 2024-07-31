@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       title="Using The Database" id="Using-The-Database" help-id="Use-The-Database">
+
+    <chapter title="Online Dashboard" id="online">
+        <p>ANSS uses v10 of Fauna which can display current records and collections on it's <a
+                href="https://dashboard.fauna.com/">dashboard</a></p>
+        <tip>Login credentials for Fauna are necessary to access the dashboard. If you do not have them, you can contact
+            the administrator for assistance.
+        </tip>
+    </chapter>
+
+    <chapter title="Staff Dashboard" id="staff">
+        <p>The staff portal of the website <a href="https://anss.org">anss.org</a> offers a more readable and limited
+            view
+            to the stored data. And depending on your role and permissions provides a more or less restricted view and
+            access to information.</p>
+    </chapter>
+
+    <chapter title="Db Shell" id="dbshell">
+        <p>Fauna also provides an interactive shell to query from their database using FQL.</p>
+    </chapter>
+
+    <chapter title="Api" id="api">
+        <p>Several client-drivers (SDKs) and API endpoints are available to query, create, and manipulate data from the
+            database. The remainder of this documentation will have a focus on using Fauna's APIs to interact with the
+            database.</p>
+    </chapter>
+
+</topic>

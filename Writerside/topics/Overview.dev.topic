@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       title="Overview" id="Overview.dev">
+
+    <p>
+        <include from="snippets_lib.topic" element-id="db-overview"/>
+    </p>
+
+    <chapter title="What is Fauna" id="fauna">
+        <p><a href="https://docs.fauna.com/">Fauna</a> is a NoSQL, document-oriented database, with a custom query
+            language
+            <a href="https://docs.fauna.com/fauna/current/learn/query/">FQL (Fauna Query Language)</a>.
+        </p>
+    </chapter>
+
+
+    <chapter title="Glossary" id="glossary">
+        <p>A definition list or a glossary:</p>
+        <deflist>
+            <def title="Term1">
+                This is the definition of the first term.
+            </def>
+            <def title="Term2">
+                This is the definition of the second term.
+            </def>
+        </deflist>
+    </chapter>
+</topic>

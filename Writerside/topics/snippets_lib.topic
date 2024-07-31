@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       title="lib" id="snippets_lib" is-library="true" help-id="lib">
+
+    <tooltip id="anss-full" term="anss">Afghan Netowrk of Social Services</tooltip>
+    <snippet id="anss">Afghan Network of Social Services (ANSS)</snippet>
+    <snippet id="db">database (db)</snippet>
+    <snippet id="anss-email">xyzc@<b>anssfoundation.org</b></snippet>
+    <snippet id="db-overview">
+        <include from="snippets_lib.topic" element-id="anss"/>
+        uses <a href="https://fauna.com">FaunaDB</a> as a
+        <include from="snippets_lib.topic" element-id="db"/>
+        : to securely store, retrieve, and edit clients files and information.
+    </snippet>
+    <snippet id="requirements">
+        <chapter title="Objectives" id="objectives">
+            <list>
+                <li>To have a secure platform to manage day-to-day social and resettlement services, and sponsorship
+                    activities.
+                </li>
+                <li>To manage day-to-day social and resettlement services securely.</li>
+                <li>A data storage system to store day-to-day data related to services, membership, and project
+                    management.
+                </li>
+            </list>
+        </chapter>
+        <chapter title="Key Functions" id="key-functions">
+            <p>The following key functions should be provided by the database system:</p>
+            <list>
+                <li>[ ] Have a document library, where pre-defined types of documents can be uploaded by ANSS Foundation
+                    <list>
+                        <li>[ ] the uploaded contents can only be accessed through logging into the system as a staff
+                            member, volunteers, stakeholders, or donors, when appropriate access is provided.
+                        </li>
+                        <li>[x] These documents can include, activity reports, financial reports, publications, research
+                            reports, training and capacity building materials, and other relevant resources in the form
+                            of documents.
+                        </li>
+                        <li>[x] The document library should have capabilities to record metadata, such as who uploaded
+                            the documents, when, and from what user account, etc, as well who downloaded and number of
+                            downloads...
+                        </li>
+                    </list>
+                </li>
+                <li>[x] Database should store a list of ANSS Foundation Staff, Volunteers and Board Members, with key
+                    information about these, such as names, contact information, address, photo, resume, copies of
+                    educational/experience documents. It is also very important to identify who from these staff,
+                    volunteers and board members hold which positions, and they are qualified to provide which
+                    services/expertise.
+                    <list>
+                        <li>[x] Each staff member/volunteer/Board member be assigned a unique ID. This could be a table
+                            in the database.
+                        </li>
+                    </list>
+                </li>
+            </list>
+            <chapter title="Services" id="services">
+                <list>
+                    <li>[x] The database should integrate a list of all services provided by ANSS Foundation, each
+                        service having a unique ID; and each service having more details, such as: Description of
+                        services, steps/process in providing the service, average time it takes to schedule delivery of
+                        the service, and average time it takes to deliver the service, and who from the
+                        staff/volunteers/board members are qualified to be assigned as Service Delivery Lead (SDL).
+                        <list>
+                            <li>[x] Database provides a link a checklist of information/documents needed from the
+                                client, to receive the service(s).
+                            </li>
+                        </list>
+                    </li>
+                </list>
+            </chapter>
+            <chapter title="Clients" id="clients">
+                <list>
+                    <li>[ ] Clients are the core constituents of ANSS Foundation who receive various social and
+                        resettlement services. The database should record all services received by clients.
+                        <list>
+                            <li>[ ] Clients can be categorized in two categories: (1) repeated clients, (2) new clients.
+                                All repeated clients should already be in our system, and if they receive services, a
+                                new entry should be done to indicate that a new service was provided. All new clients
+                                should be first entered into the system by filling a service in-take form, then they
+                                will be scheduled to receive the service(s) required.
+                            </li>
+                            <li>[x] Each client, when we open their profile, should have all the details of when they
+                                were entered in the system, who provided which services to the client in the past, and
+                                we should be able to upload a limited(?) number of files in the client profile or add
+                                notes/remarks.
+                            </li>
+                        </list>
+                    </li>
+                </list>
+            </chapter>
+        </chapter>
+
+        <chapter title="Notes" id="notes">
+            <list>
+                <li>The database design incorporates relationships between Users, Staff/Volunteers/Board Members,
+                    Services, and Clients for effective data management.
+                </li>
+                <li>Metadata, such as upload/download details, is tracked in the Document Library.</li>
+                <li>Services link to Staff/Volunteers/Board Members who act as Service Delivery Leads (SDL).</li>
+                <li>Clients can be categorized as repeated or new, and their service history and profile details are
+                    maintained.
+                </li>
+            </list>
+        </chapter>
+
+    </snippet>
+</topic>

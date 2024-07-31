@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       title="Database Structure" id="Database-Structure">
+
+    <p>information in the database is grouped based on the types of information needed and how they relate together. The groups of information within the database are...</p>
+    <list>
+        <li>Clients</li>
+        <li>Staff</li>
+        <li>Files</li>
+        <li>Services</li>
+        <li>Registrations (by a client for a service)</li>
+        <li>Foundation Members and Memberships types</li>
+    </list>
+    <p>some of these are related and that relationship is also stored within the database. For example knowing which <emphasis>files</emphasis> belong to which <emphasis>client</emphasis> or <emphasis>staff</emphasis> or which <emphasis>staff</emphasis> is capable of providing a <emphasis>service</emphasis>.</p>
+
+    <chapter title="Single Data entry" id="single_data_entry">
+    <p>Information within the database is structured as
+        <emphasis>records</emphasis>
+        which are a series of 0 or more
+        <emphasis>fields</emphasis>
+        that contain a
+        <emphasis>key</emphasis>
+        and a
+        <emphasis>value</emphasis>
+        . Records can be visualized as...
+    </p>
+    <code-block lang="json">
+        {
+            "key": "value",
+            "second-key": "a different value",
+            ...
+            "id": 000958615,
+            "name": "John Doe",
+            ...
+        }
+    </code-block>
+    <p>The record is the pair of curly braces (<code>{}</code>) and the fields within them are separated by commas.</p>
+    </chapter>
+
+    <chapter title="Collection of data" id="collection_of_data">
+    <p>Related and similar pieces of data such as clients, registrations, services, etc. are grouped together as a collection. Collections can be though of as a table of records. Within the database they would be represented like this...</p>
+    <
+    <code-block lang="json">
+        [
+            {"key": "value", "second-key": "a different value", ...},
+            {"key": 1234,"new-key": "new value",...},
+            ...
+        ]
+    </code-block>
+    <p>notice the square brakcets (<code>[]</code>) that surrond the two records, that indicates it's a collection. A simpler (and equivalent) way to visualize this would be in a table like this...</p>
+    <table>
+        <tr>
+            <td>key</td>
+            <td>second-key</td>
+            <td>new-key</td>
+        </tr>
+        <tr>
+            <td>value</td>
+            <td>a different value</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>1234</td>
+            <td></td>
+            <td>new value</td>
+        </tr>
+    </table>
+    <p>the above table is the same collection of data as the one before.</p>
+</topic>

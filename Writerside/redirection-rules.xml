@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rules SYSTEM "https://resources.jetbrains.com/writerside/1.0/redirection-rules.dtd">
+<rules>
+    <!-- format is as follows
+    <rule id="<unique id>">
+        <accepts>page.html</accepts>
+    </rule>
+    -->
+    <rule id="7a373b94">
+        <description>Created after removal of "Database" from Staff</description>
+        <accepts>Overviewm.html</accepts>
+    </rule>
+    <rule id="372d11b4">
+        <description>Created after removal of "Overview" from Staff</description>
+        <accepts>Overviewcxxzdxzd.html</accepts>
+    </rule>
+    <rule id="308f2bb9">
+        <description>Created after removal of "About technical" from Technical</description>
+        <accepts>technical.html</accepts>
+    </rule>
+    <rule id="502cf6d6">
+        <description>Created after removal of "Reference" from Technical</description>
+        <accepts>Reference.html</accepts>
+    </rule>
+    <rule id="1d8edbcd">
+        <description>Created after removal of "Section Starting Page" from Technical</description>
+        <accepts>Section-Starting-Page.html</accepts>
+    </rule>
+    <rule id="21f07377">
+        <description>Created after removal of "How to" from Technical</description>
+        <accepts>How-to.html</accepts>
+    </rule>
+    <rule id="69983a7a">
+        <description>Created after removal of "ANSS Foundation Database Schema / Requirements" from Staff</description>
+        <accepts>Requirements_dev.html</accepts>
+    </rule>
+    <rule id="74854e99">
+        <description>Created after removal of "ANSS Foundation Database Schema / Requirements" from Staff</description>
+        <accepts>Requirements_dev.html</accepts>
+    </rule>
+</rules>
