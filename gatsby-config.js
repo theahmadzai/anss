@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config();
 
 const newsQuery = {
   query: `{
@@ -33,7 +33,7 @@ const newsQuery = {
     ),
   indexName: 'news',
   settings: { attributesToSnippet: ['body:20'] },
-}
+};
 
 const eventsQuery = {
   query: `{
@@ -69,7 +69,7 @@ const eventsQuery = {
     ),
   indexName: 'events',
   settings: { attributesToSnippet: ['body:20'] },
-}
+};
 
 const directorsQuery = {
   query: `{
@@ -109,7 +109,7 @@ const directorsQuery = {
     ),
   indexName: 'directors',
   settings: { attributesToSnippet: ['body:20'] },
-}
+};
 
 const trusteesQuery = {
   query: `{
@@ -148,7 +148,7 @@ const trusteesQuery = {
     ),
   indexName: 'trustees',
   settings: { attributesToSnippet: ['body:20'] },
-}
+};
 
 const managersQuery = {
   query: `{
@@ -187,7 +187,7 @@ const managersQuery = {
     ),
   indexName: 'managers',
   settings: { attributesToSnippet: ['body:20'] },
-}
+};
 
 module.exports = {
   siteMetadata: {
@@ -247,6 +247,17 @@ module.exports = {
         icon: './static/icon.png',
       },
     },
+    {
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        headers: {}, // option to add more headers. `Link` headers are transformed by the below criteria
+        allPageHeaders: [], // option to add headers for all pages. `Link` headers are transformed by the below criteria
+        mergeSecurityHeaders: true, // boolean to turn off the default security headers
+        mergeCachingHeaders: true, // boolean to turn off the default caching headers
+        transformHeaders: (headers, path) => headers, // optional transform for manipulating headers under each path (e.g.sorting), etc.
+        generateMatchPathRewrites: true, // boolean to turn off automatic creation of redirect rules for client only paths
+      },
+    },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-image',
@@ -254,4 +265,4 @@ module.exports = {
     'gatsby-plugin-minify-classnames',
     'gatsby-plugin-offline',
   ],
-}
+};

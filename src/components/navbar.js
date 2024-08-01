@@ -1,17 +1,18 @@
-import React, { useState } from 'react'
-import { Link } from 'gatsby'
-import { Drawer } from 'antd'
-import { MenuOutlined } from '@ant-design/icons'
-import useSiteMetadata from '../hooks/use-sitemetadata'
-import * as styles from './navbar.module.less'
+import React, { useState } from "react";
+import { Link } from "gatsby";
+import { Drawer } from "antd";
+import { MenuOutlined } from "@ant-design/icons";
+import useSiteMetadata from "../hooks/use-sitemetadata";
+import * as styles from "./navbar.module.less";
+
 
 const NavLink = ({ href, children }) => {
   return (
     <Link to={href} className={styles.link} activeClassName={styles.active}>
       {children}
     </Link>
-  )
-}
+  );
+};
 
 const NavLinks = props => (
   <nav {...props}>
@@ -48,11 +49,11 @@ const NavLinks = props => (
     <NavLink href="/contact">Contact</NavLink>
     <NavLink href="/donate">Donate</NavLink>
   </nav>
-)
+);
 
 const Navbar = () => {
-  const { name } = useSiteMetadata()
-  const [isOpen, setIsOpen] = useState(false)
+  const { name } = useSiteMetadata();
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav className={styles.nav}>
@@ -64,7 +65,7 @@ const Navbar = () => {
         <NavLinks className={styles.navMobile} />
       </Drawer>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
