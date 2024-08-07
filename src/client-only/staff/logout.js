@@ -3,7 +3,7 @@ import { useIsAuthenticated, useMsal } from "@azure/msal-react";
 import { navigate } from "gatsby";
 import React from "react";
 import SEO from "../../components/seo";
-import { fullStaffPaths } from "./routes";
+import routes from "../../utils/routes";
 
 
 export default function Logout() {
@@ -28,4 +28,4 @@ export default function Logout() {
   logout();
 }
 
-export const Head = () => <SEO title="logout" pathname={fullStaffPaths.logout} />;
+export const Head = () => <SEO title="logout" pathname={routes.staff.logout} />;

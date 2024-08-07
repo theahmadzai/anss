@@ -3,7 +3,7 @@
  * Licensed under the MIT License.
  */
 import { LogLevel } from '@azure/msal-browser';
-import { fullStaffPaths } from '../client-only/staff/routes';
+import routes from './routes';
 
 /**
  * Configuration object to be passed to MSAL instance on creation.
@@ -65,7 +65,7 @@ export const msalConfig = {
  */
 export const loginRequest = {
   scopes: ['User.Read'],
-  redirectUri: `${process.env.GATSBY_MSAL_REDIRECT_URI}${fullStaffPaths.login}`,
+  redirectUri: `${process.env.GATSBY_MSAL_REDIRECT_URI}${routes.staff.login}`,
 };
 
 /**

@@ -3,7 +3,7 @@ import { useIsAuthenticated, useMsal } from "@azure/msal-react";
 import { Router } from "@reach/router";
 import { navigate } from "gatsby";
 import React, { useEffect, useCallback } from "react";
-import { BASE_STAFF_PATH, fullStaffPaths } from "../../client-only/staff/routes";
+import routes, { relativeRoutes, STAFF_BASE_PATH } from "../../utils/routes.js";
 import Login from "../../client-only/staff/login";
 import Logout from "../../client-only/staff/logout";
 import Profile from "../../client-only/staff/profile";
@@ -38,8 +38,8 @@ export default function StaffSection() {
       }
     }
 
-    if(!isAuthenticated && location.pathname !== fullStaffPaths.login)
-      navigate(fullStaffPaths.login);
+    if(!isAuthenticated && location.pathname !== routes.staff.login)
+      navigate(routes.staff.login);
   }, [isAuthenticated, initialized, instance]);
 
   useEffect(() => {
@@ -49,16 +49,14 @@ export default function StaffSection() {
 
   return (
     <Layout>
-      {
-        !initialized ?
-          <Spin /> :
-          <Router basepath={BASE_STAFF_PATH}>
-            <Profile path="/" />
-            <Login path="/login" />
-            <Logout path="/logout" />
-            <NotFoundPage default />
-          </Router>
-      }
+      <Spin spinning={!initialized}>
+        <Router basepath={STAFF_BASE_PATH}>
+          <Profile path={relativeRoutes.staff.profile} />
+          <Login path={relativeRoutes.staff.login} />
+          <Logout path={relativeRoutes.staff.logout} />
+          <NotFoundPage default />
+        </Router>
+      </Spin>
     </Layout>
   );
 }
