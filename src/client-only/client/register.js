@@ -1,13 +1,13 @@
 import { Button, Checkbox, Form, Input, Modal, Select, Spin } from "antd";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 
-import Error from "../../components/error";
-import Layout from "../../components/layout";
-import MemberInfo from "../../components/member-info";
-import PageHeader from "../../components/page-header";
-import SEO from "../../components/seo";
+import Error from "../../components/error.js";
+import Layout from "../../components/layout.js";
+import MemberInfo from "../../components/member-info.js";
+import PageHeader from "../../components/page-header.js";
+import SEO from "../../components/seo.js";
 import { useFaunaCollection } from "../../hooks/use-fauna.js";
-import netlifyFunctions from '../../utils//netlify-functions-path.js';
+import netlifyFunctions from '../../utils/netlify-functions-path.js';
 import routes from "../../utils/routes.js";
 const MemberInputs = React.lazy(() => import("../../components/member-inputs.js"));
 const { Item: FormItem } = Form;
@@ -122,7 +122,7 @@ function RegisterForm() {
     {
       const index = members.findIndex(m => m === editMember);
       if(index === -1)
-        return; //TODO: add an err display that update did not work
+        return Modal.error({ title: "Edit failed", content: "Edit failed. Please try again." });
       setMembers([...members.slice(0, index), member, ...members.slice(index + 1)]);
       setEditMember(undefined);
     }
