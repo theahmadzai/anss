@@ -2,12 +2,12 @@
 <!DOCTYPE instance-profile
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
 
-<instance-profile id="s"
+<instance-profile id="staff"
                  name="Staff"
-                 start-page="starter.topic">
+                 start-page="Overview.topic">
 
-    <toc-element topic="starter.topic"/>
+    <toc-element topic="Overview.topic"/>
+    <toc-element topic="Using-The-Database.md"/>
     <toc-element topic="Requirements.md"/>
     <toc-element topic="Database-Structure.topic"/>
-    <toc-element topic="Overview.topic"/>
 </instance-profile>

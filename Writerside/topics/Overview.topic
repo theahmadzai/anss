@@ -26,15 +26,15 @@
             ) Onedrive accounts or related Office 365 apps.
         </p>
     </chapter>
-    <chapter title="Glossary" id="glossary">
-        <p>A definition list or a glossary:</p>
-        <deflist>
-            <def title="Term1">
-                This is the definition of the first term.
-            </def>
-            <def title="Term2">
-                This is the definition of the second term.
-            </def>
-        </deflist>
-    </chapter>
+<!--    <chapter title="Glossary" id="glossary">-->
+<!--        <p>A definition list or a glossary:</p>-->
+<!--        <deflist>-->
+<!--            <def title="Term1">-->
+<!--                This is the definition of the first term.-->
+<!--            </def>-->
+<!--            <def title="Term2">-->
+<!--                This is the definition of the second term.-->
+<!--            </def>-->
+<!--        </deflist>-->
+<!--    </chapter>-->
 </topic>

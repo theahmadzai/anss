@@ -4,7 +4,7 @@
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
     <variables></variables>
-    <build-profile instance="s">
+    <build-profile instance="staff">
         <variables>
             <noindex-content>true</noindex-content>
         </variables>
@@ -14,7 +14,7 @@
             <noindex-content>false</noindex-content>
         </variables>
     </build-profile>
-    <build-profile instance="s">
+    <build-profile instance="staff">
         <variables>
             <noindex-content>true</noindex-content>
         </variables>
@@ -37,6 +37,11 @@
     <build-profile instance="w">
         <variables>
             <noindex-content>true</noindex-content>
+        </variables>
+    </build-profile>
+    <build-profile instance="staff">
+        <variables>
+            <noindex-content>false</noindex-content>
         </variables>
     </build-profile>
 

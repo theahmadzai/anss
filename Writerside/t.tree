@@ -10,5 +10,5 @@
     <toc-element topic="Requirements_dev.md"/>
     <toc-element topic="Database-Design.topic">
     </toc-element>
-    <toc-element topic="Using-The-Database.topic"/>
+    <toc-element topic="Using-The-Database_dev.topic"/>
 </instance-profile>

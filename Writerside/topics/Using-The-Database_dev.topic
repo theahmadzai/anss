@@ -3,7 +3,7 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
 <topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
-       title="Using The Database" id="Using-The-Database" help-id="Use-The-Database">
+       title="Using The Database" id="Using-The-Database_dev" help-id="Use-The-Database;Using-The-Database">
 
     <chapter title="Online Dashboard" id="online">
         <p>ANSS uses v10 of Fauna which can display current records and collections on it's <a

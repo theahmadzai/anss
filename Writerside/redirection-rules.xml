@@ -38,4 +38,8 @@
         <description>Created after removal of "ANSS Foundation Database Schema / Requirements" from Staff</description>
         <accepts>Requirements_dev.html</accepts>
     </rule>
+    <rule id="70e7a89c">
+        <description>Created after removal of "Starter" from Staff</description>
+        <accepts>starter.html</accepts>
+    </rule>
 </rules>
