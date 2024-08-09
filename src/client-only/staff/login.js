@@ -35,6 +35,13 @@ export default function Login() {
   const login = useCallback(async () => {
     if(!isAuthenticated)
     {
+      if(auth.error)
+      {
+        const err = auth.error;
+        console.error(err);
+        return <Error />;
+      }
+
       try
       {
         if(inProgress === InteractionStatus.None)
@@ -64,6 +71,7 @@ export default function Login() {
               break;
           }
         }
+        return <Error />;
       }
     }
     return setActiveAccount();

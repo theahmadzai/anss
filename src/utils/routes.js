@@ -27,7 +27,8 @@ const fullStaffPaths = toFullPath(STAFF_BASE_PATH, staffPaths);
 export const CLIENT_BASE_PATH = "/client";
 
 const clientPaths = {
-    register: "/",
+    register: "/register",
+    view: "/",
 };
 
 /** @type {{[K in keyof typeof clientPaths]: string}} */

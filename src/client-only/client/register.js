@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 
 import Error from "../../components/error.js";
 import Layout from "../../components/layout.js";
-import MemberInfo from "../../components/member-info.js";
+import ClientInfo from "../../components/client-info.js";
 import PageHeader from "../../components/page-header.js";
 import SEO from "../../components/seo.js";
 import { useFaunaCollection } from "../../hooks/use-fauna.js";
@@ -14,7 +14,6 @@ const { Item: FormItem } = Form;
 const { Option } = Select;
 
 
-/** @typedef { {firstName: string, lastName: string, phone: string, email: string, sex: boolean, uci: string, birthdate: import("dayjs").Dayjs, legalStatus: string, notes?: string } } Member */
 const ModalMode = { ADD: "add", EDIT: "edit" };
 
 const sexFromBool = (sex) => typeof sex === 'string' ? sex :
@@ -97,7 +96,10 @@ function RegisterForm() {
   useEffect(() => { checkFormValidity(); }, [checkFormValidity, values]);
 
 
-  /** @param {keyof typeof ModalMode} mode  @param {Member?} editMember member being edited */
+  /**
+   * @param {keyof typeof ModalMode} mode
+   * @param {import("../../utils/types.ts").Client?} editMember member being edited
+   * */
   function openMemberModal(mode, editMember = undefined) {
     if(mode !== ModalMode.EDIT && mode !== ModalMode.ADD)
       return;
@@ -136,7 +138,7 @@ function RegisterForm() {
   /**
    * Deletes a member.
    *{}
-   * @param {Member} member - The member object to be deleted.
+   * @param {import("../../utils/types.ts").Client} member - The member object to be deleted.
    * @returns {void}
    */
   function deleteMember(member) {
@@ -167,6 +169,11 @@ function RegisterForm() {
       redirect: "follow",
       cache: "reload",
       keepalive: false,
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "X-Netlify": true,
+      },
 
       body: JSON.stringify([client, ...members]),
     };
@@ -211,7 +218,7 @@ function RegisterForm() {
           <fieldset style={{ width: "100%", display: "flex", flexDirection: "column", flexWrap: "wrap" }}>
             <legend>Additional Members</legend>
 
-            {members.map((member, index) => <MemberInfo key={index} member={member} onDelete={deleteMember} onEdit={member => openMemberModal(ModalMode.EDIT, member)} />)}
+            {members.map((member, index) => <ClientInfo key={index} client={member} onDelete={deleteMember} onEdit={member => openMemberModal(ModalMode.EDIT, member)} />)}
 
 
             <Button htmlType="button" onClick={() => openMemberModal(ModalMode.ADD)}>add member</Button>

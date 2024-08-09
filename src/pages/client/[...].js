@@ -9,6 +9,7 @@ import Layout from "../../components/layout";
 import NotFoundPage from "../../pages/404";
 import { loginRequest } from "../../utils/auth-config.js";
 import { CLIENT_BASE_PATH, relativeRoutes } from "../../utils/routes.js";
+import ViewClients from "../../client-only/client/view.js";
 
 export default function StaffSection() {
     useMsalAuthentication(InteractionType.Redirect, loginRequest);
@@ -19,6 +20,7 @@ export default function StaffSection() {
             <Spin spinning={!isAuthenticated}>
                 <Router basepath={CLIENT_BASE_PATH}>
                     <RegisterClient path={relativeRoutes.client.register} />
+                    <ViewClients path={relativeRoutes.client.view} />
                     <NotFoundPage default />
                 </Router>
             </Spin>

@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react";
-import netlifyFunctions from "../utils/netlify-functions-path";
+import netlifyFunctions, { faunaMethods } from "../utils/netlify-functions-path";
+import { fql } from "fauna";
 
-async function getFaunaCollection(collection) {
+/**
+ * @param {any} data
+ * @param {keyof typeof faunaMethods} method
+ * */
+async function fetchFauna(method, data) {
     const response = await fetch(netlifyFunctions.fauna, {
         method: "POST",
-        body: JSON.stringify({ collection }),
+        body: JSON.stringify({ method, data }),
     });
     try
     {
@@ -17,12 +22,26 @@ async function getFaunaCollection(collection) {
     }
 }
 
+/** @param {string} collection  */
 export function useFaunaCollection(collection) {
     /** @type {[undefined | unknown[], React.Dispatch<React.SetStateAction<undefined | unknown[]>]} */
     const [data, setData] = useState([]);
     useEffect(() => {
-        getFaunaCollection(collection).then(setData);
+        fetchFauna(faunaMethods.COLLECTION, collection).then(setData);
     }, [collection, setData]);
+    return data;
+}
+
+/**
+ * @param { string} collectionQuery fql query that should return a set, array, or document type
+ * @returns {any[] | undefined}
+ * */
+export function useFaunaQuery(collectionQuery) {
+    /** @type {[undefined | unknown[], React.Dispatch<React.SetStateAction<undefined | unknown[]>]} */
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        fetchFauna(faunaMethods.QUERY, collectionQuery).then(setData);
+    }, [collectionQuery, setData]);
     return data;
 }
 
