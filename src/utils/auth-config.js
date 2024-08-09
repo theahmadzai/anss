@@ -1,9 +1,31 @@
-/*
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * Licensed under the MIT License.
- */
 import { LogLevel } from '@azure/msal-browser';
 import routes from './routes';
+
+
+/** @type {import('@azure/msal-browser').ILoggerCallback} */
+function msalLogger(level, message, containsPii) {
+  switch(level)
+  {
+    case LogLevel.Error:
+      console.error(message);
+      return;
+    case LogLevel.Info:
+      console.info(message);
+      return;
+    case LogLevel.Verbose:
+      console.debug(message);
+      return;
+    case LogLevel.Warning:
+      console.warn(message);
+      return;
+    case LogLevel.Trace:
+      console.trace(message);
+      return;
+    default:
+      console.log('UNKNOWN LOG LEVEL: %s', message);
+      return;
+  }
+};
 
 /**
  * Configuration object to be passed to MSAL instance on creation.
@@ -11,9 +33,9 @@ import routes from './routes';
  * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md
  * @type {import('@azure/msal-browser').Configuration}
  */
-export const msalConfig = {
+export const msalPublicClientConfig = {
   auth: {
-    clientId: process.env.GATSBY_MSAL_CLIENT_ID,
+    clientId: '77d79114-e5f1-44ea-a554-3373f96a8609',
     authority: `https://login.microsoftonline.com/${process.env.GATSBY_MSAL_TENANT_ID}`,
     redirectUri: process.env.GATSBY_MSAL_REDIRECT_URI,
     postLogoutRedirectUri: process.env.GATSBY_MSAL_POST_LOGOUT_REDIRECT_URI,
@@ -26,32 +48,10 @@ export const msalConfig = {
   system: {
     allowNativeBroker: true,
     loggerOptions: {
-      logLevel: LogLevel.Verbose,
+      logLevel: process.env.GATSBY_MSAL_LOG_LEVEL || undefined,
       // personally identifiable information (PII)
-      piiLoggingEnabled: true,
-      loggerCallback: (level, message, containsPii) => {
-        switch(level)
-        {
-          case LogLevel.Error:
-            console.error(message);
-            return;
-          case LogLevel.Info:
-            console.info(message);
-            return;
-          case LogLevel.Verbose:
-            console.debug(message);
-            return;
-          case LogLevel.Warning:
-            console.warn(message);
-            return;
-          case LogLevel.Trace:
-            console.trace(message);
-            return;
-          default:
-            console.log('UNKNOWN LOG LEVEL: %s', message);
-            return;
-        }
-      },
+      piiLoggingEnabled: !!process.env.GATSBY_MSAL_PII_LOGGING_ENABLED || false,
+      loggerCallback: msalLogger,
     },
   },
 };
@@ -64,7 +64,14 @@ export const msalConfig = {
  * @type {import('@azure/msal-browser').RedirectRequest}
  */
 export const loginRequest = {
-  scopes: ['User.Read'],
+  scopes: [
+    'User.Read',
+    'openid',
+    'profile',
+    'email',
+    'api://77d79114-e5f1-44ea-a554-3373f96a8609/Fauna.Auth.Read',
+    'api://77d79114-e5f1-44ea-a554-3373f96a8609/Fauna.Auth.Write'
+  ],
   redirectUri: `${process.env.GATSBY_MSAL_REDIRECT_URI}${routes.staff.login}`,
 };
 

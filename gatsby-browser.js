@@ -4,10 +4,10 @@ import 'antd/dist/reset.css';
 import './src/styles/global.less';
 import { PublicClientApplication } from '@azure/msal-browser';
 import { MsalProvider } from '@azure/msal-react';
-import { msalConfig } from './src/utils/auth-config';
+import { msalPublicClientConfig } from './src/utils/auth-config';
 
 export const wrapRootElement = ({ element }) => {
-  const msalInstance = new PublicClientApplication(msalConfig);
+  const msalInstance = new PublicClientApplication(msalPublicClientConfig);
 
   return (
     <MsalProvider instance={msalInstance}>

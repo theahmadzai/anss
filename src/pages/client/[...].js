@@ -1,4 +1,4 @@
-import { useMsalAuthentication } from "@azure/msal-react";
+import { useIsAuthenticated, useMsalAuthentication } from "@azure/msal-react";
 // used under the hood with gatsby: https://www.gatsbyjs.com/docs/how-to/routing/client-only-routes-and-user-authentication/#handling-client-only-routes-with-gatsby
 import { InteractionType } from "@azure/msal-browser";
 import { Router } from "@reach/router";
@@ -11,12 +11,12 @@ import { loginRequest } from "../../utils/auth-config.js";
 import { CLIENT_BASE_PATH, relativeRoutes } from "../../utils/routes.js";
 
 export default function StaffSection() {
-    const auth = useMsalAuthentication(InteractionType.Redirect, loginRequest);
-
+    useMsalAuthentication(InteractionType.Redirect, loginRequest);
+    const isAuthenticated = useIsAuthenticated();
 
     return (
         <Layout>
-            <Spin spinning={!auth.result}>
+            <Spin spinning={!isAuthenticated}>
                 <Router basepath={CLIENT_BASE_PATH}>
                     <RegisterClient path={relativeRoutes.client.register} />
                     <NotFoundPage default />
