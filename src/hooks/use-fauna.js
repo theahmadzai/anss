@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import netlifyFunctions, { faunaMethods } from "../utils/netlify-functions-path";
-import { fql } from "fauna";
 
 /**
  * @param {any} data

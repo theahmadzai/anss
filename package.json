@@ -42,7 +42,6 @@
     "gatsby-source-contentful": "^8.11.0",
     "gatsby-source-filesystem": "^5.11.0",
     "gatsby-transformer-sharp": "^5.11.0",
-    "http-status": "^1.7.4",
     "http-status-codes": "^2.3.0",
     "lambda-multipart-parser": "^1.0.1",
     "netlify-cli": "^17.33.4",
