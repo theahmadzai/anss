@@ -3,7 +3,6 @@ import fauna, { useFaunaCollection, useFaunaQuery } from '../../hooks/use-fauna'
 import { Modal, Row, Space } from 'antd';
 import ClientInfo from '../../components/client-info';
 import dayjs from 'dayjs';
-import { fql } from 'fauna';
 import netlifyFunctions, { faunaMethods } from '../../utils/netlify-functions-path';
 import { StatusCodes } from 'http-status-codes';
 import PageHeader from '../../components/page-header';
