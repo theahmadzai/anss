@@ -41,6 +41,7 @@ const NavLinks = props => (
         <NavLink href="/membership/benefits">Membership Benefits</NavLink>
         <NavLink href="/membership/apply">Apply for Membership</NavLink>
         <NavLink href="/membership/members">Current Members</NavLink>
+        <NavLink href="/membership/m">Membership Card</NavLink>
       </div>
     </div>
     <NavLink href="/events">Events</NavLink>

@@ -264,5 +264,6 @@ module.exports = {
     'gatsby-plugin-sitemap',
     'gatsby-plugin-minify-classnames',
     'gatsby-plugin-offline',
+    `gatsby-plugin-postcss`,
   ],
 };

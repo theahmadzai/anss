@@ -1,12 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --primary-color: #27458d;
   --secondary-color: #3459a6;
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   overflow-y: scroll;
   font-size: 16px;
   font-family: 'Open Sans';
+  overscroll-behavior-y: none;
+  
 }
 
 .homeCard {
