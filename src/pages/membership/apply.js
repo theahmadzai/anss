@@ -41,10 +41,12 @@ const ApplyPage = ({
   const [selectedPlan, setSelectedPlan] = useState(null)
 
   const p = {}
+  console.log(plans)
 
   plans.forEach(plan => {
     p[plan.title] = p[plan.title] || []
     p[plan.title].push(plan)
+    console.log(p[plan.title])
   })
 
   const handleFinish = async values => {
@@ -70,22 +72,22 @@ const ApplyPage = ({
   return (
     <Layout>
       <PageHeader title="Apply For Membership" />
-<Row style={{padding:'1rem'}}>
-  <Col span={24} md={12}>
-  {/* <h1 className={styles.title}>Membership Wonderland</h1> */}
-  <Paragraph className={styles.membershipDetails}>
-  Our social and resettlement services are provided free of charge to eligible individuals, without discrimination. Membership with ANSS Foundation is designed for recognition and community contribution, supporting the sustainability of our key services.
-  </Paragraph>
-  <Paragraph className={styles.membershipDetails}>
-  Our membership system, integrated into the ANSS website, offers 1–3 year recurring memberships (automatically renewed) and one-time Lifetime memberships. The system provides timely reminders for membership renewal and expiration.
-  </Paragraph>
-  <Paragraph className={styles.membershipDetails}>To ensure transparency, a dedicated bank account and bookkeeping system will be established for all membership revenue. Quarterly consolidation and reporting, along with inclusion in the annual audit, guarantee financial accountability.</Paragraph>
-  </Col>
-  
-  <Col span={24} md={12}>
-  <StaticImage src='../../images/joinus.png' alt='Joinus' placeholder='Join us gif'/>
-  </Col>
-</Row>
+      <Row style={{padding:'1rem'}}>
+        <Col span={24} md={12}>
+        {/* <h1 className={styles.title}>Membership Wonderland</h1> */}
+        <Paragraph className={styles.membershipDetails}>
+        Our social and resettlement services are provided free of charge to eligible individuals, without discrimination. Membership with ANSS Foundation is designed for recognition and community contribution, supporting the sustainability of our key services.
+        </Paragraph>
+        <Paragraph className={styles.membershipDetails}>
+        Our membership system, integrated into the ANSS website, offers 1–3 year recurring memberships (automatically renewed) and one-time Lifetime memberships. The system provides timely reminders for membership renewal and expiration.
+        </Paragraph>
+        <Paragraph className={styles.membershipDetails}>To ensure transparency, a dedicated bank account and bookkeeping system will be established for all membership revenue. Quarterly consolidation and reporting, along with inclusion in the annual audit, guarantee financial accountability.</Paragraph>
+        </Col>
+        
+        <Col span={24} md={12}>
+        <StaticImage src='../../images/joinus.png' alt='Joinus' placeholder='Join us gif'/>
+        </Col>
+      </Row>
        
       {Object.entries(p).map(([key, value], index) => (
         <List

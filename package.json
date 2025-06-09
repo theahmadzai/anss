@@ -30,6 +30,7 @@
     "dotenv": "^16.3.1",
     "fauna": "^2.1.0",
     "faunadb": "^4.8.0",
+    "framer-motion": "^12.16.0",
     "gatsby": "^5.11.0",
     "gatsby-plugin-algolia": "^1.0.3",
     "gatsby-plugin-google-analytics": "^5.11.0",
