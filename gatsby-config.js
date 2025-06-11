@@ -191,7 +191,7 @@ const managersQuery = {
 
 module.exports = {
   siteMetadata: {
-    siteUrl: process.env.GATSBY_STIE_URL || 'https://anss.ca',
+    siteUrl: process.env.GATSBY_SITE_URL || 'https://anss.ca',
     title: 'ANSS',
     description:
       'ANSS Foundation established by a team of professional Afghans in Toronto, Canada and is a non-political, non-profit and an impartial organization, established in 2017.',
