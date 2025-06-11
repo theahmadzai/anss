@@ -168,7 +168,7 @@ const IndexPage = ({
           display: 'flex',
           alignItems: 'center',
         }}>
-        <Link to="/membership/benefits" style={{ display: 'block', margin: '0 auto' }}>
+        <Link to="/membership/applyMembership" style={{ display: 'block', margin: '0 auto' }}>
           <Button type="primary" shape="round" size="large" icon={<UserOutlined />}>
             Become our Member
           </Button>

@@ -5,12 +5,12 @@ import { Button } from 'antd';
 import * as styles from "./membershipCard.module.less"
 import CheckIcon from "../../../components/checkicon"
 import { navigate } from "gatsby";
+import PageHeader from "../../../components/page-header";
 
 
 export default function membershipCard () {
 
 const handleNextPage = (href) => () => {
-    console.log("hello")
   navigate(href)
 }
 
@@ -24,9 +24,9 @@ const handlePaymentPage = (href) => () => {
 
   return(
     <Layout>
+        <PageHeader title={"Membership Plans"}></PageHeader>
         <div className="bg-gradient-to-br from-gray-50 to-gray-100 py-16 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto text-center">
-                <h1 className="text-4xl font-bold text-gray-900 mb-3">Membership Plans</h1>
                 <h3 className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
                     Choose a plan that fits your journey and supports our mission. Each tier offers unique benefits designed to enhance your experience.
                 </h3>
@@ -46,7 +46,7 @@ const handlePaymentPage = (href) => () => {
                         <p className="text-4xl font-bold mt-3 mb-2">
                             CA$500 <span className="text-lg font-normal text-gray-600">/per year</span>
                         </p>
-                        <p className="text-gray-600 mb-6 text-sm leading-relaxed">Best for professional freelancers and small teams seeking comprehensive benefits.</p>
+                        <p className="text-gray-600 mb-6 text-sm leading-relaxed">Enjoy the highest level of access, recognition, and exclusive privileges.</p>
                         
                         <div className="border-t border-gray-200 my-6"></div>
                         
@@ -99,7 +99,7 @@ const handlePaymentPage = (href) => () => {
                         <p className="text-4xl font-bold mt-3 mb-2">
                             CA$300 <span className="text-lg font-normal text-gray-600">/per year</span>
                         </p>
-                        <p className="text-gray-600 mb-6 text-sm leading-relaxed">Perfect for professionals seeking enhanced features and recognition.</p>
+                        <p className="text-gray-600 mb-6 text-sm leading-relaxed">Step up with priority perks, leadership access, and exclusive rewards.</p>
                         
                         <div className="border-t border-gray-200 my-6"></div>
                         
@@ -147,7 +147,7 @@ const handlePaymentPage = (href) => () => {
                         <p className="text-4xl font-bold mt-3 mb-2">
                             CA$120 <span className="text-lg font-normal text-gray-600">/per year</span>
                         </p>
-                        <p className="text-gray-600 mb-6 text-sm leading-relaxed">Great for trying out premium features and building your presence.</p>
+                        <p className="text-gray-600 mb-6 text-sm leading-relaxed">Experience a strong start with core benefits and leadership involvement.</p>
                         
                         <div className="border-t border-gray-200 my-6"></div>
                         
@@ -184,7 +184,7 @@ const handlePaymentPage = (href) => () => {
                         <p className="text-4xl font-bold mt-3 mb-2">
                             CA$60 <span className="text-lg font-normal text-gray-600">/per year</span>
                         </p>
-                        <p className="text-gray-600 mb-6 text-sm leading-relaxed">Perfect starting point for new members exploring our community.</p>
+                        <p className="text-gray-600 mb-6 text-sm leading-relaxed"> Join the community with essential tools and member voting rights.</p>
                         
                         <div className="border-t border-gray-200 my-6"></div>
                         

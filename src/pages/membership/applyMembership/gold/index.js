@@ -112,7 +112,7 @@ const Gold = () => {
 
             {/* Membership Note */}
             <div className="mt-8 text-center text-sm text-gray-500">
-              <p>* RSVP required at least 72 hours prior to event for reserved seating</p>
+              <p>Gold membership offers enhanced recognition and expanded opportunities for active participation and leadership within our community.</p>
             </div>
           </div>
         </div>
