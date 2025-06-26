@@ -15,8 +15,8 @@ export default function TestPage() {
   const [legalStatusOptions, setLegalStatusOptions] = useState([]);
   const [serviceCheckboxes, setServiceCheckboxes] = useState([]);
 
-  async function getFaunaCollection(collection) {
-    return await (await fetch("/.netlify/functions/fauna", {
+  async function getMongoCollection(collection) {
+    return await (await fetch("/.netlify/functions/mongodb-collection", {
       method: "POST",
       body: JSON.stringify({ collection }),
     })).json();
@@ -25,7 +25,7 @@ export default function TestPage() {
   useEffect(() => {
     async function fetchLegalStatuses() {
       try {
-        let statuses = await getFaunaCollection('LegalStatus');
+        let statuses = await getMongoCollection('LegalStatus');
         setLegalStatusOptions(statuses.map(status => <Option key={status.id}>{status.name}</Option>));
       }
       catch(e) {
@@ -36,7 +36,7 @@ export default function TestPage() {
 
     async function fetchServices() {
       try {
-        let services = await getFaunaCollection('Service');
+        let services = await getMongoCollection('Service');
 
         const toCheckbox = service => {
           const { name, id, description } = service;

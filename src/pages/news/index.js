@@ -10,7 +10,7 @@ import PageHeader from '../../components/page-header'
 const { Item } = List
 const { Title, Text, Paragraph } = Typography
 
-export const query = graphql`
+/*export const query = graphql`
   query {
     allContentfulNews(sort: { date: DESC }) {
       nodes {
@@ -34,7 +34,7 @@ export const query = graphql`
       }
     }
   }
-`
+*/
 
 const LatestNews = ({
   data: {

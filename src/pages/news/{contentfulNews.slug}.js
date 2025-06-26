@@ -9,7 +9,7 @@ import PageHeader from '../../components/page-header'
 
 const { Paragraph, Text } = Typography
 
-export const query = graphql`
+/*export const query = graphql`
   query ($slug: String!) {
     news: contentfulNews(slug: { eq: $slug }) {
       title
@@ -24,7 +24,7 @@ export const query = graphql`
       }
     }
   }
-`
+*/
 
 const News = ({ data: { news } }) => {
   return (

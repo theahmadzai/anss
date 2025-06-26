@@ -8,7 +8,7 @@ import Layout from '../components/layout'
 
 const { Title, Paragraph } = Typography
 
-export const query = graphql`
+/*export const query = graphql`
   query {
     allContentfulSlide {
       nodes {
@@ -70,7 +70,7 @@ export const query = graphql`
       }
     }
   }
-`
+*/
 
 const IndexPage = ({
   data: {

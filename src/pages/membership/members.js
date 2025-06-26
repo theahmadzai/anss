@@ -7,7 +7,7 @@ import PageHeader from '../../components/page-header'
 
 const { Title } = Typography
 
-export const query = graphql`
+/*export const query = graphql`
   query {
     allContentfulMember(sort: { tier: DESC }) {
       nodes {
@@ -20,7 +20,7 @@ export const query = graphql`
       }
     }
   }
-`
+*/
 
 const tierColors = {
   Gold: 'gold',

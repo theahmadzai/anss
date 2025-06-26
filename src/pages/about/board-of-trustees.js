@@ -9,7 +9,7 @@ import PageHeader from '../../components/page-header'
 const { Item } = List
 const { Title, Paragraph } = Typography
 
-export const query = graphql`
+/*export const query = graphql`
   query {
     allContentfulTrustee(sort: { id: DESC }) {
       nodes {
@@ -30,7 +30,7 @@ export const query = graphql`
       }
     }
   }
-`
+*/
 
 const BoardOfTrustees = ({
   data: {

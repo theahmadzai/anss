@@ -1,7 +1,6 @@
-const { query: q } = require('faunadb')
+const { connectToDatabase } = require('./lib/mongodb')
 const parser = require('lambda-multipart-parser')
 const mailer = require('./lib/mailer')
-const faunadb = require('./lib/faunadb')
 
 exports.handler = async event => {
   if (event.httpMethod !== 'POST') {
@@ -37,18 +36,16 @@ exports.handler = async event => {
       attachments: files,
     })
 
-    await faunadb.query(
-      q.Create(q.Collection('appointments'), {
-        data: {
-          name,
-          email,
-          phone,
-          date,
-          category,
-          message,
-        },
-      }),
-    )
+    const { db } = await connectToDatabase();
+    await db.collection('Appointments').insertOne({
+      name,
+      email,
+      phone,
+      date,
+      category,
+      message,
+      createdAt: new Date(),
+    })
 
     return {
       statusCode: 200,

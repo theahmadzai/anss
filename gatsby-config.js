@@ -211,27 +211,28 @@ module.exports = {
       },
       __key: 'images',
     },
-    {
-      resolve: 'gatsby-source-contentful',
-      options: {
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-      },
-    },
+    // Temporarily commented out to test MongoDB connection
+    // {
+    //   resolve: 'gatsby-source-contentful',
+    //   options: {
+    //     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+    //     spaceId: process.env.CONTENTFUL_SPACE_ID,
+    //   },
+    // },
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: 'nil',
       },
     },
-    {
+    /*{
       resolve: 'gatsby-plugin-algolia',
       options: {
         appId: process.env.GATSBY_ALGOLIA_APP_ID,
         apiKey: process.env.ALGOLIA_ADMIN_KEY,
         queries: [newsQuery, eventsQuery, directorsQuery, trusteesQuery, managersQuery],
       },
-    },
+    },*/
     {
       resolve: 'gatsby-plugin-less',
     },

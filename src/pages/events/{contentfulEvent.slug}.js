@@ -14,7 +14,7 @@ import PageHeader from '../../components/page-header'
 
 const { Paragraph, Text } = Typography
 
-export const query = graphql`
+/*export const query = graphql`
   query ($slug: String!) {
     event: contentfulEvent(slug: { eq: $slug }) {
       title
@@ -30,7 +30,7 @@ export const query = graphql`
       }
     }
   }
-`
+*/
 
 const Event = ({ data: { event } }) => {
   return (

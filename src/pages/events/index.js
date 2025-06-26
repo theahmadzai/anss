@@ -15,7 +15,7 @@ import PageHeader from '../../components/page-header'
 const { Item } = List
 const { Title, Text, Paragraph } = Typography
 
-export const query = graphql`
+/*export const query = graphql`
   query {
     allContentfulEvent(sort: { date: DESC }) {
       nodes {
@@ -40,7 +40,7 @@ export const query = graphql`
       }
     }
   }
-`
+*/
 
 const Events = ({
   data: {
