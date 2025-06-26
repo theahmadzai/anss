@@ -71,7 +71,7 @@ const eventsQuery = {
   settings: { attributesToSnippet: ['body:20'] },
 };
 
-const directorsQuery = {
+/*const directorsQuery = {
   query: `{
     allContentfulDirector {
       nodes {
@@ -188,7 +188,7 @@ const managersQuery = {
   indexName: 'managers',
   settings: { attributesToSnippet: ['body:20'] },
 };
-
+*/
 module.exports = {
   siteMetadata: {
     siteUrl: process.env.GATSBY_SITE_URL || 'https://anss.ca',

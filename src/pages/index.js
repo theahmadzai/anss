@@ -72,7 +72,7 @@ const { Title, Paragraph } = Typography
   }
 */
 
-const IndexPage = ({
+/*const IndexPage = ({
   data: {
     allContentfulSlide: { nodes: slides },
     allContentfulNews: { nodes: news },
@@ -249,7 +249,7 @@ const IndexPage = ({
     </Layout>
   )
 }
-
+*/
 export default IndexPage
 
 export const Head = () => <SEO title="Home" />
