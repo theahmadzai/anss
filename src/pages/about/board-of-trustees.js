@@ -1,71 +1,33 @@
 import React from 'react'
-import { graphql } from 'gatsby'
-import { List, Row, Col, Typography } from 'antd'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { Typography, Empty } from 'antd'
 import SEO from '../../components/seo'
 import Layout from '../../components/layout'
 import PageHeader from '../../components/page-header'
 
-const { Item } = List
 const { Title, Paragraph } = Typography
 
-/*export const query = graphql`
-  query {
-    allContentfulTrustee(sort: { id: DESC }) {
-      nodes {
-        id
-        name
-        image {
-          gatsbyImageData(
-            layout: FULL_WIDTH
-            placeholder: DOMINANT_COLOR
-            aspectRatio: 1
-            quality: 90
-            formats: [AUTO, WEBP]
-          )
-        }
-        description {
-          description
-        }
-      }
-    }
-  }
-*/
-
-const BoardOfTrustees = ({
-  data: {
-    allContentfulTrustee: { nodes: trustees },
-  },
-}) => {
+const BoardOfTrustees = () => {
   return (
     <Layout>
       <PageHeader title="Board of Trustees" />
-
-      <List
-        size="large"
-        dataSource={trustees}
-        renderItem={trustee => (
-          <Item id={trustee.id}>
-            <Row gutter={[24, 24]}>
-              <Col span={24} sm={8} md={6}>
-                <GatsbyImage image={getImage(trustee.image)} alt={trustee.name} />
-              </Col>
-              <Col span={24} sm={16} md={18}>
-                <Title level={2} style={{ marginBottom: 8, fontSize: '1.2rem' }}>
-                  {trustee.name}
-                </Title>
-                <Paragraph align="justify" ellipsis={{ rows: 5, expandable: true }}>
-                  {trustee.description.description}
-                </Paragraph>
-              </Col>
-            </Row>
-          </Item>
-        )}
-      />
+      
+      <div style={{ padding: '2rem' }}>
+        <Empty
+          description={
+            <span>
+              <Title level={3}>Board of Trustees</Title>
+              <Paragraph>
+                Information about our board of trustees is currently being updated. 
+                Please check back soon to learn more about our governance team.
+              </Paragraph>
+            </span>
+          }
+        />
+      </div>
     </Layout>
   )
 }
 
 export default BoardOfTrustees
 
-export const Head = () => <SEO title="Board of Trustees" pathname="/board-of-trustees" />
+export const Head = () => <SEO title="Board of Trustees" pathname="/about/board-of-trustees" />
