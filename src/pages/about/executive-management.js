@@ -1,71 +1,33 @@
 import React from 'react'
-import { graphql } from 'gatsby'
-import { List, Row, Col, Typography } from 'antd'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { Typography, Empty } from 'antd'
 import SEO from '../../components/seo'
 import Layout from '../../components/layout'
 import PageHeader from '../../components/page-header'
 
-const { Item } = List
 const { Title, Paragraph } = Typography
 
-export const query = graphql`
-  query {
-    allContentfulManager(sort: { id: DESC }) {
-      nodes {
-        id
-        name
-        image {
-          gatsbyImageData(
-            layout: FULL_WIDTH
-            placeholder: DOMINANT_COLOR
-            aspectRatio: 1
-            quality: 90
-            formats: [AUTO, WEBP]
-          )
-        }
-        description {
-          description
-        }
-      }
-    }
-  }
-`
-
-const ExecutiveManagement = ({
-  data: {
-    allContentfulManager: { nodes: managers },
-  },
-}) => {
+const ExecutiveManagement = () => {
   return (
     <Layout>
       <PageHeader title="Executive Management" />
-
-      <List
-        size="large"
-        dataSource={managers}
-        renderItem={manager => (
-          <Item id={manager.id}>
-            <Row gutter={[24, 24]}>
-              <Col span={24} sm={8} md={6}>
-                <GatsbyImage image={getImage(manager.image)} alt={manager.name} />
-              </Col>
-              <Col span={24} sm={16} md={18}>
-                <Title level={2} style={{ marginBottom: 8, fontSize: '1.2rem' }}>
-                  {manager.name}
-                </Title>
-                <Paragraph align="justify" ellipsis={{ rows: 5, expandable: true }}>
-                  {manager.description.description}
-                </Paragraph>
-              </Col>
-            </Row>
-          </Item>
-        )}
-      />
+      
+      <div style={{ padding: '2rem' }}>
+        <Empty
+          description={
+            <span>
+              <Title level={3}>Executive Management</Title>
+              <Paragraph>
+                Information about our executive management team is currently being updated. 
+                Please check back soon to learn more about our leadership.
+              </Paragraph>
+            </span>
+          }
+        />
+      </div>
     </Layout>
   )
 }
 
 export default ExecutiveManagement
 
-export const Head = () => <SEO title="Executive Management" pathname="/executive-management" />
+export const Head = () => <SEO title="Executive Management" pathname="/about/executive-management" />

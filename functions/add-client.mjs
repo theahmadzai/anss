@@ -1,5 +1,5 @@
-import { Conext } from "@netlify/functions";
-import { fql,Client } from "fauna";
+//import { Conext } from "@netlify/functions";
+import { connectToDatabase } from './lib/mongodb.js';
 
 /**
  *
@@ -9,37 +9,30 @@ import { fql,Client } from "fauna";
  */
 export default async (req, context) => {
   if (req.method !== "POST")
-    return new Response(null, { status: 505 });
-
-  const fauna = new Client({
-    client_timeout_buffer_ms: process.env.FAUNADB_TIMEOUT,
-  });
+    return new Response(null, { status: 405 });
 
   const { firstName, lastName, sex, phone, email, services, legalStatus } = await req.json();
 
-
   try {
-    const query = fql`Client.create({
-        firstName: ${firstName},
-        lastName: ${lastName},
-        sex: ${sex},
-        phoneNumber: ${phone},
-        email: ${email},
-        legalStatus: LegalStatus.byName(${legalStatus}),
-        requestedServices: Service.where(doc => {${services}.includes(doc.name)}).toArray()
-        })`;
-    const data = await fauna.query(query);
-    console.log(data);
-  }
-  catch (error) {
-    // console.dir(error);
-    const type = error.code;
-    const name = error.name;
-    const code = error.httpStatus;
-    const summary = error?.queryInfo?.summary ?? error.message;
-    const stack = error.stack;
-    console.error(`(${type}) ${name}: ${code}\n\n${summary}`);
-    console.error(stack);
-    return new Response(null, { status: 400 });
+    const { db } = await connectToDatabase();
+    // Insert the new client into the "Client" collection
+    const result = await db.collection('Client').insertOne({
+      firstName,
+      lastName,
+      sex,
+      phone,
+      email,
+      legalStatus,
+      services,
+      joinedDate: new Date(),
+    });
+
+    return new Response(JSON.stringify({ success: true, id: result.insertedId }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' }
+    });
+  } catch (error) {
+    console.error(error);
+    return new Response(JSON.stringify({ error: error.message }), { status: 400 });
   }
 };
