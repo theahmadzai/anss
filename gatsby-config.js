@@ -263,7 +263,7 @@ module.exports = {
     'gatsby-plugin-image',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-minify-classnames',
-    'gatsby-plugin-remove-serviceworker',
+    'gatsby-plugin-offline',
     `gatsby-plugin-postcss`,
   ],
 };
