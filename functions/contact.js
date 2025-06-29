@@ -1,6 +1,5 @@
-const { query: q } = require('faunadb')
+const { connectToDatabase } = require('./lib/mongodb')
 const mailer = require('./lib/mailer')
-const faunadb = require('./lib/faunadb')
 
 exports.handler = async ({ httpMethod, body }) => {
   if (httpMethod !== 'POST') {
@@ -32,15 +31,13 @@ exports.handler = async ({ httpMethod, body }) => {
       `,
     })
 
-    await faunadb.query(
-      q.Create(q.Collection('contacts'), {
-        data: {
-          name,
-          email,
-          message,
-        },
-      }),
-    )
+    const { db } = await connectToDatabase();
+    await db.collection('Contacts').insertOne({
+      name,
+      email,
+      message,
+      createdAt: new Date(),
+    })
 
     return {
       statusCode: 200,

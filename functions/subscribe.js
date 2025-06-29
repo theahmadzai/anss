@@ -1,5 +1,4 @@
-const { query: q } = require('faunadb')
-const faunadb = require('./lib/faunadb')
+const { connectToDatabase } = require('./lib/mongodb')
 
 exports.handler = async ({ httpMethod, queryStringParameters }) => {
   if (httpMethod !== 'GET') {
@@ -19,22 +18,29 @@ exports.handler = async ({ httpMethod, queryStringParameters }) => {
       }
     }
 
-    const { data } = await faunadb.query(
-      q.If(
-        q.Exists(q.Match(q.Index('unique_subscribers_by_email'), email)),
-        q.Get(q.Match(q.Index('unique_subscribers_by_email'), email)),
-        q.Create(q.Collection('subscribers'), {
-          data: {
-            email,
-            date: Date.now(),
-          },
-        }),
-      ),
-    )
+    const { db } = await connectToDatabase();
+    
+    // Check if subscriber already exists
+    const existingSubscriber = await db.collection('Subscribers').findOne({ email });
+    
+    if (existingSubscriber) {
+      return {
+        statusCode: 200,
+        body: `${existingSubscriber.email}: Already subscribed.`,
+      }
+    }
+
+    // Create new subscriber
+    // eslint-disable-next-line no-unused-vars
+    const result = await db.collection('Subscribers').insertOne({
+      email,
+      date: Date.now(),
+      createdAt: new Date(),
+    });
 
     return {
       statusCode: 200,
-      body: `${data.email}: Subscribed.`,
+      body: `${email}: Subscribed.`,
     }
   } catch (error) {
     return {

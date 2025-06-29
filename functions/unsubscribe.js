@@ -1,5 +1,4 @@
-const { query: q } = require('faunadb')
-const faunadb = require('./lib/faunadb')
+const { connectToDatabase } = require('./lib/mongodb')
 
 exports.handler = async ({ httpMethod, queryStringParameters }) => {
   if (httpMethod !== 'GET') {
@@ -19,13 +18,16 @@ exports.handler = async ({ httpMethod, queryStringParameters }) => {
       }
     }
 
-    await faunadb.query(
-      q.If(
-        q.Exists(q.Match(q.Index('unique_subscribers_by_email'), email)),
-        q.Delete(q.Select('ref', q.Get(q.Match(q.Index('unique_subscribers_by_email'), email)))),
-        null,
-      ),
-    )
+    const { db } = await connectToDatabase();
+    
+    const result = await db.collection('Subscribers').deleteOne({ email });
+
+    if (result.deletedCount === 0) {
+      return {
+        statusCode: 404,
+        body: JSON.stringify({ message: 'Subscriber not found' }),
+      }
+    }
 
     return {
       statusCode: 200,

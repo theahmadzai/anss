@@ -1,4 +1,5 @@
 const mailer = require('./lib/mailer')
+const { connectToDatabase } = require('./lib/mongodb')
 
 exports.handler = async ({ httpMethod, body }) => {
   if (httpMethod !== 'POST') {
@@ -47,6 +48,16 @@ exports.handler = async ({ httpMethod, body }) => {
       `,
       }),
     ])
+
+    const { db } = await connectToDatabase();
+    await db.collection('FoundationMembership').insertOne({
+      plan,
+      price,
+      name,
+      email,
+      phone,
+      createdAt: new Date(),
+    });
 
     return {
       statusCode: 200,
