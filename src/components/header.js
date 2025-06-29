@@ -87,7 +87,7 @@ const Header = () => {
               <div className="relative min-w-64">
                 <button
                   onClick={() => setUserDropdownOpen(!userDropdownOpen)}
-                  className="flex w-40 items-center mx-auto space-x-2 group px-3 py-1.5 rounded-lg bg-blue-200 text-white hover:bg-gray-50 transition-colors"
+                  className="flex w-40 items-center mx-auto space-x-2 group px-3 py-1.5 mb-5 rounded-lg bg-blue-200 text-white hover:bg-gray-50 transition-colors"
                 >
                   <div className="bg-[#27458d] text-white rounded-full w-8 h-8 flex items-center justify-center">
                     <UserRound className="w-4 h-4" />
@@ -129,7 +129,7 @@ const Header = () => {
           </div>
         </div>
       {/* Search bar */}
-      <div className="lg:absolute lg:right-[10rem] lg:top-24 min-w-[25rem] flex relative mt-4 lg:mt-2">
+      <div className="lg:absolute lg:right-[10rem] lg:top-[5.5rem] min-w-[25rem] flex relative mt-4 lg:mt-2">
         <div className="w-full max-w-md">
           <Search className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#27458d]" />
         </div>

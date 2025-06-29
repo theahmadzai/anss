@@ -139,12 +139,10 @@ module.exports.registerUser = async function(userData) {
 module.exports.checkUser = async function(userData) {
     // eslint-disable-next-line no-useless-catch
     try {
-        // Input validation
         if (!userData || !userData.firstName || !userData.lastName || !userData.password) {
             throw new Error('Username and password are required');
         }
 
-        // Get or create User model
         const User = await this.connect({ 
             table: 'User', 
             schema: userSchema 
@@ -174,18 +172,27 @@ module.exports.checkUser = async function(userData) {
     }
 };
 
-// Alternative version using promises (if you prefer the original style)
-module.exports.registerUserPromise = function(userData) {
-    return new Promise((resolve, reject) => {
-        this.registerUser(userData)
-            .then(result => resolve(result))
-            .catch(error => reject(error.message));
-    });
+
+module.exports.getUser = async function(userID) {
+  const User = await this.connect({
+    table: 'User',
+    schema: userSchema
+  });
+
+  try {
+    const objectId = new mongoose.Types.ObjectId(userID);
+    
+    const user = await User.findById(objectId)
+      .select('-password -__v') // exclude password and version key
+      .lean(); // return plain JS object
+    
+    return user;
+  } catch (err) {
+    console.error('Error fetching user by ID:', err);
+    throw err;
+  }
 };
 
-module.exports.checkUserPromise = function(userData) {
-    return this.checkUser(userData);
-};
 
 // Export schema for external use if needed
 module.exports.userSchema = userSchema;

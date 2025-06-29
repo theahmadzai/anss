@@ -1,4 +1,4 @@
-const userService = require('./lib/mongobd');
+const userService = require('./lib/mongodb');
 const jwt = require('jsonwebtoken');
 
 exports.handler = async (event) => {

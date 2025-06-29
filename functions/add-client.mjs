@@ -1,4 +1,4 @@
-const userService = require('./lib/mongobd');
+const userService = require('./lib/mongodb');
 
 exports.handler = async (event) => {
   const headers = {

@@ -6,6 +6,7 @@ import * as styles from "./membershipCard.module.less"
 import CheckIcon from "../../../components/checkicon"
 import { navigate } from "gatsby";
 import PageHeader from "../../../components/page-header";
+import { isAuthenticated } from "../../../lib/authenticate";
 
 
 export default function membershipCard () {
@@ -15,6 +16,11 @@ const handleNextPage = (href) => () => {
 }
 
 const handlePaymentPage = (href) => () => {
+  if (!isAuthenticated()) {
+    navigate("/login")
+    return
+  }
+
   if (href.startsWith('http')) {
     window.open(href, '_blank')
   } else {
