@@ -4,9 +4,8 @@ import { Mail, Lock, User, Eye, EyeOff, Shield, AlertCircle, CheckCircle } from 
 import Layout from "../components/layout";
 import PageHeader from "../components/page-header";
 import SEO from "../components/seo";
-import { navigate } from "gatsby";
+import { navigate, Link } from "gatsby";
 import { authenticateUser } from "../lib/authenticate";
-import { Link } from "gatsby";
 
 // Security utility functions
 const sanitizeInput = (input) => {

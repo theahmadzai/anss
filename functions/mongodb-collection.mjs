@@ -6,6 +6,7 @@ import { connectToDatabase } from './lib/mongodb.js';
  * @param context {import('@netlify/functions').Context}}
  * @returns {Promise<Response>}
  */
+// eslint-disable-next-line no-unused-vars
 export default async (req, context) => {
   if (req.method !== "POST")
     return new Response(null, { status: 400 });
