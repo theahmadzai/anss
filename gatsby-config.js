@@ -254,6 +254,7 @@ module.exports = {
         allPageHeaders: [], // option to add headers for all pages. `Link` headers are transformed by the below criteria
         mergeSecurityHeaders: true, // boolean to turn off the default security headers
         mergeCachingHeaders: true, // boolean to turn off the default caching headers
+        // eslint-disable-next-line no-unused-vars
         transformHeaders: (headers, path) => headers, // optional transform for manipulating headers under each path (e.g.sorting), etc.
         generateMatchPathRewrites: true, // boolean to turn off automatic creation of redirect rules for client only paths
       },
@@ -263,7 +264,7 @@ module.exports = {
     'gatsby-plugin-image',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-minify-classnames',
-    'gatsby-plugin-remove-serviceworker',
+    'gatsby-plugin-offline',
     `gatsby-plugin-postcss`,
   ],
 };
