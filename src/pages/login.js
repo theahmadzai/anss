@@ -6,6 +6,8 @@ import PageHeader from "../components/page-header";
 import SEO from "../components/seo";
 import { navigate } from "gatsby";
 import { authenticateUser } from "../lib/authenticate";
+import { Link } from "gatsby";
+
 // Security utility functions
 const sanitizeInput = (input) => {
   if (typeof input !== 'string') return '';
@@ -317,12 +319,12 @@ export default function Login() {
                 </div>
               </div>
               <p className="mt-4">
-                <a 
-                  href="/register" 
+                <Link 
+                  to="/register" 
                   className="font-semibold text-blue-600 hover:text-blue-500 transition-colors duration-200"
                 >
                   Create your account →
-                </a>
+                </Link>
               </p>
             </div>
           </div>

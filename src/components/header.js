@@ -65,10 +65,10 @@ const Header = () => {
           {/* Auth Buttons or User Info */}
           <div className="flex items-center space-x-3">
             {!token ? (
-              <>
+              <div className='mr-12'>
                 <Link
                   to="/register"
-                  className="px-4 py-1.5 rounded-md font-medium text-sm transition-all duration-200
+                  className="px-4 py-1.5 mr-1.5 rounded-md font-medium text-sm transition-all duration-200
                     bg-[#27458d] text-white hover:bg-[#1d3876] shadow-sm hover:shadow-md
                     transform hover:-translate-y-0.5"
                 >
@@ -82,7 +82,7 @@ const Header = () => {
                 >
                   Sign In
                 </Link>
-              </>
+              </div>
             ) : (
               <div className="relative min-w-64">
                 <button

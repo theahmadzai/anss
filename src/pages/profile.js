@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { navigate } from 'gatsby'
 import SEO from '../components/seo'
-
+import { readToken } from '../lib/authenticate'
+import UserCard from '../components/userCard'
+import Layout from '../components/layout'
 
 export default function UserProfile() {
   const [token, setToken] = useState(null)

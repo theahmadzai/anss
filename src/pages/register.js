@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { Eye, EyeOff, User, Mail, Lock, Shield, CheckCircle, AlertCircle } from 'lucide-react';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
-import { navigate } from 'gatsby';
+import { navigate, Link } from 'gatsby';
 import { registerUser } from '../lib/authenticate';
 
 export default function Register() {
@@ -375,9 +375,9 @@ export default function Register() {
             <div className="mt-8 text-center">
               <p className="text-gray-600 text-sm">
                 Already have an account? 
-                <a href="/login" className="font-semibold text-blue-600 hover:text-blue-500 ml-1 transition-colors">
+                <Link to="/login" className="font-semibold text-blue-600 hover:text-blue-500 ml-1 transition-colors">
                   Sign in
-                </a>
+                </Link>
               </p>
             </div>
           </div>

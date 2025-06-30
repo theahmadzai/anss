@@ -26,12 +26,14 @@ function UserCard({ userId: propUserId }) {
       window.removeEventListener('storage', handleStorageChange)
       window.removeEventListener('authStatusChanged', checkAuthStatus)
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
     if (userId) {
       getUserData()
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId])
 
   const checkAuthStatus = () => {
