@@ -23,9 +23,6 @@ const headers = {
       })
     };
   }
-
-  console.log("B")
-
   try {
     const userID = event.pathParameters?.id || event.queryStringParameters?.id;
     
@@ -50,8 +47,6 @@ const headers = {
         })
       };
     }
-    console.log(`user data inside the backend is `)
-
 
    // In your backend function
     const authHeader = event.headers.authorization || event.headers.Authorization;
@@ -62,7 +57,6 @@ const headers = {
     }
 
     const userData = await userService.getUser(userID);
-    console.log(`user data inside the backend is `, userData)
     if (!userData) {
       return {
         statusCode: 404,

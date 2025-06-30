@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Eye, EyeOff, User, Mail, Lock, Shield, CheckCircle, AlertCircle } from 'lucide-react';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
+import PageHeader from '../components/page-header';
 import { navigate, Link } from 'gatsby';
 import { registerUser } from '../lib/authenticate';
 
@@ -99,6 +100,7 @@ export default function Register() {
 
   return (
     <Layout>
+      <PageHeader title="User Registration"/>
       <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-100 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md mx-auto">
           {/* Header */}
