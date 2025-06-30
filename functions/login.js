@@ -30,19 +30,13 @@ exports.handler = async (event) => {
       : event.body;
 
     const user = await userService.checkUser(requestBody);
-
-    console.log("User from DB:", user)
-
     const payload = {
       _id: user._id,
       userName: user.fullName,
       userFirstName: user.firstName
     };
 
-
     const token = jwt.sign(payload, process.env.JWT_SECRET);
-    console.log("the toke is ", token)
-
     return {
       statusCode: 200,
       headers,

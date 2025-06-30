@@ -8,15 +8,18 @@ let isCleanupRegistered = false;
 const userSchema = new mongoose.Schema({
     fullName: {
         type: String,
-        required: true
+        required: true,
+        unique: false
     },
     firstName: {
         type: String,
-        required: true
+        required: true,
+        unique: false
     },
     lastName: {
         type: String,
-        required: true
+        required: true,
+        unique: false
     },
     password: {
         type: String,
