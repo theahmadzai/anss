@@ -2,9 +2,14 @@ import React from 'react'
 import SEO from '../../../../components/seo'
 import Layout from "../../../../components/layout"
 import { navigate } from 'gatsby'
+import { isAuthenticated } from '../../../../lib/authenticate'
 
 const Bronze = () => {
   const handlePayNow = () => {
+    if (!isAuthenticated()) {
+    navigate("/login")
+    return
+  }
     navigate("https://www.zeffy.com/ticketing/iqco-platinum-membership")
   };
 

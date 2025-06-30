@@ -3,6 +3,7 @@ import SEO from '../../../../components/seo';
 import Layout from "../../../../components/layout";
 import { navigate } from 'gatsby';
 import { motion, AnimatePresence } from 'framer-motion';
+import { isAuthenticated } from '../../../../lib/authenticate';
 
 const Platinum = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -10,6 +11,10 @@ const Platinum = () => {
   const [currentBenefitIndex, setCurrentBenefitIndex] = useState(0);
   
   const handlePayNow = () => {
+    if (!isAuthenticated()) {
+    navigate("/login")
+    return
+  }
     navigate("https://www.zeffy.com/ticketing/iqco-platinum-membership");
   };
 

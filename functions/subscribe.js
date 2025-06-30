@@ -31,6 +31,7 @@ exports.handler = async ({ httpMethod, queryStringParameters }) => {
     }
 
     // Create new subscriber
+    // eslint-disable-next-line no-unused-vars
     const result = await db.collection('Subscribers').insertOne({
       email,
       date: Date.now(),
