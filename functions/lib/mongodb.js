@@ -81,7 +81,6 @@ module.exports.connect = function({ table, schema }) {
 // Register cleanup handlers once
 function registerCleanup() {
     const cleanup = async () => {
-        console.log('Closing database connections...');
         const closePromises = Array.from(connections.values()).map(model => {
             if (model.db && model.db.readyState === 1) {
                 return model.db.close();
