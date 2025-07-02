@@ -266,5 +266,7 @@ module.exports = {
     'gatsby-plugin-minify-classnames',
     'gatsby-plugin-remove-serviceworker',
     `gatsby-plugin-postcss`,
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-emotion`,
   ],
 };

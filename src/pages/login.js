@@ -341,4 +341,4 @@ export default function Login() {
   );
 }
 
-export const Head = () => <SEO title="login to ANSS" pathname="/login" />;
+export const Head = () => <SEO title="login" pathname="/login" />;

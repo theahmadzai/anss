@@ -58,4 +58,4 @@ export default function UserProfile() {
   )
 }
 
-export const Head = () => <SEO title="ANSS User Profile" pathname="/profile" />;
+export const Head = () => <SEO title="Profile" pathname="/profile" />;
