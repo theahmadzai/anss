@@ -1,8 +1,9 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { Carousel, List, Card, Typography, Row, Col, Button } from 'antd'
-import { UserOutlined } from '@ant-design/icons'
+import { Carousel, List, Card, Typography, Row, Col } from 'antd'
+// import { UserOutlined } from '@ant-design/icons'
+import { User } from 'lucide-react'
 import SEO from '../components/seo'
 import Layout from '../components/layout'
 
@@ -169,9 +170,10 @@ const IndexPage = ({
           alignItems: 'center',
         }}>
         <Link to="/membership/applyMembership" style={{ display: 'block', margin: '0 auto' }}>
-          <Button type="primary" shape="round" size="large" icon={<UserOutlined />}>
-            Become our Member
-          </Button>
+          <button className="bg-[#27458d] text-white text-l py-2 px-4 rounded-3xl hover:bg-[#1d3876] transition flex items-center space-x-2">
+            <User className="h-7 w-7 text-white" />
+            <span>Become our Member</span>
+          </button>
         </Link>
       </div>
 
