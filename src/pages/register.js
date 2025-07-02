@@ -20,12 +20,10 @@ export default function Register() {
     formState: { errors, isSubmitting }
   } = useForm();
 
-  // Input sanitization function
   const sanitizeInput = (value) => {
     if (typeof value !== 'string') {
       return '';
     }
-    // Remove HTML tags, script tags, and potentially dangerous characters
     return value
       .replace(/<[^>]*>/g, '') // Remove HTML tags
       .replace(/[<>]/g, '') // Remove remaining < >
@@ -69,16 +67,14 @@ export default function Register() {
   const onSubmit = async (data) => {
     setSubmitError(null);
 
-    // Sanitize all inputs
     const sanitizedData = {
       firstName: sanitizeInput(data.firstName),
       lastName: sanitizeInput(data.lastName),
       email: sanitizeInput(data.email),
-      password: data.password, // Don't sanitize password as it might remove valid characters
+      password: data.password,
       password2: data.password2
     };
 
-    // Additional validation
     if (Array.isArray(data.firstName) || typeof data.firstName === 'object') {
       setSubmitError("Invalid input format detected");
       return;
@@ -90,7 +86,6 @@ export default function Register() {
     }
 
     try {
-      // Your registration logic here
       await registerUser(sanitizedData);
       navigate("/login");
     } catch (err) {
@@ -372,8 +367,6 @@ export default function Register() {
                 )}
               </button>
             </div>
-            
-            {/* Footer */}
             <div className="mt-8 text-center">
               <p className="text-gray-600 text-sm">
                 Already have an account? 
@@ -383,8 +376,6 @@ export default function Register() {
               </p>
             </div>
           </div>
-
-          {/* Security Notice */}
           <div className="mt-6 text-center">
             <p className="text-xs text-gray-500 flex items-center justify-center">
               <Shield className="h-4 w-4 mr-1" />
@@ -397,4 +388,4 @@ export default function Register() {
   );
 }
 
-export const Head = () => <SEO title="register with ANSS" pathname="/register" />;
+export const Head = () => <SEO title="register" pathname="/register" />;

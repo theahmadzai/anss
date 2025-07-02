@@ -1,36 +1,54 @@
 import React from 'react'
-import { Form, Input, Button } from 'antd'
-
-const { Item } = Form
+import { useForm } from 'react-hook-form'
 
 const Subscribe = () => {
-  const handleFinish = ({ email }) => {
-    window.open(`/.netlify/functions/subscribe?email=${email}`, '_blank')
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset
+  } = useForm()
+
+  const onSubmit = (data) => {
+    window.open(`/.netlify/functions/subscribe?email=${data.email}`, '_blank')
+    reset()
   }
 
   return (
-    <Form layout="vertical" onFinish={handleFinish} noValidate>
-      <Item
-        name="email"
-        rules={[
-          {
-            required: true,
-            message: 'Please type your email.',
-          },
-          {
-            type: 'email',
-            message: 'Please type a valid email.',
-          },
-        ]}>
-        <Input type="email" placeholder="example@mail.com" />
-      </Item>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="max-w-sm w-full space-y-4"
+      noValidate
+    >
+      <div>
+        <input
+          type="email"
+          placeholder="example@mail.com"
+          {...register('email', {
+            required: 'Please type your email.',
+            pattern: {
+              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+              message: 'Please type a valid email.'
+            }
+          })}
+          className={`w-full px-4 py-2 rounded-md border ${
+            errors.email ? 'border-red-500' : 'border-gray-300'
+          } focus:outline-none focus:ring-2 focus:ring-[#27458d]`}
+        />
+        {errors.email && (
+          <p className="text-red-600 text-sm mt-1">{errors.email.message}</p>
+        )}
+      </div>
 
-      <Item>
-        <Button type="primary" htmlType="submit">
+      <div>
+        <button
+          type="submit"
+          className="bg-[#27458d] text-white py-2 px-4 rounded-md hover:bg-[#1d3876] transition"
+        >
           Subscribe
-        </Button>
-      </Item>
-    </Form>
+        </button>
+      </div>
+    </form>
   )
 }
 
