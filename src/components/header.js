@@ -39,10 +39,11 @@ const Header = () => {
     }
   }
   
-  const logout = () => {
-    removeToken()
-    setUserDropdownOpen(false)
-    navigate("/")
+  const logout = async () => {
+    await removeToken();
+    setUserDropdownOpen(false);
+    window.location.reload();
+    navigate(`/`);
   }
 
   return (
