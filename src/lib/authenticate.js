@@ -58,7 +58,6 @@ export async function authenticateUser(userData) {
 
     if (res.status === 200) {
       const data = await res.json();
-      console.log("[Auth] JWT Token received:", data.token);
       setToken(data.token);
       return true;
     } else {

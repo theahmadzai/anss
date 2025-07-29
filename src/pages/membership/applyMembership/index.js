@@ -82,7 +82,7 @@ const handlePaymentPage = (href) => () => {
                     
                     <div className="mt-8 space-y-3">
 
-                       <Button className={styles.myButton1} onClick={handlePaymentPage("https://www.zeffy.com/ticketing/iqco-platinum-membership")} type="primary" size="large" block>
+                       <Button className={styles.myButton1} onClick={handlePaymentPage("#")} type="primary" size="large" block>
                           Get Started
                       </Button>
 

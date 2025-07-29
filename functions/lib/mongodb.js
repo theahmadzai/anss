@@ -9,17 +9,14 @@ const userSchema = new mongoose.Schema({
     fullName: {
         type: String,
         required: true,
-        unique: false
     },
     firstName: {
         type: String,
         required: true,
-        unique: false
     },
     lastName: {
         type: String,
         required: true,
-        unique: false
     },
     password: {
         type: String,
@@ -125,8 +122,7 @@ module.exports.registerUser = async function(userData) {
 
         // Create and save user
         const newUser = new User(userData);
-        await newUser.save();
-        
+        await newUser.save();         
         return `User ${userData.fullName} successfully registered`;
         
     } catch (err) {
@@ -141,7 +137,7 @@ module.exports.registerUser = async function(userData) {
 module.exports.checkUser = async function(userData) {
     // eslint-disable-next-line no-useless-catch
     try {
-        if (!userData || !userData.firstName || !userData.lastName || !userData.password) {
+        if (!userData || !userData.email || !userData.password) {
             throw new Error('Username and password are required');
         }
 
@@ -151,8 +147,8 @@ module.exports.checkUser = async function(userData) {
         });
 
         // Find user
-        const user = await User.findOne({ useremail: userData.useremail }).exec();
-        
+        const user = await User.findOne({ email: userData.email }).exec(); 
+
         if (!user) {
             throw new Error(`Unable to find user ${userData.userName}`);
         }

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useForm } from "react-hook-form";
-import { Mail, Lock, User, Eye, EyeOff, Shield, AlertCircle, CheckCircle } from "lucide-react";
+import { Mail, Lock, Eye, EyeOff, Shield, AlertCircle, CheckCircle } from "lucide-react";
 import Layout from "../components/layout";
 import PageHeader from "../components/page-header";
 import SEO from "../components/seo";
@@ -98,86 +98,6 @@ export default function Login() {
             )}
             
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-              {/* First Name */}
-              <div>
-                <label htmlFor="firstName" className="block text-sm font-semibold text-gray-700 mb-2">
-                  First Name
-                </label>
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <User className="h-5 w-5 text-gray-400" />
-                  </div>
-                  <input
-                    id="firstName"
-                    className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:outline-none focus:ring-2 transition-colors ${
-                      errors.firstName 
-                        ? 'border-red-300 focus:ring-red-200 focus:border-red-500' 
-                        : watchedFields.firstName && !errors.firstName
-                        ? 'border-green-300 focus:ring-green-200 focus:border-green-500'
-                        : 'border-gray-300 focus:ring-blue-200 focus:border-blue-500'
-                    }`}
-                    placeholder="Enter your first name"
-                    {...register('firstName', { 
-                      required: 'First name is required',
-                      minLength: { value: 2, message: 'Minimum 2 characters' },
-                      maxLength: { value: 30, message: 'Maximum 30 characters' },
-                      validate: validateNoScripts
-                    })}
-                  />
-                  {watchedFields.firstName && !errors.firstName && (
-                    <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
-                      <CheckCircle className="h-5 w-5 text-green-500" />
-                    </div>
-                  )}
-                </div>
-                {errors.firstName && (
-                  <p className="mt-2 text-sm text-red-600 flex items-center">
-                    <AlertCircle className="h-4 w-4 mr-1" />
-                    {errors.firstName.message}
-                  </p>
-                )}
-              </div>
-
-              {/* Last Name */}
-              <div>
-                <label htmlFor="lastName" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Last Name
-                </label>
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <User className="h-5 w-5 text-gray-400" />
-                  </div>
-                  <input
-                    id="lastName"
-                    className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:outline-none focus:ring-2 transition-colors ${
-                      errors.lastName 
-                        ? 'border-red-300 focus:ring-red-200 focus:border-red-500' 
-                        : watchedFields.lastName && !errors.lastName
-                        ? 'border-green-300 focus:ring-green-200 focus:border-green-500'
-                        : 'border-gray-300 focus:ring-blue-200 focus:border-blue-500'
-                    }`}
-                    placeholder="Enter your last name"
-                    {...register('lastName', { 
-                      required: 'Last name is required',
-                      minLength: { value: 2, message: 'Minimum 2 characters' },
-                      maxLength: { value: 30, message: 'Maximum 30 characters' },
-                      validate: validateNoScripts
-                    })}
-                  />
-                  {watchedFields.lastName && !errors.lastName && (
-                    <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
-                      <CheckCircle className="h-5 w-5 text-green-500" />
-                    </div>
-                  )}
-                </div>
-                {errors.lastName && (
-                  <p className="mt-2 text-sm text-red-600 flex items-center">
-                    <AlertCircle className="h-4 w-4 mr-1" />
-                    {errors.lastName.message}
-                  </p>
-                )}
-              </div>
-
               {/* Email */}
               <div>
                 <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">

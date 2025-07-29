@@ -15,7 +15,7 @@ const Platinum = () => {
     navigate("/login")
     return
   }
-    navigate("https://www.zeffy.com/ticketing/iqco-platinum-membership");
+    navigate(`/`);
   };
 
   const handleGoBack = () => {
